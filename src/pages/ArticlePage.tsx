@@ -4,6 +4,7 @@ import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
 import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
+import AffiliateDisclosure from '../components/AffiliateDisclosure'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -28,9 +29,6 @@ export function ArticlePage() {
 
   return (
     <article className="max-w-3xl mx-auto px-6 py-10">
-      {/* ══════════════════════════════════════════════════════════
-          VIDEO HERO — 영상 있으면 최상단 우선 배치 (Watch + Read UX)
-          ══════════════════════════════════════════════════════════ */}
       {article.youtube && (
         <VideoHero
           youtubeId={article.youtube}
@@ -39,12 +37,11 @@ export function ArticlePage() {
         />
       )}
 
-      {/* ══════════════════════════════════════════════════════════
-          ARTICLE HEADER — 카테고리 / 제목 / 부제 / 메타
-          ══════════════════════════════════════════════════════════ */}
       <header
         className={`text-center ${article.youtube ? 'mb-10' : 'mb-10 pb-8 border-b border-dashed border-ink-900/25'}`}
       >
+        <AffiliateDisclosure />
+
         <Link
           to={`/${article.category}`}
           className="typewriter-label text-signal hover:underline"
@@ -52,7 +49,7 @@ export function ArticlePage() {
           {CATEGORY_LABELS[article.category]}
         </Link>
 
-        <h1 className="headline-ko text-4xl md:text-5xl lg:text-6xl text-ink-900 mt-5 leading-tight">
+        <h1 className="headline-ko text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] text-ink-900 mt-5">
           {article.title}
         </h1>
 
@@ -74,7 +71,6 @@ export function ArticlePage() {
         </div>
       </header>
 
-      {/* Pull quote */}
       {article.heroQuote && (
         <div className="my-10 px-4 md:px-10 text-center">
           <blockquote className="headline-italic text-2xl md:text-3xl text-ink-700 leading-snug">
@@ -83,15 +79,12 @@ export function ArticlePage() {
         </div>
       )}
 
-      {/* Body */}
       <div className="article-body">
         <RenderBody body={article.body} />
       </div>
 
-      {/* AD SLOT: 본문 끝 → 출처 사이 */}
       <AdSlot slot="article-body-end" format="horizontal" minHeight="100px" />
 
-      {/* Sources */}
       {article.sources && article.sources.length > 0 && (
         <section className="mt-14 pt-8 border-t border-dashed border-ink-900/25">
           <div className="typewriter-label text-ink-900 mb-4">
@@ -111,7 +104,7 @@ export function ArticlePage() {
                 {source.url && (
                   <>
                     {' · '}
-                    <a
+                    
                       href={source.url}
                       target="_blank"
                       rel="noreferrer"
@@ -139,12 +132,8 @@ export function ArticlePage() {
   )
 }
 
-// ═══════════════════════════════════════════════════════════════
-// 본문 렌더러 — Notion-식 마크다운 + 임베드 지원
-// ═══════════════════════════════════════════════════════════════
 function RenderBody({ body }: { body: string }) {
   const blocks = body.split(/\n\n+/)
-  // 본문 2/3 지점 계산 (뉴스레터 삽입 위치)
   const inlineInsertIndex = Math.floor((blocks.filter((b) => b.trim()).length * 2) / 3)
   let visibleBlockCount = 0
 
@@ -155,10 +144,8 @@ function RenderBody({ body }: { body: string }) {
         if (!trimmed) return null
         visibleBlockCount++
 
-        // 2/3 지점에 뉴스레터 삽입
         const shouldInsertNewsletter = visibleBlockCount === inlineInsertIndex
 
-        // ── YouTube 임베드 ([YOUTUBE] videoId)
         if (trimmed.startsWith('[YOUTUBE] ')) {
           const videoId = trimmed.replace('[YOUTUBE] ', '').trim()
           return (
@@ -176,7 +163,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 이미지 ([IMAGE] url | caption)
         if (trimmed.startsWith('[IMAGE] ')) {
           const rest = trimmed.replace('[IMAGE] ', '')
           const [url, caption] = rest.split(' | ').map((s) => s.trim())
@@ -197,7 +183,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 외부 임베드 ([EMBED] url)
         if (trimmed.startsWith('[EMBED] ')) {
           const url = trimmed.replace('[EMBED] ', '').trim()
           return (
@@ -205,7 +190,7 @@ function RenderBody({ body }: { body: string }) {
               key={i}
               className="my-8 p-4 border border-ink-900/20 bg-cream-200/50"
             >
-              <a
+              
                 href={url}
                 target="_blank"
                 rel="noreferrer"
@@ -217,12 +202,10 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 구분선
         if (trimmed === '---') {
           return <hr key={i} className="my-8 border-dashed border-ink-900/30" />
         }
 
-        // ── H2 제목
         if (trimmed.startsWith('## ')) {
           return (
             <h2
@@ -234,7 +217,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── H3 제목
         if (trimmed.startsWith('### ')) {
           return (
             <h3
@@ -246,7 +228,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 인용 (> 또는 Notion callout)
         if (trimmed.startsWith('> ')) {
           return (
             <blockquote
@@ -258,7 +239,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 순번 리스트 (연속된 "1. " 라인들)
         if (/^\d+\.\s/.test(trimmed) && trimmed.includes('\n')) {
           const items = trimmed
             .split('\n')
@@ -278,7 +258,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 불릿 리스트
         if (/^•\s/.test(trimmed) && trimmed.includes('\n')) {
           const items = trimmed
             .split('\n')
@@ -298,7 +277,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 코드 블록
         if (trimmed.startsWith('```')) {
           const code = trimmed.replace(/^```\n?/, '').replace(/```$/, '')
           return (
@@ -311,7 +289,6 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
-        // ── 일반 문단
         return (
           <>
             <p
@@ -329,7 +306,6 @@ function RenderBody({ body }: { body: string }) {
 }
 
 function renderInline(text: string): React.ReactNode {
-  // **볼드**, *이탤릭*, `코드` 처리
   const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
