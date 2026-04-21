@@ -1,0 +1,71 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        // AMATOR — Editorial Classic (The Strategist inspired)
+        cream: {
+          50: '#FAF7F0',
+          100: '#F5F0E8',
+          200: '#EDE6D9',
+          300: '#E0D6C2',
+        },
+        ink: {
+          900: '#0A0A0B',
+          700: '#2A2724',
+          500: '#4A4642',
+          400: '#6B6560',
+        },
+        signal: {
+          DEFAULT: '#C4361C',
+          dark: '#9B2A13',
+        },
+        warming: {
+          DEFAULT: '#E8C547',
+          dark: '#C9A834',
+        },
+        stone: '#8A8580',
+      },
+      fontFamily: {
+        // Display (headlines): Playfair Display for English, Noto Serif KR for Korean
+        //   — 영문은 이탤릭 세리프, 한글은 명조 (에디토리얼 권위)
+        display: [
+          '"Playfair Display"',
+          '"Noto Serif KR"',
+          'Georgia',
+          '"Times New Roman"',
+          'serif',
+        ],
+        serif: [
+          '"Playfair Display"',
+          '"Noto Serif KR"',
+          'Georgia',
+          'serif',
+        ],
+        // Sans (body): Inter for English, Spoqa Han Sans Neo for Korean
+        //   — 깔끔한 고딕 조합으로 긴 본문 가독성
+        sans: [
+          '"Inter"',
+          '"Spoqa Han Sans Neo"',
+          '"Noto Sans KR"',
+          'system-ui',
+          '-apple-system',
+          'sans-serif',
+        ],
+        // Mono (meta labels): JetBrains Mono
+        mono: ['"JetBrains Mono"', '"Courier New"', 'monospace'],
+        // Korean-only serif (한글 전용 명조, 영문 섞일 때 쓰지 말 것)
+        'ko-serif': ['"Noto Serif KR"', 'serif'],
+        // Korean-only sans (한글 전용 고딕)
+        'ko-sans': ['"Spoqa Han Sans Neo"', '"Noto Sans KR"', 'sans-serif'],
+      },
+      letterSpacing: {
+        brutal: '-0.02em',
+        editorial: '-0.01em',
+        wide: '0.08em',
+      },
+    },
+  },
+  plugins: [],
+}

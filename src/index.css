@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-100 text-ink-900 antialiased;
+    /* 영문은 Inter, 한글은 Spoqa Han Sans Neo */
+    font-family:
+      'Inter',
+      'Spoqa Han Sans Neo',
+      'Noto Sans KR',
+      system-ui,
+      -apple-system,
+      sans-serif;
+    font-feature-settings: 'ss01', 'ss03';
+    word-break: keep-all; /* 한글 단어 가운데 줄바꿈 방지 */
+  }
+
+  ::selection {
+    @apply bg-signal text-cream-100;
+  }
+}
+
+@layer components {
+  /* ════════════════════════════════════════════════════════════
+     MASTHEAD — 거대 로고 ("the amator"는 영문만 사용)
+     ════════════════════════════════════════════════════════════ */
+  .masthead {
+    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     HEADLINE — 제목용 (한글 명조 + 영문 세리프 자동 매칭)
+     ════════════════════════════════════════════════════════════ */
+  .headline {
+    /* 영문은 Playfair Display, 한글은 Noto Serif KR 900 */
+    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.25; /* 한글은 영문보다 line-height 약간 크게 */
+    word-break: keep-all;
+  }
+
+  .headline-italic {
+    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    word-break: keep-all;
+  }
+
+  /* 한글 전용 임팩트 제목 (Black Han Sans — 배달의민족 스타일).
+     - 제목, 히어로, 카드 타이틀에만 사용
+     - 본문에 쓰면 가독성 나쁨. 절대 .body-text에 쓰지 말 것 */
+  .headline-ko {
+    font-family:
+      'Black Han Sans',
+      'Noto Serif KR',
+      'Playfair Display',
+      Georgia,
+      sans-serif;
+    font-weight: 400; /* Black Han Sans는 단일 웨이트 (이미 매우 굵음) */
+    font-style: normal;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    word-break: keep-all;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     TYPEWRITER — 메타 라벨 (영문 전용, ALL CAPS)
+     ════════════════════════════════════════════════════════════ */
+  .typewriter {
+    font-family: 'JetBrains Mono', 'Spoqa Han Sans Neo', 'Courier New', monospace;
+    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .typewriter-label {
+    font-family: 'JetBrains Mono', 'Spoqa Han Sans Neo', 'Courier New', monospace;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     BODY TEXT — 긴 본문 (한글 명조체 기본, 영문 Inter)
+     ════════════════════════════════════════════════════════════ */
+  .body-text {
+    font-family: 'Inter', 'Noto Serif KR', 'Spoqa Han Sans Neo', sans-serif;
+    line-height: 1.85; /* 한글 세리프는 line-height 더 넉넉히 */
+    word-break: keep-all;
+    letter-spacing: -0.005em;
+  }
+
+  /* 본문 한글 세리프 강제 (에디토리얼 긴 글용) */
+  .body-serif {
+    font-family: 'Inter', 'Noto Serif KR', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.9;
+    word-break: keep-all;
+    letter-spacing: -0.005em;
+  }
+
+  /* 점선 구분선 — Strategist 시그니처 */
+  .dotted-rule {
+    border-top: 1px dashed #0A0A0B;
+    opacity: 0.4;
+  }
+}
+
+/* Hover lift */
+.lift {
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 320ms ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+}
+
+/* 화살표 마커 */
+.strategist-arrow::before {
+  content: '▸';
+  color: #C4361C;
+  margin-right: 8px;
+  font-size: 0.9em;
+}
+
+/* ════════════════════════════════════════════════════════════
+   한국어 최적화 — 자간, 줄간격 추가 조정
+   ════════════════════════════════════════════════════════════ */
+:lang(ko) {
+  word-break: keep-all;
+}
+
+/* 본문 내 숫자는 tabular-nums로 (9.7, 8,577 등 숫자가 깔끔하게) */
+.article-body,
+.body-text {
+  font-variant-numeric: tabular-nums;
+}
