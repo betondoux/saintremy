@@ -32,6 +32,12 @@ export interface Article {
   featuredOn?: string[]
 }
 
+interface CategoryMeta {
+  title: string
+  subtitle: string
+  icon: string
+}
+
 export const CATEGORY_LABELS: Record<Category, string> = {
   lift: 'LIFT',
   combat: 'COMBAT',
@@ -41,10 +47,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   court: 'COURT',
 }
 
-export const CATEGORY_META: Record<
-  Category,
-  { title: string; subtitle: string; icon: string }
-> = {
+export const CATEGORY_META: Record<Category, CategoryMeta> = {
   lift: {
     title: 'Lift',
     subtitle: '힘의 과학. 근육이 뇌에 주는 신호, 관절이 견디는 한계.',
@@ -77,7 +80,28 @@ export const CATEGORY_META: Record<
   },
 }
 
-export const articles: Article[] = articlesData as unknown as Article[]
+// ─────────────────────────────────────────────────────────────
+// Notion 데이터를 AMATOR 브랜드 톤에 맞게 정제
+// 1. 저자를 "AMATOR Editors"로 통일 (개인 이름 제거)
+// 2. 성별 특정 표현을 중립어로 일괄 치환
+// ─────────────────────────────────────────────────────────────
+const neutralize = (text: string | undefined): string =>
+  (text ?? '')
+    .replace(/한국 남성/g, '한국인')
+    .replace(/중년 남성/g, '중년')
+    .replace(/40대 남성/g, '40대')
+    .replace(/30대 남성/g, '30대')
+    .replace(/50대 남성/g, '50대')
+
+export const articles: Article[] = (articlesData as unknown as Article[]).map(
+  (article) => ({
+    ...article,
+    author: 'AMATOR Editors',
+    title: neutralize(article.title),
+    dek: neutralize(article.dek),
+    body: neutralize(article.body),
+  }),
+)
 
 // ─────────────────────────────────────────────────────────────
 // Helper 함수들
@@ -107,8 +131,6 @@ export function getHeroArticle(): Article | undefined {
 }
 
 export function getFilmOfTheWeek(): Article | undefined {
-  // Note: 현재 "films" 카테고리가 제거되었고, RUN 안에 Breaking2 같은 영상 기사가 있음.
-  // FeaturedOn = "FilmOfTheWeek" 로 명시된 기사만 반환.
   return articles.find((a) => a.featuredOn?.includes('FilmOfTheWeek'))
 }
 
@@ -118,21 +140,8 @@ export function getMostReadArticles(): Article[] {
     .slice(0, 5)
 }
 
-/**
- * Dek(부제)을 문장 단위로 쪼개서 줄바꿈용 배열로 반환.
- * 에디토리얼 매거진 스타일: 각 문장이 독립된 줄로 렌더링되도록.
- *
- * 예시:
- *   "영국의 19만 명을 추적했다. 중년 악력이 중요했다."
- *   → ["영국의 19만 명을 추적했다.", "중년 악력이 중요했다."]
- *
- * 주의: 약어 뒤의 마침표(예: "U.S.")는 분리하지 않도록 단순 처리.
- * 한국어 기사는 약어 마침표가 거의 없어 안전.
- */
 export function splitDekIntoSentences(dek: string): string[] {
   if (!dek) return []
-  // 마침표/물음표/느낌표 + 공백 패턴으로 분리
-  // 숫자 사이의 소수점(예: 9.7)은 보존
   const sentences = dek
     .split(/(?<=[.!?])\s+(?=[가-힣A-Z])/)
     .map((s) => s.trim())
