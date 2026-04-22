@@ -2,7 +2,6 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { NewsletterBottomBar } from './components/NewsletterBottomBar'
 import { CookieBanner } from './components/CookieBanner'
 import { Home } from './pages/Home'
 import { CategoryPage } from './pages/CategoryPage'
@@ -76,7 +75,6 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <NewsletterBottomBar />
       <CookieBanner />
     </div>
   )

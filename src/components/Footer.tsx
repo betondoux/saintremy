@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { ALL_CATEGORIES, CATEGORY_SHORT_LABELS } from '../content/articles'
+import { NewsletterInline } from './NewsletterInline'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -20,52 +22,33 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Newsletter — 푸터 내부 정상 흐름 (fixed 아님) */}
+        <NewsletterInline />
+
         {/* Sitemap */}
         <div className="mt-10 pt-8 border-t border-dashed border-ink-900/25">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+            {/* 매거진 — 10개 카테고리 (articles.ts single source of truth) */}
             <div>
               <div className="typewriter-label text-ink-900 mb-2">매거진</div>
               <ul className="typewriter text-ink-500 space-y-1">
-                <li>
-                  <Link to="/lift" className="hover:text-ink-900">
-                    LIFT
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/combat" className="hover:text-ink-900">
-                    COMBAT
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/football" className="hover:text-ink-900">
-                    FOOTBALL
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/run" className="hover:text-ink-900">
-                    RUN
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/flow" className="hover:text-ink-900">
-                    FLOW
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/court" className="hover:text-ink-900">
-                    COURT
-                  </Link>
-                </li>
+                {ALL_CATEGORIES.map((cat) => (
+                  <li key={cat}>
+                    <Link
+                      to={`/${cat}`}
+                      className="hover:text-ink-900 uppercase"
+                    >
+                      {CATEGORY_SHORT_LABELS[cat]}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
+
+            {/* 소개 (이전 '샵' 섹션 — 에디토리얼 매거진 포지셔닝) */}
             <div>
-              <div className="typewriter-label text-ink-900 mb-2">샵</div>
+              <div className="typewriter-label text-ink-900 mb-2">소개</div>
               <ul className="typewriter text-ink-500 space-y-1">
-                <li>
-                  <Link to="/shop" className="hover:text-ink-900">
-                    ALL PRODUCTS
-                  </Link>
-                </li>
                 <li>
                   <Link to="/about" className="hover:text-ink-900">
                     ABOUT
@@ -73,31 +56,26 @@ export function Footer() {
                 </li>
               </ul>
             </div>
+
+            {/* 팔로우 */}
             <div>
               <div className="typewriter-label text-ink-900 mb-2">팔로우</div>
               <ul className="typewriter text-ink-500 space-y-1">
+                {/* TODO: cherrypepper_kr 계정 삭제 후 실제 amator.kr IG 생성 시 href 연결 */}
                 <li>
                   <a
-                    href="https://instagram.com/amator.kr"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ink-900"
+                    href="#"
+                    aria-disabled="true"
+                    className="hover:text-ink-900 opacity-60 cursor-not-allowed"
+                    onClick={(e) => e.preventDefault()}
                   >
                     INSTAGRAM
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://youtube.com/@amator.kr"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ink-900"
-                  >
-                    YOUTUBE
-                  </a>
-                </li>
               </ul>
             </div>
+
+            {/* 법적 */}
             <div>
               <div className="typewriter-label text-ink-900 mb-2">법적</div>
               <ul className="typewriter text-ink-500 space-y-1">
