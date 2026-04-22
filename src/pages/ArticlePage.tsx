@@ -4,7 +4,7 @@ import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
 import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
-import AffiliateDisclosure from '../components/AffiliateDisclosure'
+import { AffiliateDisclosure } from '../components/AffiliateDisclosure'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -29,6 +29,9 @@ export function ArticlePage() {
 
   return (
     <article className="max-w-3xl mx-auto px-6 py-10">
+      {/* ══════════════════════════════════════════════════════════
+          VIDEO HERO — 영상 있으면 최상단 우선 배치
+          ══════════════════════════════════════════════════════════ */}
       {article.youtube && (
         <VideoHero
           youtubeId={article.youtube}
@@ -37,11 +40,17 @@ export function ArticlePage() {
         />
       )}
 
+      {/* ══════════════════════════════════════════════════════════
+          AFFILIATE DISCLOSURE — 쿠팡 파트너스 대가성 문구 (제목 위)
+          ══════════════════════════════════════════════════════════ */}
+      <AffiliateDisclosure />
+
+      {/* ══════════════════════════════════════════════════════════
+          ARTICLE HEADER — 카테고리 / 제목 / 부제 / 메타
+          ══════════════════════════════════════════════════════════ */}
       <header
         className={`text-center ${article.youtube ? 'mb-10' : 'mb-10 pb-8 border-b border-dashed border-ink-900/25'}`}
       >
-        <AffiliateDisclosure />
-
         <Link
           to={`/${article.category}`}
           className="typewriter-label text-signal hover:underline"
@@ -49,7 +58,7 @@ export function ArticlePage() {
           {CATEGORY_LABELS[article.category]}
         </Link>
 
-        <h1 className="headline-ko text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] text-ink-900 mt-5">
+        <h1 className="headline-ko text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] text-ink-900 mt-5 leading-tight">
           {article.title}
         </h1>
 
@@ -71,6 +80,7 @@ export function ArticlePage() {
         </div>
       </header>
 
+      {/* Pull quote */}
       {article.heroQuote && (
         <div className="my-10 px-4 md:px-10 text-center">
           <blockquote className="headline-italic text-2xl md:text-3xl text-ink-700 leading-snug">
@@ -79,12 +89,15 @@ export function ArticlePage() {
         </div>
       )}
 
+      {/* Body */}
       <div className="article-body">
         <RenderBody body={article.body} />
       </div>
 
+      {/* AD SLOT */}
       <AdSlot slot="article-body-end" format="horizontal" minHeight="100px" />
 
+      {/* Sources */}
       {article.sources && article.sources.length > 0 && (
         <section className="mt-14 pt-8 border-t border-dashed border-ink-900/25">
           <div className="typewriter-label text-ink-900 mb-4">
@@ -132,6 +145,9 @@ export function ArticlePage() {
   )
 }
 
+// ═══════════════════════════════════════════════════════════════
+// 본문 렌더러 — Notion-식 마크다운 + 임베드 지원
+// ═══════════════════════════════════════════════════════════════
 function RenderBody({ body }: { body: string }) {
   const blocks = body.split(/\n\n+/)
   const inlineInsertIndex = Math.floor((blocks.filter((b) => b.trim()).length * 2) / 3)
@@ -146,6 +162,7 @@ function RenderBody({ body }: { body: string }) {
 
         const shouldInsertNewsletter = visibleBlockCount === inlineInsertIndex
 
+        // YouTube 임베드
         if (trimmed.startsWith('[YOUTUBE] ')) {
           const videoId = trimmed.replace('[YOUTUBE] ', '').trim()
           return (
@@ -163,6 +180,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 이미지
         if (trimmed.startsWith('[IMAGE] ')) {
           const rest = trimmed.replace('[IMAGE] ', '')
           const [url, caption] = rest.split(' | ').map((s) => s.trim())
@@ -183,6 +201,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 외부 임베드
         if (trimmed.startsWith('[EMBED] ')) {
           const url = trimmed.replace('[EMBED] ', '').trim()
           return (
@@ -202,10 +221,12 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 구분선
         if (trimmed === '---') {
           return <hr key={i} className="my-8 border-dashed border-ink-900/30" />
         }
 
+        // H2 제목
         if (trimmed.startsWith('## ')) {
           return (
             <h2
@@ -217,6 +238,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // H3 제목
         if (trimmed.startsWith('### ')) {
           return (
             <h3
@@ -228,6 +250,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 인용
         if (trimmed.startsWith('> ')) {
           return (
             <blockquote
@@ -239,6 +262,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 순번 리스트
         if (/^\d+\.\s/.test(trimmed) && trimmed.includes('\n')) {
           const items = trimmed
             .split('\n')
@@ -258,6 +282,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 불릿 리스트
         if (/^•\s/.test(trimmed) && trimmed.includes('\n')) {
           const items = trimmed
             .split('\n')
@@ -277,6 +302,7 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 코드 블록
         if (trimmed.startsWith('```')) {
           const code = trimmed.replace(/^```\n?/, '').replace(/```$/, '')
           return (
@@ -289,16 +315,14 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 일반 문단
         return (
-          <>
-            <p
-              key={i}
-              className="body-text text-ink-900 text-base md:text-lg leading-[1.75] my-5"
-            >
+          <div key={i}>
+            <p className="body-text text-ink-900 text-base md:text-lg leading-[1.75] my-5">
               {renderInline(trimmed)}
             </p>
-            {shouldInsertNewsletter && <NewsletterInline key={`nl-${i}`} />}
-          </>
+            {shouldInsertNewsletter && <NewsletterInline />}
+          </div>
         )
       })}
     </>
