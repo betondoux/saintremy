@@ -117,7 +117,7 @@ export function ArticlePage() {
                 {source.url && (
                   <>
                     {' · '}
-                    
+                    <a
                       href={source.url}
                       target="_blank"
                       rel="noreferrer"
@@ -209,7 +209,7 @@ function RenderBody({ body }: { body: string }) {
               key={i}
               className="my-8 p-4 border border-ink-900/20 bg-cream-200/50"
             >
-              
+              <a
                 href={url}
                 target="_blank"
                 rel="noreferrer"

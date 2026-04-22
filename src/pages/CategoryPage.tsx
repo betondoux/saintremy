@@ -87,7 +87,7 @@ export function CategoryPage() {
                 이 카테고리의 영상 스토리
               </p>
             </div>
-            
+            <a
               href="https://youtube.com/@amator.kr"
               target="_blank"
               rel="noopener noreferrer"
@@ -146,7 +146,7 @@ export function CategoryPage() {
 function ProductMini({ product }: { product: Product }) {
   const discount = getDiscountPercent(product)
   return (
-    
+    <a
       href={product.affiliateURL}
       target="_blank"
       rel="noopener sponsored"
