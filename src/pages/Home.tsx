@@ -4,6 +4,7 @@ import { AmatorPickCard } from '../components/AmatorPickCard'
 import { FilmOfTheWeekCard } from '../components/FilmOfTheWeekCard'
 import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
+import { NewsletterInline } from '../components/NewsletterInline'
 import {
   getHeroArticle,
   getArticlesByCategory,
@@ -24,9 +25,15 @@ import {
 } from '../content/products'
 
 export function Home() {
+  const allArticles = getAllArticles()
+
+  // 발행 전 상태 — 샘플 데이터 노출 금지 (쿠팡 파트너스 정책 + 브랜드 신뢰)
+  if (allArticles.length === 0) {
+    return <PreLaunchHero />
+  }
+
   const hero = getHeroArticle()
   const mostRead = getMostReadArticles()
-  const allArticles = getAllArticles()
   const greatestHits = allArticles.slice(Math.max(1, allArticles.length - 4))
   const featuredProducts = getFeaturedProducts()
 
@@ -258,6 +265,47 @@ export function Home() {
   )
 }
 
+// ═══════════════════════════════════════════════════════════════
+// PRE-LAUNCH HERO — 기사 0편 상태에서 표시하는 깨끗한 커밍순 화면.
+// 샘플/가짜 상품·가격 대신 브랜드·슬로건·뉴스레터 CTA 만.
+// ═══════════════════════════════════════════════════════════════
+function PreLaunchHero() {
+  return (
+    <div className="max-w-3xl mx-auto px-6 pt-20 md:pt-28 pb-24 text-center">
+      {/* Big masthead */}
+      <div>
+        <div className="headline-italic text-ink-500 text-2xl md:text-3xl">
+          the
+        </div>
+        <div
+          className="masthead text-ink-900 text-7xl md:text-8xl lg:text-9xl leading-[0.9]"
+          style={{ marginTop: '-0.1em' }}
+        >
+          amator
+        </div>
+      </div>
+
+      {/* Korean slogan */}
+      <p className="headline-ko text-ink-700 text-xl md:text-2xl mt-8 leading-snug">
+        그냥 좋아서 하는 사람들을 위한 매거진
+      </p>
+
+      {/* Coming soon label */}
+      <div className="mt-14 pt-10 border-t border-dashed border-ink-900/25">
+        <div className="typewriter-label text-signal mb-3">
+          — EDITORS ARE WORKING ON ISSUE 001
+        </div>
+        <p className="body-text text-ink-500 text-base md:text-lg">
+          첫 번째 발행이 곧 공개됩니다.
+        </p>
+      </div>
+
+      {/* Newsletter — 발행 알림 받기 */}
+      <NewsletterInline />
+    </div>
+  )
+}
+
 // ─────────────────────────────────────────────────────────────
 // Hero sidecar decision
 // ─────────────────────────────────────────────────────────────
@@ -310,9 +358,6 @@ function HeroArticle({ article }: { article: Article }) {
           <div className="headline-ko text-cream-100 text-3xl md:text-5xl leading-[1.15] max-w-xl">
             {truncate(article.title, 40)}
           </div>
-        </div>
-        <div className="absolute top-4 right-4 typewriter-label text-cream-100/50">
-          ISSUE 001
         </div>
       </div>
 

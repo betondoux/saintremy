@@ -110,7 +110,7 @@ export function Footer() {
 
         <div className="mt-6 pt-6 border-t border-dashed border-ink-900/25 flex flex-col md:flex-row justify-between items-center gap-2 typewriter text-ink-500">
           <div>© {year} DUCK DIVE · AMATOR MAG</div>
-          <div>ISSUE No.001 · SPRING 2026</div>
+          <div>ISSUE No.001 · COMING SPRING 2026</div>
         </div>
       </div>
     </footer>

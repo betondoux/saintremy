@@ -46,7 +46,7 @@ export function Header() {
             DUCK DIVE · SEOUL
           </div>
           <div className="typewriter-label text-ink-500 hidden md:block">
-            ISSUE No.001 · SPRING 2026
+            ISSUE No.001 · COMING SPRING 2026
           </div>
         </div>
       </div>
