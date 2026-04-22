@@ -60,16 +60,10 @@ export function Header() {
           <Link
             to="/"
             className="group inline-block text-left flex-shrink-0"
-            aria-label="AMATOR home"
+            aria-label="Saint-Rémy home"
           >
-            <span
-              className="block headline-italic text-ink-900 text-xl md:text-2xl font-normal"
-              style={{ marginBottom: '-0.2em', marginLeft: '0.2em' }}
-            >
-              the
-            </span>
             <span className="masthead block text-ink-900 text-5xl md:text-7xl lg:text-8xl leading-[0.9]">
-              amator
+              Saint-Rémy
             </span>
           </Link>
 
@@ -137,10 +131,10 @@ export function Header() {
               to="/"
               onClick={closeMenu}
               className="group inline-block text-left"
-              aria-label="AMATOR home"
+              aria-label="Saint-Rémy home"
             >
               <span className="masthead block text-ink-900 text-4xl leading-[0.9]">
-                amator
+                Saint-Rémy
               </span>
             </Link>
             <button

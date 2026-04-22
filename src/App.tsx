@@ -30,7 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* ═══════════════════════════════════════════════════
-              10개 카테고리 (AMATOR 2026)
+              10개 카테고리 (Saint-Rémy 2026)
               ═══════════════════════════════════════════════════ */}
           <Route path="/gift" element={<CategoryPage />} />
           <Route path="/deal" element={<CategoryPage />} />

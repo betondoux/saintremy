@@ -61,7 +61,7 @@ export function Home() {
                 sidecarDecision.product && (
                   <AmatorPickCard
                     product={sidecarDecision.product}
-                    label="AMATOR PICK"
+                    label="SAINT-RÉMY PICK"
                   />
                 )}
             </div>
@@ -83,11 +83,11 @@ export function Home() {
         />
       ))}
 
-      {/* AD SLOT 2: 기사 섹션 → AMATOR FILMS 사이 */}
+      {/* AD SLOT 2: 기사 섹션 → SAINT-RÉMY FILMS 사이 */}
       <AdSlot slot="articles-to-shop" format="horizontal" minHeight="100px" />
 
       {/* ══════════════════════════════════════════════════════════
-          AMATOR FILMS — 유튜브 영상 기사 모음 (Watch + Read)
+          SAINT-RÉMY FILMS — 유튜브 영상 기사 모음 (Watch + Read)
           ══════════════════════════════════════════════════════════ */}
       {articlesWithVideo.length > 0 && (
         <section className="py-10">
@@ -101,7 +101,7 @@ export function Home() {
               </p>
             </div>
             <a
-              href="https://youtube.com/@amator.kr"
+              href="https://youtube.com/@saintremy"
               target="_blank"
               rel="noopener noreferrer"
               className="typewriter-label text-ink-500 hover:text-signal transition"
@@ -141,7 +141,7 @@ export function Home() {
 
           <div className="mt-8 text-center">
             <p className="typewriter text-ink-400 text-xs">
-              * AMATOR는 쿠팡 파트너스 활동 등을 통해 일정액의 수수료를
+              * Saint-Rémy는 쿠팡 파트너스 활동 등을 통해 일정액의 수수료를
               제공받을 수 있습니다.
             </p>
           </div>
@@ -273,21 +273,20 @@ function PreLaunchHero() {
   return (
     <div className="max-w-3xl mx-auto px-6 pt-20 md:pt-28 pb-24 text-center">
       {/* Big masthead */}
-      <div>
-        <div className="headline-italic text-ink-500 text-2xl md:text-3xl">
-          the
-        </div>
-        <div
-          className="masthead text-ink-900 text-7xl md:text-8xl lg:text-9xl leading-[0.9]"
-          style={{ marginTop: '-0.1em' }}
-        >
-          amator
-        </div>
+      <div
+        className="masthead text-ink-900 text-6xl md:text-7xl lg:text-8xl leading-[0.9]"
+      >
+        Saint-Rémy
       </div>
 
-      {/* Korean slogan */}
-      <p className="headline-ko text-ink-700 text-xl md:text-2xl mt-8 leading-snug">
-        그냥 좋아서 하는 사람들을 위한 매거진
+      {/* Primary positioning — 평범한 사물을 깊이 보는 매거진 */}
+      <p className="headline-ko text-ink-900 text-2xl md:text-3xl mt-8 leading-snug">
+        평범한 사물을 깊이 보는 매거진
+      </p>
+
+      {/* Sub-slogan */}
+      <p className="headline-ko text-ink-500 text-base md:text-lg mt-3 leading-snug">
+        그냥 좋아서 하는 사람들을 위한 큐레이션
       </p>
 
       {/* Coming soon label */}
@@ -318,7 +317,7 @@ interface SidecarDecision {
 function decideHeroSidecar(hero: Article | undefined): SidecarDecision {
   if (!hero) return { type: 'none' }
 
-  // 1. 히어로 기사와 연결된 상품 우선 (AMATOR PICK)
+  // 1. 히어로 기사와 연결된 상품 우선 (Saint-Rémy PICK)
   const related = getProductForArticle(hero.slug)
   if (related) {
     return { type: 'product', product: related }
@@ -491,7 +490,7 @@ function ShopProductMini({ product }: { product: Product }) {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// VIDEO CARD — AMATOR FILMS 섹션용 (Watch + Read 이중 CTA)
+// VIDEO CARD — SAINT-RÉMY FILMS 섹션용 (Watch + Read 이중 CTA)
 // ═══════════════════════════════════════════════════════════════
 function VideoCard({ article }: { article: Article }) {
   if (!article.youtube) return null

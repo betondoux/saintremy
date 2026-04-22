@@ -76,10 +76,10 @@ export function VideoHero({
               </div>
             </div>
 
-            {/* Corner label — AMATOR FILMS */}
+            {/* Corner label — SAINT-RÉMY FILMS */}
             <div className="absolute top-4 left-4 bg-cream-100 px-3 py-1">
               <span className="typewriter-label text-ink-900 text-xs">
-                AMATOR FILMS
+                SAINT-RÉMY FILMS
               </span>
             </div>
 

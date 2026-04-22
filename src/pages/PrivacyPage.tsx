@@ -19,7 +19,7 @@ export function PrivacyPage() {
             1. 개인정보의 처리 목적
           </h2>
           <p>
-            DUCK DIVE(이하 "운영자")가 운영하는 AMATOR(amator.kr, 이하 "사이트")는 다음과
+            DUCK DIVE(이하 "운영자")가 운영하는 Saint-Rémy(saintremy.kr, 이하 "사이트")는 다음과
             같은 목적으로 개인정보를 수집 및 처리합니다.
           </p>
           <ul className="list-disc pl-6 mt-3 space-y-1">
@@ -115,7 +115,7 @@ export function PrivacyPage() {
             6. 어필리에이트 고지
           </h2>
           <p>
-            AMATOR는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates,
+            Saint-Rémy는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates,
             브랜드 직접 제휴 등의 어필리에이트 프로그램에 참여하고 있으며,
             사이트 내 상품 링크를 통해 구매가 이루어질 경우 일정 금액의
             수수료를 제공받을 수 있습니다. 이는 사이트 운영비로 사용됩니다.
@@ -158,7 +158,7 @@ export function PrivacyPage() {
             <p>
               <strong>사이트:</strong>{' '}
               <Link to="/" className="text-signal underline">
-                amator.kr
+                saintremy.kr
               </Link>
             </p>
           </div>

@@ -37,7 +37,7 @@ export function ShopPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
       <header className="text-center mb-10">
-        <div className="typewriter-label text-signal mb-3">— AMATOR SHOP</div>
+        <div className="typewriter-label text-signal mb-3">— SAINT-RÉMY SHOP</div>
         <h1 className="masthead text-6xl md:text-7xl text-ink-900 leading-none">
           Shop
         </h1>
@@ -94,18 +94,18 @@ export function ShopPage() {
           </h2>
           <div className="body-text text-ink-500 space-y-3 text-sm md:text-base text-left">
             <p>
-              AMATOR는 쿠팡 파트너스, 네이버 쇼핑 파트너 등 어필리에이트
-              프로그램을 통해 수익을 얻습니다. 독자가 AMATOR에서 제품 링크를
+              Saint-Rémy는 쿠팡 파트너스, 네이버 쇼핑 파트너 등 어필리에이트
+              프로그램을 통해 수익을 얻습니다. 독자가 Saint-Rémy에서 제품 링크를
               클릭하여 구매하면, 판매 금액의 일부를 수수료로 받습니다.
             </p>
             <p>
               <strong className="text-ink-900">단, 이것이 제품 추천에 영향을 미치지 않습니다.</strong>{' '}
-              AMATOR는 수수료율이 높은 제품이 아니라, 실제로 좋은 제품만
+              Saint-Rémy는 수수료율이 높은 제품이 아니라, 실제로 좋은 제품만
               추천합니다. 모든 링크는 독자가 직접 클릭 여부를 선택할 수
               있도록 투명하게 표시됩니다.
             </p>
             <p>
-              수익은 AMATOR의 콘텐츠 제작, 서버 유지, 새로운 연구 구독 등에
+              수익은 Saint-Rémy의 콘텐츠 제작, 서버 유지, 새로운 연구 구독 등에
               재투자됩니다. 신뢰가 전부입니다.
             </p>
           </div>

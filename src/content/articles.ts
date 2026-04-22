@@ -165,7 +165,7 @@ export const ALL_CATEGORIES: Category[] = [
 
 // ─────────────────────────────────────────────────────────────
 // Notion 데이터 정제
-// 1. 저자를 "AMATOR Editors"로 통일
+// 1. 저자를 "Saint-Rémy Editors"로 통일
 // 2. 성별 특정 표현 중립어로 치환
 // 3. 레거시 카테고리(lift/combat/etc) → 'move'로 자동 변환
 // ─────────────────────────────────────────────────────────────
@@ -195,7 +195,7 @@ export const articles: Article[] = (articlesData as unknown as RawArticle[]).map
   (article) => ({
     ...article,
     category: normalizeCategory(article.category),
-    author: 'AMATOR Editors',
+    author: 'Saint-Rémy Editors',
     title: neutralize(article.title),
     dek: neutralize(article.dek),
     body: neutralize(article.body),

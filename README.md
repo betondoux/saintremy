@@ -1,36 +1,35 @@
-# AMATOR
+# Saint-Rémy
 
-> **그냥 좋아서 하는 사람.** Just because I love it.
-> A sportswear editorial for serious amateurs — lifting, BJJ, running.
+> **평범한 사물을 깊이 보는 매거진.**
+> 그냥 좋아서 하는 사람들을 위한 큐레이션.
 
 Built by **DUCK DIVE**. 1-person indie project.
+
+> **NOTE (2026-04-23):** AMATOR → Saint-Rémy 브랜드 마이그레이션 진행 중.
+> 이 README의 브랜드 서사 섹션은 기계 리네이밍 상태이며, Saint-Rémy 정식
+> 포지셔닝(지명 어원, 편집 철학 등)은 별도 업데이트 예정. 스택/로컬 개발/
+> 배포 섹션은 최신 상태.
 
 ---
 
 ## Brand
 
-**AMATOR** — from Latin *amātor* ("lover, one who does for love"). The root of the English word *amateur*, taken back to its original meaning: doing it because you love it, not because it pays.
+**Saint-Rémy** — _TODO: Provence의 지명에서 유래한 브랜드 서사 작성 예정._
 
-- **한국어 슬로건:** 그냥 좋아서 하는 사람
-- **English slogan:** Just because I love it.
-- **Target:** 20–40s who train seriously but not professionally. Lifting, BJJ, running.
+- **한국어 슬로건:** 그냥 좋아서 하는 사람들을 위한 매거진
+- **포지셔닝:** 평범한 사물을 깊이 보는 매거진
+- **Target:** 덜 사고 더 잘 쓰는 20–40대 한국 독자
 
 ---
 
 ## What this is
 
-A magazine-style affiliate curation site. Visitors pick a country, pick a sport (Gym / BJJ / Running), and get curated gear with links to the right local retailer for their region.
+에디토리얼 매거진 형식의 어필리에이트 큐레이션 사이트. 10개 라이프스타일
+카테고리(선물 · 할인 · 스타일 · 뷰티 · 공간 · 주방 · 운동 · 여행 · 가구 ·
+생활)를 편집자 관점으로 추천하고, 각 상품은 쿠팡 파트너스/무신사 파트너스/
+Amazon Associates 등 실제 어필리에이트 링크로 연결됩니다.
 
-**Phase 1 (current): Korea focus.** Decided via convergent evidence from business data + saju/astrology cross-validation (p < 0.05). Strategy: leverage existing LEO YouTube audience (50K KR subs), dominate the empty "sportswear editorial curation" niche in Korea, then expand.
-
-- 🇰🇷 **Korea — ACTIVE** — Coupang Partners, Musinsa, Fighters Market
-- 🇺🇸 **USA — Coming Soon** — Amazon Associates (Phase 2, after KR validation)
-- 🇯🇵 **Japan — Coming Soon**
-- 🇹🇭 **Thailand — Coming Soon** (via Musinsa Global + FlexOffers)
-
-The 4-flag picker keeps global branding signal while letting the solo-dev focus stay realistic. Flipping `active: true` in `src/country/countries.ts` is all it takes to launch a new country later.
-
-No inventory. No shipping. No customer service. Just links.
+재고 없음. 배송 없음. 고객 지원 없음. 링크와 에디토리얼만.
 
 ---
 
@@ -61,15 +60,15 @@ npm run preview  # serve the build locally
 
 ## Deploy to Cloudflare Pages
 
-1. Push this repo to GitHub (`betondoux/amator`).
+1. Push this repo to GitHub (`betondoux/amator` — 레거시 repo 이름, 추후 rename 고려).
 2. Go to [Cloudflare Pages dashboard](https://dash.cloudflare.com) → **Create a project** → **Connect to Git**.
-3. Pick `amator` repo.
+3. Pick repo.
 4. Build settings:
    - **Framework preset:** `Vite`
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
 5. Deploy. Every `git push` to `main` redeploys automatically.
-6. (Optional) Add custom domain `amator.kr` or `amator.co.kr` in Cloudflare Pages settings once purchased.
+6. Custom domain: `saintremy.kr` (Phase 2 마이그레이션 대상). 레거시 `amator.kr`은 301 리다이렉트로 당분간 유지.
 
 `public/_redirects` handles React Router's SPA fallback so direct URLs like `/kr/gym` load correctly.
 

@@ -88,7 +88,7 @@ export function CategoryPage() {
               </p>
             </div>
             <a
-              href="https://youtube.com/@amator.kr"
+              href="https://youtube.com/@saintremy"
               target="_blank"
               rel="noopener noreferrer"
               className="typewriter-label text-ink-500 hover:text-signal transition"
@@ -133,7 +133,7 @@ export function CategoryPage() {
 
           <div className="mt-8 text-center">
             <p className="typewriter text-ink-400 text-xs">
-              * AMATOR는 쿠팡 파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있습니다.
+              * Saint-Rémy는 쿠팡 파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있습니다.
             </p>
           </div>
         </section>

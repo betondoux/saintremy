@@ -19,7 +19,7 @@ export function TermsPage() {
             제1조 (목적)
           </h2>
           <p>
-            본 약관은 DUCK DIVE(이하 "운영자")가 제공하는 AMATOR(amator.kr,
+            본 약관은 DUCK DIVE(이하 "운영자")가 제공하는 Saint-Rémy(saintremy.kr,
             이하 "사이트") 이용과 관련하여 운영자와 이용자의 권리, 의무 및
             책임사항을 규정함을 목적으로 합니다.
           </p>
@@ -31,7 +31,7 @@ export function TermsPage() {
           </h2>
           <p>
             <strong>
-              AMATOR는 어필리에이트 마케팅 프로그램 참여 매체입니다.
+              Saint-Rémy는 어필리에이트 마케팅 프로그램 참여 매체입니다.
             </strong>
           </p>
           <p className="mt-3">

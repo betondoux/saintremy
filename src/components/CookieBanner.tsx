@@ -58,7 +58,7 @@ export function CookieBanner() {
               — 쿠키 및 개인정보
             </div>
             <p className="body-text text-ink-900 text-sm leading-relaxed">
-              AMATOR는 사이트 개선과 콘텐츠 추천을 위해 쿠키를 사용합니다.{' '}
+              Saint-Rémy는 사이트 개선과 콘텐츠 추천을 위해 쿠키를 사용합니다.{' '}
               <Link
                 to="/privacy"
                 className="underline text-signal hover:text-ink-900 transition"

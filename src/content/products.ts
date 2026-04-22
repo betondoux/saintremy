@@ -134,7 +134,7 @@ export function getAllProducts(): Product[] {
 }
 
 /**
- * 특정 기사와 연결된 상품 찾기 (AMATOR PICK 자리용).
+ * 특정 기사와 연결된 상품 찾기 (Saint-Rémy PICK 자리용).
  * Notion에서 relatedArticleSlug 필드로 연결.
  */
 export function getProductForArticle(

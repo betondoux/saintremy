@@ -10,15 +10,13 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-14">
         {/* Logo */}
         <div className="text-center">
-          <div className="headline-italic text-ink-500 text-xl">the</div>
           <div
-            className="masthead text-ink-900 text-6xl md:text-7xl"
-            style={{ marginTop: '-0.1em' }}
+            className="masthead text-ink-900 text-5xl md:text-6xl"
           >
-            amator
+            Saint-Rémy
           </div>
-          <div className="headline-ko text-ink-500 text-base mt-2">
-            그냥 좋아서 하는 사람
+          <div className="headline-ko text-ink-500 text-base mt-3">
+            평범한 사물을 깊이 보는 매거진
           </div>
         </div>
 
@@ -61,7 +59,7 @@ export function Footer() {
             <div>
               <div className="typewriter-label text-ink-900 mb-2">팔로우</div>
               <ul className="typewriter text-ink-500 space-y-1">
-                {/* TODO: cherrypepper_kr 계정 삭제 후 실제 amator.kr IG 생성 시 href 연결 */}
+                {/* TODO: saintremy.kr 공식 IG 개설 후 href 연결 */}
                 <li>
                   <a
                     href="#"
@@ -99,7 +97,7 @@ export function Footer() {
         {/* Affiliate disclosure */}
         <div className="mt-10 pt-6 border-t border-dashed border-ink-900/25">
           <p className="typewriter text-ink-400 text-xs leading-relaxed text-center max-w-2xl mx-auto">
-            AMATOR는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates 등
+            Saint-Rémy는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates 등
             어필리에이트 프로그램의 일환으로 제품 구매 시 일정 수수료를
             받을 수 있습니다. 이는 제품 추천 기준에 영향을 미치지 않습니다.{' '}
             <Link to="/terms" className="underline hover:text-ink-900">
@@ -109,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="mt-6 pt-6 border-t border-dashed border-ink-900/25 flex flex-col md:flex-row justify-between items-center gap-2 typewriter text-ink-500">
-          <div>© {year} DUCK DIVE · AMATOR MAG</div>
+          <div>© {year} DUCK DIVE · Saint-Rémy MAG</div>
           <div>ISSUE No.001 · COMING SPRING 2026</div>
         </div>
       </div>
