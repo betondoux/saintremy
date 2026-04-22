@@ -51,10 +51,13 @@ const notion = new Client({
 // ─────────────────────────────────────────────────────────────
 // 타입 정의
 // ─────────────────────────────────────────────────────────────
+// 10개 라이프스타일 카테고리 (기사). 문자열로 받아 downstream에서 정규화.
+// 허용 값: gift / deal / style / beauty / space / kitchen / move / travel / furniture / living
+// 레거시 6스포츠(lift/combat/football/run/flow/court)는 downstream에서 move로 매핑됨.
 interface Article {
   id: string
   slug: string
-  category: 'science' | 'culture' | 'films'
+  category: string
   title: string
   dek: string
   readTime: number
@@ -67,12 +70,13 @@ interface Article {
   body: string
 }
 
+// 10개 라이프스타일 + books (상품).
 interface Product {
   id: string
   slug: string
   name: string
   brand: string
-  category: 'run' | 'lift' | 'bjj' | 'tennis' | 'general'
+  category: string
   price: number
   originalPrice?: number
   image?: string
@@ -83,6 +87,27 @@ interface Product {
   vendor: string
   featured?: boolean
   relatedArticleSlug?: string
+}
+
+// 한국어 라벨 → 영문 slug 매핑 (Notion Select를 한국어로 썼을 때 대응)
+const KO_TO_SLUG: Record<string, string> = {
+  '선물': 'gift',
+  '할인': 'deal',
+  '스타일': 'style',
+  '뷰티': 'beauty',
+  '공간': 'space',
+  '주방': 'kitchen',
+  '운동': 'move',
+  '여행': 'travel',
+  '가구': 'furniture',
+  '생활': 'living',
+  '책': 'books',
+}
+
+function normalizeCategoryString(raw: string): string {
+  const trimmed = raw.trim()
+  if (KO_TO_SLUG[trimmed]) return KO_TO_SLUG[trimmed]
+  return trimmed.toLowerCase()
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -264,12 +289,9 @@ async function fetchArticles(): Promise<Article[]> {
     const slug = getRichText(props.Slug)
     if (!slug) continue
 
-    const categoryRaw = getSelect(props.Category).toLowerCase()
-    const category = (['science', 'culture', 'films'].includes(categoryRaw)
-      ? categoryRaw
-      : 'culture') as 'science' | 'culture' | 'films'
+    const category = normalizeCategoryString(getSelect(props.Category))
 
-    console.log(`    📄 ${getTitle(props.Title)}`)
+    console.log(`    📄 ${getTitle(props.Title)} [${category}]`)
 
     let body = ''
     try {
@@ -334,13 +356,9 @@ async function fetchProducts(): Promise<Product[]> {
     const slug = getRichText(props.Slug)
     if (!slug) continue
 
-    const categoryRaw = getSelect(props.Category).toLowerCase()
-    const validCategories = ['run', 'lift', 'bjj', 'tennis', 'general']
-    const category = (validCategories.includes(categoryRaw)
-      ? categoryRaw
-      : 'general') as Product['category']
+    const category = normalizeCategoryString(getSelect(props.Category))
 
-    console.log(`    🏷  ${getTitle(props.Name)}`)
+    console.log(`    🏷  ${getTitle(props.Name)} [${category}]`)
 
     products.push({
       id: page.id,

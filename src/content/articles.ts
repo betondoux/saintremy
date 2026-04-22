@@ -63,18 +63,19 @@ export interface Article {
   featuredOn?: string[]
 }
 
-// 한국어 카테고리 라벨 (UI 표시용)
+// Bilingual 카테고리 라벨 — 네비/카드/뱃지 공용
+// 형식: "English (한글)" — UI가 너무 한글 일색이지 않도록.
 export const CATEGORY_LABELS: Record<Category, string> = {
-  gift: '선물',
-  deal: '할인',
-  style: '스타일',
-  beauty: '뷰티',
-  space: '공간',
-  kitchen: '주방',
-  move: '운동',
-  travel: '여행',
-  furniture: '가구',
-  living: '생활',
+  gift: 'Gift (선물)',
+  deal: 'Deal (할인)',
+  style: 'Style (스타일)',
+  beauty: 'Beauty (뷰티)',
+  space: 'Space (공간)',
+  kitchen: 'Kitchen (주방)',
+  move: 'Move (운동)',
+  travel: 'Travel (여행)',
+  furniture: 'Furniture (가구)',
+  living: 'Living (생활)',
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)

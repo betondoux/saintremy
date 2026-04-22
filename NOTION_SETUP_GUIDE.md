@@ -42,7 +42,7 @@
 |---|---|---|
 | `Title` | Title | 기사 제목 |
 | `Slug` | Text | URL 영문 (예: `grip-strength-dementia`) |
-| `Category` | Select | **옵션**: `Lift`, `Combat`, `Football`, `Run` |
+| `Category` | Select | **옵션**: `gift`, `deal`, `style`, `beauty`, `space`, `kitchen`, `move`, `travel`, `furniture`, `living` (10개) |
 | `Dek` | Text | 부제 |
 | `Author` | Text | 저자명 (기본: `AMATOR EDITORS`) |
 | `HeroQuote` | Text | 본문 중간 인용구 (선택) |
@@ -55,11 +55,22 @@
 
 ## 1-4. Category 옵션 입력
 
-Category select 클릭 → `+ Add an option`:
-- `Lift` (LIFT 영문 그대로)
-- `Combat`
-- `Football`
-- `Run`
+Category select 클릭 → `+ Add an option` — **영문 slug 그대로** 10개 입력:
+
+| 옵션 (Notion에 입력) | 사이트 표시 |
+|---|---|
+| `gift` | Gift (선물) |
+| `deal` | Deal (할인) |
+| `style` | Style (스타일) |
+| `beauty` | Beauty (뷰티) |
+| `space` | Space (공간) |
+| `kitchen` | Kitchen (주방) |
+| `move` | Move (운동) |
+| `travel` | Travel (여행) |
+| `furniture` | Furniture (가구) |
+| `living` | Living (생활) |
+
+> 💡 한국어(`선물`, `할인` …)로 입력해도 자동 매핑됩니다. 하지만 URL slug는 영문이므로 **영문 권장**.
 
 ---
 
@@ -76,7 +87,7 @@ Category select 클릭 → `+ Add an option`:
 | `Name` | Title | 상품명 |
 | `Slug` | Text | URL (예: `sbd-lever-belt`) |
 | `Brand` | Text | 브랜드 (예: `SBD`, `NIKE`) |
-| `Category` | Select | **옵션**: `Lift`, `Combat`, `Football`, `Run`, `Books` |
+| `Category` | Select | **옵션**: `gift`, `deal`, `style`, `beauty`, `space`, `kitchen`, `move`, `travel`, `furniture`, `living`, `books` (11개) |
 | `Dek` | Text | 상품 한 줄 설명 |
 | `Description` | Text | 긴 설명 (선택) |
 | `Price` | Number | 현재가 (원) |
@@ -92,19 +103,19 @@ Category select 클릭 → `+ Add an option`:
 ## 2-3. 상품 첫 번째 추가 예시
 
 ```
-Name: SBD 10mm Lever Belt
-Slug: sbd-lever-belt
-Brand: SBD
-Category: Lift
-Dek: 파워리프팅 세계 기록을 함께 만든 벨트. 10mm 두께.
-Price: 178000
-OriginalPrice: 210000
-ThumbColor: #1C1C1C
+Name: 이솝 레저렉션 핸드워시
+Slug: aesop-resurrection-handwash
+Brand: Aesop
+Category: beauty
+Dek: 매번 손 씻을 때마다 기분이 바뀌는 핸드워시.
+Price: 52000
+OriginalPrice: 65000
+ThumbColor: #5E4B32
 AffiliateURL: https://link.coupang.com/a/YOUR-LINK
 Vendor: COUPANG
 Active: ✅
 Featured: ✅
-RelatedArticleSlug: grip-strength-dementia
+RelatedArticleSlug: (선택)
 ```
 
 `RelatedArticleSlug`를 입력하면 → 해당 기사 옆 "AMATOR PICK" 자리에 이 상품이 자동 표시됩니다.
@@ -235,14 +246,21 @@ Deployments → 최근 배포 `•••` → `Retry deployment`
 
 ## 팁 1: 색상 팔레트 (ThumbColor)
 
-| 분위기 | 색상 코드 |
-|---|---|
-| 다크 브라운 (Lift) | `#1C1C1C` |
-| 네이비 (Combat) | `#2D3E50` |
-| 녹색 (Football) | `#2D5A3D` |
-| 다크 블루 (Run) | `#1A1D2C` |
-| 레드 (제품) | `#E63946` |
-| 빈티지 브라운 (Books) | `#7C4A2B` |
+카테고리별 추천 배경색 (이미지 없을 때 썸네일 대신 사용):
+
+| 카테고리 | 분위기 | 색상 코드 |
+|---|---|---|
+| Gift (선물) | 따뜻한 크래프트 | `#B84A2F` |
+| Deal (할인) | 강렬한 레드 | `#E63946` |
+| Style (스타일) | 세피아 베이지 | `#A08968` |
+| Beauty (뷰티) | 머스타드 크림 | `#D4A574` |
+| Space (공간) | 소프트 그레이 | `#8B8680` |
+| Kitchen (주방) | 버터밀크 | `#E8C49B` |
+| Move (운동) | 다크 브라운 | `#1C1C1C` |
+| Travel (여행) | 딥 블루 | `#1A1D2C` |
+| Furniture (가구) | 빈티지 오크 | `#7C4A2B` |
+| Living (생활) | 포슬린 | `#E0D6C2` |
+| Books (책) | 무광 블랙 | `#2C2724` |
 
 ## 팁 2: 슬러그 규칙
 

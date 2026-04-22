@@ -13,18 +13,18 @@ import {
 type FilterOption = 'all' | ProductCategory
 
 const FILTER_LABELS: Record<FilterOption, string> = {
-  all: '전체',
-  gift: '선물',
-  deal: '할인',
-  style: '스타일',
-  beauty: '뷰티',
-  space: '공간',
-  kitchen: '주방',
-  move: '운동',
-  travel: '여행',
-  furniture: '가구',
-  living: '생활',
-  books: '책',
+  all: 'All (전체)',
+  gift: 'Gift (선물)',
+  deal: 'Deal (할인)',
+  style: 'Style (스타일)',
+  beauty: 'Beauty (뷰티)',
+  space: 'Space (공간)',
+  kitchen: 'Kitchen (주방)',
+  move: 'Move (운동)',
+  travel: 'Travel (여행)',
+  furniture: 'Furniture (가구)',
+  living: 'Living (생활)',
+  books: 'Books (책)',
 }
 
 export function ShopPage() {

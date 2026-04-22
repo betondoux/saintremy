@@ -73,19 +73,19 @@ export interface Product {
   relatedArticleSlug?: string
 }
 
-// 한국어 라벨 (UI 표시용)
+// Bilingual 라벨 (UI 표시용) — "English (한글)"
 export const CATEGORY_LABELS_PRODUCT: Record<ProductCategory, string> = {
-  gift: '선물',
-  deal: '할인',
-  style: '스타일',
-  beauty: '뷰티',
-  space: '공간',
-  kitchen: '주방',
-  move: '운동',
-  travel: '여행',
-  furniture: '가구',
-  living: '생활',
-  books: '책',
+  gift: 'Gift (선물)',
+  deal: 'Deal (할인)',
+  style: 'Style (스타일)',
+  beauty: 'Beauty (뷰티)',
+  space: 'Space (공간)',
+  kitchen: 'Kitchen (주방)',
+  move: 'Move (운동)',
+  travel: 'Travel (여행)',
+  furniture: 'Furniture (가구)',
+  living: 'Living (생활)',
+  books: 'Books (책)',
 }
 
 // ─────────────────────────────────────────────────────────────
