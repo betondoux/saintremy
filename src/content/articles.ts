@@ -78,7 +78,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)
-export const CATEGORY_META: Record
+export const CATEGORY_META: Record<
   Category,
   { title: string; subtitle: string; icon: string }
 > = {
