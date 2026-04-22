@@ -4,7 +4,7 @@ import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
 import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
-import { AffiliateDisclosure } from '../components/AffiliateDisclosure'
+import AffiliateDisclosure from '../components/AffiliateDisclosure'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()

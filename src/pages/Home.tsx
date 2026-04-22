@@ -11,6 +11,7 @@ import {
   getAllArticles,
   CATEGORY_LABELS,
   CATEGORY_META,
+  ALL_CATEGORIES,
   type Article,
   type Category,
 } from '../content/articles'
@@ -24,12 +25,6 @@ import {
 
 export function Home() {
   const hero = getHeroArticle()
-  const lift = getArticlesByCategory('lift')
-  const combat = getArticlesByCategory('combat')
-  const football = getArticlesByCategory('football')
-  const run = getArticlesByCategory('run')
-  const flow = getArticlesByCategory('flow')
-  const court = getArticlesByCategory('court')
   const mostRead = getMostReadArticles()
   const allArticles = getAllArticles()
   const greatestHits = allArticles.slice(Math.max(1, allArticles.length - 4))
@@ -72,13 +67,14 @@ export function Home() {
       {/* AD SLOT 1: 히어로 → 기사 섹션 사이 (가로 배너) */}
       <AdSlot slot="hero-to-sections" format="horizontal" minHeight="100px" />
 
-      {/* 6 Sport Sections */}
-      <SectionBlock category="lift" articles={lift} />
-      <SectionBlock category="combat" articles={combat} />
-      <SectionBlock category="football" articles={football} />
-      <SectionBlock category="run" articles={run} />
-      <SectionBlock category="flow" articles={flow} />
-      <SectionBlock category="court" articles={court} />
+      {/* 10 Category Sections */}
+      {ALL_CATEGORIES.map((cat) => (
+        <SectionBlock
+          key={cat}
+          category={cat}
+          articles={getArticlesByCategory(cat)}
+        />
+      ))}
 
       {/* AD SLOT 2: 기사 섹션 → AMATOR FILMS 사이 */}
       <AdSlot slot="articles-to-shop" format="horizontal" minHeight="100px" />
@@ -234,8 +230,8 @@ export function Home() {
             매주 한 편의 글이 도착합니다
           </h3>
           <p className="body-text text-cream-300 text-sm md:text-base leading-relaxed mb-6">
-            LIFT · COMBAT · FOOTBALL · RUN · FLOW · COURT.<br />
-            그리고 꾸준히 오래 하는 법.
+            선물 · 할인 · 스타일 · 뷰티 · 공간 · 주방 · 운동 · 여행 · 가구 · 생활.<br />
+            그냥 좋아서 하는 사람들을 위한 매거진.
           </p>
           <form
             className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
@@ -281,7 +277,7 @@ function decideHeroSidecar(hero: Article | undefined): SidecarDecision {
   }
 
   // 2. FeaturedOn=FilmOfTheWeek 기사가 있으면 영상
-  const featuredFilm = getArticlesByCategory('run').find(
+  const featuredFilm = getAllArticles().find(
     (a) => a.featuredOn?.includes('FilmOfTheWeek') && a.youtube,
   )
   if (featuredFilm) {
