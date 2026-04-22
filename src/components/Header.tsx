@@ -4,7 +4,19 @@ import {
   ALL_CATEGORIES,
   CATEGORY_LABELS,
   CATEGORY_SHORT_LABELS,
+  type Category,
 } from '../content/articles'
+
+// 데스크탑 네비 2열 5행 수동 나열 순서.
+// grid-cols-2 는 row-major(좌→우, 위→아래)로 흐르므로,
+// 좌열이 [Gift,Deal,Style,Beauty,Space] 이 되려면 좌우를 행 단위로 교차해야 함.
+const DESKTOP_NAV_ORDER: Category[] = [
+  'gift', 'kitchen',
+  'deal', 'move',
+  'style', 'travel',
+  'beauty', 'furniture',
+  'space', 'living',
+]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -62,23 +74,16 @@ export function Header() {
           </Link>
 
           {/* 데스크탑 카테고리 — 2열 5행 그리드 (Strategist 스타일)
-              ALL_CATEGORIES 순서가 [gift…space, kitchen…living]이므로
-              grid-rows-5 + grid-flow-col 로 칼럼 우선 배치하면:
-                왼쪽:  Gift, Deal, Style, Beauty, Space
-                오른쪽: Kitchen, Move, Travel, Furniture, Living */}
+              좌열: Gift, Deal, Style, Beauty, Space
+              우열: Kitchen, Move, Travel, Furniture, Living
+              활성 페이지 강조 없음 — 모두 동일 색, hover 시만 signal */}
           <nav className="hidden md:block flex-shrink-0 w-[400px]">
-            <div className="grid grid-rows-5 grid-flow-col gap-x-12 md:gap-x-16 gap-y-3 text-left">
-              {ALL_CATEGORIES.map((cat) => (
+            <div className="grid grid-cols-2 gap-x-12 md:gap-x-16 gap-y-3 text-left">
+              {DESKTOP_NAV_ORDER.map((cat) => (
                 <NavLink
                   key={cat}
                   to={`/${cat}`}
-                  className={({ isActive }) =>
-                    `headline-ko text-sm md:text-base transition whitespace-nowrap ${
-                      isActive
-                        ? 'text-signal'
-                        : 'text-ink-900 hover:text-signal'
-                    }`
-                  }
+                  className="headline-ko text-sm md:text-base transition whitespace-nowrap text-ink-900 hover:text-signal"
                 >
                   {CATEGORY_SHORT_LABELS[cat]}
                 </NavLink>
@@ -157,11 +162,7 @@ export function Header() {
                   <NavLink
                     to={`/${cat}`}
                     onClick={closeMenu}
-                    className={({ isActive }) =>
-                      `block headline-ko text-3xl transition ${
-                        isActive ? 'text-signal' : 'text-ink-900'
-                      }`
-                    }
+                    className="block headline-ko text-3xl transition text-ink-900 hover:text-signal"
                   >
                     {CATEGORY_LABELS[cat]}
                   </NavLink>
