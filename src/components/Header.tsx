@@ -61,15 +61,19 @@ export function Header() {
             </span>
           </Link>
 
-          {/* 데스크탑 카테고리 — 2열 그리드 (영문 단축 라벨) */}
-          <nav className="hidden md:block flex-1 max-w-2xl">
-            <div className="grid grid-cols-5 gap-x-5 gap-y-2 text-right">
+          {/* 데스크탑 카테고리 — 2열 5행 그리드 (Strategist 스타일)
+              ALL_CATEGORIES 순서가 [gift…space, kitchen…living]이므로
+              grid-rows-5 + grid-flow-col 로 칼럼 우선 배치하면:
+                왼쪽:  Gift, Deal, Style, Beauty, Space
+                오른쪽: Kitchen, Move, Travel, Furniture, Living */}
+          <nav className="hidden md:block flex-shrink-0 w-[400px]">
+            <div className="grid grid-rows-5 grid-flow-col gap-x-12 md:gap-x-16 gap-y-3 text-left">
               {ALL_CATEGORIES.map((cat) => (
                 <NavLink
                   key={cat}
                   to={`/${cat}`}
                   className={({ isActive }) =>
-                    `headline-ko text-sm lg:text-base transition whitespace-nowrap ${
+                    `headline-ko text-sm md:text-base transition whitespace-nowrap ${
                       isActive
                         ? 'text-signal'
                         : 'text-ink-900 hover:text-signal'
