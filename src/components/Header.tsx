@@ -83,7 +83,7 @@ export function Header() {
                 <NavLink
                   key={cat}
                   to={`/${cat}`}
-                  className="font-sans font-medium tracking-wider text-xs md:text-[13px] transition whitespace-nowrap text-ink-900 hover:text-signal"
+                  className="font-sans font-light tracking-normal text-xs md:text-[13px] transition whitespace-nowrap text-ink-900 hover:text-signal"
                 >
                   {CATEGORY_SHORT_LABELS[cat]}
                 </NavLink>
