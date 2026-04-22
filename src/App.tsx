@@ -30,18 +30,35 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          {/* 6 sport categories */}
-          <Route path="/lift" element={<CategoryPage />} />
-          <Route path="/combat" element={<CategoryPage />} />
-          <Route path="/football" element={<CategoryPage />} />
-          <Route path="/run" element={<CategoryPage />} />
-          <Route path="/flow" element={<CategoryPage />} />
-          <Route path="/court" element={<CategoryPage />} />
+          {/* ═══════════════════════════════════════════════════
+              10개 카테고리 (AMATOR 2026)
+              ═══════════════════════════════════════════════════ */}
+          <Route path="/gift" element={<CategoryPage />} />
+          <Route path="/deal" element={<CategoryPage />} />
+          <Route path="/style" element={<CategoryPage />} />
+          <Route path="/beauty" element={<CategoryPage />} />
+          <Route path="/space" element={<CategoryPage />} />
+          <Route path="/kitchen" element={<CategoryPage />} />
+          <Route path="/move" element={<CategoryPage />} />
+          <Route path="/travel" element={<CategoryPage />} />
+          <Route path="/furniture" element={<CategoryPage />} />
+          <Route path="/living" element={<CategoryPage />} />
 
-          {/* Redirect legacy categories */}
-          <Route path="/science" element={<Navigate to="/lift" replace />} />
-          <Route path="/culture" element={<Navigate to="/combat" replace />} />
-          <Route path="/films" element={<Navigate to="/run" replace />} />
+          {/* ═══════════════════════════════════════════════════
+              레거시 6개 스포츠 카테고리 → /move로 리다이렉트
+              (기존 SEO 링크 보호)
+              ═══════════════════════════════════════════════════ */}
+          <Route path="/lift" element={<Navigate to="/move" replace />} />
+          <Route path="/combat" element={<Navigate to="/move" replace />} />
+          <Route path="/football" element={<Navigate to="/move" replace />} />
+          <Route path="/run" element={<Navigate to="/move" replace />} />
+          <Route path="/flow" element={<Navigate to="/move" replace />} />
+          <Route path="/court" element={<Navigate to="/move" replace />} />
+
+          {/* 구 legacy 리다이렉트 — 과거 블로그 링크 보호 */}
+          <Route path="/science" element={<Navigate to="/move" replace />} />
+          <Route path="/culture" element={<Navigate to="/move" replace />} />
+          <Route path="/films" element={<Navigate to="/move" replace />} />
 
           {/* Shop */}
           <Route path="/shop" element={<ShopPage />} />

@@ -2,17 +2,58 @@
 //
 // 빌드 타임에 Notion Products DB에서 가져온 generated/products.json을 로드.
 // Notion 미연결 시 폴백 데이터 사용.
+// 10개 한국어 카테고리로 확장 (선물/할인/스타일/뷰티/공간/주방/운동/여행/가구/생활).
+// 기존 6개 스포츠 카테고리는 '운동(move)'으로 자동 매핑.
 
 import productsData from '../generated/products.json'
 
+// 10개 카테고리 + books (책은 별도 유지)
 export type ProductCategory =
+  | 'gift'
+  | 'deal'
+  | 'style'
+  | 'beauty'
+  | 'space'
+  | 'kitchen'
+  | 'move'
+  | 'travel'
+  | 'furniture'
+  | 'living'
+  | 'books'
+
+// 레거시 카테고리 (Notion 데이터 호환용)
+type LegacyProductCategory =
   | 'lift'
   | 'combat'
   | 'football'
   | 'run'
   | 'flow'
   | 'court'
-  | 'books'
+
+// 레거시 → 'move'로 매핑
+const LEGACY_TO_MOVE: Record<LegacyProductCategory, ProductCategory> = {
+  lift: 'move',
+  combat: 'move',
+  football: 'move',
+  run: 'move',
+  flow: 'move',
+  court: 'move',
+}
+
+// 모든 유효 카테고리 (타입 가드용)
+const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
+  'gift',
+  'deal',
+  'style',
+  'beauty',
+  'space',
+  'kitchen',
+  'move',
+  'travel',
+  'furniture',
+  'living',
+  'books',
+]
 
 export interface Product {
   id: string
@@ -32,17 +73,43 @@ export interface Product {
   relatedArticleSlug?: string
 }
 
+// 한국어 라벨 (UI 표시용)
 export const CATEGORY_LABELS_PRODUCT: Record<ProductCategory, string> = {
-  lift: 'LIFT',
-  combat: 'COMBAT',
-  football: 'FOOTBALL',
-  run: 'RUN',
-  flow: 'FLOW',
-  court: 'COURT',
-  books: 'BOOKS',
+  gift: '선물',
+  deal: '할인',
+  style: '스타일',
+  beauty: '뷰티',
+  space: '공간',
+  kitchen: '주방',
+  move: '운동',
+  travel: '여행',
+  furniture: '가구',
+  living: '생활',
+  books: '책',
 }
 
-export const products: Product[] = productsData as unknown as Product[]
+// ─────────────────────────────────────────────────────────────
+// Notion 데이터 정제 — 레거시 카테고리 자동 매핑
+// ─────────────────────────────────────────────────────────────
+const normalizeProductCategory = (cat: string): ProductCategory => {
+  if (cat in LEGACY_TO_MOVE) {
+    return LEGACY_TO_MOVE[cat as LegacyProductCategory]
+  }
+  if (ALL_PRODUCT_CATEGORIES.includes(cat as ProductCategory)) {
+    return cat as ProductCategory
+  }
+  // 알 수 없는 카테고리 → 'living'으로 fallback (안전)
+  return 'living'
+}
+
+type RawProduct = Omit<Product, 'category'> & { category: string }
+
+export const products: Product[] = (productsData as unknown as RawProduct[]).map(
+  (product) => ({
+    ...product,
+    category: normalizeProductCategory(product.category),
+  }),
+)
 
 // ─────────────────────────────────────────────────────────────
 // Helper 함수들

@@ -4,6 +4,7 @@ import {
   getArticlesByCategory,
   CATEGORY_META,
   CATEGORY_LABELS,
+  ALL_CATEGORIES,
   type Category,
   type Article,
 } from '../content/articles'
@@ -12,33 +13,13 @@ import { Link } from 'react-router-dom'
 import { formatPrice, getDiscountPercent } from '../content/products'
 import type { Product } from '../content/products'
 
-const VALID_CATEGORIES: Category[] = [
-  'lift',
-  'combat',
-  'football',
-  'run',
-  'flow',
-  'court',
-]
-
-// 카테고리별 서브네비 (Strategist Men's Fashion > Accessories 스타일)
-// 지금은 비활성화 상태, 콘텐츠 20편+ 쌓이면 활성화
-const SUBNAV_ITEMS: Record<Category, string[]> = {
-  lift: ['Apparel', 'Shoes', 'Equipment', 'Supplements', 'Books', 'See All'],
-  combat: ['Gi', 'No-Gi', 'Gloves', 'Protection', 'Books', 'See All'],
-  football: ['Boots', 'Apparel', 'Shin Guards', 'Gear', 'Books', 'See All'],
-  run: ['Shoes', 'Apparel', 'Watches', 'Gels', 'Books', 'See All'],
-  flow: ['Apparel', 'Mats', 'Props', 'Equipment', 'Books', 'See All'],
-  court: ['Rackets', 'Shoes', 'Apparel', 'Accessories', 'Books', 'See All'],
-}
-
 export function CategoryPage() {
   const params = useParams<{ category?: string }>()
   const location = useLocation()
   const segment = location.pathname.split('/').filter(Boolean)[0] ?? ''
   const categoryCandidate = (params.category ?? segment) as Category
 
-  if (!VALID_CATEGORIES.includes(categoryCandidate)) {
+  if (!ALL_CATEGORIES.includes(categoryCandidate)) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-20 text-center">
         <div className="typewriter-label text-ink-500 mb-4">— 404</div>
@@ -60,14 +41,11 @@ export function CategoryPage() {
     categoryCandidate as ProductCategory,
   ).slice(0, 4)
 
-  // 서브네비 구성 (카테고리별 큐레이션 서브토픽)
-  const subnavItems = SUBNAV_ITEMS[categoryCandidate] || []
-
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
-      <header className="text-center mb-8">
+      <header className="text-center mb-10 pb-8 border-b-2 border-ink-900">
         <div className="text-5xl mb-3">{meta.icon}</div>
-        <h1 className="masthead text-6xl md:text-7xl text-ink-900 leading-none">
+        <h1 className="headline-ko text-5xl md:text-6xl text-ink-900 leading-none">
           {meta.title}
         </h1>
         <p className="body-text text-ink-500 max-w-xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
@@ -75,25 +53,8 @@ export function CategoryPage() {
         </p>
       </header>
 
-      {/* Subnav - Strategist style (Men's Fashion > Accessories, Shoes...) */}
-      {subnavItems.length > 0 && (
-        <div className="mb-10 pb-4 border-b-2 border-ink-900 text-center">
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 typewriter-label text-ink-500">
-            {subnavItems.map((item, i) => (
-              <span
-                key={i}
-                className="hover:text-signal transition cursor-pointer opacity-60"
-                title="콘텐츠가 쌓이면 활성화됩니다"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Articles */}
-      <div className="border-t-2 border-ink-900">
+      <div>
         {articles.length === 0 ? (
           <div className="py-16 text-center">
             <div className="typewriter-label text-ink-500 mb-2">
@@ -113,20 +74,20 @@ export function CategoryPage() {
       </div>
 
       {/* ═════════════════════════════════════════════════════════
-          Films in this category — 이 종목 관련 영상
+          Films in this category — 이 카테고리 관련 영상
           ═════════════════════════════════════════════════════════ */}
       {categoryVideos.length > 0 && (
         <section className="mt-16 pt-10 border-t-2 border-ink-900">
           <div className="flex items-end justify-between mb-6">
             <div>
-              <h2 className="headline-italic text-2xl md:text-3xl text-ink-900 leading-none">
-                {meta.title} Films
+              <h2 className="headline-ko text-2xl md:text-3xl text-ink-900 leading-none">
+                {meta.title} 영상
               </h2>
               <p className="body-text text-ink-500 text-xs mt-2">
-                이 종목의 영상 스토리
+                이 카테고리의 영상 스토리
               </p>
             </div>
-            <a
+            
               href="https://youtube.com/@amator.kr"
               target="_blank"
               rel="noopener noreferrer"
@@ -149,11 +110,11 @@ export function CategoryPage() {
         <section className="mt-16 pt-10 border-t-2 border-ink-900">
           <div className="flex items-end justify-between mb-6">
             <div>
-              <h2 className="headline-italic text-2xl md:text-3xl text-ink-900 leading-none">
-                {meta.title} Gear
+              <h2 className="headline-ko text-2xl md:text-3xl text-ink-900 leading-none">
+                {meta.title} 추천
               </h2>
               <p className="body-text text-ink-500 text-xs mt-2">
-                이 종목 추천 장비
+                이 카테고리 추천 상품
               </p>
             </div>
             <Link
@@ -172,7 +133,7 @@ export function CategoryPage() {
 
           <div className="mt-8 text-center">
             <p className="typewriter text-ink-400 text-xs">
-              * AMATOR는 쿠팡 파트너스 활동을 통해 수수료를 받을 수 있습니다.
+              * AMATOR는 쿠팡 파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있습니다.
             </p>
           </div>
         </section>
@@ -185,7 +146,7 @@ export function CategoryPage() {
 function ProductMini({ product }: { product: Product }) {
   const discount = getDiscountPercent(product)
   return (
-    <a
+    
       href={product.affiliateURL}
       target="_blank"
       rel="noopener sponsored"
