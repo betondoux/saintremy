@@ -63,7 +63,7 @@ export interface Article {
   featuredOn?: string[]
 }
 
-// Bilingual 카테고리 라벨 — 네비/카드/뱃지 공용
+// Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
 // 형식: "English (한글)" — UI가 너무 한글 일색이지 않도록.
 export const CATEGORY_LABELS: Record<Category, string> = {
   gift: 'Gift (선물)',
@@ -76,6 +76,20 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   travel: 'Travel (여행)',
   furniture: 'Furniture (가구)',
   living: 'Living (생활)',
+}
+
+// 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
+export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
+  gift: 'Gift',
+  deal: 'Deal',
+  style: 'Style',
+  beauty: 'Beauty',
+  space: 'Space',
+  kitchen: 'Kitchen',
+  move: 'Move',
+  travel: 'Travel',
+  furniture: 'Furniture',
+  living: 'Living',
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)

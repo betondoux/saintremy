@@ -1,6 +1,10 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { ALL_CATEGORIES, CATEGORY_LABELS } from '../content/articles'
+import {
+  ALL_CATEGORIES,
+  CATEGORY_LABELS,
+  CATEGORY_SHORT_LABELS,
+} from '../content/articles'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,9 +61,9 @@ export function Header() {
             </span>
           </Link>
 
-          {/* 데스크탑 카테고리 — 2열 그리드 */}
-          <nav className="hidden md:block flex-1 max-w-md">
-            <div className="grid grid-cols-5 gap-x-4 gap-y-2 text-right">
+          {/* 데스크탑 카테고리 — 2열 그리드 (영문 단축 라벨) */}
+          <nav className="hidden md:block flex-1 max-w-2xl">
+            <div className="grid grid-cols-5 gap-x-5 gap-y-2 text-right">
               {ALL_CATEGORIES.map((cat) => (
                 <NavLink
                   key={cat}
@@ -72,7 +76,7 @@ export function Header() {
                     }`
                   }
                 >
-                  {CATEGORY_LABELS[cat]}
+                  {CATEGORY_SHORT_LABELS[cat]}
                 </NavLink>
               ))}
             </div>
