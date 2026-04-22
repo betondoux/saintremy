@@ -78,12 +78,12 @@ export function Header() {
               우열: Kitchen, Move, Travel, Furniture, Living
               활성 페이지 강조 없음 — 모두 동일 색, hover 시만 signal */}
           <nav className="hidden md:block flex-shrink-0 w-[400px]">
-            <div className="grid grid-cols-2 gap-x-12 md:gap-x-16 gap-y-3 text-left">
+            <div className="grid grid-cols-2 gap-x-12 md:gap-x-16 gap-y-2 text-left">
               {DESKTOP_NAV_ORDER.map((cat) => (
                 <NavLink
                   key={cat}
                   to={`/${cat}`}
-                  className="headline-ko text-xs md:text-sm transition whitespace-nowrap text-ink-900 hover:text-signal"
+                  className="font-sans font-medium tracking-wider text-xs md:text-[13px] transition whitespace-nowrap text-ink-900 hover:text-signal"
                 >
                   {CATEGORY_SHORT_LABELS[cat]}
                 </NavLink>
