@@ -42,7 +42,7 @@ export function ShopPage() {
           Shop
         </h1>
         <p className="body-text text-ink-500 max-w-xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-          아마토르가 직접 써보고, 읽어보고, 뛰어본 것들.
+          Saint-Rémy가 직접 써보고, 읽어보고, 뛰어본 것들.
           <br />
           모든 링크는 투명하게 공개합니다.
         </p>
