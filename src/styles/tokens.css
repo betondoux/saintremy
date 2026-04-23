@@ -1,0 +1,68 @@
+/* ═══════════════════════════════════════════════════════════════
+   Saint-Rémy Design Tokens
+   — 2026-04-24 · 카테고리 액센트 라인 + 타이포 그래픽 + Wirecutter 라인
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ───────────────────────────────── */
+  /* 기본 팔레트                        */
+  /* ───────────────────────────────── */
+  --sr-bg:       #F5EFE4;
+  --sr-paper:    #EFE7D7;
+  --sr-ink:      #1A1A1A;
+  --sr-muted:    #6B6B6B;
+  --sr-rule:     #C9BFAE;
+
+  /* ───────────────────────────────── */
+  /* 카테고리 액센트 컬러 (2px 라인용)  */
+  /* ───────────────────────────────── */
+  --cat-gift:      #C4923A;
+  --cat-deal:      #7A2E2A;
+  --cat-style:     #2C4A3E;
+  --cat-beauty:    #C8402D;
+  --cat-space:     #6B7F5E;
+  --cat-kitchen:   #8E4A2B;
+  --cat-move:      #4A5C6A;
+  --cat-travel:    #8B7355;
+  --cat-furn:      #3F3F3F;
+  --cat-living:    #A8897A;
+
+  /* Issue 시그니처 (시즌당 1개 변경) */
+  --issue-current: var(--cat-beauty);
+
+  /* ───────────────────────────────── */
+  /* 타이포그래피                       */
+  /* ───────────────────────────────── */
+  --font-display-en: 'Playfair Display', Georgia, serif;
+  --font-display-kr: 'Black Han Sans', 'Noto Serif KR', sans-serif;
+  --font-serif-kr:   'Noto Serif KR', Georgia, serif;
+  --font-body-kr:    'Pretendard Variable', 'Pretendard', 'Inter', 'Spoqa Han Sans Neo', sans-serif;
+  --font-mono:       'JetBrains Mono', 'Courier New', monospace;
+
+  /* 스케일 — 모바일 기준 */
+  --fs-hero-num:    96px;
+  --fs-h1:          40px;
+  --fs-h2:          24px;
+  --fs-body:        17px;
+  --fs-meta:        13px;
+  --fs-label:       11px;
+
+  /* 간격 */
+  --sp-section:     80px;
+  --sp-block:       32px;
+
+  /* 라인 */
+  --rule-thin:      1px;
+  --rule-accent:    2px;
+}
+
+/* 데스크톱 오버라이드 */
+@media (min-width: 768px) {
+  :root {
+    --fs-hero-num:  160px;
+    --fs-h1:         56px;
+    --fs-h2:         32px;
+    --fs-body:       18px;
+    --sp-section:    120px;
+  }
+}
