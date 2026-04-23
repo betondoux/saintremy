@@ -330,8 +330,26 @@ function RenderBody({ body }: { body: string }) {
 }
 
 function renderInline(text: string): React.ReactNode {
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
+  // 순서: 링크 [text](url) 먼저 — 내부에 **/*/` 포함될 수 있으니 가장 먼저 매칭.
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
   return parts.map((part, i) => {
+    // 마크다운 링크 [text](url) — 어필리에이트 CTA 용도
+    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (linkMatch) {
+      const [, label, url] = linkMatch
+      const external = /^https?:\/\//.test(url)
+      return (
+        <a
+          key={i}
+          href={url}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener sponsored nofollow' : undefined}
+          className="text-signal underline decoration-signal/40 underline-offset-4 hover:text-ink-900 hover:decoration-ink-900 transition"
+        >
+          {label}
+        </a>
+      )
+    }
     if (part.startsWith('**') && part.endsWith('**')) {
       return (
         <strong key={i} className="font-bold text-ink-900">
