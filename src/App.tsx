@@ -7,6 +7,7 @@ import { Home } from './pages/Home'
 import { CategoryPage } from './pages/CategoryPage'
 import { ArticlePage } from './pages/ArticlePage'
 import { ShopPage } from './pages/ShopPage'
+import { SearchPage } from './pages/SearchPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
 import { AboutPage } from './pages/AboutPage'
@@ -61,6 +62,9 @@ function App() {
 
           {/* Shop */}
           <Route path="/shop" element={<ShopPage />} />
+
+          {/* Search (placeholder) */}
+          <Route path="/search" element={<SearchPage />} />
 
           {/* Legal & Info pages */}
           <Route path="/privacy" element={<PrivacyPage />} />

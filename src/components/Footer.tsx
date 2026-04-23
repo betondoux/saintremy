@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ALL_CATEGORIES, CATEGORY_SHORT_LABELS } from '../content/articles'
+import { ALL_CATEGORIES, CATEGORY_META } from '../content/articles'
 import { NewsletterInline } from './NewsletterInline'
 
 export function Footer() {
@@ -26,21 +26,20 @@ export function Footer() {
         {/* Sitemap */}
         <div className="mt-10 pt-8 border-t border-dashed border-ink-900/25">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
-            {/* 매거진 — 10개 카테고리 (articles.ts single source of truth) */}
-            <div>
-              <div className="typewriter-label text-ink-900 mb-2">매거진</div>
-              <ul className="typewriter text-ink-500 space-y-1">
+            {/* 매거진 — 10개 카테고리 (2열 그리드, Korean 라벨) */}
+            <div className="md:col-span-2">
+              <div className="typewriter-label text-ink-900 mb-3">매거진</div>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-2">
                 {ALL_CATEGORIES.map((cat) => (
-                  <li key={cat}>
-                    <Link
-                      to={`/${cat}`}
-                      className="hover:text-ink-900 uppercase"
-                    >
-                      {CATEGORY_SHORT_LABELS[cat]}
-                    </Link>
-                  </li>
+                  <Link
+                    key={cat}
+                    to={`/${cat}`}
+                    className="typewriter text-ink-500 hover:text-ink-900 transition"
+                  >
+                    {CATEGORY_META[cat].title}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* 소개 (이전 '샵' 섹션 — 에디토리얼 매거진 포지셔닝) */}
