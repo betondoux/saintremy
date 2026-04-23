@@ -60,6 +60,7 @@ export interface Article {
   sources?: Source[]
   youtube?: string
   thumbnailColor?: string
+  heroImage?: string
   featuredOn?: string[]
 }
 
