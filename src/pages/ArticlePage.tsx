@@ -282,6 +282,60 @@ function RenderBody({ body }: { body: string }) {
           )
         }
 
+        // 마크다운 테이블 — `| col | col |` + `|---|---|` 구분행 + 바디 행
+        if (trimmed.startsWith('|') && trimmed.includes('\n|')) {
+          const lines = trimmed.split('\n').map((l) => l.trim())
+          const sepLine = lines[1]
+          const isTable =
+            sepLine &&
+            /^\|[\s:|-]+\|$/.test(sepLine) &&
+            sepLine.includes('---')
+          if (isTable) {
+            const parseCells = (line: string) =>
+              line
+                .replace(/^\||\|$/g, '')
+                .split('|')
+                .map((c) => c.trim())
+            const headers = parseCells(lines[0])
+            const rows = lines.slice(2).filter(Boolean).map(parseCells)
+            return (
+              <div key={i} className="my-8 overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-ink-900">
+                      {headers.map((h, j) => (
+                        <th
+                          key={j}
+                          className="typewriter-label text-ink-900 text-xs py-3 pr-4 text-left align-bottom"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((row, j) => (
+                      <tr
+                        key={j}
+                        className="border-b border-dashed border-ink-900/20"
+                      >
+                        {row.map((cell, k) => (
+                          <td
+                            key={k}
+                            className="body-text text-ink-900 text-sm md:text-base py-3 pr-4 align-top leading-snug"
+                          >
+                            {renderInline(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+          }
+        }
+
         // 불릿 리스트
         if (/^•\s/.test(trimmed) && trimmed.includes('\n')) {
           const items = trimmed
