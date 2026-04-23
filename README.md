@@ -58,7 +58,7 @@ npm run preview  # serve the build locally
 
 ## Deploy to Cloudflare Pages
 
-1. Push this repo to GitHub (`betondoux/amator` — 레거시 repo 이름, 추후 rename 고려).
+1. Push this repo to GitHub (레거시 repo 이름 그대로, rename 예정).
 2. Go to [Cloudflare Pages dashboard](https://dash.cloudflare.com) → **Create a project** → **Connect to Git**.
 3. Pick repo.
 4. Build settings:
@@ -66,7 +66,7 @@ npm run preview  # serve the build locally
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
 5. Deploy. Every `git push` to `main` redeploys automatically.
-6. Custom domain: `saintremy.kr` (Phase 2 마이그레이션 대상). 레거시 `amator.kr`은 301 리다이렉트로 당분간 유지.
+6. Custom domain: `saintremy.kr` (Active). 구 도메인은 301 리다이렉트 유지.
 
 `public/_redirects` handles React Router's SPA fallback so direct URLs like `/kr/gym` load correctly.
 

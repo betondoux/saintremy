@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const CONSENT_KEY = 'amator_cookie_consent'
+const CONSENT_KEY = 'saintremy_cookie_consent'
 
 /**
  * CookieBanner — 한국 PIPA + GDPR 준수 쿠키 동의 배너.
@@ -33,13 +33,13 @@ export function CookieBanner() {
     localStorage.setItem(CONSENT_KEY, 'accepted')
     setVisible(false)
     // Global flag for analytics/ads
-    ;(window as any).__amator_consent = 'accepted'
+    ;(window as any).__saintremy_consent = 'accepted'
   }
 
   const handleReject = () => {
     localStorage.setItem(CONSENT_KEY, 'rejected')
     setVisible(false)
-    ;(window as any).__amator_consent = 'rejected'
+    ;(window as any).__saintremy_consent = 'rejected'
   }
 
   if (!visible) return null
