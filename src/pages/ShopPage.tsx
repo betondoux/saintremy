@@ -94,8 +94,9 @@ export function ShopPage() {
           </h2>
           <div className="body-text text-ink-500 space-y-3 text-sm md:text-base text-left">
             <p>
-              Saint-Rémy는 쿠팡 파트너스, 네이버 쇼핑 파트너 등 어필리에이트
-              프로그램을 통해 수익을 얻습니다. 독자가 Saint-Rémy에서 제품 링크를
+              Saint-Rémy는 쿠팡 파트너스, 오늘의집 큐레이터, 올리브영 쇼핑
+              큐레이터 등 어필리에이트 프로그램을 통해 수익을 얻습니다.
+              독자가 Saint-Rémy에서 제품 링크를
               클릭하여 구매하면, 판매 금액의 일부를 수수료로 받습니다.
             </p>
             <p>

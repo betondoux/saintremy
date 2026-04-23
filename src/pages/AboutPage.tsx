@@ -18,8 +18,6 @@ export function AboutPage() {
         </h1>
         <p className="headline-italic text-xl md:text-2xl text-ink-700 mt-6 leading-snug">
           평범한 사물을 깊이 보는 매거진.
-          <br />
-          그냥 좋아서 하는 사람들을 위한 큐레이션.
         </p>
       </header>
 
@@ -111,41 +109,21 @@ export function AboutPage() {
           </h2>
           <div className="p-6 bg-cream-200/50 border-l-2 border-signal">
             <p>
-              <strong>DUCK DIVE</strong>는 인디 개발자 김태원이 운영하는 1인
-              스튜디오입니다. 서울 기반. 2026년 설립.
-            </p>
-            <p className="mt-3">
-              Saint-Rémy 외에도 모바일 앱과 게임을 만들고, 유튜브 채널{' '}
-              <a
-                href="https://youtube.com/@saintremy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-signal underline"
-              >
-                @saintremy
-              </a>
-              에서 영상 에디토리얼을 제작합니다.
+              <strong>LLSV</strong>는 서울 기반 매거진 스튜디오입니다.
+              2026년 설립.
             </p>
             <p className="mt-3">
               문의:{' '}
               <a
-                href="mailto:lonelyjar2@gmail.com"
+                href="mailto:adrenoir@naver.com"
                 className="text-signal underline"
               >
-                lonelyjar2@gmail.com
+                adrenoir@naver.com
               </a>
             </p>
           </div>
         </section>
 
-        <section className="text-center py-8">
-          <p className="headline-italic text-2xl text-ink-700">
-            "그냥 좋아서 하는 사람."
-          </p>
-          <p className="typewriter text-ink-500 mt-3">
-            Saint-Rémy · 2026
-          </p>
-        </section>
       </div>
 
       <div className="mt-10 pt-8 border-t-2 border-ink-900 text-center">

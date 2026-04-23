@@ -87,7 +87,7 @@ export function Footer() {
                     TERMS
                   </Link>
                 </li>
-                <li>lonelyjar2@gmail.com</li>
+                <li>adrenoir@naver.com</li>
                 <li>SEOUL · KOREA</li>
               </ul>
             </div>
@@ -97,9 +97,9 @@ export function Footer() {
         {/* Affiliate disclosure */}
         <div className="mt-10 pt-6 border-t border-dashed border-ink-900/25">
           <p className="typewriter text-ink-400 text-xs leading-relaxed text-center max-w-2xl mx-auto">
-            Saint-Rémy는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates 등
-            어필리에이트 프로그램의 일환으로 제품 구매 시 일정 수수료를
-            받을 수 있습니다. 이는 제품 추천 기준에 영향을 미치지 않습니다.{' '}
+            Saint-Rémy는 쿠팡 파트너스 등 어필리에이트 프로그램의 일환으로
+            제품 구매 시 일정 수수료를 받을 수 있습니다. 이는 제품 추천
+            기준에 영향을 미치지 않습니다.{' '}
             <Link to="/terms" className="underline hover:text-ink-900">
               자세히 보기 →
             </Link>
@@ -107,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="mt-6 pt-6 border-t border-dashed border-ink-900/25 flex flex-col md:flex-row justify-between items-center gap-2 typewriter text-ink-500">
-          <div>© {year} DUCK DIVE · Saint-Rémy MAG</div>
+          <div>© {year} LLSV · Saint-Rémy MAG</div>
           <div>ISSUE No.001 · COMING SPRING 2026</div>
         </div>
       </div>

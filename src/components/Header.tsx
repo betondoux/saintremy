@@ -43,7 +43,7 @@ export function Header() {
       <div className="border-b border-ink-900/10">
         <div className="max-w-6xl mx-auto px-6 h-10 flex items-center justify-between">
           <div className="typewriter-label text-ink-500">
-            DUCK DIVE · SEOUL
+            LLSV · SEOUL
           </div>
           <div className="typewriter-label text-ink-500 hidden md:block">
             ISSUE No.001 · COMING SPRING 2026
@@ -116,7 +116,7 @@ export function Header() {
       <div className="border-t border-dashed border-ink-900/30 hidden md:block">
         <div className="max-w-6xl mx-auto px-6 py-3">
           <p className="typewriter text-ink-500 text-xs md:text-sm leading-relaxed text-center">
-            그냥 좋아서 하는 사람들을 위한 매거진.
+            평범한 사물을 깊이 보는 매거진.
           </p>
         </div>
       </div>
@@ -180,7 +180,7 @@ export function Header() {
                 ABOUT →
               </Link>
               <p className="typewriter text-ink-500 text-xs leading-relaxed mt-8">
-                그냥 좋아서 하는 사람들을 위한 매거진.
+                평범한 사물을 깊이 보는 매거진.
               </p>
             </div>
           </nav>

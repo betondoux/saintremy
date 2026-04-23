@@ -9,7 +9,7 @@ export function TermsPage() {
           Terms
         </h1>
         <p className="body-text text-ink-500 mt-4">
-          이용약관 · 최종 업데이트 2026년 4월 21일
+          이용약관 · 최종 업데이트 2026년 4월 23일
         </p>
       </header>
 
@@ -19,7 +19,7 @@ export function TermsPage() {
             제1조 (목적)
           </h2>
           <p>
-            본 약관은 DUCK DIVE(이하 "운영자")가 제공하는 Saint-Rémy(saintremy.kr,
+            본 약관은 LLSV(이하 "운영자")가 제공하는 Saint-Rémy(saintremy.kr,
             이하 "사이트") 이용과 관련하여 운영자와 이용자의 권리, 의무 및
             책임사항을 규정함을 목적으로 합니다.
           </p>
@@ -44,9 +44,10 @@ export function TermsPage() {
           </p>
           <ul className="list-disc pl-6 mt-2 space-y-1">
             <li>쿠팡 파트너스</li>
-            <li>무신사 파트너스</li>
-            <li>Amazon Associates</li>
-            <li>기타 브랜드 공식 제휴 프로그램</li>
+            <li>오늘의집 큐레이터</li>
+            <li>올리브영 쇼핑 큐레이터</li>
+            <li>LinkPrice</li>
+            <li>기타 국내외 주요 제휴 프로그램</li>
           </ul>
           <p className="mt-3">
             단, <strong>편집 독립성</strong>을 유지하기 위해 수수료율에
@@ -125,15 +126,15 @@ export function TermsPage() {
           </h2>
           <div className="p-5 bg-cream-200/50 border border-ink-900/20 mt-3">
             <p className="mb-1">
-              <strong>운영자:</strong> DUCK DIVE (김태원)
+              <strong>운영자:</strong> LLSV
             </p>
             <p>
               <strong>이메일:</strong>{' '}
               <a
-                href="mailto:lonelyjar2@gmail.com"
+                href="mailto:adrenoir@naver.com"
                 className="text-signal underline"
               >
-                lonelyjar2@gmail.com
+                adrenoir@naver.com
               </a>
             </p>
           </div>

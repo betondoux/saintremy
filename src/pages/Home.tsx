@@ -238,7 +238,7 @@ export function Home() {
           </h3>
           <p className="body-text text-cream-300 text-sm md:text-base leading-relaxed mb-6">
             선물 · 할인 · 스타일 · 뷰티 · 공간 · 주방 · 운동 · 여행 · 가구 · 생활.<br />
-            그냥 좋아서 하는 사람들을 위한 매거진.
+            평범한 사물을 깊이 보는 매거진.
           </p>
           <form
             className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
@@ -279,14 +279,9 @@ function PreLaunchHero() {
         Saint-Rémy
       </div>
 
-      {/* Primary positioning — 평범한 사물을 깊이 보는 매거진 */}
+      {/* Slogan (통일) */}
       <p className="headline-ko text-ink-900 text-2xl md:text-3xl mt-8 leading-snug">
         평범한 사물을 깊이 보는 매거진
-      </p>
-
-      {/* Sub-slogan */}
-      <p className="headline-ko text-ink-500 text-base md:text-lg mt-3 leading-snug">
-        그냥 좋아서 하는 사람들을 위한 큐레이션
       </p>
 
       {/* Coming soon label */}

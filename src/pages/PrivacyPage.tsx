@@ -9,7 +9,7 @@ export function PrivacyPage() {
           Privacy
         </h1>
         <p className="body-text text-ink-500 mt-4">
-          개인정보 처리방침 · 최종 업데이트 2026년 4월 21일
+          개인정보 처리방침 · 최종 업데이트 2026년 4월 23일
         </p>
       </header>
 
@@ -19,7 +19,7 @@ export function PrivacyPage() {
             1. 개인정보의 처리 목적
           </h2>
           <p>
-            DUCK DIVE(이하 "운영자")가 운영하는 Saint-Rémy(saintremy.kr, 이하 "사이트")는 다음과
+            LLSV(이하 "운영자")가 운영하는 Saint-Rémy(saintremy.kr, 이하 "사이트")는 다음과
             같은 목적으로 개인정보를 수집 및 처리합니다.
           </p>
           <ul className="list-disc pl-6 mt-3 space-y-1">
@@ -115,8 +115,9 @@ export function PrivacyPage() {
             6. 어필리에이트 고지
           </h2>
           <p>
-            Saint-Rémy는 쿠팡 파트너스, 무신사 파트너스, Amazon Associates,
-            브랜드 직접 제휴 등의 어필리에이트 프로그램에 참여하고 있으며,
+            Saint-Rémy는 쿠팡 파트너스, 오늘의집 큐레이터, 올리브영 쇼핑
+            큐레이터, 브랜드 직접 제휴 등의 어필리에이트 프로그램에 참여하고
+            있으며,
             사이트 내 상품 링크를 통해 구매가 이루어질 경우 일정 금액의
             수수료를 제공받을 수 있습니다. 이는 사이트 운영비로 사용됩니다.
           </p>
@@ -144,15 +145,15 @@ export function PrivacyPage() {
           </h2>
           <div className="p-5 bg-cream-200/50 border border-ink-900/20 mt-3">
             <p className="mb-1">
-              <strong>운영자:</strong> DUCK DIVE (김태원)
+              <strong>운영자:</strong> LLSV
             </p>
             <p className="mb-1">
               <strong>이메일:</strong>{' '}
               <a
-                href="mailto:lonelyjar2@gmail.com"
+                href="mailto:adrenoir@naver.com"
                 className="text-signal underline"
               >
-                lonelyjar2@gmail.com
+                adrenoir@naver.com
               </a>
             </p>
             <p>
@@ -169,7 +170,7 @@ export function PrivacyPage() {
             9. 처리방침의 변경
           </h2>
           <p>
-            본 처리방침은 2026년 4월 21일부터 적용되며, 법령 및 방침에 따라
+            본 처리방침은 2026년 4월 23일부터 적용되며, 법령 및 방침에 따라
             변경될 수 있습니다. 변경 시 사이트 공지를 통해 알려드립니다.
           </p>
         </section>
