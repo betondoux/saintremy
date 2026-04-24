@@ -139,10 +139,13 @@ function AffiliateNotice() {
 // HERO BLOCK — THIS WEEK'S FEATURE
 // ═══════════════════════════════════════════════════════════════
 function HeroBlock({ article }: { article: Article }) {
-  // 제목 끝에 숫자가 있으면 분리해서 italic 처리 ("선크림 BEST 5" → "5" italic)
-  const titleMatch = article.title.match(/^(.+?)\s+(\d+)\s*$/)
-  const mainTitle = titleMatch ? titleMatch[1] : article.title
-  const italicNum = titleMatch ? titleMatch[2] : null
+  // 제목 패턴 감지
+  // 1) "X vs Y" (e.g., AirPods Pro 3 vs Galaxy Buds 4 Pro) → 3 라인, vs 이탤릭
+  // 2) 끝자리 숫자 ("선크림 BEST 5") → 숫자 이탤릭 Playfair
+  const vsMatch = article.title.match(/^(.+?)\s+vs\s+(.+)$/i)
+  const numMatch = !vsMatch
+    ? article.title.match(/^(.+?)\s+(\d+)\s*$/)
+    : null
 
   return (
     <section className="max-w-3xl mx-auto px-6 py-8">
@@ -188,12 +191,30 @@ function HeroBlock({ article }: { article: Article }) {
                 fontWeight: 700,
                 lineHeight: 1.15,
                 color: 'var(--sr-ink)',
+                textWrap: 'balance',
               }}
             >
-              {mainTitle}
-              {italicNum && (
+              {vsMatch ? (
                 <>
-                  {' '}
+                  <span className="block">{vsMatch[1]}</span>
+                  <em
+                    className="block"
+                    style={{
+                      fontFamily: 'var(--font-display-en)',
+                      fontStyle: 'italic',
+                      fontWeight: 400,
+                      fontSize: '0.7em',
+                      color: 'var(--sr-muted)',
+                      margin: '0.2em 0',
+                    }}
+                  >
+                    vs
+                  </em>
+                  <span className="block">{vsMatch[2]}</span>
+                </>
+              ) : numMatch ? (
+                <>
+                  {numMatch[1]}{' '}
                   <em
                     style={{
                       fontFamily: 'var(--font-display-en)',
@@ -201,9 +222,11 @@ function HeroBlock({ article }: { article: Article }) {
                       fontSize: '1.4em',
                     }}
                   >
-                    {italicNum}
+                    {numMatch[2]}
                   </em>
                 </>
+              ) : (
+                article.title
               )}
             </h1>
 
