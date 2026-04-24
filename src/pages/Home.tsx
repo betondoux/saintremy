@@ -47,7 +47,7 @@ export function Home() {
       <div className="max-w-6xl mx-auto px-6">
         {ALL_CATEGORIES.map((cat, i) => (
           <div key={cat}>
-            <CategorySection category={cat} />
+            <CategorySection category={cat} excludeSlug={hero?.slug} />
             {ORNAMENT_AFTER[i] && <Ornament symbol={ORNAMENT_AFTER[i]} />}
           </div>
         ))}
@@ -242,9 +242,17 @@ function HeroBlock({ article }: { article: Article }) {
 // ═══════════════════════════════════════════════════════════════
 // CATEGORY SECTION — 카테고리별 제목 + 2px 라인 + 기사 또는 COMING SOON
 // ═══════════════════════════════════════════════════════════════
-function CategorySection({ category }: { category: Category }) {
+function CategorySection({
+  category,
+  excludeSlug,
+}: {
+  category: Category
+  excludeSlug?: string
+}) {
   const meta = CATEGORY_META[category]
-  const articles = getArticlesByCategory(category)
+  const articles = getArticlesByCategory(category).filter(
+    (a) => a.slug !== excludeSlug,
+  )
   const hasArticles = articles.length > 0
   const color = CATEGORY_COLORS[category]
 
