@@ -402,7 +402,10 @@ function RenderBody({ body }: { body: string }) {
 
 function renderInline(text: string): React.ReactNode {
   // 순서: 링크 [text](url) 먼저 — 내부에 **/*/` 포함될 수 있으니 가장 먼저 매칭.
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g)
+  // ~~취소선~~ 은 **bold** 보다 먼저 (둘 다 연속 문자 2개라 겹침 가능).
+  const parts = text.split(
+    /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|~~[^~]+~~|\*[^*]+\*|`[^`]+`)/g,
+  )
   return parts.map((part, i) => {
     // 마크다운 링크 [text](url) — 어필리에이트 CTA 용도
     const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
@@ -426,6 +429,13 @@ function renderInline(text: string): React.ReactNode {
         <strong key={i} className="font-bold text-ink-900">
           {part.slice(2, -2)}
         </strong>
+      )
+    }
+    if (part.startsWith('~~') && part.endsWith('~~')) {
+      return (
+        <s key={i} className="text-ink-400">
+          {part.slice(2, -2)}
+        </s>
       )
     }
     if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
