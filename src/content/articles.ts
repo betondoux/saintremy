@@ -342,8 +342,19 @@ export function getLatestArticle(): Article | undefined {
 }
 
 export function getHeroArticle(): Article | undefined {
+  // 1순위 — THE DUEL 시리즈 기사 중 최신 것이 항상 hero.
+  //   새 DUEL N°xxx 이 발행되면 자동으로 맨 위로 승격.
+  const duels = articles
+    .filter((a) => a.categoryLabel === 'THE DUEL')
+    .sort((a, b) => b.published.localeCompare(a.published))
+  if (duels.length > 0) return duels[0]
+
+  // 2순위 — featuredOn: ["Hero"] 수동 뱃지
   const featured = articles.find((a) => a.featuredOn?.includes('Hero'))
-  return featured ?? getLatestArticle()
+  if (featured) return featured
+
+  // 3순위 — 최신 기사 (fallback)
+  return getLatestArticle()
 }
 
 export function getFilmOfTheWeek(): Article | undefined {
