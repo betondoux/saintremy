@@ -1,7 +1,10 @@
 // src/components/CategoryIcon.tsx
 // NYT Wirecutter 풍 라인 드로잉 카테고리 아이콘.
-// 실제 SVG 파일은 /public/icons/categories/{slug}.svg 에 추후 배치.
-// 파일이 없으면 onError로 숨김 처리 — 안전한 플레이스홀더.
+// SVG 파일: /public/icons/categories/{slug}.svg
+//
+// 색상 이슈 해결: <img> 로 로드하면 currentColor 가 상속 안 되므로
+// CSS mask-image 로 렌더. 부모 div의 color: var(--cat-*) 이
+// background-color: currentColor → 아이콘 색상으로 자동 반영.
 
 import type { Category } from '../content/articles'
 
@@ -11,17 +14,24 @@ type Props = {
 }
 
 export default function CategoryIcon({ category, size = 40 }: Props) {
-  const src = `/icons/categories/${category}.svg`
+  const url = `url(/icons/categories/${category}.svg)`
   return (
-    <img
-      src={src}
-      alt=""
-      width={size}
-      height={size}
+    <span
       aria-hidden="true"
-      style={{ opacity: 0.7 }}
-      onError={(e) => {
-        ;(e.target as HTMLImageElement).style.display = 'none'
+      style={{
+        display: 'inline-block',
+        width: size,
+        height: size,
+        backgroundColor: 'currentColor',
+        WebkitMaskImage: url,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: url,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        flexShrink: 0,
       }}
     />
   )

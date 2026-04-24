@@ -41,6 +41,23 @@ export function ArticlePage() {
       )}
 
       {/* ══════════════════════════════════════════════════════════
+          HERO IMAGE — 에디토리얼 오프닝 (영상 없고 heroImage 있을 때)
+          ══════════════════════════════════════════════════════════ */}
+      {!article.youtube && article.heroImage && (
+        <div
+          className="w-full aspect-square mb-10 overflow-hidden"
+          style={{ backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)' }}
+        >
+          <img
+            src={article.heroImage}
+            alt={article.title}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════
           AFFILIATE DISCLOSURE — 쿠팡 파트너스 대가성 문구 (제목 위)
           ══════════════════════════════════════════════════════════ */}
       <AffiliateDisclosure />

@@ -3,6 +3,7 @@ import { NewsletterInline } from '../components/NewsletterInline'
 import CategoryLabel, {
   CATEGORY_COLORS,
 } from '../components/CategoryLabel'
+import CategoryIcon from '../components/CategoryIcon'
 import Ornament from '../components/Ornament'
 import {
   getAllArticles,
@@ -39,6 +40,7 @@ export function Home() {
 
   return (
     <>
+      <IssueCover />
       <AffiliateNotice />
 
       {hero && <HeroBlock article={hero} />}
@@ -90,6 +92,46 @@ function PreLaunchHero() {
 
       <NewsletterInline />
     </div>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ISSUE COVER — 봄 2026 이슈 표지 (home 최상단)
+// ═══════════════════════════════════════════════════════════════
+function IssueCover() {
+  return (
+    <section
+      className="py-8"
+      style={{ borderBottom: '1px solid var(--sr-rule)' }}
+    >
+      <div
+        className="text-center mb-4"
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 'var(--fs-label)',
+          letterSpacing: '0.3em',
+          color: 'var(--sr-muted)',
+        }}
+      >
+        — ISSUE NO.001 · SPRING 2026 —
+      </div>
+      <img
+        src="/images/issues/issue-001-spring-2026.jpg"
+        alt="Saint-Rémy Issue No.001 — Spring 2026"
+        className="w-full max-w-[500px] mx-auto aspect-square block object-cover"
+        loading="eager"
+      />
+      <div
+        className="text-center mt-4 italic"
+        style={{
+          fontFamily: 'var(--font-serif-kr)',
+          fontSize: '13px',
+          color: 'var(--sr-muted)',
+        }}
+      >
+        봄, 다시 시작하는 것들.
+      </div>
+    </section>
   )
 }
 
@@ -252,28 +294,34 @@ function CategorySection({ category }: { category: Category }) {
 
   return (
     <section className="py-16">
-      <div className="flex items-end justify-between mb-8">
-        <div>
-          <h2
-            style={{
-              fontFamily: 'var(--font-serif-kr)',
-              fontSize: 'var(--fs-h1)',
-              fontWeight: 700,
-              color: 'var(--sr-ink)',
-              lineHeight: 1,
-            }}
-          >
-            {meta.title}
-          </h2>
-          <p
-            className="mt-1"
-            style={{
-              fontSize: 'var(--fs-meta)',
-              color: 'var(--sr-muted)',
-            }}
-          >
-            {meta.subtitle}
-          </p>
+      <div className="flex items-end justify-between mb-6">
+        {/* 아이콘 + 제목을 묶고 카테고리 컬러 상속 — CategoryIcon 은 currentColor 사용 */}
+        <div
+          className="flex items-center gap-3 md:gap-4"
+          style={{ color }}
+        >
+          <CategoryIcon category={category} size={32} />
+          <div style={{ color: 'var(--sr-ink)' }}>
+            <h2
+              style={{
+                fontFamily: 'var(--font-serif-kr)',
+                fontSize: 'var(--fs-h1)',
+                fontWeight: 700,
+                lineHeight: 1,
+              }}
+            >
+              {meta.title}
+            </h2>
+            <p
+              className="mt-1"
+              style={{
+                fontSize: 'var(--fs-meta)',
+                color: 'var(--sr-muted)',
+              }}
+            >
+              {meta.subtitle}
+            </p>
+          </div>
         </div>
         <Link
           to={`/${category}`}
