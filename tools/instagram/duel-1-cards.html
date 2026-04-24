@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>THE DUEL N°001 — IG Carousel Cards 2~8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <style>
+    :root {
+      --bg: #F5EFE4;
+      --paper: #EFE7D7;
+      --ink: #1A1512;
+      --muted: #6B6B6B;
+      --rule: #C9BFAE;
+      --accent: #2A1810;
+      --serif: 'Noto Serif KR', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --body: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #2C2724;
+      font-family: var(--body);
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .help {
+      width: 100%;
+      max-width: 1080px;
+      color: #C9BFAE;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.7;
+      padding: 16px 20px;
+      border: 1px dashed #6B6B6B;
+    }
+    .help strong { color: #F5EFE4; }
+    .card {
+      width: 1080px;
+      height: 1350px;
+      background: var(--bg);
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+    }
+    .card-num {
+      position: absolute;
+      top: 40px; right: 56px;
+      font-family: var(--mono);
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      z-index: 5;
+    }
+    .card-brand {
+      position: absolute;
+      top: 40px; left: 56px;
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--ink);
+      z-index: 5;
+    }
+    .card-footer {
+      position: absolute;
+      bottom: 40px; left: 56px; right: 56px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      z-index: 5;
+    }
+    .kicker {
+      font-family: var(--mono);
+      font-size: 16px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .h1 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 96px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.15;
+    }
+    .body-md {
+      font-family: var(--body);
+      font-size: 26px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .body-sm {
+      font-family: var(--body);
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .col-label {
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+    }
+    .col-product {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+    .col-detail {
+      font-family: var(--body);
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .verdict-pill {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .limit-list {
+      list-style: none;
+    }
+    .limit-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--rule);
+      font-family: var(--body);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    .limit-list li:before {
+      content: '·  ';
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .verdict-final {
+      width: 100%;
+      padding: 36px;
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .verdict-final p {
+      font-family: var(--serif);
+      font-size: 32px;
+      line-height: 1.5;
+    }
+    .cta-arrow {
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 144px;
+      line-height: 0.9;
+      color: var(--accent);
+    }
+    .card-pad {
+      padding: 100px 56px 100px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    /* ─── 제품 이미지 ─── */
+    .product-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      display: block;
+    }
+    .vs-mark {
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 56px;
+      color: var(--accent);
+      text-align: center;
+      line-height: 1;
+    }
+    .product-thumb {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      display: block;
+    }
+    .product-thumb-sm {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .ab-row {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 32px;
+      align-items: stretch;
+      width: 100%;
+    }
+    .ab-divider {
+      background: var(--rule);
+      width: 1px;
+    }
+    .ab-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .price-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 26px;
+      margin-top: 8px;
+    }
+    .price-strike {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="help">
+    <strong>사용법</strong> — 각 카드는 1080×1350 (인스타 4:5).<br/>
+    Cmd+Shift+4 → Space → 카드 클릭으로 1장씩 캡처. 또는 Chrome DevTools → Capture node screenshot.<br/>
+    <strong>슬라이드 1 (표지)</strong>은 <code>public/images/articles/duel-1-airpods-vs-galaxy-buds/hero-mobile.jpg</code> 그대로 사용.<br/>
+    <strong>이미지 누락 시</strong> — 폰트/이미지 로드 시간 필요. 페이지 완전 로드 후 캡처.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 2 — 같은 가격, 다른 생태계 + 두 제품 나란히 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">02 / 08</div>
+    <div class="card-pad">
+      <div class="kicker">— THE QUESTION —</div>
+      <h2 class="h2">같은 가격,<br/>다른 생태계.</h2>
+
+      <!-- 두 제품 이미지 + VS -->
+      <div class="product-row">
+        <img class="product-img" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods Pro 3" />
+        <div class="vs-mark">vs</div>
+        <img class="product-img" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Galaxy Buds 4 Pro" />
+      </div>
+
+      <!-- 가격 -->
+      <div class="ab-row">
+        <div class="ab-col" style="text-align: center; align-items: center;">
+          <div class="col-label">A · APPLE</div>
+          <div class="price-strike">369,000원</div>
+          <div class="price-tag">329,070원</div>
+        </div>
+        <div class="ab-divider"></div>
+        <div class="ab-col" style="text-align: center; align-items: center;">
+          <div class="col-label">B · SAMSUNG</div>
+          <div class="price-strike">359,000원</div>
+          <div class="price-tag">338,810원</div>
+        </div>
+      </div>
+
+      <p class="body-sm" style="color: var(--muted); text-align: center;">
+        쿠팡에서는 오히려 AirPods가 9,740원 더 싸다.<br/>
+        가격 차이는 핵심이 아니다 — <strong>당신의 폰</strong>이 결정한다.
+      </p>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 3 — ROUND 2 ANC (제품 썸네일 포함) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">03 / 08</div>
+    <div class="card-pad">
+      <div class="kicker">— ROUND 2 —</div>
+      <h2 class="h2">노이즈 캔슬링.</h2>
+      <div class="ab-row" style="margin-top: 12px;">
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" />
+          <div class="col-label">A · AIRPODS PRO 3</div>
+          <div class="col-product">90% 차단</div>
+          <div class="col-detail">
+            "주변 소음의 90% 차단" Apple 공식 수치.<br/>
+            폼 인퓨즈드 실리콘 팁으로 패시브 차음까지.
+          </div>
+        </div>
+        <div class="ab-divider"></div>
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" />
+          <div class="col-label">B · GALAXY BUDS 4 PRO</div>
+          <div class="col-product">우퍼 +20%</div>
+          <div class="col-detail">
+            ANC 2.0 탑재. 단, 초기 출시분에서<br/>
+            <strong>화이트노이즈 이슈</strong> 보고 → 펌웨어 대기.
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="verdict-pill">판정 — AirPods Pro 3 우세</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 4 — ROUND 3 사운드 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">04 / 08</div>
+    <div class="card-pad">
+      <div class="kicker">— ROUND 3 —</div>
+      <h2 class="h2">사운드 품질.</h2>
+      <div class="ab-row" style="margin-top: 12px;">
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" />
+          <div class="col-label">A · AIRPODS PRO 3</div>
+          <div class="col-product">AAC 균형</div>
+          <div class="col-detail">
+            튜닝 필요 없는 완성형.<br/>
+            <strong>"바로 좋은 소리"</strong>가 강점.
+          </div>
+        </div>
+        <div class="ab-divider"></div>
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" />
+          <div class="col-label">B · GALAXY BUDS 4 PRO</div>
+          <div class="col-product">24-bit Hi-Fi</div>
+          <div class="col-detail">
+            11mm + 5.4mm 듀얼 드라이버. 단,<br/>
+            SSC 코덱은 <strong>OneUI 갤럭시</strong>에서만.
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="verdict-pill">판정 — 갤럭시면 Buds, 아이폰이면 AirPods</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 5 — ROUND 6 생태계 (가장 명확한 라운드) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">05 / 08</div>
+    <div class="card-pad" style="justify-content: space-between;">
+      <div>
+        <div class="kicker">— ROUND 6 —</div>
+        <h2 class="h2" style="margin-top: 18px;">생태계 통합.</h2>
+      </div>
+
+      <!-- 두 제품 + 폰 매칭 -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div style="text-align: center;">
+          <img class="product-thumb" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" style="margin: 0 auto;" />
+          <div style="font-size: 80px; margin-top: 12px;">🍎</div>
+          <p class="body-md" style="margin-top: 8px;"><strong>iPhone</strong></p>
+        </div>
+        <div style="text-align: center;">
+          <img class="product-thumb" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" style="margin: 0 auto;" />
+          <div style="font-size: 80px; margin-top: 12px;">🤖</div>
+          <p class="body-md" style="margin-top: 8px;"><strong>Galaxy</strong></p>
+        </div>
+      </div>
+
+      <p class="h2" style="text-align: center; font-family: var(--display); font-style: italic; font-size: 56px;">
+        당신의 폰이 결정한다.
+      </p>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 6 — 솔직한 한계 (제품 썸네일 헤더) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">06 / 08</div>
+    <div class="card-pad">
+      <div class="kicker">— HONEST LIMITS —</div>
+      <h2 class="h2">솔직한 한계.</h2>
+      <div class="ab-row" style="margin-top: 12px;">
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" />
+          <div class="col-label">A · AIRPODS PRO 3</div>
+          <ul class="limit-list" style="margin-top: 4px;">
+            <li>USB-C 케이블 미포함</li>
+            <li>귀에 깊이 들어가는 호불호</li>
+            <li>Android에선 별 이점 없음</li>
+            <li>LDAC/aptX 미지원</li>
+          </ul>
+        </div>
+        <div class="ab-divider"></div>
+        <div class="ab-col">
+          <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" />
+          <div class="col-label">B · GALAXY BUDS 4 PRO</div>
+          <ul class="limit-list" style="margin-top: 4px;">
+            <li>초기 화이트노이즈 이슈</li>
+            <li>케이스 스피커·찾기 없음</li>
+            <li>iOS에서는 기능 제한</li>
+            <li>투명 뚜껑 지문·스크래치</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 7 — 최종 판정 (두 제품 + 결론) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">07 / 08</div>
+    <div class="card-pad">
+      <div class="kicker">— FINAL VERDICT —</div>
+      <h2 class="h2">결투의 결론.</h2>
+
+      <div class="product-row">
+        <img class="product-img" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" />
+        <div class="vs-mark">vs</div>
+        <img class="product-img" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" />
+      </div>
+
+      <div class="verdict-final">
+        <p>
+          10,000원 차이는<br/>
+          선택의 이유가 되지 않는다.
+        </p>
+        <p style="margin-top: 24px;">
+          폰을 본다.<br/>
+          iOS면 AirPods, Android면 Buds.
+        </p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>2026.04.24</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- 카드 8 — CTA / 다음 호 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-brand">Saint-Rémy</div>
+    <div class="card-num">08 / 08</div>
+    <div class="card-pad" style="justify-content: center; align-items: center; text-align: center;">
+      <!-- 두 제품 작게 위에 -->
+      <div style="display: flex; gap: 40px; align-items: center;">
+        <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/airpods-pro-3.png" alt="AirPods" />
+        <img class="product-thumb-sm" src="../../public/images/articles/duel-1-airpods-vs-galaxy-buds/products/galaxy-buds-4-pro.png" alt="Buds" />
+      </div>
+
+      <div class="kicker">— READ FULL ROUNDS —</div>
+      <h2 class="h2" style="font-size: 60px;">
+        7라운드 전체 비교는<br/>웹에서.
+      </h2>
+      <div class="cta-arrow">→</div>
+      <p class="body-md">
+        프로필 링크<br/>
+        <strong>saintremy.kr</strong>
+      </p>
+      <p class="body-sm" style="color: var(--muted); margin-top: 8px;">
+        다음 호 — 다음 주 목요일<br/>
+        DM으로 다음 매치 추천 받습니다.
+      </p>
+    </div>
+    <div class="card-footer">
+      <span>THE DUEL · N°001</span>
+      <span>@saintremy_kr</span>
+    </div>
+  </div>
+
+</body>
+</html>

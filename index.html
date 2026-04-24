@@ -51,6 +51,44 @@
       현재는 주석 상태 — AdSense 승인 후 주석 해제.
     -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-PUB-ID" crossorigin="anonymous"></script> -->
+
+    <!--
+      Google Analytics 4 (GA4)
+      환경변수로 활성화:
+        VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+      값이 없으면 아무 일도 안 함.
+    -->
+    <script>
+      (function () {
+        var gaId = "%VITE_GA_MEASUREMENT_ID%";
+        if (!gaId || gaId.indexOf("%") === 0 || gaId.indexOf("VITE_") !== -1) return;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", gaId, { send_page_view: true });
+      })();
+    </script>
+
+    <!--
+      Microsoft Clarity (히트맵 + 세션 녹화)
+      환경변수로 활성화:
+        VITE_CLARITY_PROJECT_ID=XXXXXXXX
+    -->
+    <script>
+      (function (c, l, a, r) {
+        var id = "%VITE_CLARITY_PROJECT_ID%";
+        if (!id || id.indexOf("%") === 0 || id.indexOf("VITE_") !== -1) return;
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        var t = l.createElement(r); t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + id;
+        var y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script");
+    </script>
   </head>
   <body>
     <div id="root"></div>

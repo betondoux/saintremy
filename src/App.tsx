@@ -12,6 +12,7 @@ import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
 import { AboutPage } from './pages/AboutPage'
 import { NotFound } from './pages/NotFound'
+import { useAnalytics } from './lib/analytics'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -21,10 +22,16 @@ function ScrollToTop() {
   return null
 }
 
+function AnalyticsBridge() {
+  useAnalytics()
+  return null
+}
+
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cream-100">
       <ScrollToTop />
+      <AnalyticsBridge />
       <Header />
       <main className="flex-1">
         <Routes>

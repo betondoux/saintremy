@@ -1,0 +1,22 @@
+# Saint-Rémy (saintremy.kr) — Cloudflare Pages project config
+#
+# 이 파일은 Cloudflare Pages 프로젝트에 D1/환경변수를 바인딩하기 위해 사용된다.
+# 로컬 `wrangler pages dev`로 띄울 때, 또는 `wrangler pages deploy` 시 참조됨.
+# Cloudflare Dashboard에서도 동일한 바인딩을 수동 설정할 수 있음.
+
+name = "saintremy-web"
+compatibility_date = "2024-10-01"
+pages_build_output_dir = "./dist"
+
+# ── D1 (클릭/페이지뷰 기록) ──────────────────────────────
+# `wrangler d1 create saintremy-analytics` 실행 후 아래 database_id 교체 필수.
+[[d1_databases]]
+binding = "DB"
+database_name = "saintremy-analytics"
+database_id = "3901046c-2d2c-4de9-bcd7-55ac1fa52d8e"
+
+# ── 환경변수 (비밀 아님) ──────────────────────────────
+[vars]
+# IP 해싱용 salt. 비밀 아니어도 OK (공개돼도 유저 추적 역산 불가).
+# 프로덕션에선 wrangler pages secret put IP_SALT 으로 교체 권장.
+IP_SALT = "saintremy-default-salt-change-me"
