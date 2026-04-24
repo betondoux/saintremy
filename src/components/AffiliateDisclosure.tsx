@@ -8,18 +8,14 @@ export default function AffiliateDisclosure() {
       role="note"
       aria-label="어필리에이트 고지"
     >
-      <div className="affiliate-disclosure__divider" />
       <div className="affiliate-disclosure__inner">
         <span className="affiliate-disclosure__label">
-          AFFILIATE&nbsp;&middot;&nbsp;DISCLOSURE
+          AD&nbsp;·&nbsp;DISCLOSURE
         </span>
-        <p className="affiliate-disclosure__text">
-          이 게시물은 쿠팡 파트너스 활동의 일환으로,
-          <br />
-          이에 따른 일정액의 수수료를 제공받습니다.
-        </p>
+        <span className="affiliate-disclosure__text">
+          쿠팡 파트너스 활동으로 일정 수수료를 받습니다.
+        </span>
       </div>
-      <div className="affiliate-disclosure__divider" />
     </aside>
   )
 }

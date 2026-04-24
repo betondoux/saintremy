@@ -10,7 +10,7 @@ author: Saint-Rémy Editors
 thumbnailColor: '#F4B876'
 heroImage: /images/articles/sunscreen-best-5/hero.jpg
 featuredOn:
-  - Hero
+  - MostRead
 ---
 4월 말, 햇살이 본격적으로 강해지기 시작했다.
 

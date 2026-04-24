@@ -32,7 +32,7 @@ picks:
   - rank: 1
     name: 정관장 에브리타임 홍삼정 리미티드 30회분
     category: 건강식품
-    productImage: /images/articles/parents-day-gift-best-4/products/pick-1-jkj.svg
+    productImage: /images/articles/parents-day-gift-best-4/products/pick-1.png
     productImageAlt: 정관장 에브리타임 홍삼정 리미티드 30회분 선물세트
     originalPrice: 138000
     salePrice: 127000
@@ -58,7 +58,7 @@ picks:
   - rank: 2
     name: 코지마 슬릭 발마사지기 CMF-680
     category: 헬스·안마기기
-    productImage: /images/articles/parents-day-gift-best-4/products/pick-2-kojima.svg
+    productImage: /images/articles/parents-day-gift-best-4/products/pick-2.png
     productImageAlt: 코지마 슬릭 발마사지기 CMF-680 본체
     originalPrice: 548000
     salePrice: 267000
@@ -85,7 +85,7 @@ picks:
   - rank: 3
     name: LG전자 코드제로 오브제컬렉션 A7 Core 스틱청소기
     category: 생활가전
-    productImage: /images/articles/parents-day-gift-best-4/products/pick-3-lg.svg
+    productImage: /images/articles/parents-day-gift-best-4/products/pick-3.png
     productImageAlt: LG 코드제로 오브제컬렉션 A7 Core 스틱청소기 카밍베이지
     originalPrice: 700000
     salePrice: 489240
@@ -120,7 +120,7 @@ picks:
   - rank: 4
     name: 뉴발란스 M880 v13 운동화 (Fresh Foam X)
     category: 신발·워킹화
-    productImage: /images/articles/parents-day-gift-best-4/products/pick-4-newbalance.svg
+    productImage: /images/articles/parents-day-gift-best-4/products/pick-4.png
     productImageAlt: 뉴발란스 M880T13 블랙 운동화
     originalPrice: 178000
     salePrice: 147000

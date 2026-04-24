@@ -92,47 +92,46 @@ export function ArticlePage() {
       )}
 
       {/* ══════════════════════════════════════════════════════════
-          AFFILIATE DISCLOSURE — 쿠팡 파트너스 대가성 문구 (제목 위)
-          ══════════════════════════════════════════════════════════ */}
-      <AffiliateDisclosure />
-
-      {/* ══════════════════════════════════════════════════════════
           ARTICLE HEADER — 카테고리 / 제목 / 부제 / 메타
+          매거진 에디토리얼 리듬: 넉넉한 여백 + 타이포 계층 대비
           ══════════════════════════════════════════════════════════ */}
       <header
-        className={`text-center ${article.youtube ? 'mb-10' : 'mb-10 pb-8 border-b border-dashed border-ink-900/25'}`}
+        className={`text-center ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dashed border-ink-900/20'}`}
       >
         {article.categoryLabel ? (
           <div
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--fs-label)',
-              letterSpacing: '0.3em',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              letterSpacing: '0.32em',
               color: article.thumbnailColor ?? 'var(--sr-muted)',
+              textTransform: 'uppercase',
             }}
           >
             {article.categoryLabel}
-            {article.issueNumber && ` · ISSUE ${article.issueNumber}`}
+            {article.issueNumber && <> &nbsp;·&nbsp; ISSUE {article.issueNumber}</>}
           </div>
         ) : (
           <Link
             to={`/${article.category}`}
             className="typewriter-label text-signal hover:underline"
+            style={{ letterSpacing: '0.28em' }}
           >
             {CATEGORY_LABELS[article.category]}
           </Link>
         )}
 
-        <h1 className="headline-ko text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] text-ink-900 mt-5 leading-tight">
+        <h1 className="headline-ko text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] text-ink-900 mt-8 md:mt-10">
           {article.title}
         </h1>
 
         <Dek
           text={article.dek}
-          className="body-text text-ink-500 text-base md:text-lg mt-5 leading-relaxed max-w-2xl mx-auto"
+          className="editorial-lead mt-7 md:mt-8 max-w-xl mx-auto text-ink-700"
         />
 
-        <div className="flex items-center justify-center gap-3 mt-6 typewriter text-ink-500">
+        <div className="flex items-center justify-center gap-3 mt-10 md:mt-12 typewriter text-ink-500">
           <span>{article.author}</span>
           <span className="opacity-40">·</span>
           <span>{formatDate(article.published)}</span>
@@ -144,6 +143,11 @@ export function ArticlePage() {
           )}
         </div>
       </header>
+
+      {/* ══════════════════════════════════════════════════════════
+          AFFILIATE DISCLOSURE — 공정위 고지 (최소 노이즈, 헤더 아래)
+          ══════════════════════════════════════════════════════════ */}
+      <AffiliateDisclosure />
 
       {/* Pull quote */}
       {article.heroQuote && (
@@ -225,24 +229,6 @@ function DuelLayout({ article }: { article: Article }) {
 
   return (
     <>
-      {/* 어필리에이트 고지 */}
-      {article.affiliateDisclosure && (
-        <div
-          style={{
-            borderLeft: `4px solid ${accent}`,
-            backgroundColor: 'var(--sr-paper)',
-            padding: '16px 20px',
-            margin: '24px 0',
-            fontSize: '14px',
-            fontStyle: 'italic',
-            color: 'var(--sr-muted)',
-            lineHeight: 1.6,
-          }}
-        >
-          {article.affiliateDisclosure}
-        </div>
-      )}
-
       {/* AT A GLANCE */}
       {article.atGlance && (
         <section
@@ -714,87 +700,64 @@ function DuelLayout({ article }: { article: Article }) {
 // PICKS LAYOUT — 딜 레이더 형식 (intro · criteria · picks · outro · footer)
 // ═══════════════════════════════════════════════════════════════
 function PicksLayout({ article }: { article: Article }) {
-  const dealColor = 'var(--cat-deal)'
-
   return (
     <>
-      {/* 어필리에이트 고지 박스 (본문 최상단) */}
-      {article.affiliateDisclosure && (
-        <div
-          style={{
-            borderLeft: `4px solid ${dealColor}`,
-            backgroundColor: 'var(--sr-paper)',
-            padding: '16px 20px',
-            margin: '24px 0',
-            fontSize: '14px',
-            fontStyle: 'italic',
-            color: 'var(--sr-muted)',
-            lineHeight: 1.6,
-          }}
-        >
-          {article.affiliateDisclosure}
-        </div>
-      )}
-
-      {/* 도입부 */}
+      {/* 도입부 — editorial lead + body serif */}
       {article.intro && (
-        <>
-          <p
-            style={{
-              fontFamily: 'var(--font-serif-kr)',
-              fontSize: '24px',
-              lineHeight: 1.5,
-              color: 'var(--sr-ink)',
-              marginBottom: '16px',
-            }}
-          >
+        <section className="mb-14 md:mb-20">
+          <p className="editorial-lead mb-7 md:mb-8">
             {article.intro.lead}
           </p>
           <p
-            style={{
-              fontSize: 'var(--fs-body)',
-              lineHeight: 1.7,
-              color: 'var(--sr-ink)',
-              marginBottom: '32px',
-            }}
+            className="body-serif text-ink-700"
+            style={{ fontSize: 'var(--fs-body)' }}
           >
             {article.intro.body}
           </p>
-        </>
+        </section>
       )}
 
-      {/* 선정 기준 */}
+      {/* 선정 기준 — cream 박스 + 명조 제목 */}
       {article.criteria && (
-        <section className="my-12">
+        <section
+          className="my-14 md:my-20 px-6 py-8 md:px-10 md:py-10"
+          style={{ backgroundColor: 'var(--sr-paper)' }}
+        >
+          <div className="section-eyebrow mb-3">Selection Criteria</div>
           <h2
             style={{
               fontFamily: 'var(--font-serif-kr)',
-              fontSize: 'var(--fs-h2)',
+              fontSize: '1.5rem',
               fontWeight: 700,
+              letterSpacing: '-0.02em',
               color: 'var(--sr-ink)',
-              marginBottom: '16px',
+              marginBottom: '1.25rem',
             }}
           >
             {article.criteria.title}
           </h2>
-          <ul
-            className="list-disc pl-6 space-y-2 mb-4"
+          <ol
+            className="list-decimal pl-5 space-y-3 mb-5"
             style={{
               fontSize: 'var(--fs-body)',
               color: 'var(--sr-ink)',
-              lineHeight: 1.6,
+              lineHeight: 1.85,
+              letterSpacing: '-0.015em',
             }}
           >
             {article.criteria.items.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i} className="pl-1">{item}</li>
             ))}
-          </ul>
+          </ol>
           {article.criteria.note && (
             <p
+              className="pt-4 border-t border-dashed"
               style={{
-                fontSize: 'var(--fs-meta)',
+                fontSize: '0.8125rem',
                 color: 'var(--sr-muted)',
-                lineHeight: 1.6,
+                lineHeight: 1.7,
+                fontStyle: 'italic',
+                borderColor: 'var(--sr-rule)',
               }}
             >
               {article.criteria.note}
