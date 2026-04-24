@@ -40,7 +40,6 @@ export function Home() {
 
   return (
     <>
-      <IssueCover />
       <AffiliateNotice />
 
       {hero && <HeroBlock article={hero} />}
@@ -89,46 +88,6 @@ function PreLaunchHero() {
 
       <NewsletterInline />
     </div>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// ISSUE COVER — 봄 2026 이슈 표지 (home 최상단)
-// ═══════════════════════════════════════════════════════════════
-function IssueCover() {
-  return (
-    <section
-      className="py-8"
-      style={{ borderBottom: '1px solid var(--sr-rule)' }}
-    >
-      <div
-        className="text-center mb-4"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--fs-label)',
-          letterSpacing: '0.3em',
-          color: 'var(--sr-muted)',
-        }}
-      >
-        — ISSUE NO.001 · SPRING 2026 —
-      </div>
-      <img
-        src="/images/issues/issue-001-spring-2026.jpg"
-        alt="Saint-Rémy Issue No.001 — Spring 2026"
-        className="w-full max-w-[500px] mx-auto aspect-square block object-cover"
-        loading="eager"
-      />
-      <div
-        className="text-center mt-4 italic"
-        style={{
-          fontFamily: 'var(--font-serif-kr)',
-          fontSize: '13px',
-          color: 'var(--sr-muted)',
-        }}
-      >
-        봄, 다시 시작하는 것들.
-      </div>
-    </section>
   )
 }
 
