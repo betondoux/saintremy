@@ -1,10 +1,15 @@
 import { useParams, Link } from 'react-router-dom'
-import { getArticleBySlug, CATEGORY_LABELS } from '../content/articles'
+import {
+  getArticleBySlug,
+  CATEGORY_LABELS,
+  type Article,
+} from '../content/articles'
 import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
 import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
 import AffiliateDisclosure from '../components/AffiliateDisclosure'
+import PickCard from '../components/PickCard'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -106,9 +111,13 @@ export function ArticlePage() {
         </div>
       )}
 
-      {/* Body */}
+      {/* Body — picks 있으면 PickCard 레이아웃, 없으면 마크다운 본문 */}
       <div className="article-body">
-        <RenderBody body={article.body} />
+        {article.picks && article.picks.length > 0 ? (
+          <PicksLayout article={article} />
+        ) : (
+          <RenderBody body={article.body} />
+        )}
       </div>
 
       {/* AD SLOT */}
@@ -159,6 +168,167 @@ export function ArticlePage() {
         </Link>
       </div>
     </article>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PICKS LAYOUT — 딜 레이더 형식 (intro · criteria · picks · outro · footer)
+// ═══════════════════════════════════════════════════════════════
+function PicksLayout({ article }: { article: Article }) {
+  const dealColor = 'var(--cat-deal)'
+
+  return (
+    <>
+      {/* 어필리에이트 고지 박스 (본문 최상단) */}
+      {article.affiliateDisclosure && (
+        <div
+          style={{
+            borderLeft: `4px solid ${dealColor}`,
+            backgroundColor: 'var(--sr-paper)',
+            padding: '16px 20px',
+            margin: '24px 0',
+            fontSize: '14px',
+            fontStyle: 'italic',
+            color: 'var(--sr-muted)',
+            lineHeight: 1.6,
+          }}
+        >
+          {article.affiliateDisclosure}
+        </div>
+      )}
+
+      {/* 도입부 */}
+      {article.intro && (
+        <>
+          <p
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: '24px',
+              lineHeight: 1.5,
+              color: 'var(--sr-ink)',
+              marginBottom: '16px',
+            }}
+          >
+            {article.intro.lead}
+          </p>
+          <p
+            style={{
+              fontSize: 'var(--fs-body)',
+              lineHeight: 1.7,
+              color: 'var(--sr-ink)',
+              marginBottom: '32px',
+            }}
+          >
+            {article.intro.body}
+          </p>
+        </>
+      )}
+
+      {/* 선정 기준 */}
+      {article.criteria && (
+        <section className="my-12">
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '16px',
+            }}
+          >
+            {article.criteria.title}
+          </h2>
+          <ul
+            className="list-disc pl-6 space-y-2 mb-4"
+            style={{
+              fontSize: 'var(--fs-body)',
+              color: 'var(--sr-ink)',
+              lineHeight: 1.6,
+            }}
+          >
+            {article.criteria.items.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+          {article.criteria.note && (
+            <p
+              style={{
+                fontSize: 'var(--fs-meta)',
+                color: 'var(--sr-muted)',
+                lineHeight: 1.6,
+              }}
+            >
+              {article.criteria.note}
+            </p>
+          )}
+        </section>
+      )}
+
+      {/* Pick 카드들 */}
+      {article.picks?.map((pick) => (
+        <PickCard key={pick.rank} pick={pick} />
+      ))}
+
+      {/* 마무리 */}
+      {article.outro && (
+        <section
+          className="my-12 pt-8"
+          style={{ borderTop: '1px solid var(--sr-rule)' }}
+        >
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '16px',
+            }}
+          >
+            {article.outro.title}
+          </h2>
+          <p
+            style={{
+              fontSize: 'var(--fs-body)',
+              color: 'var(--sr-ink)',
+              lineHeight: 1.7,
+              marginBottom: '16px',
+            }}
+          >
+            {article.outro.body}
+          </p>
+          {article.outro.nextIssue && (
+            <p
+              style={{
+                fontSize: 'var(--fs-meta)',
+                fontStyle: 'italic',
+                color: 'var(--sr-muted)',
+              }}
+            >
+              {article.outro.nextIssue}
+            </p>
+          )}
+        </section>
+      )}
+
+      {/* 푸터 라인 */}
+      {article.footer && (
+        <p
+          style={{
+            fontSize: '12px',
+            fontStyle: 'italic',
+            color: 'var(--sr-muted)',
+            marginTop: '32px',
+          }}
+        >
+          {article.footer}
+        </p>
+      )}
+
+      {/* 본문 중간 뉴스레터 — picks 끝나고 outro 전후 위치는 이미 outro 자리. 마지막에 별도. */}
+      <div className="mt-12">
+        <NewsletterInline />
+      </div>
+    </>
   )
 }
 

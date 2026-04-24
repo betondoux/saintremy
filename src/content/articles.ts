@@ -46,6 +46,50 @@ export interface Source {
   url?: string
 }
 
+// 딜 레이더 형식 픽 카드용 — 쿠팡 어필리에이트 CTA 포함
+export interface Pick {
+  rank: number
+  name: string
+  category: string
+  productImage: string
+  productImageAlt: string
+  originalPrice: number
+  salePrice: number
+  discountRate: number
+  unitPrice?: string
+  badges?: string[]
+  monthlyBuyers?: string
+  reviewCount?: number
+  modelNumber?: string
+  specs?: Record<string, string>
+  deliveryDate?: string
+  headline: string
+  description: string
+  pricePoint: string
+  delivery: string
+  benefit: string
+  targetReader: string
+  productUrl: string
+  ctaLabel: string
+}
+
+export interface Intro {
+  lead: string
+  body: string
+}
+
+export interface Criteria {
+  title: string
+  items: string[]
+  note?: string
+}
+
+export interface Outro {
+  title: string
+  body: string
+  nextIssue?: string
+}
+
 export interface Article {
   id?: string
   slug: string
@@ -62,6 +106,13 @@ export interface Article {
   thumbnailColor?: string
   heroImage?: string
   featuredOn?: string[]
+  // 딜 레이더 형식 옵셔널 — picks 있으면 ArticlePage 가 PickCard 레이아웃 렌더
+  affiliateDisclosure?: string
+  intro?: Intro
+  criteria?: Criteria
+  picks?: Pick[]
+  outro?: Outro
+  footer?: string
 }
 
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
