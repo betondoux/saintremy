@@ -7,14 +7,17 @@
     "dev": "npm run build:content && vite",
     "build:content": "tsx scripts/build-content.ts",
     "new-post": "tsx scripts/new-post.ts",
-    "build": "npm run build:content && tsc -b && vite build",
-    "build:nofetch": "tsc -b && vite build",
+    "build:seo": "tsx scripts/generate-sitemap.ts",
+    "prerender:meta": "tsx scripts/prerender-meta.ts",
+    "build": "npm run build:content && npm run build:seo && tsc -b && vite build && npm run prerender:meta",
+    "build:nofetch": "npm run build:seo && tsc -b && vite build && npm run prerender:meta",
     "preview": "vite preview",
     "fetch-content:legacy": "tsx scripts/fetch-notion.ts"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.0.0"
   },
   "devDependencies": {

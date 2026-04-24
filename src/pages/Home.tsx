@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { SEO } from '../components/SEO'
 import { NewsletterInline } from '../components/NewsletterInline'
 import CategoryLabel, {
   CATEGORY_COLORS,
@@ -33,7 +34,12 @@ export function Home() {
 
   // 발행 전 상태 — 샘플 데이터 노출 금지
   if (allArticles.length === 0) {
-    return <PreLaunchHero />
+    return (
+      <>
+        <SEO path="/" />
+        <PreLaunchHero />
+      </>
+    )
   }
 
   const hero = getHeroArticle()
@@ -47,6 +53,7 @@ export function Home() {
 
   return (
     <>
+      <SEO path="/" />
       <AffiliateNotice />
 
       {hero && <HeroBlock article={hero} />}

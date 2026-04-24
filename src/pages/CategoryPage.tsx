@@ -1,5 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom'
 import { ArticleCard } from '../components/ArticleCard'
+import { SEO } from '../components/SEO'
 import {
   getArticlesByCategory,
   CATEGORY_META,
@@ -43,6 +44,11 @@ export function CategoryPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
+      <SEO
+        title={`${meta.title} — Saint-Rémy`}
+        description={`${meta.subtitle} Saint-Rémy의 ${meta.title} 카테고리 큐레이션.`}
+        path={`/${categoryCandidate}`}
+      />
       <header className="text-center mb-10 pb-8 border-b-2 border-ink-900">
         <div className="text-5xl mb-3">{meta.icon}</div>
         <h1 className="headline-ko text-5xl md:text-6xl text-ink-900 leading-none">

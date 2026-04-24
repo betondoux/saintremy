@@ -11,6 +11,7 @@ import { NewsletterInline } from '../components/NewsletterInline'
 import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import PickCard from '../components/PickCard'
 import DuelProductCard from '../components/DuelProductCard'
+import { SEO } from '../components/SEO'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -33,8 +34,35 @@ export function ArticlePage() {
     )
   }
 
+  const seoDescription = (
+    article.dek ??
+    article.heroQuote ??
+    article.intro?.lead ??
+    article.atGlance ??
+    ''
+  )
+    .toString()
+    .replace(/\s+/g, ' ')
+    .trim()
+
   return (
     <article className="max-w-3xl mx-auto px-6 py-10">
+      <SEO
+        title={article.title}
+        description={
+          seoDescription.length > 155
+            ? `${seoDescription.slice(0, 152)}...`
+            : seoDescription || article.title
+        }
+        image={article.heroImage}
+        path={`/a/${article.slug}`}
+        type="article"
+        publishedAt={article.published}
+        author={article.author}
+        category={
+          article.categoryLabel ?? CATEGORY_LABELS[article.category]
+        }
+      />
       {/* ══════════════════════════════════════════════════════════
           VIDEO HERO — 영상 있으면 최상단 우선 배치
           ══════════════════════════════════════════════════════════ */}
@@ -843,7 +871,10 @@ function PicksLayout({ article }: { article: Article }) {
 // 본문 렌더러 — Notion-식 마크다운 + 임베드 지원
 // ═══════════════════════════════════════════════════════════════
 function RenderBody({ body }: { body: string }) {
-  const blocks = body.split(/\n\n+/)
+  // 전처리: 헤딩(##/###...) 다음에 바로 콘텐츠가 붙어있으면 빈 줄 강제 삽입.
+  // 이렇게 해야 헤딩과 이어지는 리스트/문단이 별개 블록으로 분리돼 제대로 렌더됨.
+  const normalized = body.replace(/^(#{1,6}\s[^\n]+)\n(?!\n)/gm, '$1\n\n')
+  const blocks = normalized.split(/\n\n+/)
   const inlineInsertIndex = Math.floor((blocks.filter((b) => b.trim()).length * 2) / 3)
   let visibleBlockCount = 0
 
@@ -1030,24 +1061,26 @@ function RenderBody({ body }: { body: string }) {
           }
         }
 
-        // 불릿 리스트
-        if (/^•\s/.test(trimmed) && trimmed.includes('\n')) {
+        // 불릿 리스트 — `•` (Notion), `-` / `*` (표준 마크다운) 모두 지원
+        if (/^[•\-*]\s/.test(trimmed)) {
           const items = trimmed
             .split('\n')
-            .filter((l) => /^•\s/.test(l.trim()))
-            .map((l) => l.trim().slice(2))
-          return (
-            <ul key={i} className="list-disc pl-6 my-6 space-y-2">
-              {items.map((item, j) => (
-                <li
-                  key={j}
-                  className="body-text text-ink-900 text-base md:text-lg pl-2"
-                >
-                  {renderInline(item)}
-                </li>
-              ))}
-            </ul>
-          )
+            .filter((l) => /^[•\-*]\s/.test(l.trim()))
+            .map((l) => l.trim().replace(/^[•\-*]\s+/, ''))
+          if (items.length > 0) {
+            return (
+              <ul key={i} className="list-disc pl-6 my-6 space-y-2">
+                {items.map((item, j) => (
+                  <li
+                    key={j}
+                    className="body-text text-ink-900 text-base md:text-lg pl-2"
+                  >
+                    {renderInline(item)}
+                  </li>
+                ))}
+              </ul>
+            )
+          }
         }
 
         // 코드 블록
