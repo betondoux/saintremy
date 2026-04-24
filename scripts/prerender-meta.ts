@@ -47,6 +47,7 @@ interface ArticleRow {
   subtitle?: string
   excerpt?: string
   heroImage?: string
+  ogImage?: string
   published?: string
   updated?: string
   author?: string
@@ -254,7 +255,7 @@ function main() {
       title: `${article.title} | ${SITE_NAME}`,
       description: buildDescription(article),
       canonical: `${SITE_URL}/a/${article.slug}`,
-      ogImage: absoluteImage(article.heroImage),
+      ogImage: absoluteImage(article.ogImage ?? article.heroImage),
       ogType: 'article',
       publishedAt: article.published,
       author: article.author ?? 'Saint-Rémy Editors',

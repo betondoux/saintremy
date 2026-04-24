@@ -54,7 +54,7 @@ export function ArticlePage() {
             ? `${seoDescription.slice(0, 152)}...`
             : seoDescription || article.title
         }
-        image={article.heroImage}
+        image={article.ogImage ?? article.heroImage}
         path={`/a/${article.slug}`}
         type="article"
         publishedAt={article.published}
