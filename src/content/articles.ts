@@ -357,6 +357,34 @@ export function getHeroArticle(): Article | undefined {
   return getLatestArticle()
 }
 
+/**
+ * Editor's Pick — 히어로 아래 슬롯.
+ *
+ * 전략: "Anchor + Rotate" (3편 매거진 대상).
+ * - hero 는 고정 (DUEL pin) → 브랜드 앵커
+ * - editor's pick 은 4시간 블록 단위로 교체 → 신선도 + 재방문 참여
+ *
+ * 시드 공식: dayOfYear * 6 + hourBlock (0~5)
+ *   · 같은 시간대엔 모든 방문자 동일 (소셜 공유 시 혼동 없음)
+ *   · 같은 방문자가 4시간 이내 재방문해도 안 바뀜 (앵커)
+ *   · 4시간 지나면 자동 교체 (신선도)
+ *   · UTC 기준 → 쿠키/localStorage 0 (개인정보 0)
+ */
+export function getEditorsPick(excludeSlug?: string): Article | undefined {
+  const pool = articles
+    .filter((a) => a.slug !== excludeSlug)
+    .sort((a, b) => b.published.localeCompare(a.published))
+  if (pool.length === 0) return undefined
+  if (pool.length === 1) return pool[0]
+
+  const now = new Date()
+  const hourBlock = Math.floor(now.getUTCHours() / 4) // 0~5
+  const yearStart = Date.UTC(now.getUTCFullYear(), 0, 0)
+  const dayOfYear = Math.floor((now.getTime() - yearStart) / 86_400_000)
+  const index = (dayOfYear * 6 + hourBlock) % pool.length
+  return pool[index]
+}
+
 export function getFilmOfTheWeek(): Article | undefined {
   return articles.find((a) => a.featuredOn?.includes('FilmOfTheWeek'))
 }

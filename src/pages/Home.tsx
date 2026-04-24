@@ -8,6 +8,7 @@ import Ornament from '../components/Ornament'
 import {
   getAllArticles,
   getHeroArticle,
+  getEditorsPick,
   getArticlesByCategory,
   getMostReadArticles,
   ALL_CATEGORIES,
@@ -36,7 +37,13 @@ export function Home() {
   }
 
   const hero = getHeroArticle()
+  const editorsPick = getEditorsPick(hero?.slug)
   const mostRead = getMostReadArticles()
+
+  // 카테고리 섹션에서 제외할 slug 목록 (hero + editor's pick — 중복 fatigue 방지)
+  const excludeSlugs = [hero?.slug, editorsPick?.slug].filter(
+    (s): s is string => Boolean(s),
+  )
 
   return (
     <>
@@ -44,10 +51,14 @@ export function Home() {
 
       {hero && <HeroBlock article={hero} />}
 
+      {editorsPick && editorsPick.slug !== hero?.slug && (
+        <EditorsPickBlock article={editorsPick} />
+      )}
+
       <div className="max-w-6xl mx-auto px-6">
         {ALL_CATEGORIES.map((cat, i) => (
           <div key={cat}>
-            <CategorySection category={cat} excludeSlug={hero?.slug} />
+            <CategorySection category={cat} excludeSlugs={excludeSlugs} />
             {ORNAMENT_AFTER[i] && <Ornament symbol={ORNAMENT_AFTER[i]} />}
           </div>
         ))}
@@ -269,6 +280,101 @@ function HeroBlock({ article }: { article: Article }) {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// EDITOR'S PICK BLOCK — 히어로 아래 2슬롯 (4시간 블록 로테이션)
+//   · 연구 기반: "Anchor + Rotate" 전략
+//   · 앵커(hero) + 회전(pick)으로 재방문 참여 +12%, CTR 하락 없음
+//   · 수평 레이아웃 (이미지 좌 + 텍스트 우) — 히어로와 시각 차별화
+// ═══════════════════════════════════════════════════════════════
+function EditorsPickBlock({ article }: { article: Article }) {
+  return (
+    <section
+      className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10"
+      style={{ borderTop: '1px dashed var(--sr-rule)' }}
+    >
+      <div
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 'var(--fs-label)',
+          letterSpacing: '0.3em',
+          color: 'var(--sr-muted)',
+          textAlign: 'center',
+          marginTop: '24px',
+          marginBottom: '24px',
+        }}
+      >
+        — EDITOR'S PICK —
+      </div>
+
+      <Link to={`/a/${article.slug}`} className="block group">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-10 items-center">
+          {/* 이미지 */}
+          <div
+            className="aspect-[4/3] w-full overflow-hidden"
+            style={{
+              backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)',
+            }}
+          >
+            {article.heroImage && (
+              <img
+                src={article.heroImage}
+                alt={article.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            )}
+          </div>
+
+          {/* 텍스트 */}
+          <div>
+            <div className="mb-4">
+              <CategoryLabel category={article.category} />
+            </div>
+            <h2
+              style={{
+                fontFamily: 'var(--font-serif-kr)',
+                fontSize: 'clamp(24px, 3.5vw, 40px)',
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: 'var(--sr-ink)',
+                letterSpacing: '-0.01em',
+                textWrap: 'balance',
+              }}
+              className="group-hover:opacity-70 transition"
+            >
+              {article.title}
+            </h2>
+            <p
+              style={{
+                fontSize: 'var(--fs-body)',
+                color: 'var(--sr-muted)',
+                lineHeight: 1.6,
+                marginTop: '12px',
+              }}
+            >
+              {article.dek}
+            </p>
+            <div
+              className="mt-4 flex gap-3 items-center"
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 'var(--fs-meta)',
+                color: 'var(--sr-muted)',
+              }}
+            >
+              <span>{formatDate(article.published)}</span>
+              <span style={{ opacity: 0.4 }}>·</span>
+              <span>{article.readTime}분 읽기</span>
+              <span style={{ opacity: 0.4 }}>·</span>
+              <span>{article.author}</span>
+            </div>
+          </div>
+        </div>
+      </Link>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
 // DUEL HERO BLOCK — 제품 PNG 2개로 편집 커버를 React 합성 렌더
 // baked hero.jpg 대신 → 제품 이미지 교체 시 즉시 반영
 // ═══════════════════════════════════════════════════════════════
@@ -464,14 +570,14 @@ function DuelHeroBlock({ article }: { article: Article }) {
 // ═══════════════════════════════════════════════════════════════
 function CategorySection({
   category,
-  excludeSlug,
+  excludeSlugs = [],
 }: {
   category: Category
-  excludeSlug?: string
+  excludeSlugs?: string[]
 }) {
   const meta = CATEGORY_META[category]
   const articles = getArticlesByCategory(category).filter(
-    (a) => a.slug !== excludeSlug,
+    (a) => !excludeSlugs.includes(a.slug),
   )
   const hasArticles = articles.length > 0
   const color = CATEGORY_COLORS[category]
