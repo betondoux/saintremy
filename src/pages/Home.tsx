@@ -139,6 +139,12 @@ function AffiliateNotice() {
 // HERO BLOCK — THIS WEEK'S FEATURE
 // ═══════════════════════════════════════════════════════════════
 function HeroBlock({ article }: { article: Article }) {
+  // DUEL 기사는 제품 PNG 2개로 합성 렌더 (baked hero.jpg 대신)
+  // → airpods-pro-3.png / galaxy-buds-4-pro.png 를 바꾸면 즉시 반영.
+  if (article.duelProducts && article.duelProducts.length >= 2) {
+    return <DuelHeroBlock article={article} />
+  }
+
   // 제목 패턴 감지
   // 1) "X vs Y" (e.g., AirPods Pro 3 vs Galaxy Buds 4 Pro) → 3 라인, vs 이탤릭
   // 2) 끝자리 숫자 ("선크림 BEST 5") → 숫자 이탤릭 Playfair
@@ -258,6 +264,197 @@ function HeroBlock({ article }: { article: Article }) {
           </div>
         </Link>
       </article>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DUEL HERO BLOCK — 제품 PNG 2개로 편집 커버를 React 합성 렌더
+// baked hero.jpg 대신 → 제품 이미지 교체 시 즉시 반영
+// ═══════════════════════════════════════════════════════════════
+function DuelHeroBlock({ article }: { article: Article }) {
+  const products = article.duelProducts!
+  const a = products[0]
+  const b = products[1]
+  const accent = article.thumbnailColor ?? '#2A1810'
+
+  return (
+    <section className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
+      <Link
+        to={`/a/${article.slug}`}
+        className="block group"
+      >
+        <article
+          style={{
+            backgroundColor: 'var(--sr-bg)',
+            padding: 'clamp(24px, 5vw, 56px) clamp(16px, 4vw, 56px)',
+            position: 'relative',
+          }}
+        >
+          {/* 상단 유틸 바 */}
+          <div className="flex items-start justify-between mb-8 md:mb-12">
+            <div style={{ lineHeight: 1.8 }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '13px',
+                  letterSpacing: '0.28em',
+                  color: 'var(--sr-ink)',
+                }}
+              >
+                {article.categoryLabel || 'THE DUEL'}
+              </div>
+              {article.issueNumber && (
+                <div
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '11px',
+                    letterSpacing: '0.24em',
+                    color: 'var(--sr-muted)',
+                    marginTop: '4px',
+                  }}
+                >
+                  ISSUE {article.issueNumber} · {formatDate(article.published)}
+                </div>
+              )}
+            </div>
+            <div style={{ textAlign: 'right', lineHeight: 1 }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-display-en)',
+                  fontStyle: 'italic',
+                  fontWeight: 700,
+                  fontSize: '22px',
+                  color: 'var(--sr-ink)',
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                Saint-Rémy
+              </div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.18em',
+                  color: 'var(--sr-muted)',
+                  fontStyle: 'italic',
+                  marginTop: '6px',
+                }}
+              >
+                saintremy.kr
+              </div>
+            </div>
+          </div>
+
+          {/* 제품 flanking + 중앙 타이틀 (데스크톱) / 수직 스택 (모바일) */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-10 py-6 md:py-10">
+            {/* 왼쪽 제품 */}
+            <div className="order-2 md:order-1 flex justify-center">
+              <img
+                src={a.image}
+                alt={a.name}
+                className="w-full max-w-[260px] md:max-w-[320px]"
+                style={{ aspectRatio: '1', objectFit: 'contain' }}
+                loading="eager"
+              />
+            </div>
+
+            {/* 중앙 타이틀 */}
+            <div className="order-1 md:order-2 text-center" style={{ minWidth: 'min(320px, 80vw)' }}>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-serif-kr)',
+                  fontSize: 'clamp(28px, 5vw, 56px)',
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                  color: 'var(--sr-ink)',
+                  letterSpacing: '-0.01em',
+                  margin: 0,
+                }}
+              >
+                {a.name}
+              </h1>
+              <div
+                className="mx-auto my-4 md:my-6"
+                style={{
+                  width: 'clamp(52px, 7vw, 72px)',
+                  height: 'clamp(52px, 7vw, 72px)',
+                  borderRadius: '50%',
+                  backgroundColor: accent,
+                  color: 'var(--sr-bg)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: 'var(--font-display-en)',
+                  fontStyle: 'italic',
+                  fontWeight: 400,
+                  fontSize: 'clamp(18px, 2.5vw, 24px)',
+                }}
+              >
+                vs
+              </div>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-serif-kr)',
+                  fontSize: 'clamp(28px, 5vw, 56px)',
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                  color: 'var(--sr-ink)',
+                  letterSpacing: '-0.01em',
+                  margin: 0,
+                }}
+              >
+                {b.name}
+              </h1>
+            </div>
+
+            {/* 오른쪽 제품 */}
+            <div className="order-3 flex justify-center">
+              <img
+                src={b.image}
+                alt={b.name}
+                className="w-full max-w-[260px] md:max-w-[320px]"
+                style={{ aspectRatio: '1', objectFit: 'contain' }}
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          {/* 부제 + 시그니처 */}
+          <div className="text-center mt-8 md:mt-12">
+            <p
+              style={{
+                fontFamily: 'var(--font-serif-kr)',
+                fontStyle: 'italic',
+                fontSize: 'clamp(14px, 2vw, 17px)',
+                color: 'var(--sr-muted)',
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              {article.dek}
+            </p>
+            <div
+              className="mx-auto my-5"
+              style={{
+                width: '120px',
+                height: '1px',
+                backgroundColor: 'var(--sr-rule)',
+              }}
+            />
+            <div
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '11px',
+                letterSpacing: '0.28em',
+                color: 'var(--sr-muted)',
+              }}
+            >
+              SAINT-RÉMY EDITORS
+            </div>
+          </div>
+        </article>
+      </Link>
     </section>
   )
 }
