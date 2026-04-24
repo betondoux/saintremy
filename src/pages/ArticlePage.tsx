@@ -323,11 +323,7 @@ function PicksLayout({ article }: { article: Article }) {
           {article.footer}
         </p>
       )}
-
-      {/* 본문 중간 뉴스레터 — picks 끝나고 outro 전후 위치는 이미 outro 자리. 마지막에 별도. */}
-      <div className="mt-12">
-        <NewsletterInline />
-      </div>
+      {/* 뉴스레터는 Footer 에서 전역 렌더 */}
     </>
   )
 }

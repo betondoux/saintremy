@@ -57,10 +57,7 @@ export function Home() {
       {allArticles.length >= 5 && mostRead.length > 0 && (
         <MostReadSection articles={mostRead} />
       )}
-
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <NewsletterInline />
-      </section>
+      {/* 뉴스레터는 Footer 에서 전역 렌더 — 페이지 레벨 중복 방지 */}
     </>
   )
 }
