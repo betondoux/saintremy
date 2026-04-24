@@ -10,6 +10,7 @@ import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
 import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import PickCard from '../components/PickCard'
+import DuelProductCard from '../components/DuelProductCard'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -73,12 +74,26 @@ export function ArticlePage() {
       <header
         className={`text-center ${article.youtube ? 'mb-10' : 'mb-10 pb-8 border-b border-dashed border-ink-900/25'}`}
       >
-        <Link
-          to={`/${article.category}`}
-          className="typewriter-label text-signal hover:underline"
-        >
-          {CATEGORY_LABELS[article.category]}
-        </Link>
+        {article.categoryLabel ? (
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--fs-label)',
+              letterSpacing: '0.3em',
+              color: article.thumbnailColor ?? 'var(--sr-muted)',
+            }}
+          >
+            {article.categoryLabel}
+            {article.issueNumber && ` · ISSUE ${article.issueNumber}`}
+          </div>
+        ) : (
+          <Link
+            to={`/${article.category}`}
+            className="typewriter-label text-signal hover:underline"
+          >
+            {CATEGORY_LABELS[article.category]}
+          </Link>
+        )}
 
         <h1 className="headline-ko text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] text-ink-900 mt-5 leading-tight">
           {article.title}
@@ -111,9 +126,11 @@ export function ArticlePage() {
         </div>
       )}
 
-      {/* Body — picks 있으면 PickCard 레이아웃, 없으면 마크다운 본문 */}
+      {/* Body — duelProducts(THE DUEL) > picks(딜 레이더) > body(일반) 분기 */}
       <div className="article-body">
-        {article.picks && article.picks.length > 0 ? (
+        {article.duelProducts && article.duelProducts.length > 0 ? (
+          <DuelLayout article={article} />
+        ) : article.picks && article.picks.length > 0 ? (
           <PicksLayout article={article} />
         ) : (
           <RenderBody body={article.body} />
@@ -168,6 +185,500 @@ export function ArticlePage() {
         </Link>
       </div>
     </article>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DUEL LAYOUT — THE DUEL 시리즈 (atGlance · 2 products · matrix · 7 rounds
+//   · honest limits · final verdict · editor note · sources · footer)
+// ═══════════════════════════════════════════════════════════════
+function DuelLayout({ article }: { article: Article }) {
+  const accent = article.thumbnailColor ?? '#2A1810'
+
+  return (
+    <>
+      {/* 어필리에이트 고지 */}
+      {article.affiliateDisclosure && (
+        <div
+          style={{
+            borderLeft: `4px solid ${accent}`,
+            backgroundColor: 'var(--sr-paper)',
+            padding: '16px 20px',
+            margin: '24px 0',
+            fontSize: '14px',
+            fontStyle: 'italic',
+            color: 'var(--sr-muted)',
+            lineHeight: 1.6,
+          }}
+        >
+          {article.affiliateDisclosure}
+        </div>
+      )}
+
+      {/* AT A GLANCE */}
+      {article.atGlance && (
+        <section
+          style={{
+            margin: '40px 0',
+            padding: '28px 24px',
+            backgroundColor: 'var(--sr-paper)',
+            borderTop: `2px solid ${accent}`,
+            borderBottom: `2px solid ${accent}`,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--fs-label)',
+              letterSpacing: '0.3em',
+              color: accent,
+              marginBottom: '12px',
+            }}
+          >
+            AT A GLANCE
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: '17px',
+              lineHeight: 1.7,
+              color: 'var(--sr-ink)',
+              margin: 0,
+            }}
+          >
+            {article.atGlance}
+          </p>
+        </section>
+      )}
+
+      {/* 2 제품 카드 — 데스크톱 2열, 모바일 세로 스택 */}
+      {article.duelProducts && (
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+          style={{ margin: '48px 0' }}
+        >
+          {article.duelProducts.map((p) => (
+            <DuelProductCard
+              key={p.position}
+              product={p}
+              accentColor={accent}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* 비교 매트릭스 테이블 */}
+      {article.comparisonMatrix && article.comparisonMatrix.length > 0 && (
+        <section style={{ margin: '56px 0' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '20px',
+            }}
+          >
+            한눈에 비교
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr style={{ borderBottom: `2px solid ${accent}` }}>
+                  <th
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 'var(--fs-label)',
+                      letterSpacing: '0.2em',
+                      color: 'var(--sr-muted)',
+                      textAlign: 'left',
+                      padding: '12px 16px 12px 0',
+                      width: '30%',
+                    }}
+                  >
+                    항목
+                  </th>
+                  <th
+                    style={{
+                      fontFamily: 'var(--font-serif-kr)',
+                      fontSize: 'var(--fs-meta)',
+                      fontWeight: 700,
+                      color: accent,
+                      textAlign: 'left',
+                      padding: '12px 16px',
+                      width: '35%',
+                    }}
+                  >
+                    A · {article.duelProducts?.[0].name}
+                  </th>
+                  <th
+                    style={{
+                      fontFamily: 'var(--font-serif-kr)',
+                      fontSize: 'var(--fs-meta)',
+                      fontWeight: 700,
+                      color: accent,
+                      textAlign: 'left',
+                      padding: '12px 0 12px 16px',
+                      width: '35%',
+                    }}
+                  >
+                    B · {article.duelProducts?.[1].name}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {article.comparisonMatrix.map((row, i) => (
+                  <tr
+                    key={i}
+                    style={{
+                      borderBottom: '1px dashed var(--sr-rule)',
+                    }}
+                  >
+                    <td
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '12px',
+                        color: 'var(--sr-muted)',
+                        padding: '14px 16px 14px 0',
+                        verticalAlign: 'top',
+                      }}
+                    >
+                      {row.label}
+                    </td>
+                    <td
+                      style={{
+                        fontFamily: 'var(--font-serif-kr)',
+                        fontSize: 'var(--fs-meta)',
+                        color: 'var(--sr-ink)',
+                        padding: '14px 16px',
+                        verticalAlign: 'top',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {row.a}
+                    </td>
+                    <td
+                      style={{
+                        fontFamily: 'var(--font-serif-kr)',
+                        fontSize: 'var(--fs-meta)',
+                        color: 'var(--sr-ink)',
+                        padding: '14px 0 14px 16px',
+                        verticalAlign: 'top',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {row.b}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* 7 라운드 */}
+      {article.rounds && article.rounds.length > 0 && (
+        <section style={{ margin: '56px 0' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '32px',
+            }}
+          >
+            라운드 별 평가
+          </h2>
+          {article.rounds.map((r) => (
+            <article key={r.number} style={{ marginBottom: '40px' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'var(--fs-label)',
+                  letterSpacing: '0.3em',
+                  color: accent,
+                  marginBottom: '6px',
+                }}
+              >
+                ROUND {r.number}
+              </div>
+              <h3
+                style={{
+                  fontFamily: 'var(--font-serif-kr)',
+                  fontSize: '22px',
+                  fontWeight: 700,
+                  color: 'var(--sr-ink)',
+                  marginBottom: '20px',
+                }}
+              >
+                {r.title}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div
+                  style={{
+                    borderLeft: `2px solid ${accent}`,
+                    paddingLeft: '16px',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '11px',
+                      letterSpacing: '0.2em',
+                      color: 'var(--sr-muted)',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    A
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 'var(--fs-meta)',
+                      lineHeight: 1.7,
+                      color: 'var(--sr-ink)',
+                      margin: 0,
+                    }}
+                  >
+                    {r.a}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    borderLeft: `2px solid ${accent}`,
+                    paddingLeft: '16px',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '11px',
+                      letterSpacing: '0.2em',
+                      color: 'var(--sr-muted)',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    B
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 'var(--fs-meta)',
+                      lineHeight: 1.7,
+                      color: 'var(--sr-ink)',
+                      margin: 0,
+                    }}
+                  >
+                    {r.b}
+                  </p>
+                </div>
+              </div>
+              <div
+                style={{
+                  marginTop: '16px',
+                  padding: '12px 16px',
+                  backgroundColor: 'var(--sr-paper)',
+                  fontSize: 'var(--fs-meta)',
+                  color: 'var(--sr-ink)',
+                  lineHeight: 1.5,
+                }}
+              >
+                <strong style={{ color: accent }}>판정: {r.winner}</strong>
+                {r.winnerNote && (
+                  <span style={{ color: 'var(--sr-muted)' }}> — {r.winnerNote}</span>
+                )}
+              </div>
+            </article>
+          ))}
+        </section>
+      )}
+
+      {/* 솔직한 한계 */}
+      {article.honestLimits && (
+        <section style={{ margin: '56px 0' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '20px',
+            }}
+          >
+            솔직한 한계
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(['a', 'b'] as const).map((side) => (
+              <div
+                key={side}
+                style={{
+                  padding: '20px',
+                  backgroundColor: 'var(--sr-paper)',
+                  borderTop: `2px solid ${accent}`,
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'var(--fs-label)',
+                    letterSpacing: '0.2em',
+                    color: accent,
+                    marginBottom: '12px',
+                  }}
+                >
+                  {side.toUpperCase()} ·{' '}
+                  {article.duelProducts?.[side === 'a' ? 0 : 1].name}
+                </div>
+                <ul style={{ margin: 0, paddingLeft: '18px' }}>
+                  {article.honestLimits![side].map((item, i) => (
+                    <li
+                      key={i}
+                      style={{
+                        fontSize: 'var(--fs-meta)',
+                        lineHeight: 1.6,
+                        color: 'var(--sr-ink)',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 최종 판정 */}
+      {article.finalVerdict && (
+        <section style={{ margin: '56px 0' }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '20px',
+            }}
+          >
+            최종 판정
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {(['recommendA', 'recommendB'] as const).map((key) => {
+              const block = article.finalVerdict![key]
+              return (
+                <div
+                  key={key}
+                  style={{
+                    padding: '24px',
+                    border: `1px solid ${accent}`,
+                    backgroundColor: 'var(--sr-bg)',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-serif-kr)',
+                      fontSize: '18px',
+                      fontWeight: 700,
+                      color: accent,
+                      marginBottom: '14px',
+                    }}
+                  >
+                    {block.title}
+                  </h3>
+                  <ul style={{ margin: 0, paddingLeft: '18px' }}>
+                    {block.items.map((item, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          fontSize: 'var(--fs-meta)',
+                          lineHeight: 1.6,
+                          color: 'var(--sr-ink)',
+                          marginBottom: '6px',
+                        }}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
+          <div
+            style={{
+              padding: '24px',
+              backgroundColor: accent,
+              color: 'var(--sr-bg)',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-serif-kr)',
+                fontSize: '17px',
+                lineHeight: 1.7,
+                margin: 0,
+              }}
+            >
+              {article.finalVerdict.conclusion}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* 에디터 노트 */}
+      {article.editorNote && (
+        <section
+          style={{
+            margin: '56px 0',
+            padding: '28px',
+            borderTop: '1px solid var(--sr-rule)',
+            borderBottom: '1px solid var(--sr-rule)',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--fs-label)',
+              letterSpacing: '0.3em',
+              color: 'var(--sr-muted)',
+              marginBottom: '12px',
+            }}
+          >
+            EDITOR'S NOTE
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontStyle: 'italic',
+              fontSize: '17px',
+              lineHeight: 1.8,
+              color: 'var(--sr-ink)',
+              whiteSpace: 'pre-line',
+              margin: 0,
+            }}
+          >
+            {article.editorNote}
+          </p>
+        </section>
+      )}
+
+      {/* 푸터 라인 */}
+      {article.footer && (
+        <p
+          style={{
+            fontSize: '12px',
+            fontStyle: 'italic',
+            color: 'var(--sr-muted)',
+            marginTop: '32px',
+            textAlign: 'center',
+          }}
+        >
+          {article.footer}
+        </p>
+      )}
+    </>
   )
 }
 

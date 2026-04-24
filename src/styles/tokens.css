@@ -54,6 +54,14 @@
   /* 라인 */
   --rule-thin:      1px;
   --rule-accent:    2px;
+
+  /* ───────────────────────────────── */
+  /* DuelProductCard 등 외부 컴포넌트 호환 alias */
+  /* ───────────────────────────────── */
+  --sr-bg-alt:      var(--sr-paper);
+  --sr-line:        var(--sr-rule);
+  --sr-font-serif:  var(--font-serif-kr);
+  --sr-font-mono:   var(--font-mono);
 }
 
 /* 데스크톱 오버라이드 */

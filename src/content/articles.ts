@@ -90,6 +90,58 @@ export interface Outro {
   nextIssue?: string
 }
 
+// ─────────────────────────────────────────────────────────────
+// THE DUEL — 제품 1:1 비교 시리즈 형식
+// ─────────────────────────────────────────────────────────────
+export interface DuelProduct {
+  position: 'A' | 'B'
+  brand: string
+  name: string
+  modelCode: string
+  image: string
+  listPrice: number
+  salePrice?: number | null
+  discountPercent?: number | null
+  priceNote?: string
+  priceCurrency?: string
+  releaseDate: string
+  productUrl: string
+  ctaLabel: string
+  keyFeatures: string[]
+  bestFor: string
+}
+
+export interface ComparisonRow {
+  label: string
+  a: string
+  b: string
+}
+
+export interface DuelRound {
+  number: number
+  title: string
+  a: string
+  b: string
+  winner: string
+  winnerNote?: string
+}
+
+export interface HonestLimits {
+  a: string[]
+  b: string[]
+}
+
+export interface FinalVerdictBlock {
+  title: string
+  items: string[]
+}
+
+export interface FinalVerdict {
+  recommendA: FinalVerdictBlock
+  recommendB: FinalVerdictBlock
+  conclusion: string
+}
+
 export interface Article {
   id?: string
   slug: string
@@ -113,6 +165,19 @@ export interface Article {
   picks?: Pick[]
   outro?: Outro
   footer?: string
+
+  // THE DUEL 시리즈 옵셔널 — duelProducts 있으면 DuelLayout 렌더
+  categoryLabel?: string
+  issueNumber?: string
+  heroImageMobile?: string
+  ogImage?: string
+  atGlance?: string
+  duelProducts?: DuelProduct[]
+  comparisonMatrix?: ComparisonRow[]
+  rounds?: DuelRound[]
+  honestLimits?: HonestLimits
+  finalVerdict?: FinalVerdict
+  editorNote?: string
 }
 
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
