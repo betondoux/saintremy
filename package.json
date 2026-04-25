@@ -20,7 +20,10 @@
     "admin:dev": "tsx watch src/admin/server/index.ts",
     "test:link-validator": "tsx scripts/test-link-validator.ts",
     "test:publisher": "tsx scripts/test-publisher.ts",
-    "test:day3": "tsx scripts/test-day3-e2e.ts"
+    "test:day3": "tsx scripts/test-day3-e2e.ts",
+    "sync:d1": "tsx scripts/sync-d1-articles.ts",
+    "sync:d1:local": "tsx scripts/sync-d1-articles.ts --local",
+    "sync:d1:remote": "tsx scripts/sync-d1-articles.ts --remote"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",

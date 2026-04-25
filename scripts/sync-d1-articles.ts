@@ -1,0 +1,244 @@
+/**
+ * scripts/sync-d1-articles.ts
+ *
+ * content/articles/ 의 발행본 메타데이터를 D1 articles/products 테이블로 동기화.
+ *
+ * 사용:
+ *   npx tsx scripts/sync-d1-articles.ts            # SQL 파일만 생성 (preview)
+ *   npx tsx scripts/sync-d1-articles.ts --local    # 로컬 D1에 적용
+ *   npx tsx scripts/sync-d1-articles.ts --remote   # 원격 D1(production)에 적용
+ *
+ * 출력:
+ *   workers/migrations/articles-sync.sql (덮어쓰기)
+ *
+ * 동작:
+ *   1. content/articles/**\/*.md 스캔
+ *   2. gray-matter로 frontmatter 파싱 (slug, title, category, published, …)
+ *   3. INSERT OR REPLACE INTO articles (...) 로 upsert
+ *   4. 본문에서 외부 affiliate 링크([… ](https://…))를 단순 추출해 products
+ *      테이블에 url-only 미니 행으로 upsert (id = sha1(slug + url) 12자)
+ *   5. --local/--remote 플래그가 주어지면 wrangler d1 execute 자동 호출
+ *
+ * 비고:
+ *   - 이 스크립트는 멱등이다. 같은 slug/url은 항상 같은 row를 만든다.
+ *   - PROTECTED: 트래커(events.ts, [partner].ts)와 워크플로 분리. 직접 D1을
+ *     수정하지 않고 SQL 파일을 생성한 뒤 wrangler가 실행한다.
+ */
+import { readFileSync, readdirSync, statSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { join, resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import matter from 'gray-matter'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const REPO_ROOT = resolve(__dirname, '..')
+const ARTICLES_DIR = join(REPO_ROOT, 'content/articles')
+const OUT_DIR = join(REPO_ROOT, 'workers/migrations')
+const OUT_FILE = join(OUT_DIR, 'articles-sync.sql')
+
+interface ArticleRow {
+  slug: string
+  title: string
+  category: string
+  published: string | null
+  author: string | null
+  read_time: number | null
+  hero_image: string | null
+  last_synced: number
+  links: { url: string; text: string }[]
+}
+
+function parseArticle(filePath: string, defaultCategory: string): ArticleRow | null {
+  let raw: string
+  try {
+    raw = readFileSync(filePath, 'utf-8')
+  } catch {
+    return null
+  }
+  const parsed = matter(raw)
+  const fm = parsed.data as Record<string, unknown>
+  const slug = (fm.slug as string) || (fm.id as string)
+  if (!slug) {
+    console.warn(`  · skip (no slug): ${filePath}`)
+    return null
+  }
+  const title = (fm.title as string) || slug
+  const category = (fm.category as string) || defaultCategory
+  const published = (fm.published as string) || null
+  const author = (fm.author as string) || null
+  const readTime = typeof fm.readTime === 'number' ? (fm.readTime as number) : null
+  const heroImage = (fm.heroImage as string) || null
+
+  // 본문에서 markdown 링크 추출 ([text](url)). affiliate 후보만 (외부 도메인).
+  const linkRe = /\[([^\]]{1,80})\]\((https?:\/\/[^)\s]+)\)/g
+  const links: ArticleRow['links'] = []
+  let m
+  while ((m = linkRe.exec(parsed.content)) !== null) {
+    const url = m[2]
+    try {
+      const u = new URL(url)
+      // 내부 링크 / 이미지 / 사이트맵 제외
+      if (u.hostname.endsWith('saintremy.kr')) continue
+      links.push({ url, text: m[1].trim() })
+    } catch {
+      // skip malformed
+    }
+  }
+
+  return {
+    slug,
+    title,
+    category,
+    published,
+    author,
+    read_time: readTime,
+    hero_image: heroImage,
+    last_synced: Date.now(),
+    links,
+  }
+}
+
+function scan(): ArticleRow[] {
+  if (!existsSync(ARTICLES_DIR)) {
+    console.error(`  ✗ ${ARTICLES_DIR} not found`)
+    return []
+  }
+  const out: ArticleRow[] = []
+  for (const cat of readdirSync(ARTICLES_DIR)) {
+    const catDir = join(ARTICLES_DIR, cat)
+    let st
+    try {
+      st = statSync(catDir)
+    } catch {
+      continue
+    }
+    if (!st.isDirectory()) continue
+    for (const entry of readdirSync(catDir)) {
+      if (entry.startsWith('.') || entry.startsWith('_')) continue
+      const full = join(catDir, entry)
+      const entrySt = statSync(full)
+      let mdPath: string | null = null
+      if (entrySt.isDirectory()) {
+        const candidate = join(full, 'index.md')
+        if (existsSync(candidate)) mdPath = candidate
+      } else if (/\.(md|mdx)$/i.test(entry)) {
+        mdPath = full
+      }
+      if (!mdPath) continue
+      const row = parseArticle(mdPath, cat)
+      if (row) out.push(row)
+    }
+  }
+  return out
+}
+
+function sqlEscape(v: string | number | null): string {
+  if (v === null || v === undefined) return 'NULL'
+  if (typeof v === 'number') return String(v)
+  return `'${String(v).replace(/'/g, "''")}'`
+}
+
+function detectPartner(host: string): string {
+  if (/coupang/.test(host) || /coupa\.ng/.test(host)) return 'coupang'
+  if (/oliveyoung|oy\.run/.test(host)) return 'oliveyoung'
+  if (/ohou\.se|ohouse/.test(host)) return 'ohouse'
+  if (/smartstore\.naver|brand\.naver|shop\.naver/.test(host)) return 'naver'
+  if (/musinsa/.test(host)) return 'musinsa'
+  if (/aliexpress|s\.click\.aliexpress/.test(host)) return 'aliexpress'
+  if (/amazon/.test(host)) return 'amazon'
+  if (/linkprice/.test(host)) return 'linkprice'
+  return 'unknown'
+}
+
+function buildSql(rows: ArticleRow[]): string {
+  const lines: string[] = []
+  lines.push('-- Auto-generated by scripts/sync-d1-articles.ts')
+  lines.push(`-- ${new Date().toISOString()}`)
+  lines.push(`-- ${rows.length} articles`)
+  lines.push('')
+  lines.push('BEGIN;')
+  lines.push('')
+
+  // articles
+  for (const r of rows) {
+    lines.push(
+      `INSERT OR REPLACE INTO articles (slug, title, category, published, author, read_time, hero_image, last_synced) VALUES (${sqlEscape(r.slug)}, ${sqlEscape(r.title)}, ${sqlEscape(r.category)}, ${sqlEscape(r.published)}, ${sqlEscape(r.author)}, ${r.read_time ?? 'NULL'}, ${sqlEscape(r.hero_image)}, ${r.last_synced});`,
+    )
+  }
+  lines.push('')
+
+  // products (mini rows from extracted affiliate links)
+  let productCount = 0
+  const seen = new Set<string>()
+  for (const r of rows) {
+    for (const link of r.links) {
+      try {
+        const u = new URL(link.url)
+        const partner = detectPartner(u.hostname)
+        if (partner === 'unknown') continue
+        const id = createHash('sha1')
+          .update(`${r.slug}:${link.url}`)
+          .digest('hex')
+          .slice(0, 16)
+        if (seen.has(id)) continue
+        seen.add(id)
+        const slug = `${r.slug}-${id.slice(0, 8)}`
+        const affiliateJson = JSON.stringify({ [partner]: link.url })
+        lines.push(
+          `INSERT OR REPLACE INTO products (id, slug, name, brand, category, related_article_slug, affiliate_url, last_synced) VALUES (${sqlEscape(id)}, ${sqlEscape(slug)}, ${sqlEscape(link.text || r.title)}, NULL, ${sqlEscape(r.category)}, ${sqlEscape(r.slug)}, ${sqlEscape(affiliateJson)}, ${r.last_synced});`,
+        )
+        productCount++
+      } catch {
+        /* skip */
+      }
+    }
+  }
+
+  lines.push('')
+  lines.push('COMMIT;')
+  lines.push('')
+  lines.push(`-- ${rows.length} articles, ${productCount} products`)
+  return lines.join('\n')
+}
+
+function execWrangler(target: 'local' | 'remote'): boolean {
+  const flag = target === 'remote' ? '--remote' : '--local'
+  console.log(`\n  → wrangler d1 execute saintremy-analytics ${flag} --file=${OUT_FILE}`)
+  const r = spawnSync(
+    'npx',
+    ['wrangler', 'd1', 'execute', 'saintremy-analytics', flag, `--file=${OUT_FILE}`],
+    { cwd: REPO_ROOT, stdio: 'inherit' },
+  )
+  return r.status === 0
+}
+
+function main() {
+  console.log('  Saint-Rémy — D1 articles/products sync')
+  console.log('  ──────────────────────────────────────')
+  const rows = scan()
+  if (rows.length === 0) {
+    console.error('  ✗ No articles found.')
+    process.exit(1)
+  }
+  console.log(`  · ${rows.length} articles parsed`)
+
+  const sql = buildSql(rows)
+  if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true })
+  writeFileSync(OUT_FILE, sql, 'utf-8')
+  console.log(`  · SQL → ${OUT_FILE.replace(REPO_ROOT, '.')}`)
+
+  const args = process.argv.slice(2)
+  if (args.includes('--remote')) {
+    if (!execWrangler('remote')) process.exit(1)
+    console.log('\n  ✓ Remote D1 synced.')
+  } else if (args.includes('--local')) {
+    if (!execWrangler('local')) process.exit(1)
+    console.log('\n  ✓ Local D1 synced.')
+  } else {
+    console.log('\n  · 미적용. 적용하려면 --local 또는 --remote 추가:')
+    console.log('    npx tsx scripts/sync-d1-articles.ts --remote')
+  }
+}
+
+main()
