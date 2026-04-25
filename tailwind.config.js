@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // AMATOR — Editorial Classic (The Strategist inspired)
+        // Saint-Rémy — Editorial Classic (The Strategist inspired)
         cream: {
           50: '#FAF7F0',
           100: '#F5F0E8',

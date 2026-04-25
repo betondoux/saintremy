@@ -1,6 +1,6 @@
-# AMATOR × Notion CMS 설정 가이드
+# Saint-Rémy × Notion CMS 설정 가이드
 
-형님이 **Notion에서 글 쓰면 amator.kr에 자동 발행**되는 시스템입니다.  
+형님이 **Notion에서 글 쓰면 saintremy.kr에 자동 발행**되는 시스템입니다.  
 상품도 Notion에서 관리합니다.
 
 총 소요 시간: **30분** (처음 한 번만)
@@ -27,7 +27,7 @@
 ## 1-1. Notion에 페이지 만들기
 
 1. 왼쪽 사이드바 `+ Add a page` 클릭
-2. 이름: `AMATOR MAG`
+2. 이름: `Saint-Rémy`
 3. 아이콘: 🏛
 
 ## 1-2. 데이터베이스 추가
@@ -44,7 +44,7 @@
 | `Slug` | Text | URL 영문 (예: `grip-strength-dementia`) |
 | `Category` | Select | **옵션**: `gift`, `deal`, `style`, `beauty`, `space`, `kitchen`, `move`, `travel`, `furniture`, `living` (10개) |
 | `Dek` | Text | 부제 |
-| `Author` | Text | 저자명 (기본: `AMATOR EDITORS`) |
+| `Author` | Text | 저자명 (기본: `Saint-Rémy Editors`) |
 | `HeroQuote` | Text | 본문 중간 인용구 (선택) |
 | `YouTube` | Text | 유튜브 영상 ID (선택) |
 | `ReadTime` | Number | 읽기 시간(분) |
@@ -76,7 +76,7 @@ Category select 클릭 → `+ Add an option` — **영문 slug 그대로** 10개
 
 # 2단계: Products DB 생성 (상품용)
 
-## 2-1. 같은 `AMATOR MAG` 페이지 안에
+## 2-1. 같은 `Saint-Rémy` 페이지 안에
 
 같은 페이지 본문에서 `/database` 또 입력 → `Database - Inline` 선택 → 이름: `Products`
 
@@ -98,7 +98,7 @@ Category select 클릭 → `+ Add an option` — **영문 slug 그대로** 10개
 | `Vendor` | Select | **옵션**: `COUPANG`, `NAVER`, `MUSINSA`, `AMAZON`, `BRAND` |
 | `Active` | Checkbox | ⭐ 활성 (체크해야 사이트에 표시) |
 | `Featured` | Checkbox | 홈페이지 SHOP 섹션에 노출 |
-| `RelatedArticleSlug` | Text | 연결된 기사 slug (AMATOR PICK 표시용) |
+| `RelatedArticleSlug` | Text | 연결된 기사 slug (Saint-Rémy PICK 표시용) |
 
 ## 2-3. 상품 첫 번째 추가 예시
 
@@ -118,7 +118,7 @@ Featured: ✅
 RelatedArticleSlug: (선택)
 ```
 
-`RelatedArticleSlug`를 입력하면 → 해당 기사 옆 "AMATOR PICK" 자리에 이 상품이 자동 표시됩니다.
+`RelatedArticleSlug`를 입력하면 → 해당 기사 옆 "Saint-Rémy PICK" 자리에 이 상품이 자동 표시됩니다.
 
 ---
 
@@ -130,7 +130,7 @@ https://www.notion.so/my-integrations
 
 ## 3-2. + New integration
 
-- Name: `AMATOR Site`
+- Name: `Saint-Rémy Site`
 - Workspace: 형님 워크스페이스
 - Type: `Internal`
 - `Submit`
@@ -149,13 +149,13 @@ https://www.notion.so/my-integrations
 
 ## 4-1. Content DB 열기
 
-AMATOR MAG 페이지 → Content 데이터베이스 → 우측 상단 `•••`
+Saint-Rémy 페이지 → Content 데이터베이스 → 우측 상단 `•••`
 
-## 4-2. Add connections → AMATOR Site 선택 → Confirm
+## 4-2. Add connections → Saint-Rémy Site 선택 → Confirm
 
 ## 4-3. Products DB도 같은 방법으로 연결
 
-Products 데이터베이스 → `•••` → `Add connections` → `AMATOR Site` → `Confirm`
+Products 데이터베이스 → `•••` → `Add connections` → `Saint-Rémy Site` → `Confirm`
 
 ---
 
@@ -184,7 +184,7 @@ https://www.notion.so/workspace/[32자 DATABASE_ID]?v=...
 
 ## 6-1. 대시보드
 
-https://dash.cloudflare.com → `Workers & Pages` → `amator`
+https://dash.cloudflare.com → `Workers & Pages` → `saintremy-web`
 
 ## 6-2. Settings → Environment variables → Production → Add
 
@@ -238,7 +238,7 @@ Deployments → 최근 배포 `•••` → `Retry deployment`
 ### 발행:
 1. Cloudflare → Deployments → Retry deployment
 2. 2-3분 대기
-3. `amator.kr` 에 새로 반영 ✨
+3. `saintremy.kr` 에 새로 반영 ✨
 
 ---
 
@@ -308,4 +308,4 @@ https://www.youtube.com/watch?v=Iwq9GgOBQt0
 
 막히는 부분 있으면 스크린샷과 함께 Claude에게 말씀해 주세요.
 
-— AMATOR × DUCK DIVE, 2026
+— Saint-Rémy × DUCK DIVE, 2026

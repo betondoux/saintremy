@@ -1,6 +1,6 @@
-# 🛒 AMATOR 상품 등록 가이드 (SOP)
+# 🛒 Saint-Rémy 상품 등록 가이드 (SOP)
 
-**이 문서는 형님이 매주 15개 상품을 AMATOR 사이트에 추가하는 표준 작업 절차입니다.**
+**이 문서는 형님이 매주 15개 상품을 Saint-Rémy 사이트에 추가하는 표준 작업 절차입니다.**
 
 각 상품 등록은 **2분**을 목표로 합니다. 숙달되면 1분 이내.
 
@@ -15,8 +15,8 @@
 **필요한 것:**
 - 본인 명의 은행 계좌
 - 주민등록번호 (세무 처리용)
-- 사이트 URL (amator.kr — 아직 연결 전이라도 가능)
-- 채널 URL: YouTube @amator.kr, Instagram @amator.kr
+- 사이트 URL (saintremy.kr — 아직 연결 전이라도 가능)
+- 채널 URL: YouTube @saintremy.kr, Instagram @saintremy.kr
 
 **승인:** 보통 즉시 ~ 24시간 이내
 
@@ -102,7 +102,7 @@ Claude(저)에게 이렇게 요청:
 ```
 쿠팡 링크: https://coupang.com/vp/products/XXXXXXX
 
-이 상품을 AMATOR에 등록하려고 해. 다음 포맷으로 정리해줘:
+이 상품을 Saint-Rémy에 등록하려고 해. 다음 포맷으로 정리해줘:
 
 {
   "name": "상품명 (35자 이내)",
@@ -171,7 +171,7 @@ Notion Products DB에서 "새 행" 클릭:
 | Featured | ✅ (홈 노출 원하면) |
 | RelatedArticleSlug | grip-strength-dementia (선택) |
 
-**저장 → 30분 내 amator.kr에 자동 반영.**
+**저장 → 30분 내 saintremy.kr에 자동 반영.**
 
 ---
 
@@ -313,7 +313,7 @@ Notion Products DB에서 "새 행" 클릭:
 - 월 평균 클릭: 5,000회
 - 월 어필리에이트 수수료: ₩240만원
 
-**이 지표들이 AMATOR의 심박수입니다.**
+**이 지표들이 Saint-Rémy의 심박수입니다.**
 
 ---
 
@@ -325,4 +325,4 @@ Notion Products DB에서 "새 행" 클릭:
 
 모든 상품 등록 전에 이 질문을 스스로에게 하세요. 답이 "Yes, absolutely"가 아니면 등록하지 마세요.
 
-**편집 진정성이 AMATOR의 장기 매출을 만듭니다.**
+**편집 진정성이 Saint-Rémy의 장기 매출을 만듭니다.**

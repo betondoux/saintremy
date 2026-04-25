@@ -5,7 +5,7 @@ import { ALL_CATEGORIES, CATEGORY_META } from '../content/articles'
  * AboutPage
  *
  * TODO(브랜드): Saint-Rémy 브랜드 서사 확정 후 본문 재작성.
- * 현재는 AMATOR → Saint-Rémy 기계 리네이밍만 적용된 상태이며,
+ * 현재는 Saint-Rémy 톤으로 기계 리네이밍만 적용된 상태이며,
  * "우리는 이렇게 씁니다" 섹션 등은 라이프스타일 매거진 톤으로 다시 쓸 예정.
  */
 export function AboutPage() {

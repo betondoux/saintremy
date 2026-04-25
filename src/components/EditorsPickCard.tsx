@@ -7,10 +7,10 @@ import {
 
 interface Props {
   product: Product
-  label?: string // 기본: "AMATOR PICK"
+  label?: string // 기본: "EDITOR'S PICK"
 }
 
-export function AmatorPickCard({ product, label = "AMATOR PICK" }: Props) {
+export function EditorsPickCard({ product, label = "EDITOR'S PICK" }: Props) {
   const discount = getDiscountPercent(product)
 
   return (
@@ -21,14 +21,14 @@ export function AmatorPickCard({ product, label = "AMATOR PICK" }: Props) {
       className="block group relative"
       aria-label={`${product.name} - ${product.vendor}에서 보기`}
     >
-      {/* Yellow sticker — "AMATOR PICK" */}
+      {/* Yellow sticker — "EDITOR'S PICK" */}
       <div className="absolute -top-3 -left-3 z-10 rotate-[-8deg] transform">
         <div
           className="bg-warming px-4 py-2 shadow-md"
           style={{ clipPath: 'polygon(0% 10%, 100% 0%, 95% 95%, 5% 100%)' }}
         >
           <div className="headline-italic text-ink-900 text-lg leading-tight">
-            Amator<br />
+            Editor's<br />
             Pick
           </div>
         </div>

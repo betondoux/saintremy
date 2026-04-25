@@ -4,7 +4,7 @@
 
 Built by **LLSV** (Live your life like a Summer Vacation, 사업자명 "인생을 여름방학처럼"). 1-person indie project.
 
-> **NOTE (2026-04-23):** AMATOR → Saint-Rémy 브랜드 마이그레이션 진행 중.
+> **NOTE (2026-04-23):** Saint-Rémy → Saint-Rémy 브랜드 마이그레이션 진행 중.
 > 이 README의 브랜드 서사 섹션은 기계 리네이밍 상태이며, Saint-Rémy 정식
 > 포지셔닝(지명 어원, 편집 철학 등)은 별도 업데이트 예정. 스택/로컬 개발/
 > 배포 섹션은 최신 상태.

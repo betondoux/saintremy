@@ -3,8 +3,8 @@
 // 빌드 타임에 Notion에서 데이터를 가져와 JSON 파일로 저장.
 //
 // 두 개의 데이터베이스를 지원:
-//   1. NOTION_DATABASE_ID           — AMATOR Content (기사) 데이터베이스
-//   2. NOTION_PRODUCTS_DATABASE_ID  — AMATOR Products (상품) 데이터베이스 (선택)
+//   1. NOTION_DATABASE_ID           — Saint-Rémy Content (기사) 데이터베이스
+//   2. NOTION_PRODUCTS_DATABASE_ID  — Saint-Rémy Products (상품) 데이터베이스 (선택)
 //
 // 환경변수가 없으면 기존 generated/*.json 폴백 유지.
 //
@@ -308,7 +308,7 @@ async function fetchArticles(): Promise<Article[]> {
       dek: getRichText(props.Dek),
       readTime: getNumber(props.ReadTime) || 5,
       published: getDate(props.PublishDate),
-      author: getRichText(props.Author) || 'AMATOR EDITORS',
+      author: getRichText(props.Author) || 'Saint-Rémy Editors',
       heroQuote: getRichText(props.HeroQuote) || undefined,
       youtube: getRichText(props.YouTube) || undefined,
       thumbnailColor: getRichText(props.ThumbColor) || undefined,

@@ -8,7 +8,7 @@
 ## 한 줄 요약
 
 `studio.saintremy.kr`(별도 프로젝트)에서 운영하던 분석 대시보드 9개 페이지를
-amator 의 `/admin/*` 안으로 흡수했다. 같은 D1 DB
+saintremy 의 `/admin/*` 안으로 흡수했다. 같은 D1 DB
 (`saintremy-analytics`, `3901046c-2d2c-4de9-bcd7-55ac1fa52d8e`)를
 공유하므로 데이터는 그대로 보인다.
 
@@ -152,7 +152,7 @@ npm run sync:d1:local
 ### 옵션 B — Cloudflare에서 삭제 (정리)
 - Cloudflare Dashboard → Pages → `saintremy-studio` 프로젝트 삭제.
 - DNS 레코드 `studio.saintremy.kr` 삭제 (또는 saintremy.kr/admin으로 301).
-- D1 binding은 amator(saintremy-web) 측에 그대로 남음 → 데이터 손실 없음.
+- D1 binding은 saintremy-web 측에 그대로 남음 → 데이터 손실 없음.
 
 ### 옵션 C — 301 리다이렉트
 - saintremy-studio Pages를 trivial redirect 함수로 교체:

@@ -1,4 +1,4 @@
-# 🎯 AMATOR × Google AdSense 설정 가이드
+# 🎯 Saint-Rémy × Google AdSense 설정 가이드
 
 AdSense **광고 자리는 이미 준비되어 있습니다**. 승인받은 뒤 환경변수만 설정하면 즉시 활성화됩니다.
 
@@ -9,7 +9,7 @@ AdSense **광고 자리는 이미 준비되어 있습니다**. 승인받은 뒤 
 ### 권장 시점 (성공률 극대화):
 
 ```
-✅ amator.kr 도메인이 사이트에 연결된 후
+✅ saintremy.kr 도메인이 사이트에 연결된 후
 ✅ 기사가 최소 10편 이상 쌓인 후
 ✅ 사이트가 최소 1개월 이상 라이브 상태
 ✅ 개인정보 처리방침 + 이용약관 페이지 추가 후
@@ -49,7 +49,7 @@ AdSense 승인에 **필수**입니다. 이 페이지가 없으면 자동 거절.
 
 간단한 템플릿은 [https://www.privacypolicies.com](https://www.privacypolicies.com) 같은 곳에서 무료 생성 가능.
 
-AMATOR 라우팅에 추가할 페이지:
+Saint-Rémy 라우팅에 추가할 페이지:
 - `/privacy` — 개인정보 처리방침
 - `/terms` — 이용약관
 - `/about` — 사이트 소개 (신뢰도 향상)
@@ -62,7 +62,7 @@ AMATOR 라우팅에 추가할 페이지:
 
 1. https://www.google.com/adsense/start/ 접속
 2. 구글 계정 로그인 (lonelyjar2@gmail.com)
-3. 사이트 URL 입력: `https://amator.kr`
+3. 사이트 URL 입력: `https://saintremy.kr`
 4. 국가: 대한민국
 5. 결제 정보 입력 (통장 계좌)
 
@@ -90,7 +90,7 @@ AdSense에서 주는 `<meta>` 태그 또는 `<script>` 태그를:
 
 ### 2. Cloudflare Pages 환경변수 추가
 
-Cloudflare Pages → amator 프로젝트 → Settings → Environment variables → Production → Add variable:
+Cloudflare Pages → saintremy-web 프로젝트 → Settings → Environment variables → Production → Add variable:
 
 | Variable name | Value |
 |---|---|
@@ -131,7 +131,7 @@ VITE_AD_SLOT_ARTICLES_TO_SHOP=2345678901
 
 ### CPM (1000회 노출당 수익) 기준:
 - 한국 트래픽 평균: ₩1,500 ~ ₩7,500
-- 에디토리얼 매거진 (AMATOR 포지셔닝): 평균의 1.5배
+- 에디토리얼 매거진 (Saint-Rémy 포지셔닝): 평균의 1.5배
 - 예상: ₩2,000 ~ ₩10,000 / 1000회 노출
 
 ### 월 트래픽별 예상 수익:
@@ -149,13 +149,13 @@ VITE_AD_SLOT_ARTICLES_TO_SHOP=2345678901
 ## 🎨 광고 스타일 커스터마이징
 
 AdSense 대시보드에서 광고 스타일 설정 가능:
-- **배경색:** `#F5F0E8` (AMATOR 크림 배경과 매칭)
-- **텍스트색:** `#0A0A0B` (AMATOR 잉크)
-- **링크색:** `#C4361C` (AMATOR signal red)
+- **배경색:** `#F5F0E8` (Saint-Rémy 크림 배경과 매칭)
+- **텍스트색:** `#0A0A0B` (Saint-Rémy 잉크)
+- **링크색:** `#C4361C` (Saint-Rémy signal red)
 - **테두리:** 없음 (깔끔한 에디토리얼 톤)
 - **폰트:** 시스템 기본
 
-이렇게 하면 광고가 AMATOR 디자인과 자연스럽게 녹아듭니다.
+이렇게 하면 광고가 Saint-Rémy 디자인과 자연스럽게 녹아듭니다.
 
 ---
 
@@ -166,7 +166,7 @@ AdSense 대시보드에서 광고 스타일 설정 가능:
 2. **친구한테 클릭 요청 금지** — 클릭 유도 불법
 3. **광고 위에 "Click here" 같은 문구 금지**
 4. **성인 콘텐츠, 폭력, 저작권 침해 콘텐츠 금지**
-5. **페이지당 광고 3-4개 이내** (AMATOR는 3개 → 안전)
+5. **페이지당 광고 3-4개 이내** (Saint-Rémy는 3개 → 안전)
 
 ### 재정 관리:
 - 월 수익 ₩100,000 이상 누적 시 자동 지급
