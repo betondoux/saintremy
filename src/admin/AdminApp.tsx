@@ -3,6 +3,7 @@ import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { NewArticle } from './pages/NewArticle'
 import { ArticleProgress } from './pages/ArticleProgress'
+import { ArticlePreview } from './pages/ArticlePreview'
 
 export default function AdminApp() {
   return (
@@ -12,6 +13,7 @@ export default function AdminApp() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/new" element={<NewArticle />} />
       <Route path="/articles/:id/progress" element={<ArticleProgress />} />
+      <Route path="/articles/:id/preview" element={<ArticlePreview />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   )

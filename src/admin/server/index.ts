@@ -27,6 +27,7 @@ import { runMigrations } from '../../server/db/migrate.ts'
 import { authRouter } from './routes/auth.ts'
 import { dashboardRouter } from './routes/dashboard.ts'
 import { articlesRouter } from './routes/articles.ts'
+import { articlesPreviewRouter } from './routes/articles-preview.ts'
 import { healthRouter } from './routes/health.ts'
 import { requireAdmin } from './lib/middleware.ts'
 
@@ -70,6 +71,7 @@ async function start() {
   app.use('/api/admin/auth', authRouter)
   app.use('/api/admin/dashboard', requireAdmin({ mode: 'api' }), dashboardRouter)
   app.use('/api/admin/articles', requireAdmin({ mode: 'api' }), articlesRouter)
+  app.use('/api/admin/articles', requireAdmin({ mode: 'api' }), articlesPreviewRouter)
 
   // ─── Vite middleware mode (admin SPA 서빙) ─────
   const vite = await createViteServer({
