@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { Loading, ErrorView } from '../components/Loading'
 import { dashboardApi } from '../lib/dashboard-api'
@@ -16,6 +17,7 @@ export function Funnel() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Funnel"
         subtitle={`기사 조회 → 클릭 → 구매 확정 — 최근 ${days}일`}

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import {
   AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid,
 } from 'recharts'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { Stat } from '../components/Stat'
 import { Loading, ErrorView } from '../components/Loading'
@@ -18,6 +19,7 @@ export function Overview() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader title="Overview" subtitle="오늘 기준 7일 트렌드 — 방문자·클릭·수익 요약" />
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">

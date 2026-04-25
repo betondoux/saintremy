@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { DataTable, type Column } from '../components/DataTable'
 import { Loading, ErrorView } from '../components/Loading'
@@ -72,6 +73,7 @@ export function Articles() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Articles"
         subtitle={`기사별 성과 — 최근 ${days}일${slugFilter ? ` · 필터: ${slugFilter}` : ''}`}

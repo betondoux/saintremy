@@ -1,6 +1,11 @@
 // src/admin/lib/mockData.ts
+//
 // 로컬 dev (vite middleware mode)에서 D1이 없으므로 Cloudflare Pages Functions가 404.
 // 그때 dashboard-api.ts가 자동으로 이 가짜 데이터로 폴백한다.
+//
+// 정책 (2026-04-25): 모든 수치는 0, 모든 컬렉션은 발행 실재 6편 또는 빈 배열.
+// 형님이 매일 보는 화면이라 비현실적 가짜 데이터(₩47k 수익, 1.9k 방문자)는
+// 사기 진작에 부정적 → 운영 D1이 진짜 데이터를 채울 때까지 0 유지.
 //
 // import.meta.env.DEV === true 일 때만 사용.
 
@@ -9,9 +14,18 @@ import type {
   TrafficData, RealtimeData,
 } from './dashboard-api'
 
-const now = Date.now()
-const dayMs = 86_400_000
+// ─── 발행 실재 6편 (content/articles/**) ─────────────────────
+// 새 기사 발행 시 sync:d1 후 D1에서 읽히므로 여기 손볼 필요 없음.
+const realArticles = [
+  { slug: 'best-gentle-cleansers-under-20000', title: '2만원 이하 진짜 순한 클렌저 7가지', category: 'beauty' },
+  { slug: 'sunscreen-best-5', title: '선크림 BEST 5', category: 'beauty' },
+  { slug: 'best-desk-lamps-top-5', title: '재택근무자용 책상 조명 5가지', category: 'desk' },
+  { slug: 'parents-day-gift-best-4', title: '어버이날 선물 BEST 4', category: 'gift' },
+  { slug: 'deal-radar-2026-04-w4', title: '이번 주 딜 레이더 — 2026 4월 4주차', category: 'deal' },
+  { slug: 'duel-1-airpods-pro-3-vs-galaxy-buds-4-pro', title: 'AirPods Pro 3 vs Galaxy Buds 4 Pro', category: 'style' },
+]
 
+// 파트너 정의 (workers/schema.sql 시드와 동일). 수치는 모두 0.
 const partners = [
   { id: 'coupang', name: '쿠팡 파트너스', color: '#E2231A', rate: 3.0 },
   { id: 'naver', name: '네이버 쇼핑 커넥트', color: '#03C75A', rate: 5.0 },
@@ -23,217 +37,92 @@ const partners = [
   { id: 'linkprice', name: '링크프라이스 (네트워크)', color: '#6366F1', rate: 0.0 },
 ]
 
-const sampleArticles = [
-  { slug: 'sunscreen-best-5', title: '선크림 BEST 5 — 라운드랩, 닥터지부터 무기자차 1위까지', category: 'beauty' },
-  { slug: 'ergonomic-chair-guide', title: '허리 안 아픈 사무용 의자, 15만원부터 180만원까지', category: 'furniture' },
-  { slug: 'autumn-gift-2025', title: '센스있는 2만원대 추석 선물 10가지', category: 'gift' },
-  { slug: 'minimal-kitchen-tools', title: '진짜 매일 쓰는 주방도구 12개만 남겼다', category: 'kitchen' },
-  { slug: 'airpods-pro-3-review', title: 'AirPods Pro 3, 2년 쓰고도 살 가치 있나', category: 'deal' },
-  { slug: 'home-gym-essentials', title: '방 한 칸 홈짐, 40만원으로 시작하는 법', category: 'move' },
-  { slug: 'travel-carry-on-pack', title: '10일짜리 유럽 여행, 기내용 캐리어 하나로', category: 'travel' },
-  { slug: 'linen-bedding-test', title: '여름 침구, 린넨 vs 피마코튼 7일 테스트', category: 'living' },
-  { slug: 'capsule-wardrobe-autumn', title: '가을 캡슐 옷장 30벌로 60일 살기', category: 'style' },
-  { slug: 'small-space-essentials', title: '15평에서 답답하지 않게 사는 법', category: 'space' },
-]
-
-const paths = [
-  '/beauty', '/furniture', '/gift', '/kitchen', '/deal',
-  '/move', '/travel', '/living', '/style', '/space',
-  '/a/sunscreen-best-5', '/a/ergonomic-chair-guide', '/a/autumn-gift-2025',
-  '/a/minimal-kitchen-tools', '/a/airpods-pro-3-review',
-]
+// 7일 시계열 (모두 0). 그래프는 평탄한 라인으로 그려짐.
+const now = Date.now()
+const dayMs = 86_400_000
+const flatSeries = Array.from({ length: 7 }, (_, i) => {
+  const d = new Date(now - (6 - i) * dayMs)
+  return {
+    date: d.toISOString().slice(0, 10),
+    pageviews: 0,
+    clicks: 0,
+    revenue: 0,
+  }
+})
 
 export const mockOverview: OverviewData = {
-  today: {
-    pageviews: 2847,
-    sessions: 1923,
-    clicks: 184,
-    ctr: 6.46,
-    revenue: 47_200,
-  },
-  yesterday: {
-    pageviews: 2654,
-    clicks: 171,
-    revenue: 42_800,
-  },
-  series: Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(now - (6 - i) * dayMs)
-    const base = 2200 + Math.floor(Math.sin(i * 0.9) * 600 + Math.random() * 400)
-    return {
-      date: d.toISOString().slice(0, 10),
-      pageviews: base,
-      clicks: Math.floor(base * (0.05 + Math.random() * 0.03)),
-      revenue: Math.floor(base * 18 + Math.random() * 5000),
-    }
-  }),
-  topArticles: sampleArticles.slice(0, 8).map((a, i) => {
-    const pv = 1500 - i * 120 + Math.floor(Math.random() * 200)
-    const clicks = Math.floor(pv * (0.04 + Math.random() * 0.04))
-    return {
-      slug: a.slug,
-      title: a.title,
-      pageviews: pv,
-      clicks,
-      ctr: pv > 0 ? (clicks / pv) * 100 : 0,
-      revenue: clicks * 270 + Math.floor(Math.random() * 4000),
-    }
-  }),
-  topPartners: partners.slice(0, 5).map((p, i) => ({
-    partner_id: p.id,
-    name: p.name,
-    color: p.color,
-    clicks: 420 - i * 60 + Math.floor(Math.random() * 40),
-    revenue: (420 - i * 60) * (400 + i * 100),
-  })),
+  today: { pageviews: 0, sessions: 0, clicks: 0, ctr: 0, revenue: 0 },
+  yesterday: { pageviews: 0, clicks: 0, revenue: 0 },
+  series: flatSeries,
+  topArticles: [], // 트래픽 0이라 자연스럽게 빈 배열
+  topPartners: [],
 }
 
 export const mockArticles: { rows: ArticleRow[] } = {
-  rows: sampleArticles.map((a, i) => {
-    const pv = 4200 - i * 300 + Math.floor(Math.random() * 400)
-    const clicks = Math.floor(pv * (0.04 + Math.random() * 0.04))
-    return {
-      slug: a.slug,
-      title: a.title,
-      category: a.category,
-      published: new Date(now - (i * 5 + 3) * dayMs).toISOString().slice(0, 10),
-      pageviews: pv,
-      avg_dwell_sec: 120 + Math.random() * 180,
-      avg_scroll: 55 + Math.random() * 35,
-      clicks,
-      ctr: pv > 0 ? (clicks / pv) * 100 : 0,
-      revenue: clicks * (250 + Math.random() * 200),
-    }
-  }),
+  // 발행본 6편을 표시하되 모든 트래픽 지표는 0.
+  // 운영 D1이 채워지면 실제 PV/클릭/수익이 들어옴.
+  rows: realArticles.map((a) => ({
+    slug: a.slug,
+    title: a.title,
+    category: a.category,
+    published: null,
+    pageviews: 0,
+    avg_dwell_sec: 0,
+    avg_scroll: 0,
+    clicks: 0,
+    ctr: 0,
+    revenue: 0,
+  })),
 }
 
 export const mockProducts: { rows: ProductRow[] } = {
-  rows: [
-    { name: '닥터지 그린 마일드 업 선 플러스', brand: '닥터지', category: 'beauty', partners: ['coupang', 'oliveyoung', 'naver'] },
-    { name: '시디즈 T50', brand: '시디즈', category: 'furniture', partners: ['coupang', 'naver', 'ohouse'] },
-    { name: '허먼밀러 에어론 B', brand: '허먼밀러', category: 'furniture', partners: ['naver'] },
-    { name: '라운드랩 1025 독도 토너', brand: '라운드랩', category: 'beauty', partners: ['oliveyoung', 'coupang'] },
-    { name: '드롱기 디디카 EC685', brand: '드롱기', category: 'kitchen', partners: ['coupang', 'naver'] },
-    { name: '리모와 에센셜 기내용', brand: '리모와', category: 'travel', partners: ['naver', 'amazon'] },
-    { name: 'AirPods Pro 3세대', brand: 'Apple', category: 'deal', partners: ['coupang', 'naver', 'amazon'] },
-    { name: '무인양품 유기농 코튼 이불', brand: '무인양품', category: 'living', partners: ['coupang', 'ohouse'] },
-  ].map((p, i) => {
-    const clicks = 320 - i * 30 + Math.floor(Math.random() * 50)
-    return {
-      id: `prod-${i + 1}`,
-      slug: `product-${i + 1}`,
-      name: p.name,
-      brand: p.brand,
-      category: p.category,
-      clicks,
-      revenue: clicks * (300 + Math.random() * 400),
-      byPartner: p.partners.map((pid) => ({
-        partner_id: pid,
-        clicks: Math.floor(clicks / p.partners.length + Math.random() * 30),
-        revenue: Math.floor((clicks / p.partners.length) * 300),
-      })),
-    }
-  }),
+  // 빈 배열. 페이지에서 emptyText("아직 데이터 없음")로 표시됨.
+  rows: [],
 }
 
 export const mockPartners: { rows: PartnerRow[] } = {
-  rows: partners.map((p, i) => ({
+  rows: partners.map((p) => ({
     partner_id: p.id,
     name: p.name,
     color: p.color,
     commission_rate: p.rate,
-    clicks_7d: Math.floor((800 - i * 100) * (0.8 + Math.random() * 0.4)),
-    clicks_30d: Math.floor((3200 - i * 400) * (0.8 + Math.random() * 0.4)),
-    revenue_7d: Math.floor((45_000 - i * 5000) * (0.7 + Math.random() * 0.6)),
-    revenue_30d: Math.floor((180_000 - i * 20_000) * (0.7 + Math.random() * 0.6)),
-    pending_revenue: Math.floor((60_000 - i * 6000) * (0.7 + Math.random() * 0.6)),
-    confirmed_revenue: Math.floor((120_000 - i * 14_000) * (0.7 + Math.random() * 0.6)),
+    clicks_7d: 0,
+    clicks_30d: 0,
+    revenue_7d: 0,
+    revenue_30d: 0,
+    pending_revenue: 0,
+    confirmed_revenue: 0,
   })),
 }
 
 export const mockTraffic: TrafficData = {
-  sources: [
-    { source: 'Google 검색', sessions: 5234, clicks: 312, revenue: 84_200 },
-    { source: '직접/북마크', sessions: 2104, clicks: 145, revenue: 38_700 },
-    { source: 'Naver 검색', sessions: 1876, clicks: 121, revenue: 32_400 },
-    { source: 'Instagram', sessions: 1243, clicks: 89, revenue: 24_800 },
-    { source: 'Threads', sessions: 892, clicks: 67, revenue: 18_200 },
-    { source: '오늘의집', sessions: 432, clicks: 34, revenue: 9400 },
-    { source: 'X/Twitter', sessions: 287, clicks: 18, revenue: 5200 },
-  ],
-  countries: [
-    { country: 'KR', sessions: 11_287, pageviews: 17_842 },
-    { country: 'US', sessions: 234, pageviews: 389 },
-    { country: 'JP', sessions: 142, pageviews: 201 },
-    { country: 'SG', sessions: 87, pageviews: 124 },
-    { country: 'VN', sessions: 54, pageviews: 78 },
-  ],
-  devices: [
-    { device: 'mobile', sessions: 8924, pageviews: 13_428 },
-    { device: 'desktop', sessions: 2876, pageviews: 4821 },
-    { device: 'tablet', sessions: 324, pageviews: 418 },
-  ],
-  landingPages: paths.slice(0, 10).map((path, i) => ({
-    path,
-    sessions: 1200 - i * 100 + Math.floor(Math.random() * 100),
-    avg_dwell_sec: 80 + Math.random() * 200,
-  })),
+  sources: [],
+  countries: [],
+  devices: [],
+  landingPages: [],
 }
 
 export const mockRealtime = (): RealtimeData => ({
-  activeUsers: 23 + Math.floor(Math.random() * 15),
-  lastHour: {
-    pageviews: 487 + Math.floor(Math.random() * 60),
-    clicks: 34 + Math.floor(Math.random() * 8),
-  },
-  recentEvents: Array.from({ length: 20 }, (_, i) => {
-    const type = Math.random() > 0.75 ? 'click' : 'pageview'
-    const ts = now - i * (15_000 + Math.random() * 45_000)
-    if (type === 'click') {
-      const partner = partners[Math.floor(Math.random() * 4)]
-      const article = sampleArticles[Math.floor(Math.random() * sampleArticles.length)]
-      return {
-        ts,
-        type: 'click' as const,
-        partner_id: partner.id,
-        article_slug: article.slug,
-        country: 'KR',
-        device: Math.random() > 0.3 ? 'mobile' : 'desktop',
-      }
-    }
-    return {
-      ts,
-      type: 'pageview' as const,
-      path: paths[Math.floor(Math.random() * paths.length)],
-      country: Math.random() > 0.92 ? 'US' : 'KR',
-      device: Math.random() > 0.3 ? 'mobile' : 'desktop',
-    }
-  }),
+  activeUsers: 0,
+  lastHour: { pageviews: 0, clicks: 0 },
+  recentEvents: [],
 })
 
 export const mockFunnel = {
-  pageviews: 42_187,
-  productImpressions: 28_934,
-  clicks: 2104,
-  confirmed: 89,
+  pageviews: 0,
+  productImpressions: 0,
+  clicks: 0,
+  confirmed: 0,
   stages: [
-    { name: '페이지뷰', value: 42_187, rate: 100 },
-    { name: '제품 임프레션 (추정)', value: 28_934, rate: 68.6 },
-    { name: '제휴 클릭', value: 2104, rate: 7.27 },
-    { name: '구매 확정', value: 89, rate: 4.23 },
+    { name: '페이지뷰', value: 0, rate: 0 },
+    { name: '제품 임프레션 (추정)', value: 0, rate: 0 },
+    { name: '제휴 클릭', value: 0, rate: 0 },
+    { name: '구매 확정', value: 0, rate: 0 },
   ],
 }
 
 export const mockContentHealth = {
-  brokenLinks: [
-    { slug: 'old-kitchen-tools', partner: 'coupang', status: 404 },
-    { slug: 'deleted-product-review', partner: 'naver', status: 410 },
-  ],
-  missingProducts: [
-    { slug: 'upcoming-gift-guide' },
-    { slug: 'draft-style-piece' },
-  ],
-  staleArticles: [
-    { slug: 'ancient-review-2024', days_since_view: 52 },
-    { slug: 'outdated-trend', days_since_view: 38 },
-  ],
+  brokenLinks: [],
+  missingProducts: [],
+  staleArticles: [],
 }

@@ -1,8 +1,10 @@
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 
 export function Settings() {
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Settings"
         subtitle="파트너 계정 · 수익 업로드 · 시스템 상태"

@@ -1,3 +1,4 @@
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { Loading, ErrorView } from '../components/Loading'
 import { dashboardApi } from '../lib/dashboard-api'
@@ -11,6 +12,7 @@ export function ContentHealth() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Content Health"
         subtitle="깨진 링크 · 제품 미연결 · 오래된 기사"

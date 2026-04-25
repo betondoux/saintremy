@@ -1,8 +1,10 @@
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 
 export function ABTests() {
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="A/B Tests"
         subtitle="제목·썸네일·CTA 변형 실험 (Phase 4)"

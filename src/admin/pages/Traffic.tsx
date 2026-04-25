@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { DataTable, type Column } from '../components/DataTable'
 import { Loading, ErrorView } from '../components/Loading'
@@ -15,6 +16,7 @@ export function Traffic() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Traffic"
         subtitle={`유입 소스 · 국가 · 디바이스 — 최근 ${days}일`}

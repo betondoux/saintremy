@@ -1,3 +1,4 @@
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { Loading, ErrorView } from '../components/Loading'
 import { dashboardApi } from '../lib/dashboard-api'
@@ -12,6 +13,7 @@ export function Partners() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader title="Partners" subtitle="파트너별 클릭·수익·정산 현황" />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

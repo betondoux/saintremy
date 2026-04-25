@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { Stat } from '../components/Stat'
 import { ErrorView } from '../components/Loading'
@@ -30,6 +31,7 @@ export function Realtime() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Realtime"
         subtitle="5초 폴링 — 최근 30분 활동"

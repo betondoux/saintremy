@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LocalPreviewBanner } from '../components/LocalPreviewBanner'
 import { PageHeader } from '../components/PageHeader'
 import { DataTable, type Column } from '../components/DataTable'
 import { Loading, ErrorView } from '../components/Loading'
@@ -56,6 +57,7 @@ export function Products() {
 
   return (
     <>
+      <LocalPreviewBanner />
       <PageHeader
         title="Products"
         subtitle={`제품별 성과 — 최근 ${days}일`}
@@ -79,7 +81,11 @@ export function Products() {
           </select>
         }
       />
-      <DataTable columns={columns} rows={rows} />
+      <DataTable
+        columns={columns}
+        rows={rows}
+        emptyText="발행된 기사의 제품이 자동으로 표시됩니다 — 아직 데이터 없음"
+      />
     </>
   )
 }
