@@ -148,7 +148,12 @@ export function Header() {
           <img
             src={logoUrl}
             alt="Saint-Rémy"
-            style={{ height: '32px', width: 'auto', display: 'block' }}
+            style={{
+              height: '56px',
+              width: 'auto',
+              display: 'block',
+              maxWidth: '90vw',
+            }}
           />
         </Link>
 
