@@ -115,8 +115,8 @@ export function Header() {
         className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between"
         style={{
           borderBottom: '1px solid var(--sr-rule)',
-          paddingTop: '16px',
-          paddingBottom: '16px',
+          paddingTop: '24px',
+          paddingBottom: '24px',
         }}
       >
         <button
@@ -149,10 +149,10 @@ export function Header() {
             src={logoUrl}
             alt="Saint-Rémy"
             style={{
-              height: '56px',
+              height: 'clamp(80px, 22vw, 140px)',
               width: 'auto',
               display: 'block',
-              maxWidth: '90vw',
+              maxWidth: '92vw',
             }}
           />
         </Link>
