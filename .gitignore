@@ -45,3 +45,5 @@ coverage
 data/admin/*.sqlite
 data/admin/*.sqlite-shm
 data/admin/*.sqlite-wal
+.env.admin.save
+Header.tsx.bak
