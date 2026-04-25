@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="재택근무자용 책상 조명 BEST 5">
+  <rect width="1200" height="1200" fill="#C4B89A"/>
+  <text x="60" y="100" font-family="JetBrains Mono, monospace" font-size="14" font-weight="500" fill="#2A1810" opacity="0.65" letter-spacing="5">BEST IN CLASS · DESK</text>
+  <text x="1140" y="100" text-anchor="end" font-family="Playfair Display, Georgia, serif" font-size="22" font-weight="700" font-style="italic" fill="#2A1810" opacity="0.7">Saint-Rémy</text>
+
+  <text x="60" y="160" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" fill="#2A1810" opacity="0.5" letter-spacing="4">ISSUE 001 · 2026.04.25</text>
+
+  <text x="600" y="540" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="92" font-weight="700" fill="#2A1810" letter-spacing="-3">재택근무자용</text>
+  <text x="600" y="650" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="92" font-weight="700" fill="#2A1810" letter-spacing="-3">책상 조명</text>
+  <text x="600" y="740" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="80" font-weight="700" font-style="italic" fill="#2A1810" opacity="0.85">BEST 5</text>
+
+  <line x1="540" y1="820" x2="660" y2="820" stroke="#2A1810" stroke-width="1.5" opacity="0.5"/>
+
+  <text x="600" y="900" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="32" font-weight="400" fill="#2A1810" opacity="0.75" letter-spacing="-1">모니터 피로 줄이는 프리미엄 LED</text>
+  <text x="600" y="950" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="22" font-weight="400" fill="#2A1810" opacity="0.55">3만원대부터 25만원대까지 — 가격대별 1개씩</text>
+
+  <text x="600" y="1100" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" fill="#2A1810" opacity="0.5" letter-spacing="5">SAINT-RÉMY · BEST IN CLASS</text>
+</svg>
