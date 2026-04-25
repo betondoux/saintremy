@@ -78,7 +78,7 @@ export function Header() {
       className="w-full sticky top-0 z-40"
       style={{ backgroundColor: 'var(--sr-bg)' }}
     >
-      {/* 유틸 바 — The Strategist 스타일: SUBSCRIBE | SIGN IN */}
+      {/* 유틸 바 — INSTAGRAM | SPRING 2026 (매거진 시즌 표기) */}
       <div style={{ borderBottom: '1px solid var(--sr-rule)' }}>
         <div
           className="max-w-6xl mx-auto px-4 md:px-6 py-2 flex items-center justify-between"
@@ -90,42 +90,22 @@ export function Header() {
             textTransform: 'uppercase',
           }}
         >
-          <button
-            type="button"
-            onClick={() => {
-              window.location.href = 'mailto:hello@saintremy.kr?subject=Subscribe'
-            }}
+          <a
+            href="https://instagram.com/saintremy_kr"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              font: 'inherit',
-              letterSpacing: 'inherit',
               color: 'inherit',
-              cursor: 'pointer',
+              textDecoration: 'none',
+              letterSpacing: 'inherit',
             }}
             className="hover:opacity-60 transition"
           >
-            Subscribe
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              window.location.href = '/admin'
-            }}
-            style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              font: 'inherit',
-              letterSpacing: 'inherit',
-              color: 'inherit',
-              cursor: 'pointer',
-            }}
-            className="hover:opacity-60 transition"
-          >
-            Sign In
-          </button>
+            Instagram →
+          </a>
+          <span style={{ color: 'var(--sr-muted)' }}>
+            Spring 2026
+          </span>
         </div>
       </div>
 
