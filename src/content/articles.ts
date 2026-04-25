@@ -166,12 +166,18 @@ export interface FinalVerdict {
 export interface RoundupItem {
   // 섹션 헤드라인 — 제품 위에 이탤릭으로 노출 ("엄마가 매일 쓸 핸드크림")
   sectionTitle: string
+  /** 섹션 카테고리 소개 본문 (5-7줄, 메인 카드 위에 표시). 메인 카드에만 작성, 대안 카드는 비워둠 */
+  sectionIntro?: string
   // 제품
   productName: string
   productImage: string // 쿠팡/올리브영 상품 메인 이미지 URL 그대로
   productImageAlt: string
   // 가격 — "29,000원" 또는 "From 29,000원" 같이 자유 문자열
   price: string
+  /** 세일 시 정가 (취소선으로 표시). 예: "₩89,000" */
+  originalPrice?: string
+  /** 세일 시 할인율 표시 텍스트. 예: "11% off" */
+  discountLabel?: string
   // 본문 — 제품 추천 카피 1~2 문단 (마크다운 인라인 OK)
   body: string
   // 머천트 + CTA
@@ -180,6 +186,8 @@ export interface RoundupItem {
   ctaLabel?: string // 미지정 시 "쿠팡에서 보기 →" / "올리브영에서 보기 →" 자동
   // 옵션: 노란 형광 스티커 ("진짜 좋은 가격!", "에디터 추천" 등)
   badge?: string
+  /** 같은 섹션 안에서 메인이 아닌 대안 상품 (작은 가로 카드로 렌더) */
+  isAlternate?: boolean
 }
 
 export interface Article {

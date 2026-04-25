@@ -2,6 +2,11 @@
 // The Strategist "Mother's Day Gifts" 스타일 다중 상품 블록.
 // 한 기사에 RoundupCard 가 10~30개 세로로 쌓인다.
 // 데이터 모델은 articles.ts:RoundupItem.
+//
+// 2026-04-25 P0 보강:
+//   - sectionIntro: 섹션 도입부 본문 (헤드라인 직후 5-7줄)
+//   - originalPrice + discountLabel: 세일 가격 + 오렌지 할인율
+//   - isAlternate: true면 메인 카드 아닌 작은 가로 카드로 렌더
 
 import type { RoundupItem } from '../content/articles'
 
@@ -15,20 +20,177 @@ const MERCHANT_LABEL: Record<RoundupItem['merchant'], string> = {
   oliveyoung: '올리브영',
 }
 
+// Strategist 톤 오렌지 — 세일 강조
+const SALE_ORANGE = '#D85A30'
+
+function trackClick(item: RoundupItem) {
+  if (typeof window === 'undefined') return
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void }
+  if (typeof w.gtag === 'function') {
+    w.gtag('event', `${item.merchant}_click`, {
+      product_name: item.productName,
+      section_title: item.sectionTitle,
+    })
+  }
+}
+
+/**
+ * 가격 1줄 표시 (메인/대안 카드 공유).
+ * size='lg' = 메인 카드 (이탤릭 17px), 'sm' = 대안 카드 (mono 13px).
+ */
+function PriceLine({
+  item,
+  size,
+}: {
+  item: RoundupItem
+  size: 'lg' | 'sm'
+}) {
+  const main = size === 'lg'
+  const orig = item.originalPrice
+  const disc = item.discountLabel
+  return (
+    <span
+      style={{
+        whiteSpace: 'nowrap',
+        display: 'inline-flex',
+        alignItems: 'baseline',
+        gap: main ? '8px' : '6px',
+      }}
+    >
+      {orig && (
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: main ? '13px' : '11px',
+            color: 'var(--sr-muted)',
+            textDecoration: 'line-through',
+          }}
+        >
+          {orig}
+        </span>
+      )}
+      <span
+        style={
+          main
+            ? {
+                fontFamily: 'var(--font-serif-kr)',
+                fontStyle: 'italic',
+                fontSize: '17px',
+                color: 'var(--sr-ink)',
+              }
+            : {
+                fontFamily: 'var(--font-mono)',
+                fontSize: '13px',
+                color: 'var(--sr-ink)',
+                fontWeight: 600,
+              }
+        }
+      >
+        {item.price}
+      </span>
+      {disc && (
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: main ? '12px' : '10px',
+            color: SALE_ORANGE,
+            fontWeight: 600,
+          }}
+        >
+          {disc}
+        </span>
+      )}
+    </span>
+  )
+}
+
+/**
+ * 대안 상품 — 작은 가로 카드 (이미지 좌, 정보 우).
+ * 같은 섹션의 메인 상품 아래에 1~3개 들어가는 변형.
+ */
+function AlternateCard({ item }: { item: RoundupItem }) {
+  const merchantLabel = MERCHANT_LABEL[item.merchant]
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '14px',
+        padding: '14px 0',
+        borderBottom: '1px dotted rgba(0,0,0,0.15)',
+      }}
+    >
+      <img
+        src={item.productImage}
+        alt={item.productImageAlt || item.productName}
+        loading="lazy"
+        style={{
+          width: '80px',
+          height: '80px',
+          objectFit: 'cover',
+          flexShrink: 0,
+          borderRadius: '4px',
+        }}
+      />
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <h4
+          style={{
+            fontFamily: 'var(--font-serif-kr)',
+            fontWeight: 700,
+            fontSize: '15px',
+            lineHeight: 1.3,
+            color: 'var(--sr-ink)',
+            margin: '0 0 4px',
+          }}
+        >
+          {item.productName}
+        </h4>
+        <div style={{ marginBottom: '6px' }}>
+          <PriceLine item={item} size="sm" />
+        </div>
+        <p
+          style={{
+            fontFamily: 'var(--font-serif-kr)',
+            fontSize: '13px',
+            color: 'var(--sr-muted)',
+            lineHeight: 1.5,
+            margin: '0 0 10px',
+          }}
+        >
+          {item.body}
+        </p>
+        <a
+          href={item.productUrl}
+          target="_blank"
+          rel="noopener noreferrer nofollow sponsored"
+          onClick={() => trackClick(item)}
+          style={{
+            display: 'inline-block',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            letterSpacing: '0.1em',
+            padding: '6px 12px',
+            border: '1px solid var(--sr-ink)',
+            color: 'var(--sr-ink)',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+          }}
+        >
+          BUY AT {merchantLabel} →
+        </a>
+      </div>
+    </div>
+  )
+}
+
 export default function RoundupCard({ item, isLast = false }: Props) {
+  // 대안 카드 분기 — 짧은 가로 카드로 단축 렌더
+  if (item.isAlternate) {
+    return <AlternateCard item={item} />
+  }
+
   const merchantLabel = MERCHANT_LABEL[item.merchant]
   const ctaLabel = item.ctaLabel ?? `${merchantLabel}에서 보기`
-
-  const handleClick = () => {
-    if (typeof window === 'undefined') return
-    const w = window as unknown as { gtag?: (...args: unknown[]) => void }
-    if (typeof w.gtag === 'function') {
-      w.gtag('event', `${item.merchant}_click`, {
-        product_name: item.productName,
-        section_title: item.sectionTitle,
-      })
-    }
-  }
 
   return (
     <article style={{ marginTop: '40px', marginBottom: isLast ? '24px' : '40px' }}>
@@ -47,6 +209,26 @@ export default function RoundupCard({ item, isLast = false }: Props) {
       >
         {item.sectionTitle}
       </h2>
+
+      {/* 섹션 카테고리 도입부 (옵션) — 5~7줄 본문, 메인 카드에만 작성 */}
+      {item.sectionIntro && (
+        <div
+          style={{
+            fontFamily: 'var(--font-serif-kr)',
+            fontSize: '15px',
+            lineHeight: 1.7,
+            color: 'var(--sr-ink)',
+            margin: '12px 0 24px',
+            maxWidth: '640px',
+          }}
+        >
+          {item.sectionIntro.split('\n\n').map((para, i) => (
+            <p key={i} style={{ marginBottom: '12px' }}>
+              {para}
+            </p>
+          ))}
+        </div>
+      )}
 
       {/* 노란 형광 스티커 (옵션) */}
       {item.badge && (
@@ -151,17 +333,8 @@ export default function RoundupCard({ item, isLast = false }: Props) {
         >
           {item.productName}
         </h3>
-        <span
-          style={{
-            fontFamily: 'var(--font-serif-kr)',
-            fontStyle: 'italic',
-            fontSize: '17px',
-            color: 'var(--sr-ink)',
-            whiteSpace: 'nowrap',
-            flex: '0 0 auto',
-          }}
-        >
-          {item.price}
+        <span style={{ flex: '0 0 auto' }}>
+          <PriceLine item={item} size="lg" />
         </span>
       </div>
 
@@ -183,7 +356,7 @@ export default function RoundupCard({ item, isLast = false }: Props) {
         href={item.productUrl}
         target="_blank"
         rel="noopener noreferrer nofollow sponsored"
-        onClick={handleClick}
+        onClick={() => trackClick(item)}
         style={{
           display: 'block',
           textAlign: 'center',

@@ -749,6 +749,11 @@ function DuelLayout({ article }: { article: Article }) {
 // ═══════════════════════════════════════════════════════════════
 function RoundupLayout({ article }: { article: Article }) {
   if (!article.roundup) return null
+
+  // 카운터 박스용 집계 (Strategist Mother's Day 식 "28 items, 2 sale" 패턴)
+  const total = article.roundup.length
+  const saleCount = article.roundup.filter((item) => item.discountLabel).length
+
   return (
     <>
       {/* 도입부 — 글 전체 톤 잡는 lead + body */}
@@ -765,6 +770,69 @@ function RoundupLayout({ article }: { article: Article }) {
           </p>
         </section>
       )}
+
+      {/* 카운터 박스 — Strategist 톤 ("N개의 추천 상품 / N개 세일 진행 중") */}
+      <div
+        style={{
+          background: 'rgba(0, 0, 0, 0.04)',
+          border: '0.5px solid var(--sr-rule)',
+          borderRadius: '8px',
+          padding: '20px 24px',
+          margin: '32px 0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '6px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-display-en)',
+              fontSize: '32px',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              lineHeight: 1,
+            }}
+          >
+            {total}
+          </span>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '13px',
+              letterSpacing: '0.06em',
+              color: 'var(--sr-ink)',
+            }}
+          >
+            개의 추천 상품
+          </span>
+        </div>
+        {saleCount > 0 && (
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-display-en)',
+                fontSize: '24px',
+                fontWeight: 700,
+                color: '#D85A30',
+                lineHeight: 1,
+              }}
+            >
+              {saleCount}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                letterSpacing: '0.06em',
+                color: '#D85A30',
+              }}
+            >
+              개 세일 진행 중!
+            </span>
+          </div>
+        )}
+      </div>
 
       {/* 상품 카드 세로 스택 */}
       {article.roundup.map((item, i) => (
