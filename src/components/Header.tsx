@@ -6,7 +6,7 @@ import {
   CATEGORY_STICKER_COLORS,
   CATEGORY_SHORT_LABELS,
 } from '../content/articles'
-import logoUrl from '../assets/saintremy-logo.svg'
+import logoUrl from '../assets/saintremy-logo.png'
 
 // ═══════════════════════════════════════════════════════════════
 // 2026-04-24 design spec:
@@ -149,10 +149,11 @@ export function Header() {
             src={logoUrl}
             alt="Saint-Rémy"
             style={{
-              height: 'clamp(80px, 22vw, 140px)',
+              maxHeight: 'clamp(40px, 10vw, 72px)',
+              maxWidth: '70vw',
               width: 'auto',
+              height: 'auto',
               display: 'block',
-              maxWidth: '92vw',
             }}
           />
         </Link>

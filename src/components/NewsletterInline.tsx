@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logoUrl from '../assets/saintremy-logo.png'
 
 /**
  * NewsletterInline — 기사 본문 중간에 자연스럽게 삽입되는 뉴스레터 가입 박스.
@@ -36,8 +37,18 @@ export function NewsletterInline() {
         <div className="typewriter-label text-signal mb-3">
           — WEEKLY DISPATCH
         </div>
-        <h3 className="headline-italic text-2xl md:text-3xl text-ink-900 leading-tight mb-3">
-          Saint-Rémy를 매주 받아보세요.
+        <h3 className="text-2xl md:text-3xl text-ink-900 leading-tight mb-3 flex items-center justify-center gap-2 flex-wrap">
+          <img
+            src={logoUrl}
+            alt="Saint-Rémy"
+            style={{
+              height: '1.05em',
+              width: 'auto',
+              display: 'inline-block',
+              verticalAlign: 'middle',
+            }}
+          />
+          <span>를 매주 받아보세요.</span>
         </h3>
         <p className="body-text text-ink-500 text-sm mb-5 leading-relaxed">
           덜 사고 더 잘 쓰는 사람들의 이메일. 매주 목요일, 한 통.
