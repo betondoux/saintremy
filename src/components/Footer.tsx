@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ALL_CATEGORIES, CATEGORY_META } from '../content/articles'
-import { NewsletterInline } from './NewsletterInline'
+import logoUrl from '../assets/saintremy-logo.png'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -10,18 +10,21 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-14">
         {/* Logo */}
         <div className="text-center">
-          <div
-            className="masthead text-ink-900 text-5xl md:text-6xl"
-          >
-            Saint-Rémy
-          </div>
+          <img
+            src={logoUrl}
+            alt="Saint-Rémy"
+            style={{
+              maxHeight: 'clamp(40px, 11vw, 80px)',
+              maxWidth: '70vw',
+              width: 'auto',
+              height: 'auto',
+              display: 'inline-block',
+            }}
+          />
           <div className="headline-ko text-ink-500 text-base mt-3">
             평범한 사물을 깊이 보는 매거진
           </div>
         </div>
-
-        {/* Newsletter — 푸터 내부 정상 흐름 (fixed 아님) */}
-        <NewsletterInline />
 
         {/* Sitemap */}
         <div className="mt-10 pt-8 border-t border-dashed border-ink-900/25">

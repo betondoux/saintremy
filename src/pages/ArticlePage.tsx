@@ -7,7 +7,6 @@ import {
 import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
 import { VideoHero } from '../components/VideoHero'
-import { NewsletterInline } from '../components/NewsletterInline'
 import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import PickCard from '../components/PickCard'
 import RoundupCard from '../components/RoundupCard'
@@ -1043,17 +1042,12 @@ function RenderBody({ body }: { body: string }) {
   // 이렇게 해야 헤딩과 이어지는 리스트/문단이 별개 블록으로 분리돼 제대로 렌더됨.
   const normalized = body.replace(/^(#{1,6}\s[^\n]+)\n(?!\n)/gm, '$1\n\n')
   const blocks = normalized.split(/\n\n+/)
-  const inlineInsertIndex = Math.floor((blocks.filter((b) => b.trim()).length * 2) / 3)
-  let visibleBlockCount = 0
 
   return (
     <>
       {blocks.map((block, i) => {
         const trimmed = block.trim()
         if (!trimmed) return null
-        visibleBlockCount++
-
-        const shouldInsertNewsletter = visibleBlockCount === inlineInsertIndex
 
         // YouTube 임베드
         if (trimmed.startsWith('[YOUTUBE] ')) {
@@ -1290,7 +1284,6 @@ function RenderBody({ body }: { body: string }) {
             <p className="body-text text-ink-900 text-base md:text-lg leading-[1.75] my-5">
               {renderInline(trimmed)}
             </p>
-            {shouldInsertNewsletter && <NewsletterInline />}
           </div>
         )
       })}

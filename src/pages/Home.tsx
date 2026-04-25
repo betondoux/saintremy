@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SEO } from '../components/SEO'
-import { NewsletterInline } from '../components/NewsletterInline'
+import logoUrl from '../assets/saintremy-logo.png'
 import CategoryLabel, {
   CATEGORY_COLORS,
 } from '../components/CategoryLabel'
@@ -103,8 +103,6 @@ function PreLaunchHero() {
           첫 번째 발행이 곧 공개됩니다.
         </p>
       </div>
-
-      <NewsletterInline />
     </div>
   )
 }
@@ -138,7 +136,18 @@ function AffiliateNotice() {
           lineHeight: 1.6,
         }}
       >
-        Saint-Rémy Editors가 독립적으로 선정한 제품입니다.
+        <img
+          src={logoUrl}
+          alt="Saint-Rémy"
+          style={{
+            height: '0.95em',
+            width: 'auto',
+            display: 'inline-block',
+            verticalAlign: '-0.08em',
+            marginRight: '0.25em',
+          }}
+        />
+        Editors가 독립적으로 선정한 제품입니다.
         <br />
         링크를 통한 구매 시 일정 수수료를 제공받을 수 있습니다.
         <Link

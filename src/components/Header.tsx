@@ -149,8 +149,8 @@ export function Header() {
             src={logoUrl}
             alt="Saint-Rémy"
             style={{
-              maxHeight: 'clamp(40px, 10vw, 72px)',
-              maxWidth: '70vw',
+              maxHeight: 'clamp(36px, 8vw, 56px)',
+              maxWidth: '60vw',
               width: 'auto',
               height: 'auto',
               display: 'block',
