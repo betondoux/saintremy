@@ -42,6 +42,19 @@ function parseJSON<T>(s: string | null): T | null {
   }
 }
 
+// product-vetter 의 parsed payload 는 보통 { products: [...] } 또는 { picks: [...] }
+// 객체이고, 가끔 raw array 일 수도 있다. 프론트가 .filter() 를 호출할 수 있도록 항상 배열로 정규화.
+function normalizePicks(s: string | null): unknown[] {
+  const parsed = parseJSON<unknown>(s)
+  if (Array.isArray(parsed)) return parsed
+  if (parsed && typeof parsed === 'object') {
+    const obj = parsed as Record<string, unknown>
+    if (Array.isArray(obj.products)) return obj.products
+    if (Array.isArray(obj.picks)) return obj.picks
+  }
+  return []
+}
+
 articlesPreviewRouter.get('/:id/preview', (req, res) => {
   const draft = getDb()
     .prepare('SELECT * FROM drafts WHERE id = ?')
@@ -56,7 +69,7 @@ articlesPreviewRouter.get('/:id/preview', (req, res) => {
     status: draft.status,
     bodyMd: draft.step_body_md ?? '',
     seo: parseJSON<Record<string, unknown>>(draft.step_seo),
-    picks: parseJSON<unknown[]>(draft.step_picks),
+    picks: normalizePicks(draft.step_picks),
     compliance: parseJSON<Record<string, unknown>>(draft.step_compliance),
     linkValidation: parseJSON<Record<string, unknown>>(draft.link_validation),
     publishPath: draft.publish_path,
@@ -75,7 +88,7 @@ articlesPreviewRouter.post('/:id/validate-links', async (req, res) => {
     .get(draftId) as { step_picks: string | null } | undefined
   if (!draft) return res.status(404).json({ error: 'not_found' })
 
-  const picks = parseJSON<unknown[]>(draft.step_picks) ?? []
+  const picks = normalizePicks(draft.step_picks)
   const summary = await validateAllLinks(picks)
   getDb()
     .prepare('UPDATE drafts SET link_validation = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?')

@@ -57,6 +57,21 @@ function parseJSON<T>(s: string | null): T | null {
   }
 }
 
+// product-vetter parsed payload 가 { products: [...] } / { picks: [...] } / raw [] 형태로
+// 들쭉날쭉이라 항상 배열로 정규화한다. (articles-preview.ts 와 동일 로직)
+function normalizePicks(s: string | null): Record<string, unknown>[] {
+  const parsed = parseJSON<unknown>(s)
+  const arr: unknown = Array.isArray(parsed)
+    ? parsed
+    : parsed && typeof parsed === 'object'
+      ? ((parsed as Record<string, unknown>).products ??
+        (parsed as Record<string, unknown>).picks ??
+        [])
+      : []
+  if (!Array.isArray(arr)) return []
+  return arr.filter((x): x is Record<string, unknown> => !!x && typeof x === 'object')
+}
+
 /**
  * 한국어/영문 혼합 텍스트를 안전한 kebab-case 슬러그로 변환.
  * - 영문/숫자/하이픈은 유지
@@ -241,7 +256,7 @@ export async function publishDraft(
   }
 
   // 1. 어필리에이트 링크 재검증
-  const picks = parseJSON<Record<string, unknown>[]>(draft.step_picks) ?? []
+  const picks = normalizePicks(draft.step_picks)
   const urls = extractUrls(picks)
   let validation: LinkValidationSummary | undefined
   if (urls.length > 0) {

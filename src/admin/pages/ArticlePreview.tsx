@@ -127,7 +127,10 @@ export function ArticlePreview() {
   const html = useMemo(() => renderMarkdown(draft?.bodyMd ?? ''), [draft?.bodyMd])
   const validation = draft?.linkValidation ?? null
 
-  const picksWithUrl = useMemo(() => (draft?.picks ?? []).filter(pickUrl), [draft?.picks])
+  const picksWithUrl = useMemo(
+    () => (Array.isArray(draft?.picks) ? draft.picks : []).filter(pickUrl),
+    [draft?.picks]
+  )
 
   const canPublish =
     !!draft &&
