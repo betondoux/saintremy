@@ -2,15 +2,61 @@ import { Link, NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import {
   ALL_CATEGORIES,
-  CATEGORY_LABELS,
+  CATEGORY_SUBCATEGORIES,
+  CATEGORY_STICKER_COLORS,
+  CATEGORY_SHORT_LABELS,
 } from '../content/articles'
 
 // ═══════════════════════════════════════════════════════════════
 // 2026-04-24 design spec:
 // [☰ 햄버거 | Saint-Rémy (italic 28px) | 🔍 검색] 3요소 미니멀 바.
 // 유틸 바 (위) + 태그라인 (데스크톱만, 아래).
-// 데스크톱에서도 동일 3요소 유지 — 카테고리 네비는 모바일 메뉴로 통합.
+//
+// 2026-04-25 update:
+// 풀스크린 메뉴 블록을 The Strategist 스타일로 재설계.
+// 형광 스티커 라벨 + 모노스페이스 서브카테고리 + 점선 구분선.
 // ═══════════════════════════════════════════════════════════════
+
+function StickerLabel({
+  text,
+  color,
+  rotation,
+}: {
+  text: string
+  color: string
+  rotation: number
+}) {
+  return (
+    <div
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+        transform: `rotate(${rotation}deg)`,
+        marginBottom: '14px',
+      }}
+    >
+      <div
+        style={{
+          background: color,
+          padding: '8px 22px 8px 18px',
+          fontFamily: 'var(--font-display-en)',
+          fontStyle: 'italic',
+          fontWeight: 700,
+          fontSize: '20px',
+          color: '#1a1a1a',
+          clipPath:
+            'polygon(0 8%, 96% 0, 100% 92%, 4% 100%, 0 80%, 5% 60%, 0 40%)',
+        }}
+      >
+        {text}
+      </div>
+    </div>
+  )
+}
+
+// 카테고리 11개 인덱스 → rotation 각도
+const ROTATIONS = [-3, -2, -1.5, 2, -2, -1, 2.5, 1.5, -2, -1.5, 1]
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -48,7 +94,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* 메인 바 — 햄버거 | 로고 | 검색 */}
+      {/* 메인 바 */}
       <div
         className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between"
         style={{
@@ -64,26 +110,12 @@ export function Header() {
           style={{ color: 'var(--sr-ink)' }}
         >
           {isMenuOpen ? (
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <line x1="5" y1="5" x2="19" y2="19" />
               <line x1="19" y1="5" x2="5" y2="19" />
             </svg>
           ) : (
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <line x1="3" y1="7" x2="21" y2="7" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="17" x2="21" y2="17" />
@@ -114,14 +146,7 @@ export function Header() {
           className="w-10 h-10 flex items-center justify-center"
           style={{ color: 'var(--sr-ink)' }}
         >
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="11" cy="11" r="7" />
             <line x1="16.5" y1="16.5" x2="21" y2="21" strokeLinecap="round" />
           </svg>
@@ -142,13 +167,12 @@ export function Header() {
         평범한 사물을 깊이 보는 매거진.
       </div>
 
-      {/* 풀스크린 메뉴 (모든 뷰포트) */}
+      {/* 풀스크린 메뉴 — The Strategist 스타일 */}
       {isMenuOpen && (
         <div
           className="fixed inset-0 top-0 z-50 overflow-y-auto"
           style={{ backgroundColor: 'var(--sr-bg)' }}
         >
-          {/* 메뉴 헤더 — 닫기 버튼만 */}
           <div
             className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between"
             style={{ borderBottom: '1px solid var(--sr-rule)' }}
@@ -173,82 +197,148 @@ export function Header() {
               className="w-10 h-10 flex items-center justify-center"
               style={{ color: 'var(--sr-ink)' }}
             >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <line x1="5" y1="5" x2="19" y2="19" />
                 <line x1="19" y1="5" x2="5" y2="19" />
               </svg>
             </button>
           </div>
 
-          <nav className="max-w-6xl mx-auto px-6 py-8">
-            <ul className="space-y-5">
-              {ALL_CATEGORIES.map((cat) => (
-                <li key={cat}>
+          <nav
+            className="max-w-3xl mx-auto px-6 pt-6 pb-12"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              color: 'var(--sr-ink)',
+            }}
+          >
+            {ALL_CATEGORIES.map((cat, idx) => {
+              const subs = CATEGORY_SUBCATEGORIES[cat]
+              const isLast = idx === ALL_CATEGORIES.length - 1
+              return (
+                <div key={cat}>
+                  {idx > 0 && (
+                    <div
+                      style={{
+                        borderTop: '1px dotted var(--sr-ink)',
+                        margin: '8px 0 22px',
+                        opacity: 0.4,
+                      }}
+                    />
+                  )}
+
                   <NavLink
                     to={`/${cat}`}
                     onClick={closeMenu}
-                    className="block transition hover:opacity-60"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <StickerLabel
+                      text={CATEGORY_SHORT_LABELS[cat]}
+                      color={CATEGORY_STICKER_COLORS[cat]}
+                      rotation={ROTATIONS[idx] ?? 0}
+                    />
+                  </NavLink>
+
+                  <div
                     style={{
-                      fontFamily: 'var(--font-serif-kr)',
-                      fontSize: '28px',
-                      fontWeight: 700,
-                      color: 'var(--sr-ink)',
+                      paddingLeft: '2px',
+                      fontSize: '13px',
+                      lineHeight: 2,
+                      letterSpacing: '0.01em',
+                      paddingBottom: isLast ? 0 : '14px',
                     }}
                   >
-                    {CATEGORY_LABELS[cat]}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+                    {subs.length === 0 ? (
+                      <div style={{ color: 'var(--sr-muted)', fontStyle: 'italic' }}>
+                        Coming soon
+                      </div>
+                    ) : (
+                      subs.map((sub) => (
+                        <div key={sub}>
+                          <NavLink
+                            to={`/${cat}`}
+                            onClick={closeMenu}
+                            style={{
+                              color: 'var(--sr-ink)',
+                              textDecoration: 'none',
+                              display: 'block',
+                            }}
+                            className="hover:opacity-60 transition"
+                          >
+                            {sub}
+                          </NavLink>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )
+            })}
 
             <div
-              className="mt-10 pt-6"
-              style={{ borderTop: '1px solid var(--sr-rule)' }}
+              style={{
+                borderTop: '1px dotted var(--sr-ink)',
+                marginTop: '32px',
+                paddingTop: '20px',
+              }}
             >
-              <Link
-                to="/about"
-                onClick={closeMenu}
-                className="block mb-4 hover:opacity-60 transition"
+              <div
                 style={{
-                  fontFamily: 'var(--font-mono)',
                   fontSize: '12px',
-                  letterSpacing: '0.2em',
-                  color: 'var(--sr-muted)',
+                  lineHeight: 2.2,
+                  letterSpacing: '0.05em',
                 }}
               >
-                ABOUT →
-              </Link>
-              <Link
-                to="/search"
-                onClick={closeMenu}
-                className="block mb-4 hover:opacity-60 transition"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
-                  letterSpacing: '0.2em',
-                  color: 'var(--sr-muted)',
-                }}
-              >
-                SEARCH →
-              </Link>
+                <Link
+                  to="/about"
+                  onClick={closeMenu}
+                  style={{ color: 'var(--sr-ink)', textDecoration: 'none', display: 'block' }}
+                  className="hover:opacity-60 transition"
+                >
+                  About
+                </Link>
+                <Link
+                  to="/search"
+                  onClick={closeMenu}
+                  style={{ color: 'var(--sr-ink)', textDecoration: 'none', display: 'block' }}
+                  className="hover:opacity-60 transition"
+                >
+                  Search
+                </Link>
+                <a
+                  href="https://instagram.com/saintremy_kr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--sr-ink)', textDecoration: 'none', display: 'block' }}
+                  className="hover:opacity-60 transition"
+                >
+                  Instagram
+                </a>
+              </div>
+
               <p
-                className="mt-8"
                 style={{
                   fontFamily: 'var(--font-serif-kr)',
                   fontStyle: 'italic',
                   fontSize: '13px',
                   color: 'var(--sr-muted)',
+                  marginTop: '20px',
+                  paddingTop: '16px',
+                  borderTop: '1px dotted var(--sr-ink)',
                 }}
               >
                 평범한 사물을 깊이 보는 매거진.
               </p>
+
+              <div
+                style={{
+                  marginTop: '12px',
+                  fontSize: '10px',
+                  letterSpacing: '0.1em',
+                  color: 'var(--sr-muted)',
+                }}
+              >
+                saintremy.kr · LLSV · 2026
+              </div>
             </div>
           </nav>
         </div>

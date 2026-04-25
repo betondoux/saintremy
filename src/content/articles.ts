@@ -431,3 +431,37 @@ export function splitDekIntoSentences(dek: string): string[] {
     .filter(Boolean)
   return sentences
 }
+// ═══════════════════════════════════════════════════════════════
+// 2026-04-25 햄버거 메뉴 (The Strategist 스타일) 추가 데이터
+// ═══════════════════════════════════════════════════════════════
+
+// 햄버거 메뉴 서브카테고리 (영문 only).
+// 빈 배열 = 메뉴에서 'Coming soon' 표시.
+export const CATEGORY_SUBCATEGORIES: Record<Category, string[]> = {
+  gift: ['By Recipient', 'By Budget', 'By Occasion', "Editor's Pick"],
+  deal: ['This Week', 'Under ₩30,000', 'Beauty Deals', 'Tech Deals'],
+  style: ['Audio', 'Wearables', 'Bags', 'Outerwear'],
+  beauty: ['Cleanser', 'Sunscreen', 'Skincare', 'Fragrance', 'Tools'],
+  space: [],
+  kitchen: ['Coffee + Tea', 'Cookware', 'Small Appliances', 'Knives'],
+  move: [],
+  travel: [],
+  furniture: [],
+  living: [],
+  music: ['Headphones', 'Earphones', 'Speakers', 'Walkman + Players', "Editor's Picks"],
+}
+
+// 햄버거 메뉴 카테고리 라벨 색상 (The Strategist 스티커 패턴).
+export const CATEGORY_STICKER_COLORS: Record<Category, string> = {
+  gift: '#FF7A1A',      // orange — 활기
+  deal: '#FFE600',      // yellow — 긴급/세일
+  style: '#00C2D9',     // cyan — 테크/모던
+  beauty: '#FF1F8F',    // hot pink — 관습적
+  space: '#FFE600',     // yellow — 따뜻함
+  kitchen: '#B845E8',   // purple — 미식
+  move: '#2BC48A',      // green — 활력
+  travel: '#FF7A1A',    // orange — 활기
+  furniture: '#2BC48A', // green — 자연/오래감
+  living: '#FF1F8F',    // hot pink — 일상
+  music: '#7F77DD',     // purple — 감성/분위기
+}
