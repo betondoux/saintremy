@@ -4,7 +4,7 @@
  * 메인 사이트(saintremy.kr 크림 톤)와 분리된 별도 SPA — body 클래스 안 거치고
  * #admin-root 단독 스타일만 적용된다.
  *
- * Tailwind directives로 Studio 컴포넌트가 쓰는 ink-*/accent/ok/warn/err 유틸을 활성화.
+ * Tailwind directives로 Studio 컴포넌트가 쓰는 ink, accent, ok, warn, err 유틸을 활성화.
  */
 
 @tailwind base;
