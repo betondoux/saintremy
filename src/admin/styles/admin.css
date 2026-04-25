@@ -1,23 +1,43 @@
-/* Saint-Rémy Editor — admin UI styles
- * 톤: 크림 #F4EFE8 배경, 에디토리얼 직렬 (Playfair Display) + Pretendard 한글
+/* Saint-Rémy Editor + Studio — admin UI styles
+ *
+ * 통합 톤(2026-04-25, Studio 흡수): 다크 #0a0a0a 베이스 + 골드 #D4A574 액센트
+ * 메인 사이트(saintremy.kr 크림 톤)와 분리된 별도 SPA — body 클래스 안 거치고
+ * #admin-root 단독 스타일만 적용된다.
+ *
+ * Tailwind directives로 Studio 컴포넌트가 쓰는 ink-*/accent/ok/warn/err 유틸을 활성화.
  */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --cream: #F4EFE8;
-  --cream-deep: #E8DECF;
-  --ink: #1A1612;
-  --ink-soft: #4A4035;
-  --ink-mute: #8A7E70;
-  --line: rgba(26, 22, 18, 0.12);
-  --line-soft: rgba(26, 22, 18, 0.06);
-  --accent: #8B3A2F;
-  --accent-hover: #722E25;
-  --error: #B33A2F;
-  --error-bg: rgba(179, 58, 47, 0.08);
-  --success: #2F6B3A;
-  --warn: #B07A1F;
-  --shadow-sm: 0 1px 2px rgba(26, 22, 18, 0.06);
-  --shadow-md: 0 8px 24px rgba(26, 22, 18, 0.08);
+  color-scheme: dark;
+
+  /* 다크 팔레트 (Studio 톤) */
+  --bg-base: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #262626;
+  --bg-input: #1a1a1a;
+  --border: #262626;
+  --border-soft: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #737373;
+
+  --accent: #D4A574;
+  --accent-hover: #B88A5C;
+  --accent-bright: #E5BC8E;
+
+  --success: #22c55e;
+  --warn: #f59e0b;
+  --error: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.12);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
   --radius: 8px;
 }
 
@@ -36,12 +56,13 @@ body,
 }
 
 body {
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--bg-base);
+  color: var(--text-primary);
   font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Inter, sans-serif;
   font-size: 15px;
   line-height: 1.55;
+  font-feature-settings: 'tnum', 'ss01';
   -webkit-font-smoothing: antialiased;
 }
 
@@ -55,11 +76,32 @@ select {
 }
 
 a {
-  color: var(--ink);
+  color: var(--text-primary);
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
+}
+
+code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--bg-elevated);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12.5px;
+}
+
+/* ─── 레이아웃 (Studio 통합) ────────────────────────── */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-main {
+  flex: 1;
+  margin-left: 240px;
+  min-width: 0;
 }
 
 /* ─── Login ─────────────────────────────────────── */
@@ -69,13 +111,14 @@ a:hover {
   display: grid;
   place-items: center;
   padding: 24px;
+  background: var(--bg-base);
 }
 
 .login-card {
   width: 100%;
   max-width: 380px;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   padding: 40px 32px 32px;
@@ -87,12 +130,13 @@ a:hover {
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0 0 4px;
+  color: var(--text-primary);
 }
 
 .login-tag {
   margin: 0 0 28px;
   font-size: 13px;
-  color: var(--ink-mute);
+  color: var(--text-secondary);
 }
 
 .login-field {
@@ -103,15 +147,16 @@ a:hover {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: var(--text-secondary);
   margin: 0 0 6px;
 }
 .login-field input {
   width: 100%;
   padding: 11px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: #fff;
+  background: var(--bg-input);
+  color: var(--text-primary);
   outline: none;
   transition: border-color 0.15s;
 }
@@ -127,14 +172,14 @@ a:hover {
   padding: 11px 16px;
   border: 0;
   border-radius: 6px;
-  background: var(--ink);
-  color: #fff;
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s;
 }
 .btn:hover {
-  background: #2a241c;
+  background: #333;
 }
 .btn:disabled {
   opacity: 0.5;
@@ -142,6 +187,7 @@ a:hover {
 }
 .btn-primary {
   background: var(--accent);
+  color: #1a1208;
 }
 .btn-primary:hover {
   background: var(--accent-hover);
@@ -151,11 +197,12 @@ a:hover {
 }
 .btn-ghost {
   background: transparent;
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
 }
 .btn-ghost:hover {
-  background: var(--line-soft);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
 }
 
 .alert {
@@ -167,31 +214,43 @@ a:hover {
 .alert-error {
   background: var(--error-bg);
   color: var(--error);
-  border: 1px solid rgba(179, 58, 47, 0.18);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.alert-success {
+  background: rgba(34, 197, 94, 0.10);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin: 0 0 16px;
+  font-size: 13px;
 }
 
-/* ─── Dashboard ─────────────────────────────────── */
+/* ─── Editor Dashboard ──────────────────────────── */
 
+/* MainLayout (AdminApp.tsx)이 padding을 제공하므로 .shell은 inert로 둠.
+   기존 페이지 호환을 위해 클래스 자체는 유지. */
 .shell {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 28px 24px 64px;
+  /* no-op — MainLayout이 max-width/패딩 담당 */
 }
 
+/* 페이지 상단 액션 행 — 사이드바와 별개의 in-page header */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 24px;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
 }
 .topbar h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
   margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 .topbar-actions {
   display: flex;
@@ -206,15 +265,16 @@ a:hover {
   margin: 0 0 28px;
 }
 .stat-card {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
 }
 .stat-label {
   font-size: 12px;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin: 0 0 4px;
 }
 .stat-value {
@@ -222,10 +282,12 @@ a:hover {
   font-size: 26px;
   font-weight: 700;
   margin: 0;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
 }
 .stat-note {
   font-size: 11px;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   margin: 4px 0 0;
 }
 
@@ -243,6 +305,7 @@ a:hover {
   font-size: 18px;
   font-weight: 700;
   margin: 0;
+  color: var(--text-primary);
 }
 
 .list {
@@ -251,12 +314,12 @@ a:hover {
   gap: 10px;
 }
 .list-empty {
-  background: #fff;
-  border: 1px dashed var(--line);
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
   border-radius: var(--radius);
   padding: 24px;
   text-align: center;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   font-size: 14px;
 }
 
@@ -266,30 +329,36 @@ a:hover {
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px;
-  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, border-color 0.15s;
+}
+.draft-card:hover,
+.published-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(212, 165, 116, 0.3);
 }
 .draft-card h3,
 .published-card h3 {
   margin: 0 0 4px;
   font-size: 15px;
   font-weight: 600;
+  color: var(--text-primary);
 }
 .meta {
   font-size: 12px;
-  color: var(--ink-mute);
+  color: var(--text-secondary);
 }
 .meta strong {
-  color: var(--ink-soft);
+  color: var(--text-primary);
   font-weight: 500;
 }
 .progress {
   height: 4px;
   width: 100%;
-  background: var(--line-soft);
+  background: var(--bg-elevated);
   border-radius: 2px;
   overflow: hidden;
   margin: 6px 0 0;
@@ -303,21 +372,28 @@ a:hover {
 .tag {
   display: inline-block;
   padding: 2px 8px;
-  background: var(--cream-deep);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 99px;
   font-size: 11px;
   letter-spacing: 0.02em;
-  color: var(--ink-soft);
+  color: var(--text-secondary);
+}
+
+.published-card a {
+  color: var(--accent);
+}
+.published-card a:hover {
+  color: var(--accent-bright);
 }
 
 /* ─── New Article form ──────────────────────────── */
 
 .form-card {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px 28px 24px;
-  box-shadow: var(--shadow-sm);
   max-width: 720px;
 }
 
@@ -330,26 +406,29 @@ a:hover {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: var(--text-secondary);
   margin: 0 0 6px;
 }
 .field-hint {
   font-size: 11px;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   margin: 0 0 8px;
 }
 .field input[type='text'],
 .field input[type='number'],
-.field textarea {
+.field textarea,
+.field select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: #fff;
+  background: var(--bg-input);
+  color: var(--text-primary);
   outline: none;
 }
 .field input:focus,
-.field textarea:focus {
+.field textarea:focus,
+.field select:focus {
   border-color: var(--accent);
 }
 .field textarea {
@@ -367,23 +446,27 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 9px 12px;
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 6px;
   cursor: pointer;
   user-select: none;
   font-size: 13px;
+  color: var(--text-secondary);
 }
 .option input {
   margin: 0;
   cursor: pointer;
+  accent-color: var(--accent);
 }
 .option:hover {
-  border-color: var(--ink-mute);
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
 }
 .option-checked {
-  background: #fff;
+  background: rgba(212, 165, 116, 0.08);
   border-color: var(--accent);
+  color: var(--text-primary);
 }
 
 .row {
@@ -404,16 +487,6 @@ a:hover {
 
 /* ─── Article Progress (Day 2) ──────────────────── */
 
-.alert-success {
-  background: rgba(47, 107, 58, 0.08);
-  color: var(--success);
-  border: 1px solid rgba(47, 107, 58, 0.18);
-  padding: 12px 14px;
-  border-radius: 6px;
-  margin: 0 0 16px;
-  font-size: 13px;
-}
-
 .step-list {
   list-style: none;
   margin: 0;
@@ -430,7 +503,7 @@ a:hover {
   padding: 8px 10px;
   border-radius: 6px;
   font-size: 14px;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   background: transparent;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -442,29 +515,29 @@ a:hover {
   height: 22px;
   line-height: 22px;
   border-radius: 50%;
-  background: var(--cream-deep);
-  color: var(--ink-mute);
+  background: var(--bg-elevated);
+  color: var(--text-tertiary);
 }
 .step-num {
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   font-variant-numeric: tabular-nums;
 }
 .step-running {
-  background: rgba(139, 58, 47, 0.06);
+  background: rgba(212, 165, 116, 0.08);
   color: var(--accent);
   font-weight: 500;
 }
 .step-running .step-icon {
   background: var(--accent);
-  color: #fff;
+  color: #1a1208;
   animation: pulse 1.4s ease-in-out infinite;
 }
 .step-done {
-  color: var(--ink-soft);
+  color: var(--text-secondary);
 }
 .step-done .step-icon {
   background: var(--success);
-  color: #fff;
+  color: #0a0a0a;
 }
 .step-failed {
   color: var(--error);
@@ -492,26 +565,25 @@ a:hover {
 }
 
 .preview-col {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px 16px;
-  box-shadow: var(--shadow-sm);
 }
 .preview-col-head {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   margin: 0 0 8px;
   font-weight: 600;
 }
 .preview-md {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12.5px;
   line-height: 1.55;
-  background: var(--cream);
-  border: 1px solid var(--line-soft);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 12px;
   margin: 0;
@@ -519,6 +591,7 @@ a:hover {
   overflow: auto;
   white-space: pre-wrap;
   word-break: break-word;
+  color: var(--text-secondary);
 }
 .preview-rendered {
   height: 600px;
@@ -526,27 +599,31 @@ a:hover {
   padding: 4px 4px;
   font-size: 14.5px;
   line-height: 1.7;
+  color: var(--text-primary);
 }
 .preview-rendered h1,
 .preview-rendered h2,
 .preview-rendered h3 {
   font-family: 'Playfair Display', serif;
   margin: 22px 0 10px;
+  color: var(--text-primary);
 }
 .preview-rendered h1 { font-size: 26px; }
-.preview-rendered h2 { font-size: 20px; border-bottom: 1px solid var(--line-soft); padding-bottom: 4px; }
+.preview-rendered h2 { font-size: 20px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
 .preview-rendered h3 { font-size: 16px; }
 .preview-rendered p { margin: 0 0 14px; }
 .preview-rendered a { color: var(--accent); text-decoration: underline; }
+.preview-rendered a:hover { color: var(--accent-bright); }
 .preview-rendered code {
-  background: var(--cream-deep);
+  background: var(--bg-elevated);
   padding: 1px 5px;
   border-radius: 4px;
   font-size: 12.5px;
+  color: var(--accent-bright);
 }
 .preview-rendered pre {
-  background: var(--cream);
-  border: 1px solid var(--line-soft);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   padding: 10px;
   border-radius: 6px;
   overflow: auto;
@@ -558,18 +635,17 @@ a:hover {
   border-left: 3px solid var(--accent);
   margin: 14px 0;
   padding: 4px 14px;
-  color: var(--ink-soft);
-  background: var(--cream);
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
   border-radius: 0 6px 6px 0;
 }
 .preview-rendered img { max-width: 100%; border-radius: 6px; }
 
 .preview-panel {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
   margin: 0 0 16px;
 }
 .preview-panel-head {
@@ -578,7 +654,7 @@ a:hover {
   align-items: center;
   margin: 0 0 12px;
 }
-.preview-panel-head h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.preview-panel-head h3 { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-primary); }
 
 .validation-list {
   list-style: none;
@@ -597,7 +673,7 @@ a:hover {
   padding: 6px 8px;
   border-radius: 6px;
 }
-.validation-ok { background: rgba(47, 107, 58, 0.06); }
+.validation-ok { background: rgba(34, 197, 94, 0.08); }
 .validation-bad { background: var(--error-bg); }
 .validation-icon {
   font-weight: 700;
@@ -606,14 +682,14 @@ a:hover {
 .validation-ok .validation-icon { color: var(--success); }
 .validation-bad .validation-icon { color: var(--error); }
 .validation-url {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12px;
   word-break: break-all;
-  color: var(--ink-soft);
+  color: var(--text-secondary);
 }
 .validation-status {
   font-size: 11px;
-  color: var(--ink-mute);
+  color: var(--text-tertiary);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -625,18 +701,31 @@ a:hover {
   margin: 0;
   font-size: 14px;
 }
-.kv dt { color: var(--ink-mute); font-weight: 500; font-size: 12px; padding-top: 2px; }
-.kv dd { margin: 0; word-break: break-word; }
+.kv dt { color: var(--text-tertiary); font-weight: 500; font-size: 12px; padding-top: 2px; }
+.kv dd { margin: 0; word-break: break-word; color: var(--text-primary); }
 
 .preview-actions {
   display: flex;
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px;
-  box-shadow: var(--shadow-sm);
   margin-top: 16px;
+}
+
+/* ─── Studio 대시보드 공유 컴포넌트 ──────────────────── */
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }

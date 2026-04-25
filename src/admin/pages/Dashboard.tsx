@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { adminFetch } from '../lib/api'
 
 type Draft = {
@@ -56,10 +56,8 @@ function formatDate(iso: string): string {
 }
 
 export function Dashboard() {
-  const navigate = useNavigate()
   const [data, setData] = useState<DashboardData | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [loggingOut, setLoggingOut] = useState(false)
 
   useEffect(() => {
     adminFetch<DashboardData>('/api/admin/dashboard')
@@ -67,28 +65,14 @@ export function Dashboard() {
       .catch((err) => setError(String(err?.message ?? err)))
   }, [])
 
-  async function logout() {
-    setLoggingOut(true)
-    try {
-      await adminFetch('/api/admin/auth/logout', { method: 'POST' })
-    } catch {
-      // ignore
-    } finally {
-      navigate('/login', { replace: true })
-    }
-  }
-
   return (
     <>
       <div className="topbar">
-        <h1>Saint-Rémy Editor</h1>
+        <h1>진행 중 (Editor)</h1>
         <div className="topbar-actions">
           <Link className="btn btn-primary" to="/new">
             + 새 기사
           </Link>
-          <button className="btn btn-ghost" onClick={logout} disabled={loggingOut}>
-            로그아웃
-          </button>
         </div>
       </div>
 
@@ -181,6 +165,13 @@ export function Dashboard() {
                     </a>
                   </p>
                 </div>
+                <Link
+                  to={`/articles?slug=${encodeURIComponent(p.slug)}`}
+                  className="btn btn-ghost"
+                  title="이 기사의 트래픽 보기"
+                >
+                  트래픽 보기 →
+                </Link>
               </article>
             ))}
           </div>
