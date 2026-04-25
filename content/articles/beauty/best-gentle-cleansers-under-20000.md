@@ -12,6 +12,21 @@ thumbnailColor: '#A8C8B5'
 heroImage: /images/articles/best-gentle-cleansers-under-20000/hero.jpg
 ogImage: /images/articles/best-gentle-cleansers-under-20000/hero-og.jpg
 categoryLabel: BEST IN CLASS / BEAUTY
+heroProduct:
+  name: 비플레인 녹두 약산성 클렌징폼
+  image: /images/articles/best-gentle-cleansers-under-20000/01-beplain.jpg
+  originalPrice: 13800
+  salePrice: 10900
+  discount: 21
+  url: https://oy.run/9uDXGglNezcTVz
+  merchant: oliveyoung
+gist:
+  - 비플레인이 Best Overall. 녹두 9,000ppm + 화해 4년 연속 1위 + 올리브영 ★4.7·4,078건.
+  - 비오투름 200ml은 Best Splurge. 마리끌레르 코리아 민감 피부 클렌징 밀크 BEST 3.
+  - 센카는 1만원 미만 최강 거품 기술, 단 약알칼리라 트러블 활성기엔 주의.
+related:
+  - sunscreen-best-5
+  - best-desk-lamps-top-5
 ---
 
 ### ※ 어필리에이트 고지
@@ -55,7 +70,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 🥇 BEST OVERALL — 비플레인 녹두 약산성 클렌징폼
+[BADGE overall]
+
+## 비플레인 녹두 약산성 클렌징폼
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/01-beplain.jpg | 비플레인 녹두 약산성 클렌징폼
 
@@ -71,7 +88,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 💰 BEST BUDGET (1만원대) — 일리윤 세라마이드 아토 6.0 탑투토 워시 500ml
+[BADGE budget | BEST BUDGET (1만원대)]
+
+## 일리윤 세라마이드 아토 6.0 탑투토 워시 500ml
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/02-illiyoon.jpg | 일리윤 세라마이드 아토 6.0 탑투토 워시
 
@@ -87,7 +106,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## ✨ BEST SPLURGE — 비오투름 클렌징 밀크 200ml
+[BADGE splurge]
+
+## 비오투름 클렌징 밀크 200ml
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/03-bioturm.jpg | 비오투름 클렌징 밀크 200ml
 
@@ -103,7 +124,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 🌿 BEST FOR 여드름성 — 닥터지 약산성 레드 블레미쉬 클리어 수딩 폼 (150ml+75ml/150ml+150ml 기획 2종 택1)
+[BADGE for | BEST FOR 여드름성]
+
+## 닥터지 약산성 레드 블레미쉬 클리어 수딩 폼 (150ml+75ml/150ml+150ml 기획 2종 택1)
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/04-drg.jpg | 닥터지 레드 블레미쉬 클리어 수딩 폼
 
@@ -117,7 +140,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 💧 BEST FOR 건성 — 라운드랩 1025 독도 클렌저 150ml
+[BADGE for | BEST FOR 건성]
+
+## 라운드랩 1025 독도 클렌저 150ml
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/05-roundlab.jpg | 라운드랩 1025 독도 클렌저
 
@@ -133,7 +158,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 🌬️ BEST FOR 복합성 — 아누아 어성초 쿼세티놀 포어 딥 클렌징폼 150ml+25ml 기획
+[BADGE for | BEST FOR 복합성]
+
+## 아누아 어성초 쿼세티놀 포어 딥 클렌징폼 150ml+25ml 기획
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/06-anua.jpg | 아누아 어성초 쿼세티놀 포어 딥 클렌징폼
 
@@ -149,7 +176,9 @@ Saint-Rémy 에디터가 그 기준으로 다시 골랐다. 카테고리별로 1
 
 ---
 
-## 🛁 ALSO GREAT — 센카 퍼펙트 휩 페이셜 워시 120g
+[BADGE also]
+
+## 센카 퍼펙트 휩 페이셜 워시 120g
 
 [IMAGE] /images/articles/best-gentle-cleansers-under-20000/07-senka.jpg | 센카 퍼펙트 휩 페이셜 워시
 

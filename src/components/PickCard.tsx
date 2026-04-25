@@ -3,6 +3,7 @@
 // CTA 버튼은 사업의 핵심 (인스타 → 사이트 → 쿠팡 전환). 절대 안 깨지게.
 
 import type { Pick } from '../content/articles'
+import RankBadge from './article/RankBadge'
 
 type Props = {
   pick: Pick
@@ -27,6 +28,13 @@ export default function PickCard({ pick }: Props) {
 
   return (
     <article className="my-16">
+      {/* The Strategist 스타일 랭크 뱃지 — 있으면 상단에 */}
+      {pick.rankVariant && (
+        <div className="mb-3">
+          <RankBadge variant={pick.rankVariant} label={pick.rankLabel} />
+        </div>
+      )}
+
       {/* Pick 번호 + 카테고리 */}
       <div className="flex items-baseline gap-4 mb-6">
         <span

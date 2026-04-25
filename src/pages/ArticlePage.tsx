@@ -12,6 +12,11 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import PickCard from '../components/PickCard'
 import DuelProductCard from '../components/DuelProductCard'
 import { SEO } from '../components/SEO'
+import BestBetCard from '../components/sidebar/BestBetCard'
+import NewsletterCTA from '../components/sidebar/NewsletterCTA'
+import RelatedArticles from '../components/sidebar/RelatedArticles'
+import Gist from '../components/article/Gist'
+import RankBadge from '../components/article/RankBadge'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -45,8 +50,14 @@ export function ArticlePage() {
     .replace(/\s+/g, ' ')
     .trim()
 
+  const hasSidebar = Boolean(
+    article.heroProduct || (article.related && article.related.length > 0),
+  )
+
   return (
-    <article className="max-w-3xl mx-auto px-6 py-10">
+    <article
+      className={`${hasSidebar ? 'max-w-6xl' : 'max-w-3xl'} mx-auto px-6 py-10`}
+    >
       <SEO
         title={article.title}
         description={
@@ -79,7 +90,7 @@ export function ArticlePage() {
           ══════════════════════════════════════════════════════════ */}
       {!article.youtube && article.heroImage && (
         <div
-          className="w-full aspect-square mb-10 overflow-hidden"
+          className={`${hasSidebar ? 'max-w-4xl mx-auto' : ''} w-full aspect-square mb-10 overflow-hidden`}
           style={{ backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)' }}
         >
           <img
@@ -149,6 +160,16 @@ export function ArticlePage() {
           ══════════════════════════════════════════════════════════ */}
       <AffiliateDisclosure />
 
+      {/* 2-COLUMN GRID — lg 이상에서 사이드바 노출, 모바일은 자동 1-컬럼 */}
+      <div
+        className={
+          hasSidebar
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] gap-8 lg:gap-12'
+            : ''
+        }
+      >
+        <main className="min-w-0">
+
       {/* Pull quote */}
       {article.heroQuote && (
         <div className="my-10 px-4 md:px-10 text-center">
@@ -156,6 +177,11 @@ export function ArticlePage() {
             "{article.heroQuote}"
           </blockquote>
         </div>
+      )}
+
+      {/* THE GIST — 본문 최상단 3줄 요약 */}
+      {article.gist && article.gist.length > 0 && (
+        <Gist items={article.gist} />
       )}
 
       {/* Body — duelProducts(THE DUEL) > picks(딜 레이더) > body(일반) 분기 */}
@@ -207,6 +233,23 @@ export function ArticlePage() {
           </ol>
         </section>
       )}
+
+        </main>
+
+        {hasSidebar && (
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              {article.heroProduct && (
+                <BestBetCard product={article.heroProduct} />
+              )}
+              <NewsletterCTA />
+              {article.related && article.related.length > 0 && (
+                <RelatedArticles ids={article.related} />
+              )}
+            </div>
+          </aside>
+        )}
+      </div>
 
       <div className="mt-14 pt-8 border-t-2 border-ink-900 text-center">
         <Link
@@ -912,6 +955,26 @@ function RenderBody({ body }: { body: string }) {
         // 구분선
         if (trimmed === '---') {
           return <hr key={i} className="my-8 border-dashed border-ink-900/30" />
+        }
+
+        // RankBadge 마커 — [BADGE variant] 또는 [BADGE variant | 라벨 오버라이드]
+        if (trimmed.startsWith('[BADGE ')) {
+          const inner = trimmed.slice(7, -1).trim()
+          const [variantRaw, labelOverride] = inner
+            .split('|')
+            .map((s) => s.trim())
+          const variant = variantRaw as
+            | 'overall'
+            | 'budget'
+            | 'splurge'
+            | 'for'
+            | 'also'
+            | 'editor'
+          return (
+            <div key={i} className="mt-10">
+              <RankBadge variant={variant} label={labelOverride || undefined} />
+            </div>
+          )
         }
 
         // H2 제목

@@ -23,6 +23,10 @@ heroProduct:
 related:
   - best-gentle-cleansers-under-20000
   - sunscreen-best-5
+gist:
+  - BenQ ScreenBar Halo 2가 Best Overall. 모니터 위 비대칭 조명 + 무선 컨트롤러 + 자동 조도.
+  - 샤오미 미지아 시리즈가 Best Budget. 4만원대로 모니터바 입문 가능, 단 로켓직구 5일 소요.
+  - 루나랩이 국산 Best Value. 49,000원에 22% 할인, 무료배송.
 affiliateDisclosure: >-
   이 포스팅은 쿠팡 파트너스, 네이버 쇼핑 커넥트 활동의 일환으로,
   구매 발생 시 일정 금액의 수수료를 제공받습니다. 추천 제품은 편집부의
@@ -46,6 +50,7 @@ criteria:
   note: '루멘·색온도·CRI 수치는 각 브랜드 공식 사양서 기준. 가격은 2026-04-25 쿠팡 실측가 (와우회원·즉시할인 적용 시점). 시점·재고·플랫폼에 따라 변동 가능.'
 picks:
   - rank: 1
+    rankVariant: overall
     name: BenQ ScreenBar Halo 2
     category: 모니터 라이트 · 프리미엄
     productImage: /images/articles/best-desk-lamps-top-5/01-overall.jpg
@@ -72,6 +77,8 @@ picks:
     productUrl: https://link.coupang.com/a/evT3bs
     ctaLabel: 쿠팡에서 249,000원 보기
   - rank: 2
+    rankVariant: editor
+    rankLabel: EDITOR'S PICK (입문)
     name: BenQ ScreenBar (오리지널)
     category: 모니터 라이트 · 입문
     productImage: /images/articles/best-desk-lamps-top-5/02-value.jpg
@@ -97,6 +104,7 @@ picks:
     productUrl: https://link.coupang.com/a/evTVRG
     ctaLabel: 쿠팡에서 149,000원 보기
   - rank: 3
+    rankVariant: budget
     name: 샤오미 미지아 LED 스탠드 1S (MJTD01SYL)
     category: 책상 스탠드 · 가성비
     productImage: /images/articles/best-desk-lamps-top-5/03-budget.jpg
@@ -124,6 +132,8 @@ picks:
     productUrl: https://link.coupang.com/a/evTXRq
     ctaLabel: 쿠팡에서 35,780원 보기
   - rank: 4
+    rankVariant: for
+    rankLabel: BEST FOR 4만원대 입문
     name: 샤오미 미지아 모니터 라이트 1S (MJGJD02YL)
     category: 모니터 라이트 · 가성비
     productImage: /images/articles/best-desk-lamps-top-5/04-compact.jpg
@@ -152,6 +162,7 @@ picks:
     productUrl: https://link.coupang.com/a/evTY4q
     ctaLabel: 쿠팡에서 46,550원 보기
   - rank: 5
+    rankVariant: also
     name: 루나랩 모니터 LED 베이직
     category: 모니터 라이트 · 한국 브랜드
     productImage: /images/articles/best-desk-lamps-top-5/05-also.jpg

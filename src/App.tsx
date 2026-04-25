@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { CookieBanner } from './components/CookieBanner'
@@ -16,8 +16,8 @@ import { useAnalytics } from './lib/analytics'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => {
-    window.scrollTo(0, 0)
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
   }, [pathname])
   return null
 }

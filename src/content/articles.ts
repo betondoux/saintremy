@@ -71,6 +71,20 @@ export interface Pick {
   targetReader: string
   productUrl: string
   ctaLabel: string
+  // The Strategist 스타일 RankBadge — 있으면 제품명 위에 뱃지 노출
+  rankVariant?: 'overall' | 'budget' | 'splurge' | 'for' | 'also' | 'editor'
+  rankLabel?: string
+}
+
+// The Strategist 스타일 사이드바 "Best Bet" 카드용
+export interface HeroProduct {
+  name: string
+  image: string
+  originalPrice?: number
+  salePrice: number
+  url: string
+  merchant: 'coupang' | 'oliveyoung' | 'ohouse'
+  discount?: number
 }
 
 export interface Intro {
@@ -178,6 +192,11 @@ export interface Article {
   honestLimits?: HonestLimits
   finalVerdict?: FinalVerdict
   editorNote?: string
+
+  // The Strategist 레이아웃 — 사이드바 "Best Bet" 카드 + 본문 Gist + 관련 기사
+  heroProduct?: HeroProduct
+  gist?: string[]
+  related?: string[]
 }
 
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
