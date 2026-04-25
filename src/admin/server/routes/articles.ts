@@ -1,12 +1,16 @@
 /**
  * /api/admin/articles
  *
- * POST  → 새 드래프트 생성 (Day 1: INSERT만, Day 2~ 에이전트 연동)
- * GET /:id → 드래프트 단건 조회 (Day 2 progress 페이지용 placeholder)
+ * POST  /                   → 새 드래프트 생성. ADMIN_AUTO_START=true 면 즉시 파이프라인 시작.
+ * GET   /:id                → 드래프트 단건 조회 (단계별 결과 포함)
+ * POST  /:id/start          → 수동 파이프라인 시작 / 재시작
+ * GET   /:id/stream         → SSE 진행 스트림 (없으면 자동 시작)
  */
 import { Router } from 'express'
 import { v4 as uuid } from 'uuid'
 import { getDb } from '../lib/db.ts'
+import { getChannel, isRunning, startJob, type JobEvent } from '../lib/jobs-queue.ts'
+import { getJobCost } from '../lib/cost-tracker.ts'
 
 export const articlesRouter = Router()
 
@@ -73,6 +77,10 @@ articlesRouter.post('/', (req, res) => {
      VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')`
   ).run(id, topic, category, format, JSON.stringify(validChannels), priceRange, customInstructions)
 
+  if (process.env.ADMIN_AUTO_START === 'true') {
+    startJob(id)
+  }
+
   res.status(201).json({
     id,
     redirect: `/admin/articles/${id}/progress`,
@@ -84,5 +92,76 @@ articlesRouter.get('/:id', (req, res) => {
     .prepare('SELECT * FROM drafts WHERE id = ?')
     .get(req.params.id)
   if (!row) return res.status(404).json({ error: 'not_found' })
-  res.json({ draft: row })
+  const cost = getJobCost(req.params.id)
+  res.json({ draft: row, cost, running: isRunning(req.params.id) })
+})
+
+articlesRouter.post('/:id/start', (req, res) => {
+  const draftId = req.params.id
+  const draft = getDb().prepare('SELECT id, status FROM drafts WHERE id = ?').get(draftId)
+  if (!draft) return res.status(404).json({ error: 'not_found' })
+  if (isRunning(draftId)) {
+    return res.status(409).json({ error: 'already_running' })
+  }
+  startJob(draftId)
+  res.json({ ok: true, draftId })
+})
+
+articlesRouter.get('/:id/stream', (req, res) => {
+  const draftId = req.params.id
+  const draft = getDb().prepare('SELECT id FROM drafts WHERE id = ?').get(draftId)
+  if (!draft) return res.status(404).json({ error: 'not_found' })
+
+  // ─── SSE 헤더 ──────────────────────────────
+  res.setHeader('Content-Type', 'text/event-stream')
+  res.setHeader('Cache-Control', 'no-cache, no-transform')
+  res.setHeader('Connection', 'keep-alive')
+  res.setHeader('X-Accel-Buffering', 'no')
+  res.flushHeaders()
+
+  res.write('event: connected\ndata: {}\n\n')
+
+  // 채널 가져오기 (없으면 시작)
+  let channel = getChannel(draftId)
+  if (!channel) channel = startJob(draftId)
+
+  // 늦게 붙은 클라이언트 — 누적 history 재생
+  for (const ev of channel.history) {
+    res.write(`event: ${ev.type}\ndata: ${JSON.stringify(ev.data)}\n\n`)
+  }
+
+  // 이미 종료된 채널이면 즉시 닫기
+  if (channel.finished) {
+    res.end()
+    return
+  }
+
+  const onEvent = (type: JobEvent['type']) => (data: Record<string, unknown>) => {
+    res.write(`event: ${type}\ndata: ${JSON.stringify(data)}\n\n`)
+    if (type === 'done' || type === 'error') {
+      res.end()
+    }
+  }
+
+  const onProgress = onEvent('progress')
+  const onDone = onEvent('done')
+  const onError = onEvent('error')
+
+  channel.on('progress', onProgress)
+  channel.on('done', onDone)
+  channel.on('error', onError)
+
+  // 30s ping (proxy timeout 방지)
+  const ping = setInterval(() => {
+    res.write(': ping\n\n')
+  }, 30_000)
+
+  const cleanup = () => {
+    clearInterval(ping)
+    channel?.off('progress', onProgress)
+    channel?.off('done', onDone)
+    channel?.off('error', onError)
+  }
+  req.on('close', cleanup)
+  res.on('close', cleanup)
 })
