@@ -98,6 +98,14 @@ function scanPublished(): Published[] {
   return out.sort((a, b) => (a.published_at < b.published_at ? 1 : -1)).slice(0, 10)
 }
 
+type PublishedDraftRow = {
+  topic: string
+  category: string
+  publish_path: string | null
+  published_url: string | null
+  published_at: string | null
+}
+
 dashboardRouter.get('/', (_req, res) => {
   const db = getDb()
   const drafts = db
@@ -110,7 +118,42 @@ dashboardRouter.get('/', (_req, res) => {
     )
     .all() as DraftRow[]
 
-  const published = scanPublished()
+  // SQLite published rows + content/articles 폴더 스캔 결합 (slug 중복 제거)
+  const folderPublished = scanPublished()
+
+  const sqlitePublished = (db
+    .prepare(
+      `SELECT topic, category, publish_path, published_url, published_at
+       FROM drafts
+       WHERE status = 'published'
+       ORDER BY published_at DESC
+       LIMIT 30`
+    )
+    .all() as PublishedDraftRow[])
+    .map((r) => {
+      const slug = r.publish_path
+        ? r.publish_path.replace(/^.*\//, '').replace(/\.md$/, '')
+        : ''
+      return {
+        slug,
+        title: r.topic,
+        category: r.category,
+        published_at: r.published_at ?? '',
+        url: r.published_url ?? `/${r.category}/${slug}`,
+      }
+    })
+
+  const seenSlugs = new Set<string>()
+  const published = [...sqlitePublished, ...folderPublished]
+    .filter((p) => {
+      if (!p.slug) return false
+      if (seenSlugs.has(p.slug)) return false
+      seenSlugs.add(p.slug)
+      return true
+    })
+    .sort((a, b) => (a.published_at < b.published_at ? 1 : -1))
+    .slice(0, 10)
+
   const now = new Date()
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString()
   const publishedThisMonth = published.filter((p) => p.published_at >= monthStart).length

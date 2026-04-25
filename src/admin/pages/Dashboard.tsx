@@ -145,8 +145,15 @@ export function Dashboard() {
                     />
                   </div>
                 </div>
-                <Link className="btn btn-ghost" to={`/articles/${d.id}/progress`}>
-                  작업 계속
+                <Link
+                  className={`btn ${d.status === 'ready' ? 'btn-primary' : 'btn-ghost'}`}
+                  to={
+                    d.status === 'ready'
+                      ? `/articles/${d.id}/preview`
+                      : `/articles/${d.id}/progress`
+                  }
+                >
+                  {d.status === 'ready' ? '미리보기 + 발행' : '작업 계속'}
                 </Link>
               </article>
             ))}

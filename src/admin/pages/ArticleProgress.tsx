@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { adminFetch, AdminApiError } from '../lib/api'
 
 type Step = 'intake' | 'trends' | 'vetting' | 'copy' | 'compliance' | 'seo'
@@ -46,6 +46,7 @@ type LogLine = { ts: string; line: string }
 export function ArticleProgress() {
   const { id } = useParams<{ id: string }>()
   const draftId = id!
+  const navigate = useNavigate()
 
   const [draft, setDraft] = useState<Draft | null>(null)
   const [progress, setProgress] = useState(0)
@@ -284,9 +285,12 @@ export function ArticleProgress() {
           <div className="alert alert-success">
             <strong>✓ 파이프라인 완료</strong> — 총 비용 ${done.totalCost.toFixed(4)}
             <p style={{ margin: '6px 0 10px', fontSize: 13 }}>
-              본문 markdown + 픽 후보 + SEO 메타가 SQLite drafts 에 저장되었습니다. Day 3 에서 링크/이미지 검증.
+              본문 markdown + 픽 + SEO 가 준비되었습니다. 미리보기에서 검증 후 saintremy.kr 에 발행하세요.
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
+              <button className="btn btn-primary" onClick={() => navigate(`/articles/${draftId}/preview`)}>
+                미리보기 + 발행 →
+              </button>
               <Link className="btn btn-ghost" to="/dashboard">
                 대시보드로
               </Link>
