@@ -78,7 +78,7 @@ export function Header() {
       className="w-full sticky top-0 z-40"
       style={{ backgroundColor: 'var(--sr-bg)' }}
     >
-      {/* 유틸 바 */}
+      {/* 유틸 바 — The Strategist 스타일: SUBSCRIBE | SIGN IN */}
       <div style={{ borderBottom: '1px solid var(--sr-rule)' }}>
         <div
           className="max-w-6xl mx-auto px-4 md:px-6 py-2 flex items-center justify-between"
@@ -86,11 +86,46 @@ export function Header() {
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
             letterSpacing: '0.15em',
-            color: 'var(--sr-muted)',
+            color: 'var(--sr-ink)',
+            textTransform: 'uppercase',
           }}
         >
-          <span>LLSV · SEOUL</span>
-          <span>ISSUE NO.001 · SPRING 2026</span>
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = 'mailto:hello@saintremy.kr?subject=Subscribe'
+            }}
+            style={{
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              font: 'inherit',
+              letterSpacing: 'inherit',
+              color: 'inherit',
+              cursor: 'pointer',
+            }}
+            className="hover:opacity-60 transition"
+          >
+            Subscribe
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = '/admin'
+            }}
+            style={{
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              font: 'inherit',
+              letterSpacing: 'inherit',
+              color: 'inherit',
+              cursor: 'pointer',
+            }}
+            className="hover:opacity-60 transition"
+          >
+            Sign In
+          </button>
         </div>
       </div>
 
@@ -153,19 +188,41 @@ export function Header() {
         </Link>
       </div>
 
-      {/* 태그라인 (데스크톱만) */}
-      <div
-        className="hidden md:block text-center py-3"
-        style={{
-          fontFamily: 'var(--font-serif-kr)',
-          fontStyle: 'italic',
-          fontSize: '13px',
-          color: 'var(--sr-muted)',
-          borderBottom: '1px solid var(--sr-rule)',
-        }}
+      {/* 카테고리 상단 네비 — The Strategist 스타일 가로 스크롤 */}
+      <nav
+        className="overflow-x-auto no-scrollbar"
+        style={{ borderBottom: '1px solid var(--sr-rule)' }}
+        aria-label="카테고리 네비게이션"
       >
-        평범한 사물을 깊이 보는 매거진.
-      </div>
+        <div
+          className="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-start md:justify-center gap-5 md:gap-7"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            paddingTop: '10px',
+            paddingBottom: '10px',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {ALL_CATEGORIES.map((cat) => (
+            <NavLink
+              key={cat}
+              to={`/${cat}`}
+              onClick={closeMenu}
+              style={({ isActive }) => ({
+                color: isActive ? 'var(--sr-accent, #c44536)' : 'var(--sr-ink)',
+                textDecoration: 'none',
+                fontWeight: isActive ? 700 : 500,
+              })}
+              className="hover:opacity-60 transition"
+            >
+              {CATEGORY_SHORT_LABELS[cat]}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
 
       {/* 풀스크린 메뉴 — The Strategist 스타일 */}
       {isMenuOpen && (
