@@ -18,10 +18,10 @@ const HOST = 'saintremy.kr'
 const KEY = process.env.INDEXNOW_KEY ?? '72a5b8e4802229b1c10a567a677388df'
 const ARTICLES_JSON = join(process.cwd(), 'src/generated/articles.json')
 
-// 10개 카테고리 slug (App.tsx 일치)
+// 11개 카테고리 slug (App.tsx 일치)
 const CATEGORIES = [
   'gift', 'deal', 'style', 'beauty', 'space',
-  'kitchen', 'move', 'travel', 'furniture', 'living',
+  'kitchen', 'move', 'travel', 'furniture', 'living', 'music',
 ]
 
 const STATIC_PATHS = ['/', '/about', '/shop', '/privacy', '/terms']

@@ -13,6 +13,7 @@ const CATEGORIES = [
   'travel',
   'furniture',
   'living',
+  'music',
 ] as const
 
 const FORMATS = [

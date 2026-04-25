@@ -25,6 +25,7 @@ const VALID_CATEGORIES = new Set([
   'travel',
   'furniture',
   'living',
+  'music',
 ])
 
 const VALID_FORMATS = new Set(['best-in-class', 'showcase', 'this-thing', 'gift-guide'])

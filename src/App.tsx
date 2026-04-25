@@ -38,7 +38,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* ═══════════════════════════════════════════════════
-              10개 카테고리 (Saint-Rémy 2026)
+              11개 카테고리 (Saint-Rémy 2026)
               ═══════════════════════════════════════════════════ */}
           <Route path="/gift" element={<CategoryPage />} />
           <Route path="/deal" element={<CategoryPage />} />
@@ -50,6 +50,7 @@ function App() {
           <Route path="/travel" element={<CategoryPage />} />
           <Route path="/furniture" element={<CategoryPage />} />
           <Route path="/living" element={<CategoryPage />} />
+          <Route path="/music" element={<CategoryPage />} />
 
           {/* ═══════════════════════════════════════════════════
               레거시 6개 스포츠 카테고리 → /move로 리다이렉트

@@ -1,12 +1,12 @@
 // src/content/articles.ts
 //
 // 빌드 타임에 Notion에서 가져온 generated/articles.json을 로드.
-// 10개 한국어 카테고리로 확장 (선물/할인/스타일/뷰티/공간/주방/운동/여행/가구/생활).
+// 11개 한국어 카테고리 (선물/할인/스타일/뷰티/공간/주방/운동/여행/가구/생활/음악).
 // 기존 6개 스포츠 카테고리(lift/combat/football/run/flow/court)는 '운동'으로 자동 통합.
 
 import articlesData from '../generated/articles.json'
 
-// 10개 카테고리 (URL slug 기준 영문)
+// 11개 카테고리 (URL slug 기준 영문)
 export type Category =
   | 'gift'
   | 'deal'
@@ -18,6 +18,7 @@ export type Category =
   | 'travel'
   | 'furniture'
   | 'living'
+  | 'music'
 
 // 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
 type LegacySportCategory =
@@ -212,6 +213,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   travel: 'Travel (여행)',
   furniture: 'Furniture (가구)',
   living: 'Living (생활)',
+  music: 'Music (음악)',
 }
 
 // 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
@@ -226,6 +228,7 @@ export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
   travel: 'Travel',
   furniture: 'Furniture',
   living: 'Living',
+  music: 'Music',
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)
@@ -283,6 +286,11 @@ export const CATEGORY_META: Record<
     subtitle: '매일 쓰는 것들의 작은 차이.',
     icon: '🧺',
   },
+  music: {
+    title: '음악',
+    subtitle: '귀로 머무는 시간을 위한 음반과 곡.',
+    icon: '🎧',
+  },
 }
 
 // 모든 유효한 카테고리 (타입 가드용)
@@ -297,6 +305,7 @@ export const ALL_CATEGORIES: Category[] = [
   'travel',
   'furniture',
   'living',
+  'music',
 ]
 
 // ─────────────────────────────────────────────────────────────

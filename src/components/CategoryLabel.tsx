@@ -14,6 +14,7 @@ const CATEGORY_COLORS: Record<Category, string> = {
   travel:    'var(--cat-travel)',
   furniture: 'var(--cat-furn)',
   living:    'var(--cat-living)',
+  music:     'var(--cat-music)',
 }
 
 const CATEGORY_EN_KR: Record<Category, { en: string; kr: string }> = {
@@ -27,6 +28,7 @@ const CATEGORY_EN_KR: Record<Category, { en: string; kr: string }> = {
   travel:    { en: 'TRAVEL',    kr: '여행' },
   furniture: { en: 'FURNITURE', kr: '가구' },
   living:    { en: 'LIVING',    kr: '생활' },
+  music:     { en: 'MUSIC',     kr: '음악' },
 }
 
 type Props = {

@@ -12,7 +12,7 @@ const ROOT = process.cwd()
 const ARTICLES_JSON = join(ROOT, 'src/generated/articles.json')
 const OUTPUT = join(ROOT, 'public/sitemap.xml')
 
-// 실제 App.tsx 에 선언된 10개 카테고리 slug (2026-04-24 기준)
+// 실제 App.tsx 에 선언된 11개 카테고리 slug (2026-04-25 기준)
 const CATEGORIES = [
   'gift',
   'deal',
@@ -24,6 +24,7 @@ const CATEGORIES = [
   'travel',
   'furniture',
   'living',
+  'music',
 ] as const
 
 type ChangeFreq =

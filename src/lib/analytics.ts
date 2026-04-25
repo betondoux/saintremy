@@ -17,7 +17,7 @@ const ENDPOINT = '/api/events'
 function getCategoryFromPath(path: string): string | undefined {
   const known = [
     'gift', 'deal', 'style', 'beauty', 'space',
-    'kitchen', 'move', 'travel', 'furniture', 'living',
+    'kitchen', 'move', 'travel', 'furniture', 'living', 'music',
   ]
   const first = path.split('/').filter(Boolean)[0]
   return known.includes(first) ? first : undefined

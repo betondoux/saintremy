@@ -22,6 +22,7 @@ const VALID_CATEGORIES = [
   'travel',
   'furniture',
   'living',
+  'music',
 ] as const
 
 const DISCLOSURE =
