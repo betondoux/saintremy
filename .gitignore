@@ -39,3 +39,8 @@ lerna-debug.log*
 
 # Test/coverage
 coverage
+
+# Admin local DB (Saint-Rémy Editor, dev-only)
+data/admin/*.sqlite
+data/admin/*.sqlite-shm
+data/admin/*.sqlite-wal
