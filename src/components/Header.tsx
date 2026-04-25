@@ -6,6 +6,7 @@ import {
   CATEGORY_STICKER_COLORS,
   CATEGORY_SHORT_LABELS,
 } from '../content/articles'
+import logoUrl from '../assets/saintremy-logo.svg'
 
 // ═══════════════════════════════════════════════════════════════
 // 2026-04-24 design spec:
@@ -142,16 +143,13 @@ export function Header() {
           to="/"
           aria-label="Saint-Rémy home"
           onClick={closeMenu}
-          style={{
-            fontFamily: 'var(--font-display-en)',
-            fontSize: '28px',
-            fontStyle: 'italic',
-            fontWeight: 700,
-            color: 'var(--sr-ink)',
-            letterSpacing: '-0.01em',
-          }}
+          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
         >
-          Saint-Rémy
+          <img
+            src={logoUrl}
+            alt="Saint-Rémy"
+            style={{ height: '32px', width: 'auto', display: 'block' }}
+          />
         </Link>
 
         <Link
