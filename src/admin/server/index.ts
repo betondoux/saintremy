@@ -5,14 +5,14 @@
  * 메인 saintremy.kr SPA(vite.config.ts, 포트 5173)와 완전 분리.
  *
  * 흐름:
- *   1. dotenv로 .env.local 로드
+ *   1. dotenv로 .env.admin 로드(.env.local 은 fallback)
  *   2. DB 자동 마이그레이션 (멱등)
  *   3. /api/admin/* → 라우터 (auth는 공개, dashboard/articles는 requireAdmin)
  *   4. Vite createServer({ middlewareMode, root: src/admin, base: /admin/ })
  *   5. /admin/* SPA fallback → vite.transformIndexHtml(src/admin/index.html)
  *   6. / → /admin/login redirect
  */
-import 'dotenv/config'
+import './_loadEnv.ts'
 import { createServer as createViteServer } from 'vite'
 import express, { type Request, type Response, type NextFunction } from 'express'
 import cookieParser from 'cookie-parser'
@@ -91,10 +91,21 @@ async function start() {
   })
 
   app.use(vite.middlewares)
+  // Vite의 base 미들웨어가 req.url 에서 '/admin' 접두사를 벗겨버려, 이후 app.use('/admin', ...)
+  // 가 매칭되지 못하고 Express 기본 404 로 떨어진다. originalUrl 로 복원해 SPA fallback 에 도달시킨다.
+  app.use((req, _res, next) => {
+    if (req.originalUrl && req.url !== req.originalUrl) req.url = req.originalUrl
+    next()
+  })
 
-  // ─── SPA fallback: /admin → index.html 변환 ────
-  app.get('/admin', (_req, res) => res.redirect(302, '/admin/login'))
-  app.get('/admin/*', async (req, res, next) => {
+  // ─── SPA fallback (Express 5 path-to-regexp 호환) ──
+  // /admin (정확) → /admin/login redirect
+  // /admin/* (sub-path) → vite.transformIndexHtml(index.html)
+  app.get('/admin', (_req, res) => {
+    res.redirect(302, '/admin/login')
+  })
+  app.use('/admin', async (req, res, next) => {
+    if (req.method !== 'GET') return next()
     try {
       const url = req.originalUrl
       const indexPath = resolve(ADMIN_ROOT, 'index.html')
@@ -108,7 +119,9 @@ async function start() {
   })
 
   // ─── 루트 ──────────────────────────────────────
-  app.get('/', (_req, res) => res.redirect(302, '/admin/login'))
+  app.get('/', (_req, res) => {
+    res.redirect(302, '/admin/login')
+  })
 
   // ─── 에러 핸들러 ──────────────────────────────
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {

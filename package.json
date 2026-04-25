@@ -30,6 +30,8 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.4.1",
     "helmet": "^8.1.0",
+    "iconv-lite": "^0.7.2",
+    "raw-body": "^3.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^3.0.0",
