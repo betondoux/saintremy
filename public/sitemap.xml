@@ -91,6 +91,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://saintremy.kr/music</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://saintremy.kr/a/best-gentle-cleansers-under-20000</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -98,6 +104,12 @@
   </url>
   <url>
     <loc>https://saintremy.kr/a/best-desk-lamps-top-5</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://saintremy.kr/a/chet-faker-1998</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
