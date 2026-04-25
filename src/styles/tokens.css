@@ -33,9 +33,12 @@
   /* ───────────────────────────────── */
   /* 타이포그래피                       */
   /* ───────────────────────────────── */
-  --font-display-en: 'Playfair Display', Georgia, serif;
-  --font-display-kr: 'Black Han Sans', 'Noto Serif KR', sans-serif;
-  --font-serif-kr:   'Noto Serif KR', Georgia, serif;
+  /* 2026-04-26: Marsden Black 로고 톤에 맞춰 geometric sans-serif로 통일.
+     세리프(Playfair / Noto Serif KR) 폐기. 헤드라인 = Black Han Sans + Inter,
+     본문 = Pretendard Variable. */
+  --font-display-en: 'Inter', 'Black Han Sans', system-ui, sans-serif;
+  --font-display-kr: 'Black Han Sans', 'Pretendard Variable', sans-serif;
+  --font-serif-kr:   'Pretendard Variable', 'Black Han Sans', 'Inter', sans-serif;
   --font-body-kr:    'Pretendard Variable', 'Pretendard', 'Inter', 'Spoqa Han Sans Neo', sans-serif;
   --font-mono:       'JetBrains Mono', 'Courier New', monospace;
 

@@ -33,56 +33,58 @@
 }
 
 @layer components {
+  /* 2026-04-26: Marsden Black 로고 톤에 맞춰 헤드라인/매스트헤드 모두 geometric
+     sans-serif (Black Han Sans + Inter Black 900)로 통일. italic 제거. */
   .masthead {
-    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
-    font-style: italic;
+    font-family: 'Inter', 'Black Han Sans', 'Pretendard Variable', system-ui, sans-serif;
     font-weight: 900;
     letter-spacing: -0.04em;
     line-height: 0.85;
   }
 
   .headline {
-    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+    font-family: 'Inter', 'Black Han Sans', 'Pretendard Variable', system-ui, sans-serif;
     font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
     word-break: keep-all;
   }
 
   .headline-italic {
-    font-family: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+    /* 클래스 이름은 호환을 위해 유지하되 italic 제거 — 모던 geometric */
+    font-family: 'Inter', 'Black Han Sans', 'Pretendard Variable', system-ui, sans-serif;
     font-weight: 900;
-    font-style: italic;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     line-height: 1.2;
     word-break: keep-all;
   }
 
   .headline-ko {
     font-family:
+      'Black Han Sans',
       'Pretendard Variable',
       'Pretendard',
-      'Noto Sans KR',
-      'Spoqa Han Sans Neo',
+      'Inter',
       system-ui,
       sans-serif;
     font-weight: 800;
     font-style: normal;
-    letter-spacing: -0.035em;
-    line-height: 1.25;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
     word-break: keep-all;
     word-spacing: -0.04em;
   }
 
   .editorial-lead {
     font-family:
-      'Noto Serif KR',
-      'Playfair Display',
-      Georgia,
-      serif;
-    font-weight: 400;
+      'Pretendard Variable',
+      'Pretendard',
+      'Inter',
+      system-ui,
+      sans-serif;
+    font-weight: 500;
     font-size: 1.375rem; /* 22px 모바일 */
-    line-height: 1.7;
+    line-height: 1.6;
     letter-spacing: -0.02em;
     word-break: keep-all;
     color: var(--sr-ink);
@@ -91,7 +93,7 @@
   @media (min-width: 768px) {
     .editorial-lead {
       font-size: 1.625rem; /* 26px 데스크탑 */
-      line-height: 1.65;
+      line-height: 1.55;
     }
   }
 
@@ -134,16 +136,18 @@
   }
 
   .body-serif {
+    /* 2026-04-26: 세리프 폐기. 본문도 Pretendard Variable sans-serif. */
     font-family:
-      'Noto Serif KR',
-      'Playfair Display',
-      Georgia,
-      serif;
+      'Pretendard Variable',
+      'Pretendard',
+      'Inter',
+      system-ui,
+      sans-serif;
     font-weight: 400;
-    line-height: 2.0;
+    line-height: 1.85;
     word-break: keep-all;
     word-spacing: -0.02em;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
   }
 
   .dotted-rule {

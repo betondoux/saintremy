@@ -44,20 +44,21 @@ export default {
         err: '#ef4444',
       },
       fontFamily: {
-        // Display (headlines): Playfair Display for English, Noto Serif KR for Korean
-        //   — 영문은 이탤릭 세리프, 한글은 명조 (에디토리얼 권위)
+        // 2026-04-26: Marsden Black 로고 톤에 맞춰 geometric sans-serif로 통일.
+        // 세리프(Playfair / Noto Serif KR) 폐기.
         display: [
-          '"Playfair Display"',
-          '"Noto Serif KR"',
-          'Georgia',
-          '"Times New Roman"',
-          'serif',
+          '"Inter"',
+          '"Black Han Sans"',
+          '"Pretendard Variable"',
+          'system-ui',
+          'sans-serif',
         ],
         serif: [
-          '"Playfair Display"',
-          '"Noto Serif KR"',
-          'Georgia',
-          'serif',
+          '"Pretendard Variable"',
+          '"Black Han Sans"',
+          '"Inter"',
+          'system-ui',
+          'sans-serif',
         ],
         // Sans (body): Inter for English, Spoqa Han Sans Neo for Korean
         //   — 깔끔한 고딕 조합으로 긴 본문 가독성
