@@ -158,6 +158,30 @@ export interface FinalVerdict {
   conclusion: string
 }
 
+// ─────────────────────────────────────────────────────────────
+// ROUNDUP — The Strategist "Mother's Day Gifts" 식 다중 상품 가이드
+// 한 기사에 제품 10~30개를 세로 스택. 할인율 없이 단순 가격 표시.
+// 머천트는 쿠팡/올리브영만 (2026-04-25 확정).
+// ─────────────────────────────────────────────────────────────
+export interface RoundupItem {
+  // 섹션 헤드라인 — 제품 위에 이탤릭으로 노출 ("엄마가 매일 쓸 핸드크림")
+  sectionTitle: string
+  // 제품
+  productName: string
+  productImage: string // 쿠팡/올리브영 상품 메인 이미지 URL 그대로
+  productImageAlt: string
+  // 가격 — "29,000원" 또는 "From 29,000원" 같이 자유 문자열
+  price: string
+  // 본문 — 제품 추천 카피 1~2 문단 (마크다운 인라인 OK)
+  body: string
+  // 머천트 + CTA
+  merchant: 'coupang' | 'oliveyoung'
+  productUrl: string
+  ctaLabel?: string // 미지정 시 "쿠팡에서 보기 →" / "올리브영에서 보기 →" 자동
+  // 옵션: 노란 형광 스티커 ("진짜 좋은 가격!", "에디터 추천" 등)
+  badge?: string
+}
+
 export interface Article {
   id?: string
   slug: string
@@ -199,6 +223,10 @@ export interface Article {
   heroProduct?: HeroProduct
   gist?: string[]
   related?: string[]
+
+  // ROUNDUP 형식 — roundup 있으면 ArticlePage 가 RoundupLayout 렌더
+  // (intro/outro 는 PicksLayout 과 공유)
+  roundup?: RoundupItem[]
 }
 
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용

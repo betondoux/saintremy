@@ -10,6 +10,7 @@ import { VideoHero } from '../components/VideoHero'
 import { NewsletterInline } from '../components/NewsletterInline'
 import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import PickCard from '../components/PickCard'
+import RoundupCard from '../components/RoundupCard'
 import DuelProductCard from '../components/DuelProductCard'
 import { SEO } from '../components/SEO'
 import BestBetCard from '../components/sidebar/BestBetCard'
@@ -184,10 +185,12 @@ export function ArticlePage() {
         <Gist items={article.gist} />
       )}
 
-      {/* Body — duelProducts(THE DUEL) > picks(딜 레이더) > body(일반) 분기 */}
+      {/* Body — duelProducts(THE DUEL) > roundup(다중 상품 가이드) > picks(딜 레이더) > body(일반) 분기 */}
       <div className="article-body">
         {article.duelProducts && article.duelProducts.length > 0 ? (
           <DuelLayout article={article} />
+        ) : article.roundup && article.roundup.length > 0 ? (
+          <RoundupLayout article={article} />
         ) : article.picks && article.picks.length > 0 ? (
           <PicksLayout article={article} />
         ) : (
@@ -730,6 +733,97 @@ function DuelLayout({ article }: { article: Article }) {
             color: 'var(--sr-muted)',
             marginTop: '32px',
             textAlign: 'center',
+          }}
+        >
+          {article.footer}
+        </p>
+      )}
+    </>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ROUNDUP LAYOUT — The Strategist "Mother's Day Gifts" 식 다중 상품 가이드
+// 구조: intro(옵션) · roundup items 세로 스택 · outro(옵션) · footer
+// 각 item 은 RoundupCard 가 책임 (섹션 헤드라인 + 정사각 이미지 + 가격 + CTA)
+// ═══════════════════════════════════════════════════════════════
+function RoundupLayout({ article }: { article: Article }) {
+  if (!article.roundup) return null
+  return (
+    <>
+      {/* 도입부 — 글 전체 톤 잡는 lead + body */}
+      {article.intro && (
+        <section className="mb-10 md:mb-14">
+          <p className="editorial-lead mb-7 md:mb-8">
+            {article.intro.lead}
+          </p>
+          <p
+            className="body-serif text-ink-700"
+            style={{ fontSize: 'var(--fs-body)' }}
+          >
+            {article.intro.body}
+          </p>
+        </section>
+      )}
+
+      {/* 상품 카드 세로 스택 */}
+      {article.roundup.map((item, i) => (
+        <RoundupCard
+          key={i}
+          item={item}
+          isLast={i === article.roundup!.length - 1}
+        />
+      ))}
+
+      {/* 마무리 */}
+      {article.outro && (
+        <section
+          className="my-12 pt-8"
+          style={{ borderTop: '1px solid var(--sr-rule)' }}
+        >
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif-kr)',
+              fontSize: 'var(--fs-h2)',
+              fontWeight: 700,
+              color: 'var(--sr-ink)',
+              marginBottom: '16px',
+            }}
+          >
+            {article.outro.title}
+          </h2>
+          <p
+            style={{
+              fontSize: 'var(--fs-body)',
+              color: 'var(--sr-ink)',
+              lineHeight: 1.7,
+              marginBottom: '16px',
+            }}
+          >
+            {article.outro.body}
+          </p>
+          {article.outro.nextIssue && (
+            <p
+              style={{
+                fontSize: 'var(--fs-meta)',
+                fontStyle: 'italic',
+                color: 'var(--sr-muted)',
+              }}
+            >
+              {article.outro.nextIssue}
+            </p>
+          )}
+        </section>
+      )}
+
+      {/* 푸터 라인 */}
+      {article.footer && (
+        <p
+          style={{
+            fontSize: '12px',
+            fontStyle: 'italic',
+            color: 'var(--sr-muted)',
+            marginTop: '32px',
           }}
         >
           {article.footer}
