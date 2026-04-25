@@ -110,13 +110,13 @@ export function assertCostBudget(opts: CostGuardOpts): void {
   const job = getJobCost(opts.draftId)
   if (job > opts.maxJob) {
     throw new Error(
-      `Job cost limit exceeded: $${job.toFixed(4)} > $${opts.maxJob.toFixed(2)} (draft ${opts.draftId})`
+      `Job cost limit exceeded: $${job.toFixed(4)} > $${opts.maxJob.toFixed(4)} (draft ${opts.draftId})`
     )
   }
   const day = getDailyCost()
   if (day > opts.maxDay) {
     throw new Error(
-      `Daily cost limit exceeded: $${day.toFixed(4)} > $${opts.maxDay.toFixed(2)}`
+      `Daily cost limit exceeded: $${day.toFixed(4)} > $${opts.maxDay.toFixed(4)}`
     )
   }
 }
