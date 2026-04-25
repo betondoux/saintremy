@@ -441,18 +441,15 @@ function DuelHeroBlock({ article }: { article: Article }) {
               )}
             </div>
             <div style={{ textAlign: 'right', lineHeight: 1 }}>
-              <div
+              <img
+                src={logoUrl}
+                alt="Saint-Rémy"
                 style={{
-                  fontFamily: 'var(--font-display-en)',
-                  fontStyle: 'italic',
-                  fontWeight: 700,
-                  fontSize: '22px',
-                  color: 'var(--sr-ink)',
-                  letterSpacing: '-0.01em',
+                  height: '22px',
+                  width: 'auto',
+                  display: 'inline-block',
                 }}
-              >
-                Saint-Rémy
-              </div>
+              />
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
