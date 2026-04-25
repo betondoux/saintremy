@@ -17,7 +17,10 @@
     "db:migrate": "tsx src/server/db/migrate.ts",
     "admin:setup": "node scripts/admin-setup.mjs",
     "admin": "tsx src/admin/server/index.ts",
-    "admin:dev": "tsx watch src/admin/server/index.ts"
+    "admin:dev": "tsx watch src/admin/server/index.ts",
+    "test:link-validator": "tsx scripts/test-link-validator.ts",
+    "test:publisher": "tsx scripts/test-publisher.ts",
+    "test:day3": "tsx scripts/test-day3-e2e.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
