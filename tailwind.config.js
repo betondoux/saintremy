@@ -5,11 +5,13 @@ export default {
     extend: {
       colors: {
         // Saint-Rémy — Editorial Classic (The Strategist inspired)
+        // 2026-04-26: 사이트 전체 배경 white 통일. cream 100/50도 white로 흡수.
+        // 200/300은 매우 옅은 warm grey 으로 두어 카드/박스 살짝 깊이감만 유지.
         cream: {
-          50: '#FAF7F0',
-          100: '#F5F0E8',
-          200: '#EDE6D9',
-          300: '#E0D6C2',
+          50: '#FFFFFF',
+          100: '#FFFFFF',
+          200: '#F7F5F1',
+          300: '#ECE7DD',
         },
         ink: {
           // 메인 사이트 (cream 톤) 기존 팔레트
