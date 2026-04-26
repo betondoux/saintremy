@@ -151,8 +151,11 @@
   }
 
   .dotted-rule {
-    border-top: 1px dashed #0A0A0B;
-    opacity: 0.4;
+    /* 2026-04-26: The Strategist 톤 — 회색 dotted, 자체 vertical 여백 */
+    border: none;
+    border-top: 1px dotted #999999;
+    opacity: 1;
+    margin: 1.75rem 0;
   }
 
   /* 어필리에이트 고지 — 최소 노이즈. 헤더 아래 배치할 땐 인라인 1줄. */

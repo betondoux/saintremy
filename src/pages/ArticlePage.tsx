@@ -107,7 +107,7 @@ export function ArticlePage() {
           매거진 에디토리얼 리듬: 넉넉한 여백 + 타이포 계층 대비
           ══════════════════════════════════════════════════════════ */}
       <header
-        className={`text-center ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dashed border-ink-900/20'}`}
+        className={`text-center ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dotted border-ink-900/30'}`}
       >
         {article.categoryLabel ? (
           <div
@@ -778,6 +778,9 @@ function RoundupLayout({ article }: { article: Article }) {
         </section>
       )}
 
+      {/* The Strategist 점선 구분선 — 본문 → 추천 카드 그룹 전환 */}
+      <hr className="dotted-rule" />
+
       {/* 카운터 박스 — Strategist 톤 ("N개의 추천 상품 / N개 세일 진행 중") */}
       <div
         style={{
@@ -849,6 +852,9 @@ function RoundupLayout({ article }: { article: Article }) {
           isLast={i === article.roundup!.length - 1}
         />
       ))}
+
+      {/* The Strategist 점선 구분선 — 마지막 카드 → 마무리/footer 전환 */}
+      <hr className="dotted-rule" />
 
       {/* 마무리 */}
       {article.outro && (
