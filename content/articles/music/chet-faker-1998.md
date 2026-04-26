@@ -87,36 +87,17 @@ roundup:
     badge: '💎 작은 사치'
     isAlternate: false
 
-  - sectionTitle: '아이폰을 쓰신다면 — AirPods Pro 2'
-    sectionIntro: |
-      AirPods Pro 2는 무선 이어폰 시장에서 거의 유일한 '답이 정해진' 제품입니다. 아이폰 사용자에게는. 노이즈 캔슬링 + 공간 음향 + 시리 통합 + 분실 추적 — 다른 이어폰들이 따라가지 못하는 통합 경험.
-
-      음질만 따지면 더 좋은 모델들이 있습니다. 그런데 매일 30번 꺼냈다 끼우는 도구 — 통합성이 음질보다 더 중요합니다.
-    productName: 'AirPods Pro 2'
-    productImage: '/images/articles/chet-faker-1998/5-airpods.jpg'
-    productImageAlt: '흰 배경의 무선 이어폰 + 충전 케이스'
-    price: '217,900원'
-    originalPrice: ''
-    discountLabel: ''
-    body: |
-      USB-C 충전 (2세대), 능동형 노이즈 캔슬링, 적응형 투명 모드, 공간 음향 + 머리 추적. 배터리 6시간 (케이스 포함 30시간). 한국에서 구매 시 1년 A/S 정품 인증 필수.
-    merchant: coupang
-    productUrl: 'https://link.coupang.com/a/ewuaei'
-    ctaLabel: '쿠팡에서 보기'
-    badge: '🍎 아이폰 표준'
-    isAlternate: false
-
   - sectionTitle: '무선 이어폰의 첫 시작 — Sony WF-C500'
     sectionIntro: |
-      무선 이어폰을 처음 써보시는 분이라면 — AirPods Pro부터 시작할 필요 없습니다. ₩100,000 미만의 가성비 모델이 입문자에게는 충분히 좋습니다.
+      무선 이어폰을 처음 써보시는 분이라면 — 고가 플래그십 모델부터 시작할 필요 없습니다. ₩100,000 미만의 가성비 모델이 입문자에게는 충분히 좋습니다.
 
-      혹시 안드로이드를 쓰시는 분이라면 — 이 가격대에서 음질 차이를 거의 못 느끼실 가능성이 높습니다. AirPods의 가치 70%를 가격 1/2로 누리는 셈.
+      혹시 안드로이드를 쓰시는 분이라면 — 이 가격대에서 음질 차이를 거의 못 느끼실 가능성이 높습니다. 플래그십 가치의 70%를 가격 1/2로 누리는 셈.
     productName: 'Sony WF-C500'
     productImage: '/images/articles/chet-faker-1998/6-wfc500.jpg'
     productImageAlt: '흰 배경의 가성비 무선 이어폰 케이스'
-    price: '98,980원'
-    originalPrice: ''
-    discountLabel: ''
+    price: '97,850원'
+    originalPrice: '103,350원'
+    discountLabel: '5% off'
     body: |
       Sony 시그니처 음질 + DSEE 음원 복원 기술 (압축 음원도 풀 음질로). 배터리 10시간 (케이스 포함 20시간). IPX4 방수 (운동 시 사용). 색상 4종 (블랙/화이트/그린/오렌지). 한국 정식 수입 모델.
     merchant: coupang
@@ -253,4 +234,4 @@ Chet Faker, 본명 Nicholas James Murphy. 1988년 호주 멜버른 출생. 예�
 
 같은 음악도 어떤 헤드폰, 어떤 스피커로 듣는지에 따라 완전히 다른 곡이 됩니다. Saint-Rémy Editors는 '1998'을 5년 동안 들어왔는데, 매번 새로운 도구로 들을 때마다 곡이 다시 시작되는 느낌을 받았습니다.
 
-아래는 ₩100,000부터 ₩2,090,000까지, Saint-Rémy Editors가 직접 사용하거나 1년 이상 검증한 음향 장비 9가지입니다. 입문부터 마니아까지 — 어느 단계에 계시든 한 가지는 맞을 겁니다.
+아래는 ₩100,000부터 ₩2,090,000까지, Saint-Rémy Editors가 직접 사용하거나 1년 이상 검증한 음향 장비 8가지입니다. 입문부터 마니아까지 — 어느 단계에 계시든 한 가지는 맞을 겁니다.
