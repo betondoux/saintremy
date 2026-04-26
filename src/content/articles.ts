@@ -180,9 +180,9 @@ export interface RoundupItem {
   // 본문 — 제품 추천 카피 1~2 문단 (마크다운 인라인 OK)
   body: string
   // 머천트 + CTA
-  merchant: 'coupang' | 'oliveyoung'
+  merchant: 'coupang' | 'oliveyoung' | 'naver'
   productUrl: string
-  ctaLabel?: string // 미지정 시 "쿠팡에서 보기 →" / "올리브영에서 보기 →" 자동
+  ctaLabel?: string // 미지정 시 "쿠팡/올리브영/네이버에서 보기 →" 자동
   // 옵션: 노란 형광 스티커 ("진짜 좋은 가격!", "에디터 추천" 등)
   badge?: string
   /** 같은 섹션 안에서 메인이 아닌 대안 상품 (작은 가로 카드로 렌더) */

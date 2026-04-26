@@ -770,6 +770,14 @@ function RoundupLayout({ article }: { article: Article }) {
         </section>
       )}
 
+      {/* 본문 — intro 와 별개로 article.body 가 있으면 본문 마크다운 렌더 후
+         아래에서 카운터 박스 + roundup 카드들이 이어진다. (Chet Faker 패턴) */}
+      {article.body && article.body.trim().length > 0 && (
+        <section className="mb-10 md:mb-14">
+          <RenderBody body={article.body} />
+        </section>
+      )}
+
       {/* 카운터 박스 — Strategist 톤 ("N개의 추천 상품 / N개 세일 진행 중") */}
       <div
         style={{

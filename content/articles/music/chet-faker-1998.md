@@ -10,6 +10,206 @@ author: Saint-Rémy Editors
 thumbnailColor: '#C9B370'
 heroImage: /images/articles/chet-faker-1998/hero.jpg
 youtube: EIQQnoeepgU
+roundup:
+  # ─── 1. 럭셔리 헤드폰 (Sennheiser HD 660S2) ───
+  - sectionTitle: '절대 음질 — 음향 마니아의 종착역'
+    sectionIntro: |
+      Chet Faker의 '1998'을 진짜로 듣는 방법이 있습니다. 베이스라인이 따로 떨어지고, 그의 목소리가 공간 한가운데 떠있는 듯한 정위감. 그 차이가 헤드폰 1개로 결정된다는 걸 처음 알게 됐을 때 — Saint-Rémy Editors는 5년 동안 들어온 음악들을 다시 한 번씩 들어봤습니다.
+
+      Sennheiser HD 660S2는 음향 마니아들이 '레퍼런스급 입문'이라고 부르는 모델입니다. 100만원 넘는 헤드폰들과 직접 비교해도 큰 차이 없는 음질, 다만 가격은 그 절반.
+    productName: ''
+    productImage: ''
+    productImageAlt: '검은 배경 위 오픈백 헤드폰 정면'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      개방형(Open-back) 구조 — 음이 갇히지 않고 자연스럽게 퍼지는 구조. 다만 외부 소리도 들어오기 때문에 조용한 공간 전용. 임피던스 300옴 — 일반 폰 직결로는 부족, DAC/앰프 필요(10번 항목 참조).
+    merchant: naver
+    productUrl: ''
+    ctaLabel: '네이버에서 보기'
+    badge: '🎧 음향 마니아'
+    isAlternate: false
+
+  # ─── 2. 음향 마니아 입문 (ATH-M50x) ───
+  - sectionTitle: '음향이라는 세계의 첫 문'
+    sectionIntro: |
+      Audio-Technica ATH-M50x는 음향 입문자가 가장 처음 사는 헤드폰입니다. 전 세계 스튜디오에서 모니터링용으로 쓰는 표준 모델 — 즉 음악가들이 직접 작업할 때 듣는 것과 같은 소리.
+
+      혹시 헤드폰을 처음 사시는 분이라면 — 다음 섹션의 무선 노이즈 캔슬링이 더 어울릴 수 있습니다. ATH-M50x는 '음질에 진심'인 분들의 첫 단계입니다.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 검은 모니터링 헤드폰 정면'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      밀폐형(Closed-back) — 외부 소음 차단 + 사운드 누수 방지. 일반 폰 직결도 가능 (38옴). 케이블 3종 동봉 (스트레이트 1.2m / 3m / 코일형). 이어패드 교체 가능 — 5년 이상 쓰는 모델.
+    merchant: naver
+    productUrl: ''
+    ctaLabel: '네이버에서 보기'
+    badge: "⭐ EDITOR'S PICK"
+    isAlternate: false
+
+  # ─── 3. 첫 무선 노이즈 캔슬링 헤드폰 (Sony WH-1000XM5) ───
+  - sectionTitle: '지하철에서도 1998이 그대로 들리는'
+    sectionIntro: |
+      매일 출퇴근 시간 1시간씩 음악을 듣는 분이라면 — 노이즈 캔슬링 헤드폰이 음질보다 먼저입니다. 지하철 소음 위에 얹힌 음악은 어떤 좋은 헤드폰도 살리지 못합니다.
+
+      Sony WH-1000XM5는 노이즈 캔슬링의 표준입니다. 5세대 모델, 전 세계 무선 헤드폰 시장 점유율 1위.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 무선 노이즈 캔슬링 헤드폰'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      배터리 30시간 (노캔 ON 기준). LDAC 코덱 지원 — 안드로이드에서 Hi-Res 무손실 재생. 멀티 페어링 2대 동시. 외출 + 사무실 + 비행기 한 번에. 무게 250g — 장시간 착용 부담 적음.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: ''
+    isAlternate: false
+
+  # ─── 4. 감성 헤드폰 (Marshall Major IV) ───
+  - sectionTitle: '책상 위에 놓는 작은 사치'
+    sectionIntro: |
+      Marshall Major IV는 음향 마니아의 헤드폰이 아닙니다. 그런데 책상 위에 놓는 순간 공간이 바뀝니다. 1962년부터 록 스타들의 앰프를 만들던 브랜드가 만든 헤드폰 — 디자인이 곧 정체성입니다.
+
+      Saint-Rémy Editors는 2년째 같은 모델을 쓰고 있습니다. 매일 사용하는 도구가 매일 보기 좋아야 한다는 단순한 이유로.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 마샬 디자인 무선 헤드폰'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      배터리 80시간 — 일주일 충전 한 번. 무선 충전 지원. 멀티펑션 황동 노브 — 재생/일시정지/볼륨/곡 변경 한 번에. 색상 블랙/브라운 2종. 무게 165g — 무선 헤드폰 중 가장 가벼운 편.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: '💎 작은 사치'
+    isAlternate: false
+
+  # ─── 5. 무선 이어폰 정통 (AirPods Pro 2) ───
+  - sectionTitle: '아이폰을 쓰신다면 — 답이 정해져 있는'
+    sectionIntro: |
+      AirPods Pro 2는 무선 이어폰 시장에서 거의 유일한 '답이 정해진' 제품입니다. 아이폰 사용자에게는. 노이즈 캔슬링 + 공간 음향 + 시리 통합 + 분실 추적 — 다른 이어폰들이 따라가지 못하는 통합 경험.
+
+      음질만 따지면 더 좋은 모델들이 있습니다. 그런데 매일 30번 꺼냈다 끼우는 도구 — 통합성이 음질보다 더 중요합니다.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 무선 이어폰 + 충전 케이스'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      USB-C 충전 (2세대), 능동형 노이즈 캔슬링, 적응형 투명 모드, 공간 음향 + 머리 추적. 배터리 6시간 (케이스 포함 30시간). 한국에서 구매 시 1년 A/S 정품 인증 필수.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: '🍎 아이폰 표준'
+    isAlternate: false
+
+  # ─── 6. 가성비 무선 이어폰 (입문 가이드) ───
+  - sectionTitle: '무선 이어폰의 첫 시작 — 부담 없이'
+    sectionIntro: |
+      무선 이어폰을 처음 써보시는 분이라면 — AirPods Pro부터 시작할 필요 없습니다. ₩50,000~100,000 사이의 가성비 모델이 입문자에게는 충분히 좋습니다.
+
+      혹시 안드로이드를 쓰시는 분이라면 — 이 가격대에서 음질 차이를 거의 못 느끼실 가능성이 높습니다. AirPods의 가치 80%를 가격 1/3로 누리는 셈.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 가성비 무선 이어폰 케이스'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      Anker Soundcore Liberty 4 NC / Sony WF-C500 / Galaxy Buds FE 중. 노이즈 캔슬링 + 멀티 페어링 + 배터리 8시간 이상. IPX5 이상 방수 (운동 시 사용). 한국 정식 수입 + A/S 가능 모델 우선.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: '🎁 입문자 추천'
+    isAlternate: false
+
+  # ─── 7. 휴대용 블루투스 스피커 (JBL Charge 5) ───
+  - sectionTitle: '주말 오후, 거실 한구석에'
+    sectionIntro: |
+      비 오는 일요일에 1998을 거실 스피커로 듣는 것 — 헤드폰과 다른 경험입니다. 음악이 공간에 퍼지는 느낌, 옆에 있는 사람과 같은 음악을 동시에 듣는 그 순간.
+
+      JBL Charge 5는 그 가격대에서 가장 균형 잡힌 모델입니다. 휴대용이면서 거실 스피커로도 쓸 수 있는 크기.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 휴대용 블루투스 스피커'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      JBL Charge 5 또는 Bose SoundLink Flex 둘 중. 둘 다 IP67 완전 방수. JBL은 보조배터리 기능 + 더 긴 재생 시간 (20시간), Bose는 더 작고 음질 균형이 좋음. 가격은 비슷.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: ''
+    isAlternate: false
+
+  # ─── 8. 가정용 Hi-Fi 스피커 (KEF LSX II) ───
+  - sectionTitle: '거실의 정체성을 바꾸는 한 쌍'
+    sectionIntro: |
+      KEF LSX II는 가정용 액티브 스피커의 표준입니다. 한 쌍이 ₩200만원대 — 작은 거실 한 면을 차지하는 가구급 가격이지만, 한 번 사면 10년+ 쓰는 도구.
+
+      Saint-Rémy Editors는 결혼 5년 차에 처음 산 진짜 좋은 스피커였습니다. 1998을 처음으로 거실에서 들었을 때 — 헤드폰 5년 사용 + 가성비 스피커들과 비교가 안 됐습니다.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 액티브 북쉘프 스피커 한 쌍'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      앰프 내장 (액티브) — 별도 앰프 안 사도 됨. Wi-Fi + 블루투스 + AirPlay 2 + Spotify Connect 모두 지원. 색상 5종 (블랙/화이트/카본/올리브/민트). 거실 한 면 길이 2미터 이상 권장.
+    merchant: naver
+    productUrl: ''
+    ctaLabel: '네이버에서 보기'
+    badge: '👥 부부 N분의 1'
+    isAlternate: false
+
+  # ─── 9. 워크맨 (Sony NW-A306) ───
+  - sectionTitle: '1998이 발매된 그 시절을, 2026년에'
+    sectionIntro: |
+      1998년이라는 시대 — Chet Faker가 곡 제목으로 삼은 그 해는, 워크맨이 마지막으로 황금기를 누리던 시대였습니다. 2026년에 워크맨을 쓴다는 건 향수가 아니라 음향입니다.
+
+      Sony NW-A306은 디지털 시대의 워크맨입니다. Hi-Res Audio + Android + 6시간 충전으로 36시간 재생 — 핸드폰을 안 꺼내고 음악만 듣는 도구.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 Sony Hi-Res 워크맨 정면'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      32GB 내장 + microSD 확장. Spotify / Apple Music / YouTube Music 앱 직접 설치 가능. 3.5mm 단자 + 블루투스 5.0 + LDAC. 무게 113g — 핸드폰 절반 무게. 전용 가죽 케이스 별도.
+    merchant: coupang
+    productUrl: ''
+    ctaLabel: '쿠팡에서 보기'
+    badge: '🎶 1998 감성'
+    isAlternate: false
+
+  # ─── 10. DAC + 헤드폰 스탠드 (FiiO K7) ───
+  - sectionTitle: '음향의 비밀 — 헤드폰만이 아니다'
+    sectionIntro: |
+      좋은 헤드폰을 사도 음질이 안 좋다면 — 폰/맥에서 직접 출력해서 그렇습니다. DAC(Digital-to-Analog Converter)가 그 사이에 들어가면 음질이 바뀝니다.
+
+      그리고 헤드폰 스탠드 — 매일 책상 위에 헤드폰이 놓이는 그 자리가 보기 좋다면, 사용 빈도가 다릅니다. 매년 헤드폰 한 개에 추가로 ₩100,000을 쓰는 작은 사치.
+    productName: ''
+    productImage: ''
+    productImageAlt: '흰 배경의 DAC 헤드폰 앰프 + 우드 스탠드'
+    price: ''
+    originalPrice: ''
+    discountLabel: ''
+    body: |
+      FiiO K7 (USB DAC + 헤드폰 앰프 통합, ₩200,000대) + 우드 헤드폰 스탠드 (₩30,000대). 1번/2번 헤드폰 사용 시 필수. 일반 폰/맥에 USB-C로 연결만 하면 됨.
+    merchant: naver
+    productUrl: ''
+    ctaLabel: '네이버에서 보기'
+    badge: ''
+    isAlternate: false
 ---
 흐릿한 도시의 야경, 느슨하게 굴러가는 비트, 그리고 한 남자가 거리 한가운데서 관절이 풀린 듯 흐느적거린다. Chet Faker의 「1998」 뮤직비디오의 첫 장면이다. 한 번 보면 빠져나오기 어려운 종류의 4분이다.
 
@@ -75,3 +275,11 @@ Chet Faker, 본명 Nicholas James Murphy. 1988년 호주 멜버른 출생. 예�
 - **멜론·지니·바이브** — 정식 발매되어 있다
 
 다만 처음 한 번만큼은 위의 MV로 보길 권한다. Hiro Murai와 Storyboard P가 만들어낸 4분의 시각이 노래의 절반이다.
+
+---
+
+## 어떤 도구로 듣고 계신가요?
+
+같은 음악도 어떤 헤드폰, 어떤 스피커로 듣는지에 따라 완전히 다른 곡이 됩니다. Saint-Rémy Editors는 '1998'을 5년 동안 들어왔는데, 매번 새로운 도구로 들을 때마다 곡이 다시 시작되는 느낌을 받았습니다.
+
+아래는 ₩100,000부터 ₩2,000,000까지, Saint-Rémy Editors가 직접 사용하거나 1년 이상 검증한 음향 장비 10가지입니다. 입문부터 마니아까지 — 어느 단계에 계시든 한 가지는 맞을 겁니다.

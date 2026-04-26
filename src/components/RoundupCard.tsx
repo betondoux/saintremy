@@ -18,6 +18,7 @@ type Props = {
 const MERCHANT_LABEL: Record<RoundupItem['merchant'], string> = {
   coupang: '쿠팡',
   oliveyoung: '올리브영',
+  naver: '네이버',
 }
 
 // Strategist 톤 오렌지 — 세일 강조
