@@ -16,9 +16,9 @@ roundup:
       Chet Faker의 '1998'을 진짜로 듣는 방법이 있습니다. 베이스라인이 따로 떨어지고, 그의 목소리가 공간 한가운데 떠있는 듯한 정위감. 그 차이가 헤드폰 1개로 결정된다는 걸 처음 알게 됐을 때 — Saint-Rémy Editors는 5년 동안 들어온 음악들을 다시 한 번씩 들어봤습니다.
 
       ₩200만원대의 음향 장비는 사치가 아니라 — '같은 음악을 평생 다르게 듣게 만드는 도구'입니다. 매일 1시간 음악 듣는 분이라면 1년에 365시간 — 5년이면 1,825시간을 다른 차원에서 듣는 셈입니다.
-    productName: ''
-    productImage: ''
-    productImageAlt: '검은 배경 위 럭셔리 헤드폰 정면'
+    productName: 'Sennheiser HD 800S'
+    productImage: '/images/articles/chet-faker-1998/1-luxury.jpg'
+    productImageAlt: 'Sennheiser HD 800S 오픈형 하이엔드 유선 헤드폰'
     price: '2,090,000원'
     originalPrice: ''
     discountLabel: ''
@@ -36,7 +36,7 @@ roundup:
 
       혹시 헤드폰을 처음 사시는 분이라면 — 다음 섹션의 무선 노이즈 캔슬링이 더 어울릴 수 있습니다. ATH-M50x는 '음질에 진심'인 분들의 첫 단계입니다. ₩130,000으로 시작하는 음향 인생의 첫 도구.
     productName: 'Audio-Technica ATH-M50x'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/2-athm50x.jpg'
     productImageAlt: '흰 배경의 검은 모니터링 헤드폰 정면'
     price: '129,100원'
     originalPrice: ''
@@ -55,7 +55,7 @@ roundup:
 
       Sony WH-1000XM5는 노이즈 캔슬링의 표준입니다. 5세대 모델, 전 세계 무선 헤드폰 시장 점유율 1위. 비행기에서도, 카페에서도, 사무실에서도 — '1998'의 베이스라인이 처음부터 끝까지 동일하게 들립니다.
     productName: 'Sony WH-1000XM5'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/3-wh1000xm5.jpg'
     productImageAlt: '흰 배경의 무선 노이즈 캔슬링 헤드폰'
     price: '389,000원'
     originalPrice: ''
@@ -74,7 +74,7 @@ roundup:
 
       Saint-Rémy Editors는 작년부터 같은 모델을 쓰고 있습니다. 매일 사용하는 도구가 매일 보기 좋아야 한다는 단순한 이유로. ₩211,000으로 책상 위 작은 사치를 시작할 수 있습니다.
     productName: 'Marshall Major IV'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/4-marshall.jpg'
     productImageAlt: '흰 배경의 마샬 디자인 무선 헤드폰'
     price: '211,700원'
     originalPrice: ''
@@ -93,7 +93,7 @@ roundup:
 
       음질만 따지면 더 좋은 모델들이 있습니다. 그런데 매일 30번 꺼냈다 끼우는 도구 — 통합성이 음질보다 더 중요합니다.
     productName: 'AirPods Pro 2'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/5-airpods.jpg'
     productImageAlt: '흰 배경의 무선 이어폰 + 충전 케이스'
     price: '217,900원'
     originalPrice: ''
@@ -112,7 +112,7 @@ roundup:
 
       혹시 안드로이드를 쓰시는 분이라면 — 이 가격대에서 음질 차이를 거의 못 느끼실 가능성이 높습니다. AirPods의 가치 70%를 가격 1/2로 누리는 셈.
     productName: 'Sony WF-C500'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/6-wfc500.jpg'
     productImageAlt: '흰 배경의 가성비 무선 이어폰 케이스'
     price: '98,980원'
     originalPrice: ''
@@ -131,7 +131,7 @@ roundup:
 
       Bose SoundLink Flex는 그 가격대에서 음질 균형이 가장 좋은 모델입니다. 휴대용이면서 거실 스피커로도 쓸 수 있는 크기.
     productName: 'Bose SoundLink Flex'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/7-bose.jpg'
     productImageAlt: '흰 배경의 휴대용 블루투스 스피커'
     price: '143,000원'
     originalPrice: ''
@@ -150,7 +150,7 @@ roundup:
 
       Saint-Rémy Editors는 결혼 5년 차에 처음 산 진짜 좋은 스피커였습니다. 1998을 처음으로 거실에서 들었을 때 — 헤드폰 5년 사용 + 가성비 스피커들과 비교가 안 됐습니다.
     productName: 'KEF LSX II'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/8-kef.jpg'
     productImageAlt: '흰 배경의 액티브 북쉘프 스피커 한 쌍'
     price: '1,990,000원'
     originalPrice: ''
@@ -169,7 +169,7 @@ roundup:
 
       Sony NW-A306은 디지털 시대의 워크맨입니다. Hi-Res Audio + Android + 6시간 충전으로 36시간 재생 — 핸드폰을 안 꺼내고 음악만 듣는 도구.
     productName: 'Sony NW-A306'
-    productImage: ''
+    productImage: '/images/articles/chet-faker-1998/9-walkman.jpg'
     productImageAlt: '흰 배경의 Sony Hi-Res 워크맨 정면'
     price: '456,500원'
     originalPrice: ''
