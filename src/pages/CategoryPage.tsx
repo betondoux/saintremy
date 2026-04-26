@@ -1,5 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom'
 import { ArticleCard } from '../components/ArticleCard'
+import { ArticleListWithDividers } from '../components/ArticleListWithDividers'
 import { SEO } from '../components/SEO'
 import {
   getArticlesByCategory,
@@ -71,11 +72,12 @@ export function CategoryPage() {
             </div>
           </div>
         ) : (
-          <div className="divide-y divide-dashed divide-ink-900/25">
-            {articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </div>
+          <ArticleListWithDividers
+            articles={articles}
+            getKey={(article) => article.slug}
+            renderCard={(article) => <ArticleCard article={article} />}
+            slotEvery={2}
+          />
         )}
       </div>
 
