@@ -55,8 +55,8 @@ function StickerLabel({
   )
 }
 
-// 카테고리 12개 인덱스 → rotation 각도
-const ROTATIONS = [-3, -2, -1.5, 2, -2, -1, 2.5, 1.5, -2, -1.5, 1, -2.5]
+// 카테고리 11개 인덱스 → rotation 각도
+const ROTATIONS = [-3, -2, -1.5, 2, -2, -1, 2.5, 1.5, -2, -1.5, 1]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

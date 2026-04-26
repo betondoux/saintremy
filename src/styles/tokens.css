@@ -26,6 +26,7 @@
   --cat-travel:    #8B7355;
   --cat-furn:      #3F3F3F;
   --cat-living:    #A8897A;
+  --cat-music:     #5C5CA8;
 
   /* Issue 시그니처 (시즌당 1개 변경) */
   --issue-current: var(--cat-beauty);

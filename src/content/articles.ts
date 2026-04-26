@@ -19,7 +19,6 @@ export type Category =
   | 'furniture'
   | 'living'
   | 'music'
-  | 'desk'
 
 // 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
 type LegacySportCategory =
@@ -251,7 +250,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   furniture: 'Furniture (가구)',
   living: 'Living (생활)',
   music: 'Music (음악)',
-  desk: 'Desk (책상)',
 }
 
 // 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
@@ -267,7 +265,6 @@ export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
   furniture: 'Furniture',
   living: 'Living',
   music: 'Music',
-  desk: 'Desk',
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)
@@ -330,28 +327,23 @@ export const CATEGORY_META: Record<
     subtitle: '귀로 머무는 시간을 위한 음반과 곡.',
     icon: '🎧',
   },
-  desk: {
-    title: '책상',
-    subtitle: '재택근무자의 작업 공간을 만드는 도구들.',
-    icon: '🖥️',
-  },
 }
 
 // 모든 유효한 카테고리 (타입 가드용)
-// 햄버거 메뉴 노출 순서: 콘텐츠 있는 카테고리(Deal/Gift/Beauty/Music/Style/Desk/Kitchen)
-// 앞쪽 → Coming soon 카테고리(Space/Move/Travel/Furniture/Living) 뒤쪽.
+// 햄버거 메뉴 노출 순서: 콘텐츠 있는 카테고리(Deal/Gift/Beauty/Music/Style/
+// Furniture/Kitchen) 앞쪽 → Coming soon (Space/Move/Travel/Living) 뒤쪽.
+// 2026-04-26: desk 카테고리 폐지 — 책상 관련 콘텐츠는 furniture로 통합.
 export const ALL_CATEGORIES: Category[] = [
   'deal',
   'gift',
   'beauty',
   'music',
   'style',
-  'desk',
+  'furniture',
   'kitchen',
   'space',
   'move',
   'travel',
-  'furniture',
   'living',
 ]
 
@@ -496,7 +488,6 @@ export const CATEGORY_SUBCATEGORIES: Record<Category, string[]> = {
   furniture: [],
   living: [],
   music: ['Headphones', 'Earphones', 'Speakers', 'Walkman + Players', "Editor's Picks"],
-  desk: ['Lighting', 'Monitor + Stand', 'Keyboard + Mouse', 'Ergonomic Chair', 'Cable + Power'],
 }
 
 // 햄버거 메뉴 카테고리 라벨 색상 (The Strategist 스티커 패턴).
@@ -512,5 +503,4 @@ export const CATEGORY_STICKER_COLORS: Record<Category, string> = {
   furniture: '#2BC48A', // green — 자연/오래감
   living: '#FF1F8F',    // hot pink — 일상
   music: '#7F77DD',     // purple — 감성/분위기
-  desk: '#FFB800',      // amber — 데스크 램프
 }
