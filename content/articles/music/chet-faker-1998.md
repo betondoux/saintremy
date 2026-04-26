@@ -10,8 +10,6 @@ author: Saint-Rémy Editors
 thumbnailColor: '#C9B370'
 heroImage: /images/articles/chet-faker-1998/hero.jpg
 youtube: EIQQnoeepgU
-featuredOn:
-  - Hero
 roundup:
   - sectionTitle: '절대 음질 — 음향 마니아의 종착역'
     sectionIntro: |

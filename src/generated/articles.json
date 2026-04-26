@@ -13,6 +13,9 @@
     "summary": "어버이날 D-12. Saint-Rémy Editors가 쿠팡에서 직접 고른 어머니 9선 + 아버지 8선. 4만원대 합리부터 36만원 프리미엄까지, 자녀가 사드리지 않으면 평생 안 바꾸시는 도구들.",
     "heroImage": "/images/articles/parents-day-2026/hero.jpg",
     "heroImageAlt": "어버이날 선물 큐레이션 — 부모님께 사드릴 17가지 콜라주",
+    "featuredOn": [
+      "Hero"
+    ],
     "tags": [
       "어버이날",
       "선물",
@@ -521,9 +524,6 @@
     "thumbnailColor": "#C9B370",
     "heroImage": "/images/articles/chet-faker-1998/hero.jpg",
     "youtube": "EIQQnoeepgU",
-    "featuredOn": [
-      "Hero"
-    ],
     "roundup": [
       {
         "sectionTitle": "절대 음질 — 음향 마니아의 종착역",
