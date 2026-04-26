@@ -256,6 +256,9 @@
     "thumbnailColor": "#C9B370",
     "heroImage": "/images/articles/chet-faker-1998/hero.jpg",
     "youtube": "EIQQnoeepgU",
+    "featuredOn": [
+      "Hero"
+    ],
     "roundup": [
       {
         "sectionTitle": "절대 음질 — 음향 마니아의 종착역",
@@ -555,9 +558,6 @@
     "author": "Saint-Rémy Editors",
     "thumbnailColor": "#8B2A2A",
     "heroImage": "/images/articles/parents-day-gift-best-4/hero.svg",
-    "featuredOn": [
-      "Hero"
-    ],
     "affiliateDisclosure": "이 기사에는 Saint-Rémy Editors의 어필리에이트 링크가 포함되어 있습니다. 독자의 구매가 발생할 경우 일정 수수료를 제공받으나, 제품 선정은 독립적으로 이루어집니다.",
     "intro": {
       "lead": "어버이날이 2주 앞이다.",

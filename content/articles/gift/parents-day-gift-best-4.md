@@ -8,8 +8,6 @@ published: '2026-04-24'
 author: Saint-Rémy Editors
 thumbnailColor: '#8B2A2A'
 heroImage: /images/articles/parents-day-gift-best-4/hero.svg
-featuredOn:
-  - Hero
 affiliateDisclosure: >-
   이 기사에는 Saint-Rémy Editors의 어필리에이트 링크가 포함되어 있습니다.
   독자의 구매가 발생할 경우 일정 수수료를 제공받으나, 제품 선정은 독립적으로 이루어집니다.

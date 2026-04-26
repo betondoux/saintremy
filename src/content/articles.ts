@@ -409,16 +409,17 @@ export function getLatestArticle(): Article | undefined {
 }
 
 export function getHeroArticle(): Article | undefined {
-  // 1순위 — THE DUEL 시리즈 기사 중 최신 것이 항상 hero.
-  //   새 DUEL N°xxx 이 발행되면 자동으로 맨 위로 승격.
+  // 1순위 — featuredOn: ["Hero"] 수동 뱃지 (편집장 수동 승격 우선)
+  //   2026-04-26 업데이트: DUEL 자동 핀보다 manual featuredOn 우선.
+  const featured = articles.find((a) => a.featuredOn?.includes('Hero'))
+  if (featured) return featured
+
+  // 2순위 — THE DUEL 시리즈 기사 중 최신 것
+  //   새 DUEL N°xxx 이 발행되면 자동으로 hero로 승격 (단 featuredOn Hero 없을 때).
   const duels = articles
     .filter((a) => a.categoryLabel === 'THE DUEL')
     .sort((a, b) => b.published.localeCompare(a.published))
   if (duels.length > 0) return duels[0]
-
-  // 2순위 — featuredOn: ["Hero"] 수동 뱃지
-  const featured = articles.find((a) => a.featuredOn?.includes('Hero'))
-  if (featured) return featured
 
   // 3순위 — 최신 기사 (fallback)
   return getLatestArticle()
