@@ -3,6 +3,7 @@ import {
   getArticleBySlug,
   CATEGORY_LABELS,
   type Article,
+  type RoundupItem,
 } from '../content/articles'
 import { Dek } from '../components/Dek'
 import { AdSlot } from '../components/AdSlot'
@@ -753,6 +754,10 @@ function RoundupLayout({ article }: { article: Article }) {
   const total = article.roundup.length
   const saleCount = article.roundup.filter((item) => item.discountLabel).length
 
+  // 본문에 [ROUNDUP n-m] 마커가 있으면 카드를 본문 사이에 인라인 렌더 → 하단 스택 생략
+  const usesInlineMarkers =
+    !!article.body && /\[ROUNDUP\s/.test(article.body)
+
   return (
     <>
       {/* 도입부 — 글 전체 톤 잡는 lead + body */}
@@ -771,87 +776,91 @@ function RoundupLayout({ article }: { article: Article }) {
       )}
 
       {/* 본문 — intro 와 별개로 article.body 가 있으면 본문 마크다운 렌더 후
-         아래에서 카운터 박스 + roundup 카드들이 이어진다. (Chet Faker 패턴) */}
+         아래에서 카운터 박스 + roundup 카드들이 이어진다. (Chet Faker 패턴)
+         단, 본문에 [ROUNDUP n-m] 마커 있으면 카드는 그 자리에 인라인으로 들어감. */}
       {article.body && article.body.trim().length > 0 && (
         <section className="mb-10 md:mb-14">
-          <RenderBody body={article.body} />
+          <RenderBody body={article.body} roundup={article.roundup} />
         </section>
       )}
 
-      {/* The Strategist 점선 구분선 — 본문 → 추천 카드 그룹 전환 */}
-      <hr className="dotted-rule" />
+      {/* 인라인 마커 미사용 시에만 하단 카드 스택 노출 */}
+      {!usesInlineMarkers && <hr className="dotted-rule" />}
 
-      {/* 카운터 박스 — Strategist 톤 ("N개의 추천 상품 / N개 세일 진행 중") */}
-      <div
-        style={{
-          background: 'rgba(0, 0, 0, 0.04)',
-          border: '0.5px solid var(--sr-rule)',
-          borderRadius: '8px',
-          padding: '20px 24px',
-          margin: '32px 0',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '6px',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-          <span
-            style={{
-              fontFamily: 'var(--font-display-en)',
-              fontSize: '32px',
-              fontWeight: 700,
-              color: 'var(--sr-ink)',
-              lineHeight: 1,
-            }}
-          >
-            {total}
-          </span>
-          <span
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '13px',
-              letterSpacing: '0.06em',
-              color: 'var(--sr-ink)',
-            }}
-          >
-            개의 추천 상품
-          </span>
-        </div>
-        {saleCount > 0 && (
+      {/* 카운터 박스 — Strategist 톤. 인라인 마커 미사용 시만 노출 */}
+      {!usesInlineMarkers && (
+        <div
+          style={{
+            background: 'rgba(0, 0, 0, 0.04)',
+            border: '0.5px solid var(--sr-rule)',
+            borderRadius: '8px',
+            padding: '20px 24px',
+            margin: '32px 0',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '6px',
+          }}
+        >
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
             <span
               style={{
                 fontFamily: 'var(--font-display-en)',
-                fontSize: '24px',
+                fontSize: '32px',
                 fontWeight: 700,
-                color: '#D85A30',
+                color: 'var(--sr-ink)',
                 lineHeight: 1,
               }}
             >
-              {saleCount}
+              {total}
             </span>
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '12px',
+                fontSize: '13px',
                 letterSpacing: '0.06em',
-                color: '#D85A30',
+                color: 'var(--sr-ink)',
               }}
             >
-              개 세일 진행 중!
+              개의 추천 상품
             </span>
           </div>
-        )}
-      </div>
+          {saleCount > 0 && (
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-display-en)',
+                  fontSize: '24px',
+                  fontWeight: 700,
+                  color: '#D85A30',
+                  lineHeight: 1,
+                }}
+              >
+                {saleCount}
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px',
+                  letterSpacing: '0.06em',
+                  color: '#D85A30',
+                }}
+              >
+                개 세일 진행 중!
+              </span>
+            </div>
+          )}
+        </div>
+      )}
 
-      {/* 상품 카드 세로 스택 */}
-      {article.roundup.map((item, i) => (
-        <RoundupCard
-          key={i}
-          item={item}
-          isLast={i === article.roundup!.length - 1}
-        />
-      ))}
+      {/* 상품 카드 세로 스택 — 인라인 마커 미사용 시만 */}
+      {!usesInlineMarkers &&
+        article.roundup.map((item, i) => (
+          <RoundupCard
+            key={i}
+            item={item}
+            isLast={i === article.roundup!.length - 1}
+          />
+        ))}
 
       {/* The Strategist 점선 구분선 — 마지막 카드 → 마무리/footer 전환 */}
       <hr className="dotted-rule" />
@@ -1051,7 +1060,13 @@ function PicksLayout({ article }: { article: Article }) {
 // ═══════════════════════════════════════════════════════════════
 // 본문 렌더러 — Notion-식 마크다운 + 임베드 지원
 // ═══════════════════════════════════════════════════════════════
-function RenderBody({ body }: { body: string }) {
+function RenderBody({
+  body,
+  roundup,
+}: {
+  body: string
+  roundup?: RoundupItem[]
+}) {
   // 전처리: 헤딩(##/###...) 다음에 바로 콘텐츠가 붙어있으면 빈 줄 강제 삽입.
   // 이렇게 해야 헤딩과 이어지는 리스트/문단이 별개 블록으로 분리돼 제대로 렌더됨.
   const normalized = body.replace(/^(#{1,6}\s[^\n]+)\n(?!\n)/gm, '$1\n\n')
@@ -1143,6 +1158,30 @@ function RenderBody({ body }: { body: string }) {
           return (
             <div key={i} className="mt-10">
               <RankBadge variant={variant} label={labelOverride || undefined} />
+            </div>
+          )
+        }
+
+        // [ROUNDUP n-m] — 본문 사이 인라인 RoundupCard 페어 (1-indexed)
+        // 예: [ROUNDUP 1-2] → roundup[0..1] 두 개를 그 자리에 카드로 렌더
+        if (trimmed.startsWith('[ROUNDUP ') && trimmed.endsWith(']')) {
+          if (!roundup || roundup.length === 0) return null
+          const range = trimmed.slice(9, -1).trim()
+          const [startStr, endStr] = range.split('-').map((s) => s.trim())
+          const start = Math.max(0, parseInt(startStr, 10) - 1)
+          const end = (endStr ? parseInt(endStr, 10) : parseInt(startStr, 10)) - 1
+          if (Number.isNaN(start) || Number.isNaN(end)) return null
+          const items = roundup.slice(start, Math.min(end + 1, roundup.length))
+          if (items.length === 0) return null
+          return (
+            <div key={i} className="my-10">
+              {items.map((item, j) => (
+                <RoundupCard
+                  key={`inline-${i}-${j}`}
+                  item={item}
+                  isLast={j === items.length - 1}
+                />
+              ))}
             </div>
           )
         }
