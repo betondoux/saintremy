@@ -43,18 +43,18 @@
   }
 
   .headline {
-    font-family: 'Inter', 'Black Han Sans', 'Pretendard Variable', system-ui, sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.025em;
+    font-family: 'Pretendard Variable', 'Pretendard', 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: 1.2;
     word-break: keep-all;
   }
 
   .headline-italic {
     /* 클래스 이름은 호환을 위해 유지하되 italic 제거 — 모던 geometric */
-    font-family: 'Inter', 'Black Han Sans', 'Pretendard Variable', system-ui, sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.025em;
+    font-family: 'Pretendard Variable', 'Pretendard', 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: 1.2;
     word-break: keep-all;
   }
