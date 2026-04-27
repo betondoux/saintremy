@@ -199,7 +199,7 @@ function HeroBlock({ article }: { article: Article }) {
             )}
           </div>
 
-          <div className="pt-8 text-center">
+          <div className="pt-8 text-left">
             <div
               style={{
                 fontFamily: 'var(--font-mono)',
@@ -207,13 +207,14 @@ function HeroBlock({ article }: { article: Article }) {
                 letterSpacing: '0.3em',
                 color: 'var(--sr-muted)',
                 marginBottom: '16px',
+                textAlign: 'left',
               }}
             >
               — THIS WEEK'S FEATURE —
             </div>
 
-            <div className="flex justify-center mb-6">
-              <CategoryLabel category={article.category} align="center" />
+            <div className="mb-6">
+              <CategoryLabel category={article.category} />
             </div>
 
             <h1
@@ -275,7 +276,7 @@ function HeroBlock({ article }: { article: Article }) {
             </p>
 
             <div
-              className="mt-5 flex gap-3 justify-center"
+              className="mt-5 flex gap-3"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--fs-meta)',

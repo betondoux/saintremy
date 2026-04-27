@@ -107,7 +107,7 @@ export function ArticlePage() {
           매거진 에디토리얼 리듬: 넉넉한 여백 + 타이포 계층 대비
           ══════════════════════════════════════════════════════════ */}
       <header
-        className={`text-center ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dotted border-ink-900/30'}`}
+        className={`text-left ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dotted border-ink-900/30'}`}
       >
         {article.categoryLabel ? (
           <div
@@ -139,10 +139,10 @@ export function ArticlePage() {
 
         <Dek
           text={article.dek}
-          className="editorial-lead mt-7 md:mt-8 max-w-xl mx-auto text-ink-700"
+          className="editorial-lead mt-7 md:mt-8 max-w-xl text-ink-700"
         />
 
-        <div className="flex items-center justify-center gap-3 mt-10 md:mt-12 typewriter text-ink-500">
+        <div className="flex items-center gap-3 mt-10 md:mt-12 typewriter text-ink-500">
           <span>{article.author}</span>
           <span className="opacity-40">·</span>
           <span>{formatDate(article.published)}</span>
