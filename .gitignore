@@ -47,3 +47,6 @@ data/admin/*.sqlite-shm
 data/admin/*.sqlite-wal
 .env.admin.save
 Header.tsx.bak
+
+# 발행 전 백업/초안 — 빌드에 안 쓰임
+_drafts/
