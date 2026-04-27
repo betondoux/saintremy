@@ -590,9 +590,12 @@ function CategorySection({
   excludeSlugs?: string[]
 }) {
   const meta = CATEGORY_META[category]
-  const articles = getArticlesByCategory(category).filter(
+  const allInCategory = getArticlesByCategory(category)
+  const filtered = allInCategory.filter(
     (a) => !excludeSlugs.includes(a.slug),
   )
+  // 필터 후 0개면 Hero/Editor's Pick 라도 그대로 표시 — 빈 카테고리 방지
+  const articles = filtered.length > 0 ? filtered : allInCategory
   const hasArticles = articles.length > 0
   const color = CATEGORY_COLORS[category]
 
