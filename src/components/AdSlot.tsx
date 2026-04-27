@@ -3,12 +3,13 @@ import { useEffect, useMemo, useRef } from 'react'
 const ADSENSE_CLIENT_ID = import.meta.env.VITE_ADSENSE_CLIENT_ID as
   | string
   | undefined
-const COUPANG_BANNER_ID = import.meta.env.VITE_COUPANG_BANNER_ID as
-  | string
-  | undefined
-const COUPANG_TRACKING_CODE = import.meta.env.VITE_COUPANG_TRACKING_CODE as
-  | string
-  | undefined
+// 비공개 정보 아님 — 배너 ID와 AFID는 모든 공개 링크에 노출되므로 하드코딩 OK.
+// AdSense 승인되면 VITE_ADSENSE_CLIENT_ID 가 우선 적용되어 자동으로 꺼짐.
+const COUPANG_BANNER_ID =
+  (import.meta.env.VITE_COUPANG_BANNER_ID as string | undefined) ?? '984117'
+const COUPANG_TRACKING_CODE =
+  (import.meta.env.VITE_COUPANG_TRACKING_CODE as string | undefined) ??
+  'AF7233291'
 
 interface Props {
   slot?: string
