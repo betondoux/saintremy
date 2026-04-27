@@ -6,6 +6,7 @@ import CategoryLabel, {
 } from '../components/CategoryLabel'
 import CategoryIcon from '../components/CategoryIcon'
 import Ornament from '../components/Ornament'
+import SaleCarousel from '../components/SaleCarousel'
 import {
   getAllArticles,
   getHeroArticle,
@@ -51,6 +52,12 @@ export function Home() {
     (s): s is string => Boolean(s),
   )
 
+  // 최신 딜 글의 picks 4~8개를 SaleCarousel 로 노출 (Strategist "A VERY GOOD SALE" 톤)
+  const latestDeal = getArticlesByCategory('deal').find(
+    (a) => a.picks && a.picks.length > 0,
+  )
+  const carouselItems = latestDeal?.picks?.slice(0, 8) ?? []
+
   return (
     <>
       <SEO path="/" />
@@ -60,6 +67,17 @@ export function Home() {
 
       {editorsPick && editorsPick.slug !== hero?.slug && (
         <EditorsPickBlock article={editorsPick} />
+      )}
+
+      {latestDeal && carouselItems.length > 0 && (
+        <SaleCarousel
+          badge="이번 주 딜"
+          title={latestDeal.title}
+          subtitle={latestDeal.dek}
+          ctaLabel="전체 보기 →"
+          ctaUrl={`/a/${latestDeal.slug}`}
+          items={carouselItems}
+        />
       )}
 
       <div className="max-w-6xl mx-auto px-6">
