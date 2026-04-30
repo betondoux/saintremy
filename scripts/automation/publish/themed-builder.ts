@@ -165,26 +165,29 @@ async function searchPool(keywords: string[]): Promise<CoupangProduct[]> {
   return pool
 }
 
-async function resolveSlot(slot: SlotConfig, index: number): Promise<CoupangProduct | null> {
+async function resolveSlot(
+  slot: SlotConfig,
+  index: number,
+  excludedProductIds: Set<number>,
+): Promise<CoupangProduct | null> {
   console.log(`\n[${String(index).padStart(2, '0')}] "${slot.searchKeyword}" 검색…`)
-  // 1차: 본 키워드. 2차: alternateKeywords (있으면). 3차: 본 키워드 + 브랜드 토큰
   const keywords = [slot.searchKeyword]
   if ((slot as any).alternateKeywords) {
     keywords.push(...(slot as any).alternateKeywords)
   }
   const pool = await searchPool(keywords)
-  console.log(`     pool ${pool.length}건 / 가격필터 ${slot.minPrice ?? '-'}~${slot.maxPrice ?? '-'} / 제외 ${slot.excludeKeywords?.length ?? 0}개`)
+  console.log(`     pool ${pool.length}건 / 가격필터 ${slot.minPrice ?? '-'}~${slot.maxPrice ?? '-'} / 제외 ${slot.excludeKeywords?.length ?? 0}개 / 중복차단 ${excludedProductIds.size}개`)
   if (pool.length === 0) {
     console.log(`     ✗ 검색 결과 0건`)
     return null
   }
-  // rank 우선 (search API는 이미 인기순). 필터 통과한 첫 번째.
-  const filtered = pool.filter((p) => passesFilters(p, slot))
+  // 중복 productId 사전 차단 + 가격·키워드 필터
+  const filtered = pool.filter((p) => !excludedProductIds.has(p.productId) && passesFilters(p, slot))
   console.log(`     필터 통과: ${filtered.length}건`)
   if (filtered.length === 0) {
-    // 디버그: 첫 3개가 왜 떨어졌는지
     pool.slice(0, 5).forEach((p) => {
       const reasons: string[] = []
+      if (excludedProductIds.has(p.productId)) reasons.push(`중복`)
       if (slot.minPrice && p.productPrice < slot.minPrice) reasons.push(`가격↓ ${fmtPrice(p.productPrice)}`)
       if (slot.maxPrice && p.productPrice > slot.maxPrice) reasons.push(`가격↑ ${fmtPrice(p.productPrice)}`)
       slot.excludeKeywords?.forEach((ex) => {
@@ -355,14 +358,16 @@ async function main() {
   console.log(`   ${config.title}`)
   console.log(`   ${config.slots.length} 슬롯`)
 
-  // 1. 각 슬롯 resolve
+  // 1. 각 슬롯 resolve — 이전 슬롯과 중복 productId 차단
   const resolved: ResolvedSlot[] = []
+  const usedProductIds = new Set<number>()
   for (let i = 0; i < config.slots.length; i++) {
     const slot = config.slots[i]
-    const product = await resolveSlot(slot, i + 1)
+    const product = await resolveSlot(slot, i + 1, usedProductIds)
     if (!product) {
       throw new Error(`슬롯 [${slot.label}] 매칭 실패. 키워드 또는 가격대 조정 필요.`)
     }
+    usedProductIds.add(product.productId)
     const num = String(i + 1).padStart(2, '0')
     resolved.push({
       ...slot,
