@@ -40,16 +40,18 @@ function App() {
           {/* ═══════════════════════════════════════════════════
               11개 카테고리 (Saint-Rémy 2026)
               ═══════════════════════════════════════════════════ */}
-          <Route path="/gift" element={<CategoryPage />} />
-          <Route path="/deal" element={<CategoryPage />} />
+          <Route path="/gift" element={<Navigate to="/deals" replace />} />
+          <Route path="/deal" element={<Navigate to="/deals" replace />} />
           <Route path="/style" element={<CategoryPage />} />
-          <Route path="/beauty" element={<CategoryPage />} />
+          <Route path="/home" element={<CategoryPage />} />
+          <Route path="/deals" element={<CategoryPage />} />
+          <Route path="/beauty" element={<Navigate to="/style" replace />} />
           <Route path="/space" element={<CategoryPage />} />
-          <Route path="/kitchen" element={<CategoryPage />} />
-          <Route path="/move" element={<CategoryPage />} />
+          <Route path="/kitchen" element={<Navigate to="/home" replace />} />
+          <Route path="/move" element={<Navigate to="/space" replace />} />
           <Route path="/travel" element={<CategoryPage />} />
-          <Route path="/furniture" element={<CategoryPage />} />
-          <Route path="/living" element={<CategoryPage />} />
+          <Route path="/furniture" element={<Navigate to="/home" replace />} />
+          <Route path="/living" element={<Navigate to="/home" replace />} />
           <Route path="/music" element={<CategoryPage />} />
 
           {/* ═══════════════════════════════════════════════════

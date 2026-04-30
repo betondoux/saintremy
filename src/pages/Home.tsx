@@ -26,9 +26,8 @@ import {
 // kitchen, move, travel, [❧], furniture, living
 // ═══════════════════════════════════════════════════════════════
 const ORNAMENT_AFTER: Record<number, '❦' | '✦' | '❧'> = {
-  1: '❦', // deal 뒤
-  4: '✦', // space 뒤
-  7: '❧', // travel 뒤
+  1: '❦', // 두 번째 카테고리 뒤
+  3: '✦', // 네 번째 카테고리 뒤
 }
 
 export function Home() {
@@ -54,7 +53,7 @@ export function Home() {
   )
 
   // 최신 딜 글의 picks 4~8개를 SaleCarousel 로 노출 (Strategist "A VERY GOOD SALE" 톤)
-  const latestDeal = getArticlesByCategory('deal').find(
+  const latestDeal = getArticlesByCategory('deals').find(
     (a) => a.picks && a.picks.length > 0,
   )
   const carouselItems = latestDeal?.picks?.slice(0, 8) ?? []

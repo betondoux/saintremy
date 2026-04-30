@@ -8,19 +8,13 @@ import articlesData from '../generated/articles.json'
 
 // 11개 카테고리 (URL slug 기준 영문)
 export type Category =
-  | 'gift'
-  | 'deal'
+  
   | 'style'
-  | 'beauty'
+  | 'home'
   | 'space'
-  | 'kitchen'
-  | 'move'
+  | 'deals'
   | 'travel'
-  | 'furniture'
-  | 'living'
-  | 'music'
-
-// 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
+  | 'music'// 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
 type LegacySportCategory =
   | 'lift'
   | 'combat'
@@ -31,12 +25,12 @@ type LegacySportCategory =
 
 // 기존 6개 → 'move'로 매핑 (레거시 호환)
 const LEGACY_TO_MOVE: Record<LegacySportCategory, Category> = {
-  lift: 'move',
-  combat: 'move',
-  football: 'move',
-  run: 'move',
-  flow: 'move',
-  court: 'move',
+  lift: 'space',
+  combat: 'space',
+  football: 'space',
+  run: 'space',
+  flow: 'space',
+  court: 'space',
 }
 
 export interface Source {
@@ -239,31 +233,21 @@ export interface Article {
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
 // 형식: "English (한글)" — UI가 너무 한글 일색이지 않도록.
 export const CATEGORY_LABELS: Record<Category, string> = {
-  gift: 'Gift (선물)',
-  deal: 'Deal (할인)',
   style: 'Style (스타일)',
-  beauty: 'Beauty (뷰티)',
+  home: 'Home (살림)',
   space: 'Space (공간)',
-  kitchen: 'Kitchen (주방)',
-  move: 'Move (운동)',
+  deals: 'Deals (딜)',
   travel: 'Travel (여행)',
-  furniture: 'Furniture (가구)',
-  living: 'Living (생활)',
   music: 'Music (음악)',
 }
 
 // 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
 export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
-  gift: 'Gift',
-  deal: 'Deal',
   style: 'Style',
-  beauty: 'Beauty',
+  home: 'Home',
   space: 'Space',
-  kitchen: 'Kitchen',
-  move: 'Move',
+  deals: 'Deals',
   travel: 'Travel',
-  furniture: 'Furniture',
-  living: 'Living',
   music: 'Music',
 }
 
@@ -272,61 +256,12 @@ export const CATEGORY_META: Record<
   Category,
   { title: string; subtitle: string; icon: string }
 > = {
-  gift: {
-    title: '선물',
-    subtitle: '실패하지 않는 선물의 기준.',
-    icon: '🎁',
-  },
-  deal: {
-    title: '할인',
-    subtitle: '놓치면 아쉬운 이번 주 할인.',
-    icon: '🏷️',
-  },
-  style: {
-    title: '스타일',
-    subtitle: '덜 사고 더 잘 입는 법.',
-    icon: '👗',
-  },
-  beauty: {
-    title: '뷰티',
-    subtitle: '허세 없는 피부와 화장품 이야기.',
-    icon: '💄',
-  },
-  space: {
-    title: '공간',
-    subtitle: '좁아도 답답하지 않은 공간의 원칙.',
-    icon: '🏠',
-  },
-  kitchen: {
-    title: '주방',
-    subtitle: '요리를 바꾸는 도구들.',
-    icon: '🍳',
-  },
-  move: {
-    title: '운동',
-    subtitle: '근력부터 요가까지, 몸을 쓰는 모든 방식.',
-    icon: '💪',
-  },
-  travel: {
-    title: '여행',
-    subtitle: '짐은 가볍게, 경험은 무겁게.',
-    icon: '✈️',
-  },
-  furniture: {
-    title: '가구',
-    subtitle: '오래 쓰는 가구, 오래 살아남는 방의 조건.',
-    icon: '🪑',
-  },
-  living: {
-    title: '생활',
-    subtitle: '매일 쓰는 것들의 작은 차이.',
-    icon: '🧺',
-  },
-  music: {
-    title: '음악',
-    subtitle: '귀로 머무는 시간을 위한 음반과 곡.',
-    icon: '🎧',
-  },
+  style: { title: 'Style', subtitle: '취향과 일상의 도구', icon: '✦' },
+  home: { title: 'Home', subtitle: '살림과 살림살이', icon: '❦' },
+  space: { title: 'Space', subtitle: '머무는 공간의 결', icon: '❧' },
+  deals: { title: 'Deals', subtitle: '이번 주 검증된 가격', icon: '✦' },
+  travel: { title: 'Travel', subtitle: '여행과 도시의 기록', icon: '❦' },
+  music: { title: 'Music', subtitle: '듣는 시간의 깊이', icon: '❧' },
 }
 
 // 모든 유효한 카테고리 (타입 가드용)
@@ -334,17 +269,12 @@ export const CATEGORY_META: Record<
 // Furniture/Kitchen) 앞쪽 → Coming soon (Space/Move/Travel/Living) 뒤쪽.
 // 2026-04-26: desk 카테고리 폐지 — 책상 관련 콘텐츠는 furniture로 통합.
 export const ALL_CATEGORIES: Category[] = [
-  'deal',
-  'gift',
-  'beauty',
-  'music',
   'style',
-  'furniture',
-  'kitchen',
+  'home',
   'space',
-  'move',
+  'deals',
   'travel',
-  'living',
+  'music',
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -370,7 +300,7 @@ const normalizeCategory = (cat: string): Category => {
     return cat as Category
   }
   // 미지의 카테고리는 일단 'living'으로 fallback (안전)
-  return 'living'
+  return 'home'
 }
 
 type RawArticle = Omit<Article, 'category'> & { category: string }
@@ -538,30 +468,20 @@ export function splitDekIntoSentences(dek: string): string[] {
 // 햄버거 메뉴 서브카테고리 (영문 only).
 // 빈 배열 = 메뉴에서 'Coming soon' 표시.
 export const CATEGORY_SUBCATEGORIES: Record<Category, string[]> = {
-  gift: ['By Recipient', 'By Budget', 'By Occasion', "Editor's Pick"],
-  deal: ['This Week', 'Under ₩30,000', 'Beauty Deals', 'Tech Deals'],
+  deals: ['By Recipient', 'By Budget', 'By Occasion', "Editor's Pick"],
   style: ['Audio', 'Wearables', 'Bags', 'Outerwear'],
-  beauty: ['Cleanser', 'Sunscreen', 'Skincare', 'Fragrance', 'Tools'],
   space: [],
-  kitchen: ['Coffee + Tea', 'Cookware', 'Small Appliances', 'Knives'],
-  move: [],
+  home: ['Coffee + Tea', 'Cookware', 'Small Appliances', 'Knives'],
   travel: [],
-  furniture: [],
-  living: [],
   music: ['Headphones', 'Earphones', 'Speakers', 'Walkman + Players', "Editor's Picks"],
 }
 
 // 햄버거 메뉴 카테고리 라벨 색상 (The Strategist 스티커 패턴).
 export const CATEGORY_STICKER_COLORS: Record<Category, string> = {
-  gift: '#FF7A1A',      // orange — 활기
-  deal: '#FFE600',      // yellow — 긴급/세일
+  deals: '#FF7A1A',      // orange — 활기
   style: '#00C2D9',     // cyan — 테크/모던
-  beauty: '#FF1F8F',    // hot pink — 관습적
   space: '#FFE600',     // yellow — 따뜻함
-  kitchen: '#B845E8',   // purple — 미식
-  move: '#2BC48A',      // green — 활력
+  home: '#B845E8',   // purple — 미식
   travel: '#FF7A1A',    // orange — 활기
-  furniture: '#2BC48A', // green — 자연/오래감
-  living: '#FF1F8F',    // hot pink — 일상
   music: '#7F77DD',     // purple — 감성/분위기
 }

@@ -4,30 +4,20 @@
 import type { Category } from '../content/articles'
 
 const CATEGORY_COLORS: Record<Category, string> = {
-  gift:      'var(--cat-gift)',
-  deal:      'var(--cat-deal)',
+  deals:      'var(--cat-gift)',
   style:     'var(--cat-style)',
-  beauty:    'var(--cat-beauty)',
   space:     'var(--cat-space)',
-  kitchen:   'var(--cat-kitchen)',
-  move:      'var(--cat-move)',
+  home:   'var(--cat-kitchen)',
   travel:    'var(--cat-travel)',
-  furniture: 'var(--cat-furn)',
-  living:    'var(--cat-living)',
   music:     'var(--cat-music)',
 }
 
 const CATEGORY_EN_KR: Record<Category, { en: string; kr: string }> = {
-  gift:      { en: 'GIFT',      kr: '선물' },
-  deal:      { en: 'DEAL',      kr: '할인' },
+  deals:      { en: 'GIFT',      kr: '선물' },
   style:     { en: 'STYLE',     kr: '스타일' },
-  beauty:    { en: 'BEAUTY',    kr: '뷰티' },
   space:     { en: 'SPACE',     kr: '공간' },
-  kitchen:   { en: 'KITCHEN',   kr: '주방' },
-  move:      { en: 'MOVE',      kr: '운동' },
+  home:   { en: 'KITCHEN',   kr: '주방' },
   travel:    { en: 'TRAVEL',    kr: '여행' },
-  furniture: { en: 'FURNITURE', kr: '가구' },
-  living:    { en: 'LIVING',    kr: '생활' },
   music:     { en: 'MUSIC',     kr: '음악' },
 }
 

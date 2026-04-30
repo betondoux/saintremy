@@ -2,19 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { adminFetch, AdminApiError } from '../lib/api'
 
-const CATEGORIES = [
-  'gift',
-  'deal',
-  'style',
-  'beauty',
-  'space',
-  'kitchen',
-  'move',
-  'travel',
-  'furniture',
-  'living',
-  'music',
-] as const
+const CATEGORIES = ['style', 'home', 'space', 'deals', 'travel', 'music'] as const
 
 const FORMATS = [
   { value: 'best-in-class', label: 'BEST 5/7' },

@@ -14,19 +14,7 @@ import { getJobCost } from '../lib/cost-tracker.ts'
 
 export const articlesRouter = Router()
 
-const VALID_CATEGORIES = new Set([
-  'gift',
-  'deal',
-  'style',
-  'beauty',
-  'space',
-  'kitchen',
-  'move',
-  'travel',
-  'furniture',
-  'living',
-  'music',
-])
+const VALID_CATEGORIES = new Set(['style', 'home', 'space', 'deals', 'travel', 'music'])
 
 const VALID_FORMATS = new Set(['best-in-class', 'showcase', 'this-thing', 'gift-guide'])
 
