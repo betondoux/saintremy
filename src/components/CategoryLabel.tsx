@@ -13,10 +13,10 @@ const CATEGORY_COLORS: Record<Category, string> = {
 }
 
 const CATEGORY_EN_KR: Record<Category, { en: string; kr: string }> = {
-  deals:      { en: 'GIFT',      kr: '선물' },
+  deals:     { en: 'DEALS',     kr: '딜' },
   style:     { en: 'STYLE',     kr: '스타일' },
   space:     { en: 'SPACE',     kr: '공간' },
-  home:   { en: 'KITCHEN',   kr: '주방' },
+  home:      { en: 'HOME',      kr: '홈' },
   travel:    { en: 'TRAVEL',    kr: '여행' },
   music:     { en: 'MUSIC',     kr: '음악' },
 }
