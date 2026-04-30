@@ -50,3 +50,7 @@ Header.tsx.bak
 
 # 발행 전 백업/초안 — 빌드에 안 쓰임
 _drafts/
+
+# Automation pipeline — 후보 풀, posted tracker, 임시 cutout 캐시
+data/automation/
+scripts/automation/.cache/
