@@ -400,6 +400,66 @@ export function getArticlesByCategory(category: Category): Article[] {
     .sort((a, b) => b.published.localeCompare(a.published))
 }
 
+// ─────────────────────────────────────────────────────────────
+// 메인 페이지 카테고리 그리드 — 매일 다른 순서 (시드 + 가중치)
+//
+// 정책: "fresh window + evergreen rotate"
+//   · 발행 후 N일 이내 글은 발행일 내림차순으로 상단 고정 (앵커)
+//   · 그 외 evergreen 글은 일별 시드 셔플 (UTC dayOfYear + 카테고리)
+//
+// 효과:
+//   · 같은 날 방문자는 모두 같은 순서 (소셜 공유 시 혼동 0, SEO·SSG 친화)
+//   · 다음 날 evergreen 풀이 새 순서로 자동 회전 → 메인 화면 신선도
+//   · 새 글은 무조건 노출 (셔플에 묻히지 않음)
+// ─────────────────────────────────────────────────────────────
+const FRESH_WINDOW_DAYS = 3
+
+function dayOfYearUtc(): number {
+  const now = new Date()
+  const yearStart = Date.UTC(now.getUTCFullYear(), 0, 0)
+  return Math.floor((now.getTime() - yearStart) / 86_400_000)
+}
+
+function mulberry32(seed: number): () => number {
+  let state = seed | 0
+  return () => {
+    state = (state + 0x6d2b79f5) | 0
+    let t = state
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const rng = mulberry32(seed)
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+export function getArticlesByCategoryRotated(category: Category): Article[] {
+  const all = articles.filter((a) => a.category === category)
+  if (all.length <= 1) return all
+
+  const now = new Date()
+  const cutoffDate = new Date(now.getTime() - FRESH_WINDOW_DAYS * 86_400_000)
+    .toISOString()
+    .slice(0, 10)
+
+  const fresh = all
+    .filter((a) => a.published >= cutoffDate)
+    .sort((a, b) => b.published.localeCompare(a.published))
+  const evergreen = all.filter((a) => a.published < cutoffDate)
+
+  // 카테고리별로 다른 시드 — 같은 날에도 카테고리마다 다른 순서
+  const seed = dayOfYearUtc() * 31 + category.charCodeAt(0)
+  return [...fresh, ...seededShuffle(evergreen, seed)]
+}
+
 export function getAllArticles(): Article[] {
   return [...articles].sort((a, b) => b.published.localeCompare(a.published))
 }

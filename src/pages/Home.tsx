@@ -12,6 +12,7 @@ import {
   getHeroArticle,
   getEditorsPick,
   getArticlesByCategory,
+  getArticlesByCategoryRotated,
   getMostReadArticles,
   ALL_CATEGORIES,
   CATEGORY_META,
@@ -608,7 +609,8 @@ function CategorySection({
   excludeSlugs?: string[]
 }) {
   const meta = CATEGORY_META[category]
-  const allInCategory = getArticlesByCategory(category)
+  // 메인 페이지 카테고리 그리드 — 시드 기반 일별 회전 (fresh window + evergreen rotate)
+  const allInCategory = getArticlesByCategoryRotated(category)
   const filtered = allInCategory.filter(
     (a) => !excludeSlugs.includes(a.slug),
   )
