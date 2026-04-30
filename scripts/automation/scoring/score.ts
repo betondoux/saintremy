@@ -9,7 +9,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import type { CandidatePool, CandidateRecord } from '../api/fetch-pool.js'
-import type { SaintremyCategory } from '../api/category-map.js'
+import { SAINTREMY_TO_COUPANG, type SaintremyCategory } from '../api/category-map.js'
 
 export interface ScoredCandidate extends CandidateRecord {
   score: number
@@ -74,9 +74,21 @@ export function pickByCategory(
   saintremyCategory: SaintremyCategory,
   topN = 5,
 ): CategoryPick {
+  // 매핑 직접 참조 — 한 쿠팡 카테고리가 여러 saintremy 카테고리에 속할 수 있음
+  // (예: 1015=홈인테리어 → furniture + space, 1014=생활용품 → living + space, 1010=뷰티 → beauty + gift)
+  const coupangIds = SAINTREMY_TO_COUPANG[saintremyCategory] ?? []
   const allRecords = Object.values(pool.byCategory).flat()
-  const filtered = allRecords.filter((r) => r.saintremyCategory === saintremyCategory)
-  const scored = filtered
+  const filtered = allRecords.filter(
+    (r) => r.coupangCategoryId !== undefined && coupangIds.includes(r.coupangCategoryId),
+  )
+  // 같은 productId 중복 제거
+  const seen = new Set<number>()
+  const dedup = filtered.filter((r) => {
+    if (seen.has(r.productId)) return false
+    seen.add(r.productId)
+    return true
+  })
+  const scored = dedup
     .map((c) => scoreCandidate(c, saintremyCategory))
     .sort((a, b) => b.score - a.score)
     .slice(0, topN)

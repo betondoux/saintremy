@@ -50,7 +50,7 @@ export const SAINTREMY_TO_COUPANG: Record<SaintremyCategory, number[]> = {
   style:     [COUPANG_CATEGORIES.womensFashion.id, COUPANG_CATEGORIES.mensFashion.id],
   move:      [COUPANG_CATEGORIES.sportsLeisure.id],
   travel:    [COUPANG_CATEGORIES.domesticTravel.id, COUPANG_CATEGORIES.overseasTravel.id],
-  space:     [COUPANG_CATEGORIES.homeInterior.id, COUPANG_CATEGORIES.living.id],
+  space:     [COUPANG_CATEGORIES.homeInterior.id],
   gift:      [
     COUPANG_CATEGORIES.beauty.id,
     COUPANG_CATEGORIES.health.id,
