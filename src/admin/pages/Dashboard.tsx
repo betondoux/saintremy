@@ -82,12 +82,12 @@ export function Dashboard() {
         <div className="stats">
           <div className="stat-card">
             <p className="stat-label">이번 달 발행</p>
-            <p className="stat-value">{data?.stats.published_this_month ?? '—'}편</p>
+            <p className="stat-value">{data?.stats?.published_this_month ?? '—'}편</p>
             <p className="stat-note">content/articles 기준</p>
           </div>
           <div className="stat-card">
             <p className="stat-label">진행 중인 드래프트</p>
-            <p className="stat-value">{data?.stats.drafts_in_progress ?? '—'}편</p>
+            <p className="stat-value">{data?.stats?.drafts_in_progress ?? '—'}편</p>
             <p className="stat-note">SQLite drafts</p>
           </div>
           <div className="stat-card">
@@ -105,15 +105,15 @@ export function Dashboard() {
         <section className="section">
           <div className="section-head">
             <h2>진행 중</h2>
-            <span className="meta">{data?.drafts.length ?? 0}편</span>
+            <span className="meta">{data?.drafts?.length ?? 0}편</span>
           </div>
           <div className="list">
-            {data?.drafts.length === 0 && (
+            {data?.drafts?.length === 0 && (
               <div className="list-empty">
                 진행 중인 드래프트가 없습니다. 위 [+ 새 기사] 버튼으로 시작하세요.
               </div>
             )}
-            {data?.drafts.map((d) => (
+            {data?.drafts?.map((d) => (
               <article className="draft-card" key={d.id}>
                 <div>
                   <h3>{d.topic}</h3>
@@ -147,13 +147,13 @@ export function Dashboard() {
         <section className="section">
           <div className="section-head">
             <h2>최근 발행</h2>
-            <span className="meta">{data?.published.length ?? 0}편</span>
+            <span className="meta">{data?.published?.length ?? 0}편</span>
           </div>
           <div className="list">
-            {data?.published.length === 0 && (
+            {data?.published?.length === 0 && (
               <div className="list-empty">아직 발행된 기사가 없습니다.</div>
             )}
-            {data?.published.map((p) => (
+            {data?.published?.map((p) => (
               <article className="published-card" key={p.slug}>
                 <div>
                   <h3>{p.title}</h3>

@@ -17,7 +17,7 @@ export function Login() {
         method: 'POST',
         json: { password },
       })
-      navigate('/dashboard', { replace: true })
+      navigate('/overview', { replace: true })
     } catch (err) {
       if (err instanceof AdminApiError) {
         if (err.status === 429) {
