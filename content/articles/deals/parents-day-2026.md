@@ -3,7 +3,7 @@ id: parents-day-2026
 slug: 'parents-day-2026'
 title: '어버이날, 부모님께 정말로 사드릴 만한 17가지'
 dek: 'Saint-Rémy Editors가 직접 골랐습니다. 4만원부터 36만원까지, 어머니 9가지 + 아버지 8가지.'
-category: 'gift'
+category: 'deals'
 categoryLabel: 'GIFT GUIDES'
 published: '2026-04-26'
 readTime: 8

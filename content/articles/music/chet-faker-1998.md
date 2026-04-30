@@ -2,6 +2,7 @@
 id: chet-faker-1998
 slug: chet-faker-1998
 category: music
+categoryLabel: 'MUSIC'
 title: Chet Faker, 「1998」
 dek: 게으른 비트 위에 얹힌 꿀 같은 목소리 — 호주 멜버른 출신 청년이 열 살 시절을 떠올린 노래.
 readTime: 6

@@ -1,7 +1,7 @@
 ---
 id: best-desk-lamps-top-5
 slug: best-desk-lamps-top-5
-category: furniture
+category: home
 title: "재택근무자용 책상 조명 5가지"
 dek: "모니터 피로 줄이는 프리미엄 LED — Saint-Rémy가 랭킹별로 1개씩 골랐다"
 readTime: 5

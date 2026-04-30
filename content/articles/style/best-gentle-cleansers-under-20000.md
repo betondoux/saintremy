@@ -1,7 +1,7 @@
 ---
 id: best-gentle-cleansers-under-20000
 slug: best-gentle-cleansers-under-20000
-category: beauty
+category: style
 title: 2만원 이하 진짜 순한 클렌저 7가지
 dek: 약산성·저자극·민감 피부 — Saint-Rémy가 카테고리별로 1개씩 골랐다
 readTime: 6

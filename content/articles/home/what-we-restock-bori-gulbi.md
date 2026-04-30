@@ -3,7 +3,7 @@ id: what-we-restock-bori-gulbi
 slug: 'what-we-restock-bori-gulbi'
 title: '3년째 떨어지기 전에 다시 사는 반찬 하나'
 dek: '13%의 약한 할인에도 손이 가는 이유 — 사대부집 곳간 부세 보리굴비 8팩.'
-category: 'kitchen'
+category: 'home'
 categoryLabel: 'KITCHEN'
 series: 'Saint-Rémy가 3년째 쓰는 것'
 seriesNumber: 1

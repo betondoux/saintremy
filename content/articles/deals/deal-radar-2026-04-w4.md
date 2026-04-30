@@ -1,7 +1,8 @@
 ---
 id: deal-radar-2026-04-w4
 slug: deal-radar-2026-04-w4
-category: deal
+category: deals
+categoryLabel: 'SALE'
 title: 이번 주 딜 레이더 — 2026 4월 4주차
 dek: Saint-Rémy가 이번 주 쿠팡에서 고른 할인 4
 readTime: 4

@@ -3,7 +3,7 @@ id: deal-radar-2026-w17
 slug: 'deal-radar-2026-w17'
 title: '이번 주 딜 레이더 — 평점 1만 이상이 검증한 6선'
 dek: 'Saint-Rémy Editors가 5월 셋째 주 쿠팡에서 추적한 가성비. 후기 1,000건이 넘은 라인만 추렸다. 뷰티 4 + 여름 준비 2.'
-category: 'deal'
+category: 'deals'
 categoryLabel: 'SALE'
 published: '2026-04-27'
 readTime: 4

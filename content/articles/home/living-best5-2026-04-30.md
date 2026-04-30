@@ -3,7 +3,7 @@ id: living-best5-2026-04-30
 slug: 'living-best5-2026-04-30'
 title: '매주 다시 사는 다섯 가지'
 dek: '쿠팡 생활용품 베스트 1~5위 — 한국 가정에서 가장 빠르게 떨어져 다시 사는 소모품 라인업.'
-category: 'living'
+category: 'home'
 categoryLabel: 'LIVING'
 published: '2026-04-30'
 updatedAt: '2026-04-30'

@@ -3,7 +3,7 @@ id: starter-kitchen-2026
 slug: 'starter-kitchen-2026'
 title: '자취 주방 12선 — 10년째 매일 쓰는 것'
 dek: '자취 시작자가 첫 한 달 안에 채우시면 1년 후 후회가 없는 12가지. 가전 5 + 조리도구 4 + 식기 3.'
-category: 'kitchen'
+category: 'home'
 categoryLabel: 'KITCHEN'
 published: '2026-04-26'
 readTime: 7

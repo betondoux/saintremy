@@ -3,7 +3,7 @@ id: auto-beauty-best5-2026-04-30
 slug: 'auto-beauty-best5-2026-04-30'
 title: '발에서 얼굴까지, 1만원대'
 dek: '쿠팡 뷰티 카테고리 베스트셀러 1~5위가 모두 1만원대에 들어가는 주 — 한국이 지금 가장 많이 사는 풀 케어 라인업.'
-category: 'beauty'
+category: 'style'
 categoryLabel: 'BEAUTY'
 published: '2026-04-30'
 updatedAt: '2026-04-30'

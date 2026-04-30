@@ -3,7 +3,7 @@ id: niacinamide-four-formats-2026
 slug: 'niacinamide-four-formats-2026'
 title: '한 성분의 4가지 형태'
 dek: '나이아신아마이드는 토너·세럼·앰플·패치에 들어갈 때 매번 다른 가격을 받는다 — 10ml당 497원부터 8,067원까지, 16배 격차.'
-category: 'beauty'
+category: 'style'
 categoryLabel: 'BEAUTY'
 published: '2026-04-28'
 updatedAt: '2026-04-28'

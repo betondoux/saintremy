@@ -3,7 +3,7 @@ id: best-value-body-creams-2026
 slug: 'best-value-body-creams-2026'
 title: '바디크림 한 통의 진짜 가격'
 dek: '100ml당 2,809원부터 12,396원까지 — 같은 "가성비"라는 단어 안에 담긴 5가지 다른 답.'
-category: 'beauty'
+category: 'style'
 categoryLabel: 'BEAUTY'
 published: '2026-04-28'
 updatedAt: '2026-04-28'

@@ -3,7 +3,7 @@ id: hanwoo-gift-deals-2026
 slug: 'hanwoo-gift-deals-2026'
 title: '어버이날 D-11, 한우 1++ 선물세트 4선'
 dek: '정가 90만원어치를 33만원에 — 쿠팡 핫딜만 모았다.'
-category: 'deal'
+category: 'deals'
 categoryLabel: 'SALE'
 published: '2026-04-27'
 updatedAt: '2026-04-27'

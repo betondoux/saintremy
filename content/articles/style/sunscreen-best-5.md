@@ -1,7 +1,8 @@
 ---
 id: sunscreen-best-5
 slug: sunscreen-best-5
-category: beauty
+category: style
+categoryLabel: 'BEAUTY'
 title: 선크림 BEST 5
 dek: Saint-Rémy가 고른 봄 자외선 대비 5개
 readTime: 5

@@ -3,7 +3,7 @@ id: slow-running-2026
 slug: 'slow-running-2026'
 title: '천천히 달리는 사람이 더 오래 산다 — 슬로우 러닝의 과학과 장비 10선'
 dek: '미국심장학회·콜로라도대 의대·노르웨이 스포츠과학자 — 세 갈래 연구가 같은 결론에 도달했다. 격렬하게 달린 사람의 사망률은, 운동 안 한 사람과 같았다.'
-category: 'move'
+category: 'space'
 categoryLabel: 'MOVE'
 published: '2026-04-27'
 readTime: 9
