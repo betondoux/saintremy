@@ -232,12 +232,12 @@ function main() {
     count++
   }
 
-  // 카테고리 10개
+  // 카테고리 — Cloudflare Pages가 trailing slash 강제하므로 canonical도 /로 끝나게.
   for (const [slug, meta] of Object.entries(CATEGORY_META)) {
     const seo: SeoValues = {
       title: `${meta.title} — ${SITE_NAME}`,
       description: `${meta.subtitle} ${SITE_NAME}의 ${meta.title} 카테고리 큐레이션.`,
-      canonical: `${SITE_URL}/${slug}`,
+      canonical: `${SITE_URL}/${slug}/`,
       ogImage: DEFAULT_OG_IMAGE,
       ogType: 'website',
     }
@@ -254,7 +254,7 @@ function main() {
     const seo: SeoValues = {
       title: `${article.title} | ${SITE_NAME}`,
       description: buildDescription(article),
-      canonical: `${SITE_URL}/a/${article.slug}`,
+      canonical: `${SITE_URL}/a/${article.slug}/`,
       ogImage: absoluteImage(article.ogImage ?? article.heroImage),
       ogType: 'article',
       publishedAt: article.published,
@@ -280,7 +280,7 @@ function main() {
     const seo: SeoValues = {
       title,
       description,
-      canonical: `${SITE_URL}${path}`,
+      canonical: `${SITE_URL}${path}/`,
       ogImage: DEFAULT_OG_IMAGE,
       ogType: 'website',
     }

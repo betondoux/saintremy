@@ -72,22 +72,25 @@ function buildUrls(articles: ArticleRow[]): SitemapUrl[] {
   const now = today()
 
   const staticUrls: SitemapUrl[] = [
+    // 2026-05-01: prerender-meta가 dist/{route}/index.html 디렉터리 구조로 출력하므로
+    // Cloudflare Pages가 trailing slash 없는 URL을 308 → /{route}/ 로 강제 리다이렉트한다.
+    // sitemap·canonical 도 trailing slash 형태로 통일해서 한 단계 redirect 제거.
     { loc: `${BASE_URL}/`, lastmod: now, changefreq: 'daily', priority: '1.0' },
-    { loc: `${BASE_URL}/shop`, lastmod: now, changefreq: 'weekly', priority: '0.6' },
-    { loc: `${BASE_URL}/about`, lastmod: now, changefreq: 'monthly', priority: '0.4' },
-    { loc: `${BASE_URL}/privacy`, lastmod: now, changefreq: 'yearly', priority: '0.2' },
-    { loc: `${BASE_URL}/terms`, lastmod: now, changefreq: 'yearly', priority: '0.2' },
+    { loc: `${BASE_URL}/shop/`, lastmod: now, changefreq: 'weekly', priority: '0.6' },
+    { loc: `${BASE_URL}/about/`, lastmod: now, changefreq: 'monthly', priority: '0.4' },
+    { loc: `${BASE_URL}/privacy/`, lastmod: now, changefreq: 'yearly', priority: '0.2' },
+    { loc: `${BASE_URL}/terms/`, lastmod: now, changefreq: 'yearly', priority: '0.2' },
   ]
 
   const categoryUrls: SitemapUrl[] = CATEGORIES.map((cat) => ({
-    loc: `${BASE_URL}/${cat}`,
+    loc: `${BASE_URL}/${cat}/`,
     lastmod: now,
     changefreq: 'weekly',
     priority: '0.8',
   }))
 
   const articleUrls: SitemapUrl[] = articles.map((a) => ({
-    loc: `${BASE_URL}/a/${a.slug}`,
+    loc: `${BASE_URL}/a/${a.slug}/`,
     lastmod: a.updated ?? a.published ?? now,
     changefreq: 'monthly',
     priority: '0.7',
