@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 # 디자인 토큰
 W = H = 1080
-MARGIN = 110
+MARGIN = 140
 BG = (247, 245, 241)         # cream
 INK_900 = (10, 10, 11)
 INK_700 = (42, 39, 36)

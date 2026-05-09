@@ -1,0 +1,85 @@
+{
+  "slug": "kim-jain-climber-9",
+  "category": "STORY · CLIMBER",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · CLIMBER",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-jain/02.jpg",
+      "sub": "김자인 · 스포츠클라이밍 · 20년차",
+      "title_lines": [
+        "12살의 첫 홀드,",
+        "34살의",
+        "가장 늦은 금"
+      ]
+    },
+    {
+      "type": "info",
+      "kicker": "01 / 시작",
+      "label": "김자인 · 1988년생, 산악 집안",
+      "title": "12살에 처음 홀드를 잡고 20년을 같은 벽 앞에 섰다",
+      "body": "산악인 가정에서 자란 그녀는 12살에 처음 인공 벽에 손을 올렸다. 15세에 아시안 챔피언십 Lead 우승, 같은 해 IFSC 월드컵 데뷔. 한국 클라이밍 역사에서 가장 어린 국가대표 데뷔 중 하나. 30개의 월드컵 금메달이 그 다음 20년의 결과다.",
+      "stats": [
+        {"label": "IFSC 월드컵 금", "value": "30개+", "accent": true},
+        {"label": "Lead 월드컵 시즌 우승", "value": "3회 (2010·13·14)"},
+        {"label": "아시안 챔피언십 금", "value": "14회"}
+      ]
+    },
+    {
+      "type": "photo",
+      "kicker": "02 / 2014",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-jain/03.jpg",
+      "caption": "Lead World Championship 금 — 결승 모든 루트를 첫 시도에 완등.",
+      "credit": "Wikimedia Commons"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "03 / 555m",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-jain/06.jpg",
+      "label": "2017 · 잠실 롯데월드타워",
+      "title": "15미터 인공 벽 너머, 한 번의 555미터",
+      "body": "스포츠클라이밍 경기는 15m 인공 벽에서 끝난다. 2017년, 그녀는 그 벽 바깥에서 길을 한 번 더 그린다. 서울 잠실 롯데월드타워 555m 외벽 단독 등반. IFSC 기록엔 안 잡히지만, 한국 클라이밍의 가시성을 가장 크게 끌어올린 한 줄.",
+      "credit": "Wikimedia Commons"
+    },
+    {
+      "type": "photo",
+      "kicker": "04 / 2018",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-jain/00.jpg",
+      "caption": "IFSC Climbing World Championships 2018 · Lead Final 결선 자리.",
+      "credit": "Wikimedia Commons"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "05 / 샤모니",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-jain/05.jpg",
+      "label": "2023.07.09 · Chamonix",
+      "title": "34세, 여자 Lead 월드컵 사상 최고령 금",
+      "body": "2021년 출산 후 복귀, 2023년 7월 샤모니 Lead 월드컵 결선 마지막 클라이머의 자리에서 1위. 만 34세, 여자 Lead 월드컵 역사상 최고령 우승자. 같은 종목에서 같은 자리를 20년 동안 잡은 한 사람의 기록.",
+      "credit": "Wikimedia Commons"
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "내가 타고난 건 운동신경이 아니라, 힘들어도 계속 참고 하는 능력이다.",
+      "attribution": "김자인 (Olympics.com 인터뷰)"
+    },
+    {
+      "type": "sources",
+      "title": "1차 자료",
+      "items": [
+        {"title": "Korean sport climber Kim Jain exclusive interview", "source": "Olympics.com (Road to Paris 2024)"},
+        {"title": "OQS 상하이 김자인 인터뷰: 그렇게 스타는 영웅이 된다", "source": "Olympics.com · 2024"},
+        {"title": "암벽 황제의 위대한 도전은 계속된다", "source": "Red Bull · Career Portrait"},
+        {"title": "Kim Jain came back with a clear goal in mind: Paris 2024", "source": "IFSC · 2023"},
+        {"title": "스포츠클라이밍 국가대표 김자인 화보와 인터뷰", "source": "Marie Claire Korea · 2024.08"},
+        {"title": "Jain Kim — Career achievements (8c+ first ascents, 30 World Cup golds)", "source": "Wikipedia · IFSC official"}
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "MORE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크"
+    }
+  ]
+}
