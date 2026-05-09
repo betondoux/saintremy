@@ -14,8 +14,6 @@ summary: '2026년 여름 가전 10선. 5월 첫 더위(서큘레이터)부터 8�
 heroImage: '/images/articles/summer-essentials-10-2026/hero.jpg'
 heroImageAlt: '5월부터 8월까지 — 첫 더위에서 폭염까지의 여름 가전 10 — Saint-Rémy Editors'
 ogImage: '/images/articles/summer-essentials-10-2026/hero.jpg'
-featuredOn:
-  - Hero
 tags:
   - '여름 가전'
   - '서큘레이터'

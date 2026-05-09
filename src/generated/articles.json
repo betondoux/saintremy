@@ -17,9 +17,6 @@
     "heroImageAlt": "강민구 셰프 — 미쉐린 가이드 서울&부산 2025 시상식, 3스타 발표 직후",
     "thumbnailColor": "#1A1F2E",
     "ogImage": "/images/articles/story-mingles-kang/00.jpg",
-    "featuredOn": [
-      "Hero"
-    ],
     "tags": [
       "강민구",
       "밍글스",
@@ -79,9 +76,6 @@
     "heroImage": "/images/articles/summer-essentials-10-2026/hero.jpg",
     "heroImageAlt": "5월부터 8월까지 — 첫 더위에서 폭염까지의 여름 가전 10 — Saint-Rémy Editors",
     "ogImage": "/images/articles/summer-essentials-10-2026/hero.jpg",
-    "featuredOn": [
-      "Hero"
-    ],
     "tags": [
       "여름 가전",
       "서큘레이터",
@@ -1020,9 +1014,6 @@
     "ogImage": "/images/articles/kugase-2026-best-7/hero.jpg",
     "seasonal": true,
     "seasonEndDate": "2026-05-10",
-    "featuredOn": [
-      "Hero"
-    ],
     "tags": [
       "쿠가세",
       "쿠가세2026",
@@ -2064,9 +2055,6 @@
     "summary": "어버이날 D-12. Saint-Rémy Editors가 쿠팡에서 직접 고른 어머니 9선 + 아버지 8선. 4만원대 합리부터 36만원 프리미엄까지, 자녀가 사드리지 않으면 평생 안 바꾸시는 도구들.",
     "heroImage": "/images/articles/parents-day-2026/hero.jpg",
     "heroImageAlt": "어버이날 선물 큐레이션 — 부모님께 사드릴 17가지 콜라주",
-    "featuredOn": [
-      "Hero"
-    ],
     "tags": [
       "어버이날",
       "선물",

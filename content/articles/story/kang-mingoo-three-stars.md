@@ -16,8 +16,6 @@ heroImage: /images/articles/story-mingles-kang/00.jpg
 heroImageAlt: '강민구 셰프 — 미쉐린 가이드 서울&부산 2025 시상식, 3스타 발표 직후'
 thumbnailColor: '#1A1F2E'
 ogImage: /images/articles/story-mingles-kang/00.jpg
-featuredOn:
-  - Hero
 tags:
   - 강민구
   - 밍글스

@@ -16,8 +16,6 @@ heroImageAlt: '쿠가세 2026 — 100원 미끼 거르고 진짜 살 만한 가�
 ogImage: '/images/articles/kugase-2026-best-7/hero.jpg'
 seasonal: true
 seasonEndDate: '2026-05-10'
-featuredOn:
-  - Hero
 tags:
   - '쿠가세'
   - '쿠가세2026'
