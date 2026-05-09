@@ -1,0 +1,85 @@
+{
+  "slug": "jungsik-3-stars-9",
+  "category": "STORY · CHEF",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · CHEF",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-jungsik/00.jpg",
+      "sub": "임정식 · 정식당 · 30년차",
+      "title_lines": [
+        "10분짜리 메모,",
+        "15년 뒤의",
+        "세 번째 별"
+      ]
+    },
+    {
+      "type": "info",
+      "kicker": "01 / 시작",
+      "label": "임정식 셰프 · 백령도에서 트라이베카까지",
+      "title": "한 셰프가 30년 동안 같은 한 줄을 반복했다",
+      "body": "백령도 해병대 취사병으로 시작한 그는 미국 CIA(2006 졸업)를 거쳐 스페인 카탈루냐의 미쉐린 2스타 주방에 섰다. 2009년 1월 서울 강남에 정식당을, 2011년 뉴욕 트라이베카에 Jungsik을 열었다. 두 식당이 받은 별은 다섯 개. 그가 후배에게 남기는 한 줄은 단 하나다. \"맛있게 만들자.\"",
+      "stats": [
+        {"label": "한국 셰프 최다 미쉐린 별", "value": "5", "accent": true},
+        {"label": "NYC Jungsik 등급", "value": "★★★ 2024"},
+        {"label": "강남 정식당 창업", "value": "2009.01"}
+      ]
+    },
+    {
+      "type": "photo",
+      "kicker": "02 / 작은 정식",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-jungsik/01.jpg",
+      "caption": "코스의 첫 인사 — 백자 단상 위 다섯 점. 정식당의 시그니처 무대 장치.",
+      "credit": "Hypebeast Korea"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "03 / 강남",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-jungsik/02.jpg",
+      "label": "서울 정식당 · 2009 → 2017",
+      "title": "8년을 기다린 1스타, 그다음 해의 2스타",
+      "body": "한식 파인다이닝이라는 단어조차 낯설던 시기, 정식당의 첫 1년은 빈 자리가 많았다. 그는 코스를 줄이지 않았다. 같은 멸치 육수를 매일 다른 시간에 끓여 비교했고, 같은 김을 산지별로 비교했다. 미쉐린은 8년을 기다리게 했다.",
+      "credit": "Hypebeast Korea"
+    },
+    {
+      "type": "photo",
+      "kicker": "04 / 김 한 줄",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-jungsik/04.jpg",
+      "caption": "한국 재료를 코스의 정중앙에 — 김 한 줄, 그 옆의 캐비어. 11년 다듬은 시그니처.",
+      "credit": "Hypebeast Korea"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "05 / 트라이베카",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-jungsik/06.jpg",
+      "label": "NYC Jungsik · 2011 → 2024",
+      "title": "2스타 11년, 그리고 12년 만의 신규 3스타",
+      "body": "2 Harrison Street, 60석. 2013년 1·2스타를 같은 해에 따낸 뒤 2스타에서 11년을 머물렀다. 2024년 11월, 미쉐린은 그를 미국 한식당 최초의 3스타이자 NYC에서 12년 만의 신규 3스타로 호명했다. 2025년 제임스 비어드 'Outstanding Chef'까지.",
+      "credit": "Hypebeast Korea"
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "한 식당이 같은 자리에서 완성되는 것을 본다는 것이 어떤 일인지를, 정식이 보여줬다.",
+      "attribution": "미쉐린 인스펙터 노트 (2024.11)"
+    },
+    {
+      "type": "sources",
+      "title": "1차 자료",
+      "items": [
+        {"title": "Modern Korean cuisine, from Seoul to New York", "source": "MICHELIN Guide Korea — 셰프 인터뷰"},
+        {"title": "정식당 임정식 셰프 인터뷰: 한식당 최초 미쉐린 3스타", "source": "Hypebeast Korea · 2025.01"},
+        {"title": "Jungsik makes history as 1st Korean restaurant to earn 3 Michelin stars", "source": "ABC News · 2024.11"},
+        {"title": "Modern Korean restaurant Jungsik's third Michelin star a milestone", "source": "South China Morning Post · 2024.11"},
+        {"title": "Outstanding Chef 2025 — Jungsik Yim", "source": "James Beard Foundation"},
+        {"title": "Jungsik review (NYC opening)", "source": "The New York Times · 2011"}
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "MORE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크"
+    }
+  ]
+}

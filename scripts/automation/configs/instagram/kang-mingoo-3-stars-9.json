@@ -1,0 +1,85 @@
+{
+  "slug": "kang-mingoo-3-stars-9",
+  "category": "STORY · CHEF",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · CHEF",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-mingles-kang/00.jpg",
+      "sub": "강민구 · 밍글스 · 11년차",
+      "title_lines": [
+        "재능 없다던 알바,",
+        "11년 뒤",
+        "한국 두 번째 별 셋"
+      ]
+    },
+    {
+      "type": "info",
+      "kicker": "01 / 시작",
+      "label": "강민구 셰프 · 1984년생, 경기대 외식조리",
+      "title": "플로리다 → 산세바스티안 → 노부 바하마 최연소 총괄",
+      "body": "첫 직장은 미국 플로리다 호텔 연회 주방. 다음 자리는 산세바스티안의 미쉐린 3스타, 마르틴 베라사테기의 주방. 그 뒤 노부 마이애미를 거쳐 노부 바하마에서 한국인 최초·최연소로 한 지점을 통째로 책임지는 총괄 셰프가 됐다. 그리고 한국행을 택했다.",
+      "stats": [
+        {"label": "한국 미쉐린 3스타", "value": "두 번째", "accent": true},
+        {"label": "Asia's 50 Best 2025", "value": "#5"},
+        {"label": "밍글스 창업", "value": "2014"}
+      ]
+    },
+    {
+      "type": "photo",
+      "kicker": "02 / 청담",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-mingles-kang/02.jpg",
+      "caption": "청담동 도산대로67길 19 — 한국 전통 식재료와 현대 파인다이닝의 문법을 같은 접시 위에 둔 11년의 주방.",
+      "credit": "SCMP / Mingles"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "03 / 장(醬)",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-mingles-kang/01.jpg",
+      "label": "밍글스 시그니처 · 장 트리오",
+      "title": "한식의 가장 무거운 재료를 가장 가벼운 자리로",
+      "body": "된장 크림브륄레, 간장 캐러멜 피칸, 고추장 흑미 튀밥, 바닐라 아이스크림으로 구성한 디저트. 외국 손님은 머뭇거렸고 한국 손님은 의심했지만, 그는 메뉴를 빼지 않았다. 자가 양조 간장의 발효 기간과 된장의 콩 비율을 11년간 깎았다.",
+      "credit": "SCMP"
+    },
+    {
+      "type": "photo",
+      "kicker": "04 / 별 셋",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-mingles-kang/04.jpg",
+      "caption": "2025년 2월 27일, 미쉐린 가이드 서울&부산 2025판 시상식 — 별 셋·둘 셰프 단체 컷.",
+      "credit": "Korea Herald"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "05 / 6년",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-mingles-kang/00.jpg",
+      "label": "2017 → 2025",
+      "title": "1스타 1년, 2스타 6년, 그리고 한 줄의 발언",
+      "body": "2017년 첫 가이드의 1스타. 이듬해 2스타로 승급한 뒤 6년을 머물렀다. 2025년 2월 27일, 한국 두 번째 3스타. 같은 자리에서 그는 \"늘 바라고 상상하던 일이 실제로 일어났다는 것이 아직도 잘 믿기지 않는다\"고 말했다. 다음 문장은 부담이었다.",
+      "credit": "Korea Herald"
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "파인다이닝에서 가장 중요한 건 언제 방문해도 일관된 훌륭한 경험을 할 수 있다는 '신뢰'다.",
+      "attribution": "강민구 셰프 (Harper's Bazaar Korea)"
+    },
+    {
+      "type": "sources",
+      "title": "1차 자료",
+      "items": [
+        {"title": "Mingles Clinches MICHELIN Three Stars — Korean Cuisine, Aged to Perfection", "source": "MICHELIN Guide Korea · 2025"},
+        {"title": "Mingles is Korea's only Michelin 3-star restaurant this year", "source": "The Korea Herald · 2025.02.27"},
+        {"title": "Mingles awarded a third Michelin star — Seoul & Busan 2025", "source": "South China Morning Post · 2025.02"},
+        {"title": "한국 유일한 미슐랭 3스타, 밍글스 강민구 셰프 인터뷰", "source": "Harper's Bazaar Korea"},
+        {"title": "Meet Mingoo Kang, the chef expanding the possibilities of Korean cuisine", "source": "The World's 50 Best Restaurants"},
+        {"title": "Inedit Damm Chefs' Choice Award 2021 · Three Knives 2024", "source": "Asia's 50 Best · The Best Chef Awards"}
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "MORE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크"
+    }
+  ]
+}
