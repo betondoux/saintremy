@@ -75,6 +75,9 @@ export default function SaleCarousel({
                   loading="lazy"
                 />
               </div>
+              <div className="sale-carousel-name" title={it.name}>
+                {it.name}
+              </div>
               <div className="sale-carousel-prices">
                 <span className="sale-carousel-orig">
                   {formatKRW(it.originalPrice)}

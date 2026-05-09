@@ -19,6 +19,104 @@ tags:
   - 'sale'
   - '뷰티'
   - '가전'
+# ── picks: 홈 SaleCarousel용. 동일 6선을 picks 스키마로 미러링 ──
+picks:
+  - rank: 1
+    name: 'COSRX 더 6 펩타이드 스킨 부스터 세럼 150ml'
+    category: '뷰티'
+    productImage: '/images/articles/deal-radar-2026-w17/01-cosrx.jpg'
+    productImageAlt: 'COSRX 더 6 펩타이드 스킨 부스터 세럼'
+    originalPrice: 23000
+    salePrice: 12900
+    discountRate: 43
+    headline: '히알루론산 + 6종 펩타이드. 후기 1,088건.'
+    description: '150ml 대용량으로 10ml당 860원 — 듀얼클렌징 후 매일 발라도 두 달 가는 양.'
+    pricePoint: '43% 할인'
+    delivery: '로켓배송'
+    benefit: '와우할인'
+    targetReader: '환절기 피부 장벽 부스터를 매일 쓰는 독자'
+    productUrl: 'https://link.coupang.com/a/exxhlx'
+    ctaLabel: '쿠팡에서 보기'
+  - rank: 2
+    name: '닥터지 그린 마일드 업 선 플러스 SPF50+ PA++++ 50ml'
+    category: '뷰티'
+    productImage: '/images/articles/deal-radar-2026-w17/02-drg.jpg'
+    productImageAlt: '닥터지 그린 마일드 업 선 플러스 선크림'
+    originalPrice: 28000
+    salePrice: 15000
+    discountRate: 45
+    headline: '저자극 톤업 선크림. 카테고리 베스트셀러 라인.'
+    description: '히알루론산 + 마데카소사이드. 데일리 SPF로 가장 자주 손이 가는 가격대.'
+    pricePoint: '약 45% 할인'
+    delivery: '로켓배송'
+    benefit: '와우할인'
+    targetReader: '데일리 SPF를 거의 매일 다시 사는 독자'
+    productUrl: 'https://link.coupang.com/a/exxxmf'
+    ctaLabel: '쿠팡에서 보기'
+  - rank: 3
+    name: '에스트라 더마UV365 장벽수분 무기자차 선크림 SPF50+ PA++++ 40ml'
+    category: '뷰티'
+    productImage: '/images/articles/deal-radar-2026-w17/03-aestura.jpg'
+    productImageAlt: '에스트라 더마UV365 장벽수분 무기자차 선크림'
+    originalPrice: 31000
+    salePrice: 15980
+    discountRate: 48
+    headline: '약국 화장품 라인의 무기자차. 민감성 피부 표준.'
+    description: '아토베리어 라인의 SPF. 무기자차라 백탁 약간 있지만 민감 피부엔 안전한 선택.'
+    pricePoint: '48% 할인'
+    delivery: '로켓배송'
+    benefit: '와우할인'
+    targetReader: '무기자차로 갈아탈 시점인 민감성 피부 독자'
+    productUrl: 'https://link.coupang.com/a/exxFin'
+    ctaLabel: '쿠팡에서 보기'
+  - rank: 4
+    name: '메디힐 데일리 솔루션 마스크팩 3종 세트 30개입'
+    category: '뷰티'
+    productImage: '/images/articles/deal-radar-2026-w17/04-mediheal.jpg'
+    productImageAlt: '메디힐 데일리 솔루션 마스크팩 3종 세트 30개입'
+    originalPrice: 45000
+    salePrice: 19900
+    discountRate: 55
+    headline: '이번 주 선정 중 가장 큰 할인율.'
+    description: '30매 구성으로 1매당 663원. 한 달 매일 한 장씩 써도 되는 분량.'
+    pricePoint: '55% 할인 (이번 주 최대치)'
+    delivery: '로켓배송'
+    benefit: '와우할인'
+    targetReader: '마스크팩을 정기적으로 쓰는 독자'
+    productUrl: 'https://link.coupang.com/a/exxIz0'
+    ctaLabel: '쿠팡에서 보기'
+  - rank: 5
+    name: '슈어홈 32단 BLDC 무소음 접이식 선풍기 SUH-13CRB'
+    category: '여름가전'
+    productImage: '/images/articles/deal-radar-2026-w17/05-surehome.jpg'
+    productImageAlt: '슈어홈 32단 BLDC 무소음 접이식 선풍기'
+    originalPrice: 197000
+    salePrice: 97800
+    discountRate: 50
+    headline: '여름 진입 전 가격이 가장 낮은 시점.'
+    description: 'BLDC 모터 + 32단 풍량 + 접이식. 시즌 들어오면 동일 모델이 다시 ₩50,000+ 올라간다.'
+    pricePoint: '50% 할인 + 쿠폰 ₩2,000'
+    delivery: '로켓배송'
+    benefit: '와우할인 + 쿠폰'
+    targetReader: '여름 가전을 한 번 사두면 5년 쓰는 패턴인 독자'
+    productUrl: 'https://link.coupang.com/a/exxN2t'
+    ctaLabel: '쿠팡에서 보기'
+  - rank: 6
+    name: '샤오미 Joyroom 고속충전 보조배터리 22.5W 20,000mAh'
+    category: '디지털'
+    productImage: '/images/articles/deal-radar-2026-w17/06-joyroom.jpg'
+    productImageAlt: '샤오미 Joyroom 고속충전 보조배터리 22.5W 20000mAh'
+    originalPrice: 30900
+    salePrice: 16900
+    discountRate: 45
+    headline: '20,000mAh + 22.5W. 보조배터리 표준 사양.'
+    description: '아이폰·안드로이드 둘 다 22.5W 고속충전 호환. 1만5천원대 보조배터리 중 평점·리뷰 안정 라인.'
+    pricePoint: '45% 할인'
+    delivery: '로켓배송'
+    benefit: '와우할인'
+    targetReader: '여행·출퇴근에 보조배터리를 매일 휴대하는 독자'
+    productUrl: 'https://link.coupang.com/a/exxRr8'
+    ctaLabel: '쿠팡에서 보기'
 roundup:
   # ════════════════════════════════════════════════
   # 5월 W17 딜 레이더 6선

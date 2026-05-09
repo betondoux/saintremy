@@ -8,13 +8,14 @@ import articlesData from '../generated/articles.json'
 
 // 11개 카테고리 (URL slug 기준 영문)
 export type Category =
-  
+
   | 'style'
   | 'home'
   | 'space'
   | 'deals'
   | 'travel'
-  | 'music'// 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
+  | 'music'
+  | 'story'// 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
 type LegacySportCategory =
   | 'lift'
   | 'combat'
@@ -239,6 +240,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   deals: 'Deals (딜)',
   travel: 'Travel (여행)',
   music: 'Music (음악)',
+  story: 'Story (인물)',
 }
 
 // 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
@@ -249,6 +251,7 @@ export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
   deals: 'Deals',
   travel: 'Travel',
   music: 'Music',
+  story: 'Story',
 }
 
 // 카테고리 메타 정보 (서브타이틀, 아이콘)
@@ -262,6 +265,7 @@ export const CATEGORY_META: Record<
   deals: { title: 'Deals', subtitle: '이번 주 검증된 가격', icon: '✦' },
   travel: { title: 'Travel', subtitle: '여행과 도시의 기록', icon: '❦' },
   music: { title: 'Music', subtitle: '듣는 시간의 깊이', icon: '❧' },
+  story: { title: 'Story', subtitle: '한 사람을 깊이 보는 매거진', icon: '✦' },
 }
 
 // 모든 유효한 카테고리 (타입 가드용)
@@ -269,6 +273,7 @@ export const CATEGORY_META: Record<
 // Furniture/Kitchen) 앞쪽 → Coming soon (Space/Move/Travel/Living) 뒤쪽.
 // 2026-04-26: desk 카테고리 폐지 — 책상 관련 콘텐츠는 furniture로 통합.
 export const ALL_CATEGORIES: Category[] = [
+  'story',
   'style',
   'home',
   'space',
@@ -399,19 +404,29 @@ export function getLatestArticle(): Article | undefined {
 }
 
 export function getHeroArticle(): Article | undefined {
-  // 1순위 — featuredOn: ["Hero"] 수동 뱃지 (편집장 수동 승격 우선)
-  //   2026-04-26 업데이트: DUEL 자동 핀보다 manual featuredOn 우선.
-  const featured = articles.find((a) => a.featuredOn?.includes('Hero'))
-  if (featured) return featured
+  // Hero 풀: featuredOn: ["Hero"] 마커가 붙은 모든 글
+  // - 풀 ≥ 2 → 8시간 블록 시드로 회전 (UTC 기준, 모든 방문자 동일 결과)
+  // - 풀 = 1 → 그대로 고정
+  // - 풀 = 0 → DUEL 자동 핀 → 최신 기사 순 fallback
+  const heroPool = articles
+    .filter((a) => a.featuredOn?.includes('Hero'))
+    .sort((a, b) => b.published.localeCompare(a.published))
 
-  // 2순위 — THE DUEL 시리즈 기사 중 최신 것
-  //   새 DUEL N°xxx 이 발행되면 자동으로 hero로 승격 (단 featuredOn Hero 없을 때).
+  if (heroPool.length > 1) {
+    const now = new Date()
+    const eightHourBlock = Math.floor(now.getUTCHours() / 8) // 0, 1, 2
+    const yearStart = Date.UTC(now.getUTCFullYear(), 0, 0)
+    const dayOfYear = Math.floor((now.getTime() - yearStart) / 86_400_000)
+    const index = (dayOfYear * 3 + eightHourBlock) % heroPool.length
+    return heroPool[index]
+  }
+  if (heroPool.length === 1) return heroPool[0]
+
   const duels = articles
     .filter((a) => a.categoryLabel === 'THE DUEL')
     .sort((a, b) => b.published.localeCompare(a.published))
   if (duels.length > 0) return duels[0]
 
-  // 3순위 — 최신 기사 (fallback)
   return getLatestArticle()
 }
 
@@ -474,6 +489,7 @@ export const CATEGORY_SUBCATEGORIES: Record<Category, string[]> = {
   home: ['Coffee + Tea', 'Cookware', 'Small Appliances', 'Knives'],
   travel: [],
   music: ['Headphones', 'Earphones', 'Speakers', 'Walkman + Players', "Editor's Picks"],
+  story: ['Chefs', 'Founders', 'Makers', 'Editors'],
 }
 
 // 햄버거 메뉴 카테고리 라벨 색상 (The Strategist 스티커 패턴).
@@ -484,4 +500,5 @@ export const CATEGORY_STICKER_COLORS: Record<Category, string> = {
   home: '#B845E8',   // purple — 미식
   travel: '#FF7A1A',    // orange — 활기
   music: '#7F77DD',     // purple — 감성/분위기
+  story: '#F2C14E',     // gold — 인물·서사
 }

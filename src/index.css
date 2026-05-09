@@ -310,6 +310,29 @@
   object-fit: contain;
 }
 
+.sale-carousel-name {
+  font-family: var(--font-serif-kr);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--sr-ink);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* 2-line clamp 시 일정한 카드 높이 보장 */
+  min-height: calc(13px * 1.4 * 2);
+}
+
+@media (min-width: 768px) {
+  .sale-carousel-name {
+    font-size: 14px;
+    min-height: calc(14px * 1.4 * 2);
+  }
+}
+
 .sale-carousel-prices {
   display: flex;
   gap: 10px;

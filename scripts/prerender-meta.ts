@@ -37,6 +37,10 @@ const CATEGORY_META: Record<
     subtitle: '오래 쓰는 가구, 오래 살아남는 방의 조건.',
   },
   living: { title: '생활', subtitle: '매일 쓰는 것들의 작은 차이.' },
+  story: {
+    title: '인물',
+    subtitle: '한 사람의 부엌과 책상을 깊이 보는 매거진.',
+  },
 }
 
 interface ArticleRow {

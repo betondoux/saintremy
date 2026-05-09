@@ -53,6 +53,7 @@ function App() {
           <Route path="/furniture" element={<Navigate to="/home" replace />} />
           <Route path="/living" element={<Navigate to="/home" replace />} />
           <Route path="/music" element={<CategoryPage />} />
+          <Route path="/story" element={<CategoryPage />} />
 
           {/* ═══════════════════════════════════════════════════
               레거시 6개 스포츠 카테고리 → /move로 리다이렉트

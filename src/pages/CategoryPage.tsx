@@ -76,7 +76,8 @@ export function CategoryPage() {
             articles={articles}
             getKey={(article) => article.slug}
             renderCard={(article) => <ArticleCard article={article} />}
-            slotEvery={2}
+            slotEvery={4}
+            mode="grid"
           />
         )}
       </div>
