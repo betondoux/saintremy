@@ -1,0 +1,85 @@
+{
+  "slug": "cho-byoungsoo-bcho-9",
+  "category": "STORY · ARCHITECT",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · ARCHITECT",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-cho-byoungsoo/01.jpg",
+      "sub": "조병수 · BCHO · 30년차",
+      "title_lines": [
+        "땅이 먼저 말한다",
+        "한 건축가의",
+        "30년"
+      ]
+    },
+    {
+      "type": "info",
+      "kicker": "01 / 시작",
+      "label": "조병수 · 1957년생, 하버드 GSD",
+      "title": "경상도 시골의 한옥에서 들고 온 한 줄",
+      "body": "그가 자란 곳은 산이 보이는 한옥 한 채였다. 학사는 미국 몬태나 주립대, 석사는 하버드 GSD(건축·도시 디자인 두 학위). 졸업 후 미국에 남는 대신, 1994년 서울에 BCHO Architects를 차렸다. 첫 시즌의 지침은 단순한 구조와 자연에 대한 강한 존중.",
+      "stats": [
+        {"label": "BCHO 창립", "value": "1994", "accent": true},
+        {"label": "대표 작품집 수록작", "value": "18선"},
+        {"label": "서울건축비엔날레 큐레이터", "value": "2023"}
+      ]
+    },
+    {
+      "type": "photo",
+      "kicker": "02 / Earth House",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-cho-byoungsoo/03.jpg",
+      "caption": "콘크리트 매스, 그 안에 자리한 물의 정원 — 형태가 아니라 자세를 만드는 건축.",
+      "credit": "Wallpaper"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "03 / 카메라타",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-cho-byoungsoo/02.jpg",
+      "label": "BCHO 시그니처 · 4 카테고리",
+      "title": "EARTH · PLATFORM · SCREEN · MASS — 한 어휘의 30년",
+      "body": "그의 두 번째 작품집(2024)은 18개 작품을 네 카테고리로 정리했다. ㅁ자집은 SCREEN의 첫 자리, Earth House는 EARTH, 카메라타 황인용 음악 스튜디오는 MASS. 형태가 아니라 자세를 분류한 건축.",
+      "credit": "Wallpaper / AYU Space"
+    },
+    {
+      "type": "photo",
+      "kicker": "04 / 잉크",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-cho-byoungsoo/04.jpg",
+      "caption": "그는 도면 이전에 손으로 먼저 그린다. 한 획의 잉크 드로잉이 모든 작업의 시작점.",
+      "credit": "Wallpaper"
+    },
+    {
+      "type": "info_with_photo",
+      "kicker": "05 / 비엔날레",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-cho-byoungsoo/05.jpg",
+      "label": "서울 2023 · 땅의 건축, 땅의 도시",
+      "title": "30년 깎아 한국 건축의 한 줄을 만들다",
+      "body": "2022년 서울도시건축비엔날레 큐레이터로 위촉됐고, 2023년 그가 내건 주제는 \"Architecture of the Land, City of the Land\". 형태를 세우는 일이 아니라 땅에서 듣는 일이 가능한가. 18개 도시 사례와 100년 청사진을 같은 자리에 놓았다.",
+      "credit": "Wallpaper"
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "최소의 제스처로 거주자에게 최대의 경험을 만든다. 어둠이 있어야 빛이 있다.",
+      "attribution": "조병수 (BCHO Architects)"
+    },
+    {
+      "type": "sources",
+      "title": "1차 자료",
+      "items": [
+        {"title": "Letter to a young architect: Byoung-soo Cho", "source": "The Architectural Review"},
+        {"title": "Architect Byoung Cho on nature, imperfection and interconnectedness", "source": "Wallpaper*"},
+        {"title": "Cho Byoung-soo on Korean Culture and Nature", "source": "ArchDaily · 2020"},
+        {"title": "Earth Works: Houses by Byoung Cho — Monograph", "source": "Wallpaper Architecture Books"},
+        {"title": "땅과의 대화를 통해 건축하기 — 두 번째 작품집", "source": "월간 SPACE(공간) · 2024"},
+        {"title": "조병수 \"땅의 건축으로 서울의 100년 청사진\"", "source": "경향신문 · 2022.03"}
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "MORE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크"
+    }
+  ]
+}
