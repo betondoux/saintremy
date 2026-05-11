@@ -24,22 +24,20 @@ import argparse
 import os
 import sys
 import time
+import pathlib
 import requests
 
 GRAPH = "https://graph.facebook.com/v22.0"
 BASE = "https://saintremy.kr/images/instagram"
+LOCAL_BASE = pathlib.Path("/Users/kimsucheol/Desktop/saintremy/public/images/instagram")
 
-CARD_FILES = [
-    "01-hook.jpg",
-    "02-info.jpg",
-    "03-photo.jpg",
-    "04-info_with_photo.jpg",
-    "05-photo.jpg",
-    "06-info_with_photo.jpg",
-    "07-insight.jpg",
-    "08-sources.jpg",
-    "09-cta.jpg",
-]
+
+def discover_cards(slug: str):
+    """로컬 디렉토리에서 jpg 파일을 정렬해서 가져옴 (슬라이드 타입 무관)."""
+    local_dir = LOCAL_BASE / slug
+    if not local_dir.exists():
+        return []
+    return sorted([f.name for f in local_dir.glob("*.jpg")])
 
 
 def create_child(token, ig_id, image_url):
@@ -111,7 +109,11 @@ def main():
     token = os.environ.get("META_ACCESS_TOKEN", "")
     ig_id = os.environ.get("IG_BUSINESS_ACCOUNT_ID", "")
 
-    image_urls = [f"{BASE}/{args.slug}/{f}" for f in CARD_FILES]
+    card_files = discover_cards(args.slug)
+    if not card_files:
+        print(f"❌ 로컬 디렉토리에 jpg 없음: {LOCAL_BASE / args.slug}", file=sys.stderr)
+        sys.exit(3)
+    image_urls = [f"{BASE}/{args.slug}/{f}" for f in card_files]
 
     if args.dry_run:
         print("[DRY RUN] 발사 안 함. 사용될 image_url:")
