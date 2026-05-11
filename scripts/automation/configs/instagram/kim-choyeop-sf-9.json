@@ -1,0 +1,80 @@
+{
+  "slug": "kim-choyeop-sf-9",
+  "category": "STORY · WRITER",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · WRITER",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-choyeop/02.jpg",
+      "sub": "김초엽 · SF · 7년차",
+      "title_lines": [
+        "실험실에서",
+        "우주로",
+        "한 SF 작가의 7년"
+      ]
+    },
+    {
+      "type": "info",
+      "kicker": "01 / 시작",
+      "label": "김초엽 · 1993년생, 포스텍 화학",
+      "title": "보청기를 쓰고 입모양을 읽으며 우주를 쓴다",
+      "body": "울산 출생, 어렸을 때부터 청각장애를 가진 작가. 포스텍 화학과·생화학 석사 출신, 열대 감염병 진단용 생체센서를 연구했다. 글쓰기는 캠퍼스에서 취미로 시작. 인터뷰에서 그녀는 상대의 입모양을 읽으며 답한다.",
+      "stats": [
+        {"label": "데뷔", "value": "2017", "accent": true},
+        {"label": "단편집·장편·에세이", "value": "3·2·1권"},
+        {"label": "해외 번역", "value": "6개국+"}
+      ]
+    },
+    {
+      "type": "photo",
+      "kicker": "02 / 2017",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/story-kim-choyeop/02.jpg",
+      "caption": "한국과학문학상 중·단편 동시 수상으로 데뷔 — 문예지도 등단 절차도 거치지 않은 직진 코스.",
+      "credit": "세계일보"
+    },
+    {
+      "type": "info",
+      "kicker": "03 / 2019",
+      "label": "『우리가 빛의 속도로 갈 수 없다면』",
+      "title": "첫 책, 그리고 한국 SF의 한 표지가 만들어진다",
+      "body": "2019년 6월 첫 소설집 출간 직후 베스트셀러 상위권. 같은 해 오늘의 작가상, 이듬해 젊은 작가상. 이 시점에 한국 SF의 단일 표지가 형성된다. 7편의 단편 모두 주류 바깥의 화자(이민 행성·청각장애·안드로이드·비인간)가 끌고 간다."
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "주류 서사는 이미 충분하다. 주변부 시점이 더 신선하고 더 흥미롭다.",
+      "attribution": "김초엽 (포항공대신문 인터뷰)"
+    },
+    {
+      "type": "info",
+      "kicker": "04 / 2021~2023",
+      "label": "장편 둘, 에세이 하나",
+      "title": "『지구 끝의 온실』 → 『방금 떠나온 세계』 → 『파견자들』",
+      "body": "2021년 첫 장편 『지구 끝의 온실』(자이언트북스) + 두 번째 단편집 『방금 떠나온 세계』(한겨레, 알라딘 1주 종합 1위). 2022년 에세이 『책과 우연들』. 2023년 두 번째 장편 『파견자들』(사계절). 같은 시기 일본·대만·프랑스·독일·영미권 차례로 번역."
+    },
+    {
+      "type": "insight",
+      "kicker": "INSIGHT",
+      "quote": "쉽게 희망과 연대라는 말을 하고 싶지 않았다.",
+      "attribution": "김초엽 (독서신문 인터뷰)"
+    },
+    {
+      "type": "sources",
+      "title": "1차 자료",
+      "items": [
+        {"title": "『방금 떠나온 세계』 김초엽 — 광막한 우주를 떠돌다가 접촉하는 순간", "source": "세계일보 · 2021.11"},
+        {"title": "모난 존재들에도 열린 세상 향해 — 다양한 시각의 이야기", "source": "경향신문 · 2021.11"},
+        {"title": "도저히 이해 못하는 무엇을 이해하려는 이야기", "source": "뉴시스 · 2019.06"},
+        {"title": "쉽게 희망과 연대라는 말을 하고 싶지 않았다", "source": "독서신문 · 명사에게 듣다"},
+        {"title": "따뜻한 SF를 그리는 작가, 김초엽을 만나다", "source": "포항공대신문 · 2022.03"},
+        {"title": "한국과학문학상 2017 · 오늘의 작가상 2019 · 젊은 작가상", "source": "한국SF협회 · 작가공식 이력"}
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "MORE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크"
+    }
+  ]
+}

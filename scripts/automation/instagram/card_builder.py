@@ -145,17 +145,18 @@ def render_hook(slide, page, total):
     block_h = len(title_lines) * line_h
 
     if has_photo:
-        # 사진 모드: 통계 생략, 하단 정렬
-        y = H - MARGIN - 80 - block_h
+        # 사진 모드: 통계 생략, 하단 가운데 정렬 (그리드 좌우 잘림 방지)
+        y = H - MARGIN - 100 - block_h
         title_color = (255, 255, 255)
         # 작은 부제 (stat_label만 사용 — sub 라벨로)
         sub = slide.get('sub') or stat_label
         if sub:
             f_sub = font(F_BODY_BOLD, 24)
             sub_w, sub_h = text_size(d, sub, f_sub)
-            d.text((MARGIN, y - sub_h - 18), sub, fill=(255, 200, 195), font=f_sub)
+            d.text(((W - sub_w) // 2, y - sub_h - 18), sub, fill=(255, 200, 195), font=f_sub)
         for ln in title_lines:
-            d.text((MARGIN, y), ln, fill=title_color, font=f_hook)
+            tw, _ = text_size(d, ln, f_hook)
+            d.text(((W - tw) // 2, y), ln, fill=title_color, font=f_hook)
             y += line_h
     else:
         # 텍스트 모드 (cream): 가운데 정렬 + 큰 통계
