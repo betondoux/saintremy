@@ -202,14 +202,14 @@ def render_info(slide, page, total):
         d.text((MARGIN, y), slide['label'].upper(), fill=SIGNAL, font=f_lbl)
         y += 40
     # 제목
-    f_title = font(F_TITLE, 56)
-    y = draw_text_block(d, MARGIN, y, slide['title'], f_title, INK_900, W - MARGIN * 2, 1.25)
-    y += 30
-    # 본문
+    f_title = font(F_TITLE, 48)
+    y = draw_text_block(d, MARGIN, y, slide['title'], f_title, INK_900, W - MARGIN * 2, 1.22)
+    y += 24
+    # 본문 — 본문 폰트 24pt (긴 스토리텔링 400~600자 카드 한 장에 들어가도록)
     if slide.get('body'):
-        f_body = font(F_BODY, 28)
+        f_body = font(F_BODY, 24)
         y = draw_text_block(d, MARGIN, y, slide['body'], f_body, INK_700, W - MARGIN * 2, 1.55)
-        y += 35
+        y += 30
     # 통계 박스 (옵션)
     if slide.get('stats'):
         box_y = y
