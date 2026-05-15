@@ -112,6 +112,49 @@ summary: 'Saint Rémy Profile 두 번째 인물. 알바 시절 "재능 없다"�
 
 ---
 
+## 주요 기록 (Timeline)
+
+| 연도 | 사건 | 출처 |
+|---|---|---|
+| 1984 | 출생 (한국) | Harper's Bazaar Korea |
+| 2000년대 중반 | 경기대학교 외식조리학과 졸업 | The World's 50 Best |
+| 2000년대 후반 | 미국 플로리다 Ritz-Carlton 인턴십 | Hypebeast |
+| 2007~ | 스페인 산세바스티안 Martín Berasategui (미쉐린 3스타) 근무 | Wikipedia |
+| 2008~ | 뉴욕 Nobu Miami, Nobu Bahamas — 한국인 최연소 총괄 셰프 | The Best Chef Awards |
+| 2014 | 서울 강남구 청담동 도산대로67길 19, 밍글스(Mingles) 개점 | Wikipedia, 한국일보 |
+| 2017 | 미쉐린 가이드 서울 1스타 | 미쉐린 가이드 코리아 |
+| 2018 | 미쉐린 가이드 서울 2스타 승급 | 미쉐린 가이드 코리아 |
+| 2019 | 매장 확장 — 청담동 같은 동네, 더 큰 공간으로 이전 | Wikipedia |
+| 2021 | Inedit Damm Chefs' Choice Award (Asia's 50 Best) | Asia's 50 Best |
+| 2024 | The Best Chef Awards — Three Knives 등급 | The Best Chef Awards |
+| 2025.02.27 | 미쉐린 가이드 서울&부산 2025 — **3스타 승급** (한국 두 번째) | The Korea Herald |
+| 2025 | Asia's 50 Best Restaurants — **#5** (한국 1위) | Asia's 50 Best |
+
+## 자주 묻는 질문 (FAQ)
+
+**Q. 밍글스(Mingles)는 언제 미쉐린 3스타를 받았나요?**
+A. 2025년 2월 27일, *미쉐린 가이드 서울&부산 2025* 발표에서 3스타로 승급했습니다. 한국에서 두 번째 미쉐린 3스타이며, 안성재 셰프의 모수(MOSU)가 2024년 휴업한 이후 한국 유일의 3스타입니다.
+
+**Q. 강민구 셰프의 이력은?**
+A. 1984년생, 경기대 외식조리과 졸업 후 미국 플로리다 → 스페인 산세바스티안 미쉐린 3스타 마르틴 베라사테기 → 뉴욕 Nobu Miami → Nobu Bahamas(한국인 최연소 총괄 셰프) → 2014년 서울 청담에 밍글스 창업.
+
+**Q. 밍글스의 시그니처 메뉴는?**
+A. **장 트리오** — 된장 크림브륄레, 간장 캐러멜 피칸, 고추장 흑미 튀밥, 바닐라 아이스크림으로 구성한 디저트. 한식의 가장 무거운 재료(된장·간장·고추장)를 코스의 가장 가벼운 자리(디저트)에 놓는 결정으로, 11년간 자가 양조 간장의 발효 기간을 다듬어왔습니다.
+
+**Q. 밍글스의 위치는?**
+A. 서울 강남구 청담동 **도산대로67길 19**. 2019년 같은 동네 더 큰 공간으로 이전했지만 좌표는 청담동 그대로입니다.
+
+**Q. 강민구 셰프가 가장 자주 반복하는 어록은?**
+A. **"파인다이닝에서 가장 중요한 건 언제 방문해도 일관된 훌륭한 경험을 할 수 있다는 *신뢰*다."** 11년 동안 같은 어휘로 반복한 룰입니다 (Harper's Bazaar Korea 인터뷰).
+
+**Q. 강민구 셰프는 안성재 셰프와 어떻게 다른가요?**
+A. 한국 미쉐린 3스타 두 명은 결이 다릅니다. 안성재(모수) — 한국 1호 3스타, 2024년 모수 휴업 후 2025년 안성재 본인은 흑백요리사 심사위원. 강민구(밍글스) — 2025년 한국 2호 3스타, 현재 한국 유일 영업 중인 3스타. Saint Rémy는 안성재 관련 콘텐츠를 다루지 않습니다.
+
+**Q. 밍글스 예약은 어떻게 하나요?**
+A. 밍글스 공식 웹사이트와 캐치테이블에서 가능합니다. 미쉐린 3스타 승급 이후 예약이 매우 어려워졌으며, 보통 2~3개월 전부터 예약을 열어둡니다.
+
+---
+
 ### 더 읽기
 
 - MICHELIN Guide Korea — [Mingles Clinches MICHELIN Three Stars: Korean Cuisine, Aged to Perfection](https://guide.michelin.com/kr/en/article/people/mingles-clinches-michelin-three-stars-korean-cuisine-aged-to-perfection)

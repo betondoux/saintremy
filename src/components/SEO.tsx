@@ -84,6 +84,42 @@ export function SEO({
       <meta name="googlebot" content="index, follow" />
       <meta name="naverbot" content="index, follow" />
       <meta name="yeti" content="index, follow" />
+
+      {/* JSON-LD Article schema — LLM(ChatGPT·Perplexity·Claude·Gemini) 인용을 위한 GEO 시그널 */}
+      {type === 'article' && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: title,
+            image: [fullImage],
+            datePublished: publishedAt,
+            dateModified: updatedAt || publishedAt,
+            author: {
+              '@type': 'Organization',
+              name: author,
+              url: SITE_URL,
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              url: SITE_URL,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${SITE_URL}/images/social/saintremy-logo.png`,
+              },
+            },
+            description,
+            url,
+            articleSection: category,
+            inLanguage: 'ko-KR',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': url,
+            },
+          })}
+        </script>
+      )}
     </Helmet>
   )
 }
