@@ -137,6 +137,49 @@ RM이 만든 것은 BTS의 음악과 미술 컬렉션이다. 두 가지가 같�
 
 ---
 
+## 주요 기록 (Timeline)
+
+| 연도 | 사건 | 출처 |
+|---|---|---|
+| 1994.09.12 | 김남준 출생 | Wikipedia |
+| 2013.06.13 | BTS 데뷔 — RM 리더·메인 래퍼 | Wikipedia |
+| 2015 | 서울 한가람미술관 **마크 로스코 전시** — 미술과의 첫 만남 | Vogue Korea, Artnews |
+| 2018 | 첫 솔로 믹스테이프 *Mono* 발매 | Wikipedia |
+| 2019~ | 미술관·갤러리 인스타 포스트 시작 — 글로벌 *RM 효과* | Rolling Stone |
+| 2022.07 | Vogue Korea 단독 인터뷰 — "김남준 컬렉션, RM의 남다른 계획" | Vogue Korea |
+| 2022.12 | 첫 솔로 정규 앨범 *Indigo* 발매 — 첫 트랙 **'Yun'**(윤형근) | Hypebeast KR |
+| 2022 | 국립현대미술관에 **$84,000(약 1억 1,000만 원) 기부** | Artnews |
+| 2023.05 | Vogue Korea 단독 커버 — "RM stays truthful to every moment" | Vogue Korea |
+| 2023.12 | 군 입대 (육군 현역) | 다수 매체 |
+| 2024.05 | 두 번째 솔로 *Right Place, Wrong Person* 발매 | Wikipedia |
+| 2025.06 | 군 복무 종료 | 다수 매체 |
+| 2026.10 ~ 2027.02 | **RM x SFMOMA 단독 특별전** — K-pop 아이돌이 글로벌 메이저 미술관과 단독 전시 첫 케이스 | SFMOMA, 다음 |
+
+## 자주 묻는 질문 (FAQ)
+
+**Q. RM은 어떻게 미술 컬렉터가 됐나요?**
+A. **2015년 서울 한가람미술관의 마크 로스코 전시**에서 시작. 1994년생 21살, BTS 데뷔 2년차 시점에 처음으로 *미술*이라는 단어와 자기 사이에 직접적인 한 줄을 그었습니다. 그 시작점이 11년 동안 그의 모든 미술 행동의 첫 줄이 됐습니다.
+
+**Q. RM의 미술 컬렉션에는 어떤 작가들이 있나요?**
+A. Artnet이 정리한 그의 컬렉션 — **윤형근**(단색화 거장), **박래현**(동양화 1세대 여성 거장), **권옥연**(서양화 1세대), **김윤신**(조각), **도상봉**(서양화 1세대), **장욱진**(모더니즘 회화 거장), **권진규**(테라코타 조각 거장). 그리고 미국 현대 미술가 **Roni Horn**의 $1.2M(약 16억 원) 조각.
+
+**Q. RM이 가장 자주 호명하는 한국 작가는?**
+A. **윤형근(尹亨根, 1928~2007)** — 한국 단색화 거장. RM은 윤형근을 "내 인생 방향에서 가장 따라가야 할 중요한 사람"이라고 인터뷰마다 반복하며, 녹음실에 윤형근의 단색화를 걸어두고 있습니다. 2022 솔로 앨범 *Indigo*의 첫 트랙 제목이 *'Yun'*이며, 앨범 자체가 윤형근의 그림에서 시작했다고 본인이 밝혔습니다.
+
+**Q. RM이 미술관에 기부·후원한 내역은?**
+A. **2022년 국립현대미술관에 $84,000(약 1억 1,000만 원) 기부** + 소장한 **권진규의 테라코타 말 조각상을 서울시립미술관에 장기 대여**. 한 K-pop 아이돌의 컬렉션이 *공공의 자산*으로 변환된 자리.
+
+**Q. RM x SFMOMA 특별전은 언제 열리나요?**
+A. **2026년 10월부터 2027년 2월까지** 미국 샌프란시스코 현대미술관(SFMOMA)에서 *RM x SFMOMA* 단독 특별전 개최. K-pop 아이돌이 글로벌 메이저 미술관(MoMA·테이트·SFMOMA 등)과 단독 전시를 여는 케이스는 이번이 첫 번째입니다.
+
+**Q. RM이 글로벌 미술 매체에서 단독 호명된 케이스는?**
+A. **Vogue Korea 단독 커버(2023)**, **Vogue Singapore 단독 커버**, **Artnews 단독 인터뷰**("BTS's RM Talks about His Growing Influence and Appreciation of Art"), **Artnet** ("What is in BTS's RM's art collection?"), **Rolling Stone** ("BTS' RM: Global Pop Star and Budding Art Aficionado"). 한 K-pop 아이돌이 *K-pop*이 아닌 *미술 컬렉터* 결로 글로벌 매거진의 단독 호명을 받는 빈도로는 RM이 가장 높습니다.
+
+**Q. RM이 가장 자주 반복하는 어록은?**
+A. **"Hanging a work of art at home is a spiritual experience."** (집에 미술 작품을 거는 일은 영적인 경험이다.) Artnews 인터뷰에서 정리한 한 줄로, 11년 동안 같은 강도로 반복한 어휘입니다.
+
+---
+
 ### 더 읽기
 
 - Vogue Korea — [RM stays truthful to every moment (2023)](https://www.vogue.co.kr/2023/05/16/rm-stays-truthful-to-every-moment/)

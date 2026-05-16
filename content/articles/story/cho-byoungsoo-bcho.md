@@ -105,6 +105,46 @@ summary: 'Saint Rémy Profile 세 번째 인물. 1957년생, 하버드 GSD를 �
 
 ---
 
+## 주요 기록 (Timeline)
+
+| 연도 | 사건 | 출처 |
+|---|---|---|
+| 1957 | 경상도 시골 출생, 한옥에서 성장 | Wallpaper, Architectural Review |
+| 1980~ | 미국 몬태나 주립대학교 건축학 학사 | Wikipedia, BCHO |
+| 1986~ | 하버드 GSD 석사 — 건축 + 도시 디자인 두 학위 | BCHO Architects |
+| 1994 | 서울 BCHO Architects 창립 | Wallpaper, ArchDaily |
+| 2004 | Concrete Box House 완공 (산허리 휴양 주택) | Wallpaper |
+| 2009 | Earth House 완공 — 지하 매립형 집 | Wallpaper, Dezeen |
+| 2011 | ㅁ자집 (자기 스튜디오·세컨드 하우스) — 노출 콘크리트 | Architectural Review |
+| 2014 | 남해 Southcape Hotel — 능선 위 49실 | Wallpaper |
+| 2017 | 카메라타(가평 황인용 뮤직 스튜디오) | C3 Korea |
+| 2017 | F1963 부산 — 와이어 공장 재생 건축 | Brique Magazine |
+| 2022.06 | 서울도시건축비엔날레 2023 총감독 위촉 | 경향신문 |
+| 2023 | 비엔날레 주제 "Architecture of the Land, City of the Land" | 경향신문 |
+| 2024 | 두 번째 작품집 BCHO Partners 출간 (EARTH·PLATFORM·SCREEN·MASS 18선) | 월간 SPACE |
+
+## 자주 묻는 질문 (FAQ)
+
+**Q. 조병수 건축가의 대표작은?**
+A. **Earth House(2009, 지하 매립형)**, **Concrete Box House(2004, 산허리)**, **카메라타(2017, 가평 음악 스튜디오)**, **F1963(부산 재생 건축)**, **ㅁ자집(자기 스튜디오)**, **남해 Southcape Hotel(49실)** 등이 가장 자주 호명됩니다. 2024년 두 번째 작품집에는 18개 대표작이 EARTH·PLATFORM·SCREEN·MASS 네 카테고리로 정리됐습니다.
+
+**Q. BCHO Architects는 언제 창립됐나요?**
+A. **1994년** 서울에서 조병수가 단독 창립. 처음엔 디자인-빌드 사무소로 시작했으며, 30년차인 현재 한국 건축계에서 가장 *조용한 거장* 자리에 있습니다.
+
+**Q. 카메라타는 누구를 위한 공간인가요?**
+A. 경기 가평에 위치한 **황인용 음악평론가의 음악 스튜디오·청음실·갤러리·레지던스**. 노출 콘크리트와 나무가 부딪히는 단순한 공간으로, 음의 길을 설계한 건축으로 평가됩니다.
+
+**Q. 조병수 건축의 시그니처 어휘는?**
+A. **"최소의 제스처로 거주자에게 최대의 경험"** — 30년 동안 같은 강도로 반복한 룰입니다. 형태가 아니라 자세를 만드는 건축, 빛·어둠·바람·물·땅의 결로 작업합니다.
+
+**Q. 2023 서울도시건축비엔날레에서 어떤 주제를 내걸었나요?**
+A. **"Architecture of the Land, City of the Land(땅의 건축, 땅의 도시)"**. 형태를 세우는 일이 아니라 땅 자체에서 듣는 일이 가능한가라는 질문으로, 18개 도시 사례와 한국의 100년 청사진을 같은 자리에 놓았습니다.
+
+**Q. 학력 배경이 한국 건축가 중 특별한가요?**
+A. 네. 미국 몬태나 주립대 학사 + **하버드 GSD에서 건축·도시 디자인 두 개의 석사 학위**. 한국 건축가 가운데 가장 미국적인 학력 가운데 하나입니다.
+
+---
+
 ### 더 읽기
 
 - The Architectural Review — [Letter to a young architect: Byoung-soo Cho, BCHO Architects Partners](https://www.architectural-review.com/essays/letters-to-a-young-architect/byoung-soo-cho-bcho-architects-partners-letter-to-a-young-architect)

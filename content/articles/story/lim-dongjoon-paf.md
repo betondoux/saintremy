@@ -103,6 +103,45 @@ PAF 디자인 어휘는 세 가지가 한 옷 안에 들어가 있다.
 
 ---
 
+## 주요 기록 (Timeline)
+
+| 연도 | 사건 | 출처 |
+|---|---|---|
+| 2010~ | 패션 디자이너가 아닌 *Hypebeast 독자*로 시작 | Hypebeast HB20 |
+| ~2018 | 산업·공간 디자인 학교 — 옷이 아니라 건물·도구의 형태를 다루는 학과 | Hypebeast Spotlight |
+| 2018 | 서울에서 **PAF(Post Archive Faction) 창립** — 정수교(Sookyo Jeong)와 듀오 | Wikipedia |
+| 2018~ | 컬렉션 시스템 — 1.0, 2.0, 3.0, 4.0, 4.0+ (시즌 X 챕터 시스템) | Hypebeast |
+| 2020.12 | Hypebeast 글로벌 *Spotlight* 단독 인터뷰 — 데뷔 2년차 | Hypebeast |
+| 2021.10 | HBX의 PAF *4.0+* 컬렉션 단독 론칭 | Hypebeast KR |
+| 2022.10 | Hypebeast *Essentials: Dongjoon Lim* 인터뷰 | Hypebeast KR/Global |
+| 2023.07 | Hypebeast *Finding Equilibrium* 단독 인터뷰 | Hypebeast |
+| 2023.11 | Grailed *Dry Clean Only* 시리즈 단독 인터뷰 | Grailed |
+| 2024.04 | Archived Dreams 팟캐스트 출연 | Archived Dreams |
+| 2025 | **On x PAF** — 첫 러닝 슈즈 콜라보 (스위스 On + 한국 PAF) | Hypebeast |
+| 2025.10 | **Hypebeast 20주년 — 한국 브랜드 첫 호명자** | Hypebeast HB20 |
+
+## 자주 묻는 질문 (FAQ)
+
+**Q. PAF(Post Archive Faction)는 누가 만들었나요?**
+A. **임동준(크리에이티브 디렉터) + 정수교(Sookyo Jeong) 듀오**가 2018년 서울에서 공동 창업. 두 사람 모두 패션 디자이너 출신이 아니라 *산업·공간 디자인* 배경 — 옷이 아니라 건물·도구의 형태를 다루는 학과 출신입니다.
+
+**Q. PAF의 컬렉션 표기가 특이한 이유는?**
+A. **시즌 이름(SS25·FW26 등)이 없습니다. 숫자 챕터 시스템 — 1.0, 2.0, 3.0, 4.0, 4.0+.** 산업 디자인 출신 디자이너의 어휘로, Sneaker 2.0·iPhone 17 같은 산업·테크의 버전 시스템을 패션에 그대로 가져왔습니다. 시즌 트렌드를 따라가는 패션의 결을 거절하고, *반복되는 챕터의 점진적 진화*를 박았습니다.
+
+**Q. PAF 디자인의 시그니처 어휘는?**
+A. **건축(architecture) + 기술(technology) + 미래주의(futurism)** 세 가지가 한 옷 안에 들어가 있습니다. 비대칭 컷·모듈러 구조, 기술 패브릭, 유틸리테리언 스포츠웨어 + 실험적 실루엣. 한 옷을 입었을 때 그것이 *옷*인지 *공간*인지 *도구*인지 잠시 헷갈리는 결.
+
+**Q. 2025년 Hypebeast 20주년에서 어떤 인물로 호명됐나요?**
+A. **한국 브랜드 가운데 첫 호명자.** Hypebeast가 자기 매체 20주년 기념 시리즈를 시작한 2025년 10월, 글로벌 패션의 가장 큰 매체가 20년의 결을 만든 디자이너들을 호명하는 자리에서 한국 첫 호명자가 임동준이었습니다.
+
+**Q. On x PAF 콜라보는 무엇인가요?**
+A. **스위스 러닝 슈즈 브랜드 On + PAF의 첫 슈즈 콜라보**(2025). 한국 디자이너 브랜드가 글로벌 러닝 브랜드와 단독 슈즈 콜라보를 진행한 케이스 가운데 가장 큰 규모. 임동준은 이 콜라보를 "things once said to be 'impossible' turn 'possible'"이라는 어휘로 정리했습니다.
+
+**Q. 임동준이 가장 자주 반복하는 어록은?**
+A. **"Don't listen to other people's advice."** 7년 동안 같은 강도로 반복한 한 줄. 2025 Hypebeast 20주년 인터뷰에서도 같은 어휘로 자기 13년을 정리했습니다.
+
+---
+
 ### 더 읽기
 
 - Hypebeast — [HB20: Post Archive Faction (PAF) Where The Impossible Becomes Possible](https://hypebeast.com/2025/10/hb20-post-archive-faction-where-the-impossible-becomes-possible)
