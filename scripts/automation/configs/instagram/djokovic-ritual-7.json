@@ -1,0 +1,80 @@
+{
+  "slug": "djokovic-ritual-7",
+  "category": "RITUAL · FOOD",
+  "series": "SAINT-RÉMY · RITUAL N°003",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "RITUAL N°003",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-queens-b.jpg",
+      "photo_anchor_x": 0.4,
+      "photo_anchor_y": 0.1,
+      "title_lines": [
+        "테니스 역대 1위가",
+        "매일 안 먹는 3가지 음식."
+      ],
+      "sub": "NOVAK DJOKOVIC · SERVE TO WIN"
+    },
+    {
+      "type": "essay",
+      "kicker": "00 / WHY",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-miami-2025.jpg",
+      "photo_anchor_y": 0.0,
+      "title": "역대 최다 그랜드슬램의 진짜 변수",
+      "lead": "1987년 5월생, 2026년 현재 만 39세.",
+      "body": "노박 조코비치는 남자 테니스 역대 최다 그랜드슬램 단식 우승자다. 24개 이상의 메이저 타이틀, 통산 세계 1위 주차 역대 최장. 한 운동선수의 신체가 30대 후반에도 그랜드슬램 결승에 오른다는 것은 — 식단·정신·회복의 어떤 조합이 그의 하루 안에 깊이 박혀 있다는 뜻이다. 그 조합의 첫 줄을 그가 직접 책으로 묶었다. 'Serve to Win' (Random House, 2013). 이 글은 그 책의 한 줄짜리 어휘 — *음식이 그를 만들었다* — 를 시간순으로 따라간다."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / DIAGNOSIS",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-paris-2024.jpg",
+      "photo_anchor_y": 0.02,
+      "title": "한 손에 든 빵 한 조각",
+      "lead": "2010년, 한 영양사가 그를 진단했다.",
+      "body": "그 해 호주 오픈 결승에서 호흡곤란으로 무너진 직후, 세르비아계 영양사 Dr. Igor Cetojevic이 그에게 한 가지 테스트를 시켰다. 한 손에 빵 한 조각을 들고, 반대 손으로 압력 테스트(kinesiology). 그 결과 그의 신체가 *글루텐*에 강하게 반응한다는 것이 발견되었다. 'Serve to Win' 본문에 이 한 장면이 책의 출발점으로 정확히 기록되어 있다. 한 운동선수의 커리어 전체가 *한 손에 든 빵 한 조각*에서 다시 시작된다."
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / GLUTEN-FREE",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-queens-a.jpg",
+      "photo_anchor_x": 0.5,
+      "title": "글루텐 0 · 유제품 0 · 정제 설탕 0",
+      "lead": "그 다음 날부터 그의 식단이 다시 짜였다.",
+      "body": "글루텐 (밀·보리·호밀), 유제품, 정제 설탕 — 세 가지가 그의 하루에서 거의 사라졌다. 남은 것은 야채·과일·통곡물 (퀴노아·기장·메밀)·콩·견과류·아보카도·생선. 'Serve to Win' 책의 후반부는 14일 글루텐 프리 식단표로 채워져 있다. 본인 식단은 *플랜트 베이스* — 거의 비건에 가깝지만 본인은 '주로 식물성'이라 부른다. 매일 따뜻한 물 한 잔으로 하루를 시작하고, 같은 강도로 14년을 반복했다."
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / MIND",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-miami-2025.jpg",
+      "photo_anchor_y": 0.15,
+      "title": "명상 · 심호흡 · 요가",
+      "lead": "식단만이 아니다.",
+      "body": "조코비치의 하루에는 매일 *명상 15분*과 *심호흡 훈련*이 들어간다. 코트 안에서의 호흡 컨트롤 — 5세트 5시간을 버티게 만드는 그의 가장 자주 인용된 기술 — 의 출처는 코트 밖의 매일 같은 의식이다. 요가는 유연성 + 정신 집중의 한 묶음. 한 운동선수가 신체와 정신을 같은 시스템으로 묶은 사례. 'Serve to Win'은 식단 책으로 알려져 있지만, 본문의 절반은 *정신 훈련*이다."
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / RESULT",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-djokovic/djokovic-queens-b.jpg",
+      "photo_anchor_x": 0.7,
+      "title": "다음 해 — 그랜드슬램 3개 + 41승 연승",
+      "lead": "결과는 즉시였다.",
+      "body": "글루텐을 끊은 2011년, 그는 호주 오픈·윔블던·US 오픈 — 세 개의 그랜드슬램을 같은 해에 우승했다. 그 해 *41승 연승*. 한 운동선수가 식단 한 줄 바꾸고 그 다음 시즌에 이런 결과를 낸 케이스는 테니스 안에서 매우 드물다. 그 후 14년, 그는 같은 식단을 같은 강도로 반복했고, 그랜드슬램은 24개 이상으로 쌓였다. 매거진의 어휘로 말하면 — *ritual*. 매일 같은 자리에서 같은 강도로 반복하는 의식. 그것이 39세에도 그랜드슬램 결승에 오르게 만든 한 줄짜리 답이다."
+    },
+    {
+      "type": "closing",
+      "kicker": "CLOSING",
+      "quote": "Food is information for the body — that single sentence changed my career.",
+      "attribution": "Novak Djokovic — Serve to Win",
+      "sources": [
+        {"title": "Serve to Win — The 14-Day Gluten-Free Plan", "source": "Novak Djokovic · Random House · 2013"},
+        {"title": "Djokovic's gluten-free transformation", "source": "The Guardian · 2013"},
+        {"title": "Dr. Igor Cetojevic interview", "source": "Tennis.com · 2014"},
+        {"title": "Inside Djokovic's plant-based diet", "source": "Men's Health · 2016"},
+        {"title": "ATP career titles & records", "source": "ATP Tour official"},
+        {"title": "Djokovic on meditation & mind", "source": "GQ · 2019"}
+      ],
+      "url": "saintremy.kr",
+      "subline": "프로필 링크 · 풀 본문"
+    }
+  ]
+}
