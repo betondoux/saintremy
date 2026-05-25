@@ -111,7 +111,7 @@ export function Header() {
             ))}
           </nav>
           <div className="mt-12 text-[0.7rem] uppercase tracking-[0.3em] text-ink-500" style={{ fontFamily: 'Pretendard, sans-serif' }}>
-            SAINT-RÉMY · SPORTS CULTURE MAGAZINE
+            SAINT-RÉMY · LESS, BUT DEEPER
           </div>
         </div>
       )}

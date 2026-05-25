@@ -112,7 +112,7 @@ export default function MagazineHero({ article }: Props) {
                 src={article.heroImage}
                 alt={article.heroImageAlt ?? article.title}
                 className="w-full h-full object-cover"
-                style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                style={{ filter: 'contrast(1.03)' }}
                 loading="eager"
               />
             </div>

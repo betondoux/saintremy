@@ -40,7 +40,7 @@ function StoryCard({ article }: { article: Article }) {
             src={article.heroImage}
             alt={article.heroImageAlt ?? article.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+            style={{ filter: 'contrast(1.03)' }}
             loading="lazy"
           />
         ) : null}
@@ -82,8 +82,8 @@ export function Home() {
   return (
     <div className="bg-white text-ink-900">
       <SEO
-        title="Saint-Rémy — Sports Culture Magazine"
-        description="스포츠·문화·라이프스타일을 깊이 보는 매거진. 한 사람의 하루·동작·식단을 1차 자료로 따라간다."
+        title="Saint-Rémy — Less, but deeper."
+        description="적게, 그러나 더 깊이. 한 사람의 하루·동작·식단·믿음을 1차 자료로 길게 따라가는 매거진."
       />
 
       {/* ───────────────────── HERO ───────────────────── */}
@@ -92,7 +92,7 @@ export function Home() {
           className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-6 md:mb-10"
           style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
         >
-          SAINT-RÉMY · SPORTS CULTURE MAGAZINE
+          SAINT-RÉMY · LESS, BUT DEEPER
         </div>
 
         <h1
@@ -164,7 +164,7 @@ export function Home() {
                       src={hero.heroImage}
                       alt={hero.heroImageAlt ?? hero.title}
                       className="w-full h-full object-cover"
-                      style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                      style={{ filter: 'contrast(1.03)' }}
                       loading="eager"
                     />
                   )}
@@ -231,7 +231,7 @@ export function Home() {
                 fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
               }}
             >
-              Saint-Rémy는 한국의 스포츠·문화·라이프스타일 매거진입니다. 한 사람의 하루를 시간순으로 따라가고, 한 동작이 한 인물을 정의한 자리를 파고들고, 한 식단이 어떻게 신체를 다시 짰는지를 1차 자료로 검증합니다.
+              <em>Less, but deeper.</em> 적게, 그러나 더 깊이. 한 사람의 하루·동작·식단·믿음을 1차 자료로 길게 따라가는 매거진입니다.
             </p>
             <p
               className="text-ink-700 leading-[1.6] mb-8 max-w-lg"
@@ -263,7 +263,7 @@ export function Home() {
                     src={a.heroImage}
                     alt={a.heroImageAlt ?? a.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                    style={{ filter: 'contrast(1.03)' }}
                     loading="lazy"
                   />
                 )}
@@ -329,7 +329,7 @@ export function Home() {
               MAGAZINE
             </div>
             <p className="text-white/80 leading-[1.6] text-sm max-w-xs" style={{ fontFamily: 'Pretendard, sans-serif' }}>
-              스포츠·문화·라이프스타일을 깊이 보는 한국 매거진. RITUAL · PEOPLE · MIND · GEAR.
+              <em>Less, but deeper.</em> 한 사람의 하루를 길게 따라가는 한국 매거진. RITUAL · PEOPLE · MIND · GEAR.
             </p>
           </div>
           <div>
@@ -365,7 +365,7 @@ export function Home() {
           style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
         >
           <span>© {new Date().getFullYear()} LLSV</span>
-          <span>SAINT-RÉMY · SPORTS CULTURE MAGAZINE</span>
+          <span>SAINT-RÉMY · LESS, BUT DEEPER</span>
         </div>
       </footer>
     </div>
