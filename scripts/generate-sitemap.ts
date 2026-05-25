@@ -12,18 +12,16 @@ const ROOT = process.cwd()
 const ARTICLES_JSON = join(ROOT, 'src/generated/articles.json')
 const OUTPUT = join(ROOT, 'public/sitemap.xml')
 
-// 실제 App.tsx 에 선언된 11개 카테고리 slug (2026-04-25 기준)
+// 실제 App.tsx 에 살아있는 카테고리 slug (2026-05-26 기준 매거진 톤 피벗 후).
+// 옛 11개 중 redirect-only (gift/deal/beauty/kitchen/move/furniture/living) 는 제거 —
+// sitemap 에 박혀 있으면 Google이 색인 실패 페이지로 분류 (Search Console: "리디렉션이 포함된 페이지").
 const CATEGORIES = [
-  'gift',
-  'deal',
+  'story',
   'style',
-  'beauty',
+  'home',
+  'deals',
   'space',
-  'kitchen',
-  'move',
   'travel',
-  'furniture',
-  'living',
   'music',
 ] as const
 

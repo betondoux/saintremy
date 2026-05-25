@@ -59,17 +59,18 @@ function App() {
               레거시 6개 스포츠 카테고리 → /move로 리다이렉트
               (기존 SEO 링크 보호)
               ═══════════════════════════════════════════════════ */}
-          <Route path="/lift" element={<Navigate to="/move" replace />} />
-          <Route path="/combat" element={<Navigate to="/move" replace />} />
-          <Route path="/football" element={<Navigate to="/move" replace />} />
-          <Route path="/run" element={<Navigate to="/move" replace />} />
-          <Route path="/flow" element={<Navigate to="/move" replace />} />
-          <Route path="/court" element={<Navigate to="/move" replace />} />
+          {/* 이중 리다이렉트(/lift → /move → /space) 단축 — Google이 chain 안 따라감 */}
+          <Route path="/lift" element={<Navigate to="/space" replace />} />
+          <Route path="/combat" element={<Navigate to="/space" replace />} />
+          <Route path="/football" element={<Navigate to="/space" replace />} />
+          <Route path="/run" element={<Navigate to="/space" replace />} />
+          <Route path="/flow" element={<Navigate to="/space" replace />} />
+          <Route path="/court" element={<Navigate to="/space" replace />} />
 
-          {/* 구 legacy 리다이렉트 — 과거 블로그 링크 보호 */}
-          <Route path="/science" element={<Navigate to="/move" replace />} />
-          <Route path="/culture" element={<Navigate to="/move" replace />} />
-          <Route path="/films" element={<Navigate to="/move" replace />} />
+          {/* 구 legacy 리다이렉트 — 과거 블로그 링크 보호 (직접 /space 로 단축) */}
+          <Route path="/science" element={<Navigate to="/space" replace />} />
+          <Route path="/culture" element={<Navigate to="/space" replace />} />
+          <Route path="/films" element={<Navigate to="/space" replace />} />
 
           {/* Shop */}
           <Route path="/shop" element={<ShopPage />} />

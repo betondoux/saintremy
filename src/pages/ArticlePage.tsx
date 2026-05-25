@@ -91,7 +91,7 @@ export function ArticlePage() {
           HERO IMAGE — 에디토리얼 오프닝 (영상 없고 heroImage 있을 때)
           매거진 트랙(ritual·people·mind·gear)은 MagazineHero로 대체.
           ══════════════════════════════════════════════════════════ */}
-      {!article.youtube && article.heroImage && !article.slug.match(/^(ritual|people|mind|gear)-/) && (
+      {!article.youtube && article.heroImage && !article.slug.match(/^(ritual|people|mind|gear|protocol|against|report)-/) && (
         <div
           className={`${hasSidebar ? 'max-w-4xl mx-auto' : ''} w-full aspect-square mb-10 overflow-hidden`}
           style={{ backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)' }}
@@ -106,7 +106,7 @@ export function ArticlePage() {
       )}
 
       {/* 매거진 트랙 글 — Harper's Bazaar 블랙앤화이트 톤 */}
-      {article.slug.match(/^(ritual|people|mind|gear)-/) && (
+      {article.slug.match(/^(ritual|people|mind|gear|protocol|against|report)-/) && (
         <MagazineHero article={article} />
       )}
 
@@ -114,7 +114,7 @@ export function ArticlePage() {
           ARTICLE HEADER — 카테고리 / 제목 / 부제 / 메타
           매거진 트랙은 MagazineHero가 헤더 자리 차지 → 이 블록 skip.
           ══════════════════════════════════════════════════════════ */}
-      {!article.slug.match(/^(ritual|people|mind|gear)-/) && (
+      {!article.slug.match(/^(ritual|people|mind|gear|protocol|against|report)-/) && (
       <header
         className={`text-left ${article.youtube ? 'mb-14' : 'mb-14 pb-10 border-b border-dotted border-ink-900/30'}`}
       >

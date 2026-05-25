@@ -14,10 +14,10 @@ import {
 
 function pickFeaturedRitual(): Article | undefined {
   const all = getAllArticles()
-  const rituals = all
-    .filter((a) => a.slug.startsWith('ritual-'))
-    .sort((a, b) => (b.seriesNumber ?? 0) - (a.seriesNumber ?? 0))
-  return rituals[0] ?? getHeroArticle()
+  const magazineTracks = all
+    .filter((a) => /^(ritual|people|mind|gear|protocol|against|report)-/.test(a.slug))
+    .sort((a, b) => (b.published > a.published ? 1 : -1))
+  return magazineTracks[0] ?? getHeroArticle()
 }
 
 function formatDate(iso?: string) {
@@ -27,7 +27,7 @@ function formatDate(iso?: string) {
 }
 
 function trackFromSlug(slug: string): string {
-  const m = slug.match(/^(ritual|people|mind|gear)-/)
+  const m = slug.match(/^(ritual|people|mind|gear|protocol|against|report)-/)
   return (m ? m[1] : 'STORY').toUpperCase()
 }
 
