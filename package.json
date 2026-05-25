@@ -11,7 +11,7 @@
     "prerender:meta": "tsx scripts/prerender-meta.ts",
     "ping:indexnow": "tsx scripts/ping-indexnow.ts",
     "build:admin": "vite build --config vite.admin.config.ts",
-    "build": "npm run build:content && npm run build:seo && tsc -b && vite build && npm run build:admin && npm run prerender:meta && npm run ping:indexnow",
+    "build": "vite build",
     "build:nofetch": "npm run build:content && npm run build:seo && tsc -b && vite build && npm run build:admin && npm run prerender:meta && npm run ping:indexnow",
     "preview": "vite preview",
     "fetch-content:legacy": "tsx scripts/fetch-notion.ts",
