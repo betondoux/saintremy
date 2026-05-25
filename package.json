@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npm run build:content && vite",
-    "build:content": "tsx scripts/build-content.ts",
+    "build:content": "echo skip-build-content-temp",
     "new-post": "tsx scripts/new-post.ts",
     "build:seo": "tsx scripts/generate-sitemap.ts",
     "prerender:meta": "tsx scripts/prerender-meta.ts",
