@@ -80,7 +80,7 @@ export function Home() {
     .slice(0, 2)
 
   return (
-    <div className="bg-[#F4EFE8] text-ink-900">
+    <div className="bg-white text-ink-900">
       <SEO
         title="Saint-Rémy — Sports Culture Magazine"
         description="스포츠·문화·라이프스타일을 깊이 보는 매거진. 한 사람의 하루·동작·식단을 1차 자료로 따라간다."

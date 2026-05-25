@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-[#F4EFE8]/95 backdrop-blur-md border-b border-ink-900/[0.06]">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-ink-900/[0.06]">
         <div className="flex items-center justify-between px-5 md:px-10 py-3.5 md:py-4">
           {/* Logo */}
           <Link
@@ -37,7 +37,7 @@ export function Header() {
           </Link>
 
           {/* Desktop nav — 라운드 박스 nav */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/60 rounded-full px-2 py-1.5">
+          <nav className="hidden md:flex items-center gap-1 bg-ink-900/[0.04] rounded-full px-2 py-1.5">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.to}
@@ -91,7 +91,7 @@ export function Header() {
 
       {/* Mobile fullscreen menu */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-[#F4EFE8] pt-20 px-6 overflow-y-auto">
+        <div className="md:hidden fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto">
           <nav className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <NavLink

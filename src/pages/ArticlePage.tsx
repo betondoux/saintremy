@@ -166,9 +166,15 @@ export function ArticlePage() {
       )}
 
       {/* ══════════════════════════════════════════════════════════
-          AFFILIATE DISCLOSURE — 공정위 고지 (최소 노이즈, 헤더 아래)
+          AFFILIATE DISCLOSURE — 쿠팡 어필리에이트 데이터 있는 글에만 노출.
+          매거진 톤 글(ritual/people/mind/gear/story 인물 프로필 등)은 숨김.
           ══════════════════════════════════════════════════════════ */}
-      <AffiliateDisclosure />
+      {(article.heroProduct ||
+        (article.roundup && article.roundup.length > 0) ||
+        (article.picks && article.picks.length > 0) ||
+        (article.duelProducts && article.duelProducts.length > 0)) && (
+        <AffiliateDisclosure />
+      )}
 
       {/* 2-COLUMN GRID — lg 이상에서 사이드바 노출, 모바일은 자동 1-컬럼 */}
       <div

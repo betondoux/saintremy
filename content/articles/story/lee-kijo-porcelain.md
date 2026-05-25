@@ -12,10 +12,10 @@ readTime: 10
 published: '2026-05-14'
 updatedAt: '2026-05-14'
 author: Saint-Rémy Editors
-heroImage: /images/articles/story-lee-kijo/00.jpg
+heroImage: /images/articles/story-lee-kijo/00.jpg?v=2
 heroImageAlt: '이기조 — 백자 작품, 조은숙 갤러리 소장.'
 thumbnailColor: '#E8E2D5'
-ogImage: /images/articles/story-lee-kijo/00.jpg
+ogImage: /images/articles/story-lee-kijo/00.jpg?v=2
 featuredOn:
   - Hero
 tags:
@@ -32,7 +32,7 @@ summary: 'Saint Rémy Profile 열 번째 인물. 서울대 미대 도자공예 �
 
 이기조가 자기 30년 작업을 한 줄로 정리한 어휘다. 백자의 *형태*가 아니라 *선*. 그 선이 *디자인*이 아니라 *호흡*. 한 한국 도예가가 자기 작업의 출처를 자기 *심장*으로 가져온 한 줄이다.
 
-[IMAGE] /images/articles/story-lee-kijo/00.jpg | 이기조의 백자 — 군더더기 없는 형태와 흐트러지지 않는 선. 사진: 조은숙 갤러리.
+[IMAGE] /images/articles/story-lee-kijo/00.jpg?v=2 | 이기조의 백자 — 군더더기 없는 형태와 흐트러지지 않는 선. 사진: 조은숙 갤러리.
 
 ## 운명으로서의 조선백자
 
