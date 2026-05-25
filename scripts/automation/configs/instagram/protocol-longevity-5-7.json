@@ -1,0 +1,85 @@
+{
+  "slug": "protocol-longevity-5-7",
+  "category": "PROTOCOL · LONGEVITY",
+  "series": "SAINT-RÉMY · PROTOCOL N°001",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "PROTOCOL N°001",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/00.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "하버드가 85년 추적했더니,",
+        "노화 늦추는 변수는 5개였다."
+      ],
+      "sub": "오늘부터 하나씩 시작."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / MOVE",
+      "title": "10층 계단, 멈추지 않고 올라갈 수 있나요?",
+      "lead": "안 되면 — 노화 속도가 이미 빨라지고 있다는 신호.",
+      "body": "처방은 단순합니다.\n\n*일주일 4번, 빠르게 걷기 45분*. 옆 사람과 대화는 되지만 노래는 안 되는 강도. 의사 Peter Attia 가 1순위로 박는 운동.\n\n50세 넘으면 *근력* 도 추가. 손의 힘 (악력) 자체가 노화 시계 — 악력이 약하면 사망률이 올라간다 (Lancet 2015, 14만 명).\n\n→ 오늘: 점심 후 25분 빠르게 걷기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/01-move.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / EAT",
+      "title": "근육은 30세부터 매년 0.5%씩 빠집니다.",
+      "lead": "80세엔 절반. 막는 변수는 단 하나 — 단백질.",
+      "body": "*한 끼 단백질 30g*.\n\n계란 2개 + 닭가슴살 한 줌 + 두부 반 모 = 약 30g. 하루 세 끼 = 90g. 한국인 평균(60~70g)의 1.5배.\n\n그리고 *피해야 할 것* — 컵라면·과자·햄. 초가공식품 10% 더 먹을 때마다 암 위험 12% 상승 (BMJ 2018, 10만 명).\n\n→ 오늘: 아침에 계란 2개 + 그릭요거트.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/02-eat.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / SLEEP",
+      "title": "6시간 자면 사망률 12%, 9시간 넘으면 30% 상승.",
+      "lead": "황금 구간은 7~8시간 (Sleep 2010, 130만 명).",
+      "body": "잠의 *질* 을 망치는 변수는 두 가지.\n\n첫째 *늦은 커피*. 마지막 카페인은 잠 8시간 전 — 오후 2시 이후 끊기.\n\n둘째 *늦은 술*. 자기 직전 한 잔이 깊은 잠을 30% 깎는다. 자기 3시간 전부턴 술도 끊기.\n\n이 두 가지만으로 잠의 질 절반이 돌아온다.\n\n→ 오늘: 오후 2시 이후 카페인 0.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/03-sleep.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / MIND",
+      "title": "만성 스트레스 = 노화 시계 17년 더 빨라짐.",
+      "lead": "스트레스 받은 어머니들의 세포가 — 17년 늙은 상태.",
+      "body": "세포 끝에 *보호 캡* 이 있습니다. 세포가 나뉠 때마다 닳는다. 다 닳으면 세포는 멈춘다 — *노화의 분자 시계* (UCSF Blackburn, 2009 노벨 생리의학상).\n\n만성 스트레스가 이걸 가장 빠르게 깎는다 (PNAS 2004).\n\n다시 늘리는 변수는 하나 — *명상*. 3개월 명상 후 세포 회복 효소 30% 증가.\n\n→ 오늘: 출근 전 호흡 10분.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/04-mind.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / CONNECTION",
+      "title": "외로움 = 매일 담배 15개비 피우는 효과.",
+      "lead": "30만 명 메타분석 결론 (PLOS 2010).",
+      "body": "하버드 의대가 1938년부터 *85년째* 한 세대를 추적해왔습니다 (의학사 가장 긴 코호트).\n\n결론은 한 줄.\n\n*80세 건강을 가장 잘 예측한 변수는 — 50세의 콜레스테롤이 아니라 50세의 관계 만족도.*\n\n실천도 단순. 일주일 두 번, 가까운 한 사람과 *얼굴 보고* 식사. 메시지·전화는 같은 효과가 없다.\n\n→ 오늘: 친구 한 명에게 약속 잡기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/protocol-longevity-5/05-connection.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "오늘 실천 5가지",
+      "quote": "한 번에 다 시작할 필요 없습니다. 하나씩 30일 — 1년이면 5개가 모두 일상에 들어옵니다.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "PROTOCOL N°001 · 풀 본문 + 1차 자료 10건",
+      "sources": [
+        {"title": "Outlive — Peter Attia", "source": "Crown · 2023"},
+        {"title": "Cardiorespiratory Fitness & Mortality", "source": "JAMA · 2018 · 12만 명"},
+        {"title": "Sleep Duration & Mortality", "source": "Sleep · 2010 · 130만 명"},
+        {"title": "Telomere Shortening & Stress", "source": "PNAS · 2004 · UCSF"},
+        {"title": "The Good Life — Harvard 85년", "source": "Waldinger · 2023"},
+        {"title": "Loneliness & Mortality", "source": "PLOS Medicine · 2010 · 30만 명"}
+      ]
+    }
+  ]
+}
