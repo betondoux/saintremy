@@ -16,7 +16,7 @@ function pickFeaturedRitual(): Article | undefined {
   const all = getAllArticles()
   const rituals = all
     .filter((a) => a.slug.startsWith('ritual-'))
-    .sort((a, b) => (b.published > a.published ? 1 : -1))
+    .sort((a, b) => (b.seriesNumber ?? 0) - (a.seriesNumber ?? 0))
   return rituals[0] ?? getHeroArticle()
 }
 
