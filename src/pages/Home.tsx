@@ -1,836 +1,363 @@
+/**
+ * Home — 매거진 톤 (032c × 모던 이커머스).
+ * HERO (RITUAL 최신) + LATEST 그리드 + ABOUT + MOST READ + Footer.
+ * 화이트앤블랙, 거대 sans-serif, 흑백 사진, 라운드 박스.
+ */
 import { Link } from 'react-router-dom'
 import { SEO } from '../components/SEO'
-import logoUrl from '../assets/saintremy-logo.png'
-import CategoryLabel, {
-  CATEGORY_COLORS,
-} from '../components/CategoryLabel'
-import CategoryIcon from '../components/CategoryIcon'
-import Ornament from '../components/Ornament'
-import SaleCarousel from '../components/SaleCarousel'
 import {
   getAllArticles,
   getHeroArticle,
-  getEditorsPick,
-  getArticlesByCategory,
-  getArticlesByCategoryRotated,
   getMostReadArticles,
-  ALL_CATEGORIES,
-  CATEGORY_META,
   type Article,
-  type Category,
 } from '../content/articles'
 
-// ═══════════════════════════════════════════════════════════════
-// 섹션 순서 (spec 2026-04-24)
-// gift, deal, [❦], style, beauty, space, [✦],
-// kitchen, move, travel, [❧], furniture, living
-// ═══════════════════════════════════════════════════════════════
-const ORNAMENT_AFTER: Record<number, '❦' | '✦' | '❧'> = {
-  1: '❦', // 두 번째 카테고리 뒤
-  3: '✦', // 네 번째 카테고리 뒤
+function pickFeaturedRitual(): Article | undefined {
+  const all = getAllArticles()
+  const rituals = all
+    .filter((a) => a.slug.startsWith('ritual-'))
+    .sort((a, b) => (b.published > a.published ? 1 : -1))
+  return rituals[0] ?? getHeroArticle()
 }
 
-export function Home() {
-  const allArticles = getAllArticles()
-
-  // 발행 전 상태 — 샘플 데이터 노출 금지
-  if (allArticles.length === 0) {
-    return (
-      <>
-        <SEO path="/" />
-        <PreLaunchHero />
-      </>
-    )
-  }
-
-  const hero = getHeroArticle()
-  const editorsPick = getEditorsPick(hero?.slug)
-  const mostRead = getMostReadArticles()
-
-  // 카테고리 섹션에서 제외할 slug 목록 (hero + editor's pick — 중복 fatigue 방지)
-  const excludeSlugs = [hero?.slug, editorsPick?.slug].filter(
-    (s): s is string => Boolean(s),
-  )
-
-  // 최신 딜 글의 picks 4~8개를 SaleCarousel 로 노출 (Strategist "A VERY GOOD SALE" 톤)
-  const latestDeal = getArticlesByCategory('deals').find(
-    (a) => a.picks && a.picks.length > 0,
-  )
-  const carouselItems = latestDeal?.picks?.slice(0, 8) ?? []
-
-  return (
-    <>
-      <SEO path="/" />
-      <AffiliateNotice />
-
-      {hero && <HeroBlock article={hero} />}
-
-      {editorsPick && editorsPick.slug !== hero?.slug && (
-        <EditorsPickBlock article={editorsPick} />
-      )}
-
-      {latestDeal && carouselItems.length > 0 && (
-        <SaleCarousel
-          badge="이번 주 딜"
-          title={latestDeal.title}
-          subtitle={latestDeal.dek}
-          ctaLabel="전체 보기 →"
-          ctaUrl={`/a/${latestDeal.slug}`}
-          items={carouselItems}
-        />
-      )}
-
-      <div className="max-w-6xl mx-auto px-6">
-        {ALL_CATEGORIES.map((cat, i) => (
-          <div key={cat}>
-            <CategorySection category={cat} excludeSlugs={excludeSlugs} />
-            {ORNAMENT_AFTER[i] && <Ornament symbol={ORNAMENT_AFTER[i]} />}
-          </div>
-        ))}
-      </div>
-
-      {allArticles.length >= 5 && mostRead.length > 0 && (
-        <MostReadSection articles={mostRead} />
-      )}
-      {/* 뉴스레터는 Footer 에서 전역 렌더 — 페이지 레벨 중복 방지 */}
-    </>
-  )
+function formatDate(iso?: string) {
+  if (!iso) return ''
+  const d = new Date(iso)
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).toUpperCase()
 }
 
-// ═══════════════════════════════════════════════════════════════
-// PRE-LAUNCH HERO — 기사 0편 상태의 커밍순 화면
-// ═══════════════════════════════════════════════════════════════
-function PreLaunchHero() {
-  return (
-    <div className="max-w-3xl mx-auto px-6 pt-20 md:pt-28 pb-24 text-center">
-      <div
-        className="masthead text-ink-900 text-6xl md:text-7xl lg:text-8xl leading-[0.9]"
-      >
-        Saint-Rémy
-      </div>
-
-      <p className="headline-ko text-ink-900 text-2xl md:text-3xl mt-8 leading-snug">
-        평범한 사물을 깊이 보는 매거진
-      </p>
-
-      <div className="mt-14 pt-10 border-t border-dashed border-ink-900/25">
-        <div className="typewriter-label text-signal mb-3">
-          — EDITORS ARE WORKING ON ISSUE 001
-        </div>
-        <p className="body-text text-ink-500 text-base md:text-lg">
-          첫 번째 발행이 곧 공개됩니다.
-        </p>
-      </div>
-    </div>
-  )
+function trackFromSlug(slug: string): string {
+  const m = slug.match(/^(ritual|people|mind|gear)-/)
+  return (m ? m[1] : 'STORY').toUpperCase()
 }
 
-// ═══════════════════════════════════════════════════════════════
-// AFFILIATE NOTICE — 홈 상단 3줄 고지
-// ═══════════════════════════════════════════════════════════════
-function AffiliateNotice() {
+function StoryCard({ article }: { article: Article }) {
   return (
-    <div
-      className="py-4 px-4 text-center border-y"
-      style={{ borderColor: 'var(--sr-rule)' }}
-    >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--fs-label)',
-          letterSpacing: '0.2em',
-          color: 'var(--sr-muted)',
-          marginBottom: '8px',
-        }}
-      >
-        AFFILIATE · DISCLOSURE
-      </div>
-      <p
-        style={{
-          fontFamily: 'var(--font-serif-kr)',
-          fontStyle: 'italic',
-          fontSize: '14px',
-          color: 'var(--sr-muted)',
-          lineHeight: 1.6,
-        }}
-      >
-        <img
-          src={logoUrl}
-          alt="Saint-Rémy"
-          style={{
-            height: '0.95em',
-            width: 'auto',
-            display: 'inline-block',
-            verticalAlign: '-0.08em',
-            marginRight: '0.25em',
-          }}
-        />
-        Editors가 독립적으로 선정한 제품입니다.
-        <br />
-        링크를 통한 구매 시 일정 수수료를 제공받을 수 있습니다.
-        <Link
-          to="/terms"
-          className="underline ml-1"
-          style={{ color: 'var(--sr-muted)' }}
-        >
-          자세히 →
-        </Link>
-      </p>
-    </div>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// HERO BLOCK — THIS WEEK'S FEATURE
-// ═══════════════════════════════════════════════════════════════
-function HeroBlock({ article }: { article: Article }) {
-  // DUEL 기사는 제품 PNG 2개로 합성 렌더 (baked hero.jpg 대신)
-  // → airpods-pro-3.png / galaxy-buds-4-pro.png 를 바꾸면 즉시 반영.
-  if (article.duelProducts && article.duelProducts.length >= 2) {
-    return <DuelHeroBlock article={article} />
-  }
-
-  // 제목 패턴 감지
-  // 1) "X vs Y" (e.g., AirPods Pro 3 vs Galaxy Buds 4 Pro) → 3 라인, vs 이탤릭
-  // 2) 끝자리 숫자 ("선크림 BEST 5") → 숫자 이탤릭 Playfair
-  const vsMatch = article.title.match(/^(.+?)\s+vs\s+(.+)$/i)
-  const numMatch = !vsMatch
-    ? article.title.match(/^(.+?)\s+(\d+)\s*$/)
-    : null
-
-  return (
-    <section className="max-w-3xl mx-auto px-6 py-8">
-      <article>
-        <Link to={`/a/${article.slug}`} className="block group">
-          {/* 제품 실사 이미지 (정사각형) */}
-          <div
-            className="aspect-square w-full relative overflow-hidden"
-            style={{ backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)' }}
-          >
-            {article.heroImage && (
-              <img
-                src={article.heroImage}
-                alt={article.title}
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
-            )}
-          </div>
-
-          <div className="pt-8 text-left">
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--fs-label)',
-                letterSpacing: '0.3em',
-                color: 'var(--sr-muted)',
-                marginBottom: '16px',
-                textAlign: 'left',
-              }}
-            >
-              — THIS WEEK'S FEATURE —
-            </div>
-
-            <div className="mb-6">
-              <CategoryLabel category={article.category} />
-            </div>
-
-            <h1
-              className="mt-2"
-              style={{
-                fontFamily: 'var(--font-serif-kr)',
-                fontSize: 'var(--fs-h1)',
-                fontWeight: 700,
-                lineHeight: 1.15,
-                color: 'var(--sr-ink)',
-                textWrap: 'balance',
-              }}
-            >
-              {vsMatch ? (
-                <>
-                  <span className="block">{vsMatch[1]}</span>
-                  <em
-                    className="block"
-                    style={{
-                      fontFamily: 'var(--font-display-en)',
-                      fontStyle: 'italic',
-                      fontWeight: 400,
-                      fontSize: '0.7em',
-                      color: 'var(--sr-muted)',
-                      margin: '0.2em 0',
-                    }}
-                  >
-                    vs
-                  </em>
-                  <span className="block">{vsMatch[2]}</span>
-                </>
-              ) : numMatch ? (
-                <>
-                  {numMatch[1]}{' '}
-                  <em
-                    style={{
-                      fontFamily: 'var(--font-display-en)',
-                      fontStyle: 'italic',
-                      fontSize: '1.4em',
-                    }}
-                  >
-                    {numMatch[2]}
-                  </em>
-                </>
-              ) : (
-                article.title
-              )}
-            </h1>
-
-            <p
-              className="mt-4"
-              style={{
-                fontSize: 'var(--fs-h2)',
-                color: 'var(--sr-muted)',
-                lineHeight: 1.4,
-              }}
-            >
-              {article.dek}
-            </p>
-
-            <div
-              className="mt-5 flex gap-3"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--fs-meta)',
-                color: 'var(--sr-muted)',
-              }}
-            >
-              <span>{formatDate(article.published)}</span>
-              <span>·</span>
-              <span>{article.readTime}분 읽기</span>
-              <span>·</span>
-              <span>{article.author}</span>
-            </div>
-          </div>
-        </Link>
-      </article>
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// EDITOR'S PICK BLOCK — 히어로 아래 2슬롯 (4시간 블록 로테이션)
-//   · 연구 기반: "Anchor + Rotate" 전략
-//   · 앵커(hero) + 회전(pick)으로 재방문 참여 +12%, CTR 하락 없음
-//   · 수평 레이아웃 (이미지 좌 + 텍스트 우) — 히어로와 시각 차별화
-// ═══════════════════════════════════════════════════════════════
-function EditorsPickBlock({ article }: { article: Article }) {
-  return (
-    <section
-      className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10"
-      style={{ borderTop: '1px dashed var(--sr-rule)' }}
-    >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--fs-label)',
-          letterSpacing: '0.3em',
-          color: 'var(--sr-muted)',
-          textAlign: 'center',
-          marginTop: '24px',
-          marginBottom: '24px',
-        }}
-      >
-        — EDITOR'S PICK —
-      </div>
-
-      <Link to={`/a/${article.slug}`} className="block group">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-10 items-center">
-          {/* 이미지 */}
-          <div
-            className="aspect-[4/3] w-full overflow-hidden"
-            style={{
-              backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)',
-            }}
-          >
-            {article.heroImage && (
-              <img
-                src={article.heroImage}
-                alt={article.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-            )}
-          </div>
-
-          {/* 텍스트 */}
-          <div>
-            <div className="mb-4">
-              <CategoryLabel category={article.category} />
-            </div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-serif-kr)',
-                fontSize: 'clamp(24px, 3.5vw, 40px)',
-                fontWeight: 700,
-                lineHeight: 1.2,
-                color: 'var(--sr-ink)',
-                letterSpacing: '-0.01em',
-                textWrap: 'balance',
-              }}
-              className="group-hover:opacity-70 transition"
-            >
-              {article.title}
-            </h2>
-            <p
-              style={{
-                fontSize: 'var(--fs-body)',
-                color: 'var(--sr-muted)',
-                lineHeight: 1.6,
-                marginTop: '12px',
-              }}
-            >
-              {article.dek}
-            </p>
-            <div
-              className="mt-4 flex gap-3 items-center"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--fs-meta)',
-                color: 'var(--sr-muted)',
-              }}
-            >
-              <span>{formatDate(article.published)}</span>
-              <span style={{ opacity: 0.4 }}>·</span>
-              <span>{article.readTime}분 읽기</span>
-              <span style={{ opacity: 0.4 }}>·</span>
-              <span>{article.author}</span>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// DUEL HERO BLOCK — 제품 PNG 2개로 편집 커버를 React 합성 렌더
-// baked hero.jpg 대신 → 제품 이미지 교체 시 즉시 반영
-// ═══════════════════════════════════════════════════════════════
-function DuelHeroBlock({ article }: { article: Article }) {
-  const products = article.duelProducts!
-  const a = products[0]
-  const b = products[1]
-  const accent = article.thumbnailColor ?? '#2A1810'
-
-  return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
-      <Link
-        to={`/a/${article.slug}`}
-        className="block group"
-      >
-        <article
-          style={{
-            backgroundColor: 'var(--sr-bg)',
-            padding: 'clamp(24px, 5vw, 56px) clamp(16px, 4vw, 56px)',
-            position: 'relative',
-          }}
-        >
-          {/* 상단 유틸 바 */}
-          <div className="flex items-start justify-between mb-8 md:mb-12">
-            <div style={{ lineHeight: 1.8 }}>
-              <div
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '13px',
-                  letterSpacing: '0.28em',
-                  color: 'var(--sr-ink)',
-                }}
-              >
-                {article.categoryLabel || 'THE DUEL'}
-              </div>
-              {article.issueNumber && (
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '11px',
-                    letterSpacing: '0.24em',
-                    color: 'var(--sr-muted)',
-                    marginTop: '4px',
-                  }}
-                >
-                  ISSUE {article.issueNumber} · {formatDate(article.published)}
-                </div>
-              )}
-            </div>
-            <div style={{ textAlign: 'right', lineHeight: 1 }}>
-              <img
-                src={logoUrl}
-                alt="Saint-Rémy"
-                style={{
-                  height: '22px',
-                  width: 'auto',
-                  display: 'inline-block',
-                }}
-              />
-              <div
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
-                  letterSpacing: '0.18em',
-                  color: 'var(--sr-muted)',
-                  fontStyle: 'italic',
-                  marginTop: '6px',
-                }}
-              >
-                saintremy.kr
-              </div>
-            </div>
-          </div>
-
-          {/* 제품 flanking + 중앙 타이틀 (데스크톱) / 수직 스택 (모바일) */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-10 py-6 md:py-10">
-            {/* 왼쪽 제품 */}
-            <div className="order-2 md:order-1 flex justify-center">
-              <img
-                src={a.image}
-                alt={a.name}
-                className="w-full max-w-[260px] md:max-w-[320px]"
-                style={{ aspectRatio: '1', objectFit: 'contain' }}
-                loading="eager"
-              />
-            </div>
-
-            {/* 중앙 타이틀 */}
-            <div className="order-1 md:order-2 text-center" style={{ minWidth: 'min(320px, 80vw)' }}>
-              <h1
-                style={{
-                  fontFamily: 'var(--font-serif-kr)',
-                  fontSize: 'clamp(28px, 5vw, 56px)',
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                  color: 'var(--sr-ink)',
-                  letterSpacing: '-0.01em',
-                  margin: 0,
-                }}
-              >
-                {a.name}
-              </h1>
-              <div
-                className="mx-auto my-4 md:my-6"
-                style={{
-                  width: 'clamp(52px, 7vw, 72px)',
-                  height: 'clamp(52px, 7vw, 72px)',
-                  borderRadius: '50%',
-                  backgroundColor: accent,
-                  color: 'var(--sr-bg)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-display-en)',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  fontSize: 'clamp(18px, 2.5vw, 24px)',
-                }}
-              >
-                vs
-              </div>
-              <h1
-                style={{
-                  fontFamily: 'var(--font-serif-kr)',
-                  fontSize: 'clamp(28px, 5vw, 56px)',
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                  color: 'var(--sr-ink)',
-                  letterSpacing: '-0.01em',
-                  margin: 0,
-                }}
-              >
-                {b.name}
-              </h1>
-            </div>
-
-            {/* 오른쪽 제품 */}
-            <div className="order-3 flex justify-center">
-              <img
-                src={b.image}
-                alt={b.name}
-                className="w-full max-w-[260px] md:max-w-[320px]"
-                style={{ aspectRatio: '1', objectFit: 'contain' }}
-                loading="eager"
-              />
-            </div>
-          </div>
-
-          {/* 부제 + 시그니처 */}
-          <div className="text-center mt-8 md:mt-12">
-            <p
-              style={{
-                fontFamily: 'var(--font-serif-kr)',
-                fontStyle: 'italic',
-                fontSize: 'clamp(14px, 2vw, 17px)',
-                color: 'var(--sr-muted)',
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              {article.dek}
-            </p>
-            <div
-              className="mx-auto my-5"
-              style={{
-                width: '120px',
-                height: '1px',
-                backgroundColor: 'var(--sr-rule)',
-              }}
-            />
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.28em',
-                color: 'var(--sr-muted)',
-              }}
-            >
-              SAINT-RÉMY EDITORS
-            </div>
-          </div>
-        </article>
-      </Link>
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// CATEGORY SECTION — 카테고리별 제목 + 2px 라인 + 기사 또는 COMING SOON
-// ═══════════════════════════════════════════════════════════════
-function CategorySection({
-  category,
-  excludeSlugs = [],
-}: {
-  category: Category
-  excludeSlugs?: string[]
-}) {
-  const meta = CATEGORY_META[category]
-  // 메인 페이지 카테고리 그리드 — 시드 기반 일별 회전 (fresh window + evergreen rotate)
-  const allInCategory = getArticlesByCategoryRotated(category)
-  const filtered = allInCategory.filter(
-    (a) => !excludeSlugs.includes(a.slug),
-  )
-  // 필터 후 0개면 Hero/Editor's Pick 라도 그대로 표시 — 빈 카테고리 방지
-  const articles = filtered.length > 0 ? filtered : allInCategory
-  const hasArticles = articles.length > 0
-  const color = CATEGORY_COLORS[category]
-
-  return (
-    <section className="py-16">
-      <div className="flex items-end justify-between mb-6">
-        {/* 아이콘 + 제목을 묶고 카테고리 컬러 상속 — CategoryIcon 은 currentColor 사용 */}
-        <div
-          className="flex items-center gap-3 md:gap-4"
-          style={{ color }}
-        >
-          <CategoryIcon category={category} size={32} />
-          <div style={{ color: 'var(--sr-ink)' }}>
-            <h2
-              style={{
-                fontFamily: 'var(--font-serif-kr)',
-                fontSize: 'var(--fs-h1)',
-                fontWeight: 700,
-                lineHeight: 1,
-              }}
-            >
-              {meta.title}
-            </h2>
-            <p
-              className="mt-1"
-              style={{
-                fontSize: 'var(--fs-meta)',
-                color: 'var(--sr-muted)',
-              }}
-            >
-              {meta.subtitle}
-            </p>
-          </div>
-        </div>
-        <Link
-          to={`/${category}`}
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 'var(--fs-label)',
-            letterSpacing: '0.2em',
-            color: 'var(--sr-muted)',
-          }}
-          className="hover:opacity-70 transition whitespace-nowrap"
-        >
-          VIEW ALL →
-        </Link>
-      </div>
-
-      {/* 카테고리별 2px 컬러 라인 */}
-      <div
-        style={{
-          height: 'var(--rule-accent)',
-          backgroundColor: color,
-          marginBottom: '32px',
-        }}
-      />
-
-      {hasArticles ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
-          {articles.slice(0, 2).map((a) => (
-            <CategoryArticleCard key={a.slug} article={a} />
-          ))}
-        </div>
-      ) : (
-        <div
-          className="py-12 text-center"
-          style={{ color: 'var(--sr-muted)' }}
-        >
-          <div
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--fs-label)',
-              letterSpacing: '0.3em',
-            }}
-          >
-            — COMING SOON —
-          </div>
-          <div style={{ marginTop: '8px', fontSize: 'var(--fs-meta)' }}>
-            {meta.title} 기사가 곧 공개됩니다
-          </div>
-        </div>
-      )}
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════
-// CATEGORY ARTICLE CARD — 섹션 안 개별 기사 카드
-// ═══════════════════════════════════════════════════════════════
-function CategoryArticleCard({ article }: { article: Article }) {
-  return (
-    <Link to={`/a/${article.slug}`} className="block group">
-      <div
-        className="aspect-[4/3] w-full overflow-hidden mb-4"
-        style={{ backgroundColor: article.thumbnailColor ?? 'var(--sr-paper)' }}
-      >
-        {article.heroImage && (
+    <Link to={`/a/${article.slug}`} className="group block">
+      <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ink-900/[0.04] mb-4">
+        {article.heroImage ? (
           <img
             src={article.heroImage}
-            alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt={article.heroImageAlt ?? article.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            style={{ filter: 'grayscale(100%) contrast(1.05)' }}
             loading="lazy"
           />
-        )}
+        ) : null}
+      </div>
+      <div
+        className="text-[0.6rem] uppercase tracking-[0.3em] text-ink-500 mb-2"
+        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+      >
+        {trackFromSlug(article.slug)} {article.issueNumber ? `· ${article.issueNumber}` : ''}
       </div>
       <h3
+        className="text-ink-900 leading-[1.2] group-hover:underline decoration-1 underline-offset-4"
         style={{
-          fontFamily: 'var(--font-serif-kr)',
-          fontSize: 'var(--fs-h2)',
-          fontWeight: 700,
-          lineHeight: 1.3,
-          color: 'var(--sr-ink)',
+          fontFamily: 'Pretendard, sans-serif',
+          fontWeight: 800,
+          fontSize: 'clamp(1.05rem, 2vw, 1.35rem)',
+          letterSpacing: '-0.01em',
         }}
-        className="group-hover:opacity-70 transition"
       >
         {article.title}
       </h3>
-      <p
-        className="mt-2"
-        style={{
-          fontSize: 'var(--fs-body)',
-          color: 'var(--sr-muted)',
-          lineHeight: 1.5,
-        }}
-      >
-        {article.dek}
-      </p>
-      <div
-        className="mt-3"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--fs-meta)',
-          color: 'var(--sr-muted)',
-        }}
-      >
-        {formatDate(article.published)} · {article.readTime}분
-      </div>
     </Link>
   )
 }
 
-// ═══════════════════════════════════════════════════════════════
-// MOST READ — 기사 5개 이상일 때만 노출
-// ═══════════════════════════════════════════════════════════════
-function MostReadSection({ articles }: { articles: Article[] }) {
-  return (
-    <section className="max-w-3xl mx-auto px-6 py-16">
-      <div
-        className="mb-6"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 'var(--fs-label)',
-          letterSpacing: '0.3em',
-          color: 'var(--sr-muted)',
-          textAlign: 'center',
-        }}
-      >
-        — MOST READ —
-      </div>
-      <ol className="space-y-5">
-        {articles.map((article, i) => (
-          <li key={article.slug}>
-            <Link
-              to={`/a/${article.slug}`}
-              className="group flex gap-4 items-start"
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--font-display-en)',
-                  fontStyle: 'italic',
-                  fontSize: '36px',
-                  color: CATEGORY_COLORS[article.category],
-                  lineHeight: 1,
-                  flexShrink: 0,
-                }}
-              >
-                {i + 1}
-              </span>
-              <div className="flex-1 min-w-0">
-                <h4
-                  style={{
-                    fontFamily: 'var(--font-serif-kr)',
-                    fontSize: 'var(--fs-h2)',
-                    fontWeight: 700,
-                    lineHeight: 1.3,
-                    color: 'var(--sr-ink)',
-                  }}
-                  className="group-hover:opacity-70 transition"
-                >
-                  {article.title}
-                </h4>
-                <p
-                  className="mt-1"
-                  style={{
-                    fontSize: 'var(--fs-meta)',
-                    color: 'var(--sr-muted)',
-                  }}
-                >
-                  {article.dek}
-                </p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ol>
-    </section>
-  )
-}
+export default function Home() {
+  const hero = pickFeaturedRitual()
+  const all = getAllArticles()
+  const latest = all
+    .filter((a) => a.slug !== hero?.slug)
+    .sort((a, b) => (b.published > a.published ? 1 : -1))
+    .slice(0, 6)
+  const popular = getMostReadArticles().slice(0, 3)
 
-// ═══════════════════════════════════════════════════════════════
-// HELPERS
-// ═══════════════════════════════════════════════════════════════
-function formatDate(iso: string): string {
-  const d = new Date(iso)
-  const yyyy = d.getFullYear()
-  const mm = String(d.getMonth() + 1).padStart(2, '0')
-  const dd = String(d.getDate()).padStart(2, '0')
-  return `${yyyy}.${mm}.${dd}`
+  return (
+    <div className="bg-white text-ink-900">
+      <SEO
+        title="Saint-Rémy — Sports Culture Magazine"
+        description="스포츠·문화·라이프스타일을 깊이 보는 매거진. 한 사람의 하루·동작·식단을 1차 자료로 따라간다."
+      />
+
+      {/* ───────────────────── HERO ───────────────────── */}
+      <section className="px-5 md:px-10 pt-8 md:pt-12 pb-16 md:pb-20">
+        <div
+          className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-6 md:mb-10"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          SAINT-RÉMY · SPORTS CULTURE MAGAZINE
+        </div>
+
+        <h1
+          className="text-ink-900 leading-[0.82] uppercase select-none"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4.5rem, 22vw, 18rem)',
+            letterSpacing: '-0.055em',
+          }}
+        >
+          LATEST
+        </h1>
+
+        {hero && (
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 mt-12 md:mt-16 items-end">
+            <div className="md:col-span-6 order-2 md:order-1">
+              <div
+                className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-3"
+                style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+              >
+                {trackFromSlug(hero.slug)} {hero.issueNumber ? `· ${hero.issueNumber}` : ''}
+                {hero.categoryLabel ? ` · ${hero.categoryLabel.split('·').pop()?.trim()}` : ''}
+              </div>
+              <Link to={`/a/${hero.slug}`} className="group block">
+                <h2
+                  className="text-ink-900 leading-[1.1] mb-5 group-hover:underline decoration-1 underline-offset-4"
+                  style={{
+                    fontFamily: 'Pretendard, sans-serif',
+                    fontWeight: 900,
+                    fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  {hero.title}
+                </h2>
+                {hero.dek && (
+                  <p
+                    className="text-ink-700 leading-[1.55] mb-7 max-w-xl"
+                    style={{
+                      fontFamily: 'Pretendard, sans-serif',
+                      fontWeight: 400,
+                      fontSize: 'clamp(0.95rem, 1.3vw, 1.1rem)',
+                    }}
+                  >
+                    {hero.dek}
+                  </p>
+                )}
+                <span
+                  className="inline-flex items-center gap-2 rounded-full bg-ink-900 text-white px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] group-hover:bg-ink-700 transition-colors"
+                  style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
+                >
+                  → READ STORY
+                </span>
+              </Link>
+              <div
+                className="mt-8 text-[0.65rem] uppercase tracking-[0.28em] text-ink-500"
+                style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+              >
+                {hero.author} · {formatDate(hero.published)} · {hero.readTime} MIN READ
+              </div>
+            </div>
+
+            <div className="md:col-span-6 order-1 md:order-2">
+              <Link to={`/a/${hero.slug}`} className="block">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ink-900/[0.04]">
+                  {hero.heroImage && (
+                    <img
+                      src={hero.heroImage}
+                      alt={hero.heroImageAlt ?? hero.title}
+                      className="w-full h-full object-cover"
+                      style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                      loading="eager"
+                    />
+                  )}
+                </div>
+              </Link>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* ───────────────────── STORIES GRID ───────────────────── */}
+      <section className="px-5 md:px-10 py-16 md:py-24 border-t border-ink-900/[0.08]">
+        <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-6">
+          <h2
+            className="text-ink-900 uppercase leading-[0.82]"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 900,
+              fontSize: 'clamp(3rem, 11vw, 8rem)',
+              letterSpacing: '-0.05em',
+            }}
+          >
+            STORIES
+          </h2>
+          <p
+            className="text-ink-700 max-w-xs leading-[1.5]"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 400,
+              fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
+            }}
+          >
+            한 사람의 하루·동작·식단·믿음을 1차 자료로 따라간다.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-14">
+          {latest.map((article) => (
+            <StoryCard key={article.slug} article={article} />
+          ))}
+        </div>
+      </section>
+
+      {/* ───────────────────── ABOUT ───────────────────── */}
+      <section className="px-5 md:px-10 py-16 md:py-24 border-t border-ink-900/[0.08]">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+          <div className="md:col-span-6">
+            <h2
+              className="text-ink-900 uppercase leading-[0.82] mb-8"
+              style={{
+                fontFamily: 'Pretendard, sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(3rem, 11vw, 8rem)',
+                letterSpacing: '-0.05em',
+              }}
+            >
+              ABOUT
+            </h2>
+            <p
+              className="text-ink-700 leading-[1.6] mb-6 max-w-lg"
+              style={{
+                fontFamily: 'Pretendard, sans-serif',
+                fontWeight: 400,
+                fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
+              }}
+            >
+              Saint-Rémy는 한국의 스포츠·문화·라이프스타일 매거진입니다. 한 사람의 하루를 시간순으로 따라가고, 한 동작이 한 인물을 정의한 자리를 파고들고, 한 식단이 어떻게 신체를 다시 짰는지를 1차 자료로 검증합니다.
+            </p>
+            <p
+              className="text-ink-700 leading-[1.6] mb-8 max-w-lg"
+              style={{
+                fontFamily: 'Pretendard, sans-serif',
+                fontWeight: 400,
+                fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
+              }}
+            >
+              Kinfolk의 깊이와 032c의 강도 사이. RITUAL · PEOPLE · MIND · GEAR 네 트랙으로 연재합니다.
+            </p>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 rounded-full bg-ink-900 text-white px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] hover:bg-ink-700 transition-colors"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
+            >
+              → READ MORE
+            </Link>
+          </div>
+          <div className="md:col-span-6">
+            {hero?.heroImage && (
+              <div className="aspect-square rounded-2xl overflow-hidden bg-ink-900/[0.04]">
+                <img
+                  src={hero.heroImage}
+                  alt={hero.title}
+                  className="w-full h-full object-cover"
+                  style={{ filter: 'grayscale(100%) contrast(1.1)' }}
+                  loading="lazy"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────────────── MOST READ ───────────────────── */}
+      {popular.length > 0 && (
+        <section className="px-5 md:px-10 py-16 md:py-24 border-t border-ink-900/[0.08]">
+          <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-6">
+            <h2
+              className="text-ink-900 uppercase leading-[0.82]"
+              style={{
+                fontFamily: 'Pretendard, sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(2.5rem, 9vw, 7rem)',
+                letterSpacing: '-0.05em',
+              }}
+            >
+              MOST READ
+            </h2>
+            <p
+              className="text-ink-700 max-w-xs leading-[1.5]"
+              style={{
+                fontFamily: 'Pretendard, sans-serif',
+                fontWeight: 400,
+                fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
+              }}
+            >
+              Frequently read stories this season.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-14">
+            {popular.map((article) => (
+              <StoryCard key={article.slug} article={article} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ───────────────────── FOOTER ───────────────────── */}
+      <footer className="bg-ink-900 text-white px-5 md:px-10 pt-16 pb-10 mt-16">
+        <div
+          className="text-white uppercase leading-[0.82] mb-12 md:mb-16"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(3.5rem, 14vw, 10rem)',
+            letterSpacing: '-0.05em',
+          }}
+        >
+          SAINT-RÉMY
+        </div>
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
+          <div>
+            <div
+              className="text-[0.6rem] uppercase tracking-[0.32em] text-white/50 mb-3"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              MAGAZINE
+            </div>
+            <p className="text-white/80 leading-[1.6] text-sm max-w-xs" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+              스포츠·문화·라이프스타일을 깊이 보는 한국 매거진. RITUAL · PEOPLE · MIND · GEAR.
+            </p>
+          </div>
+          <div>
+            <div
+              className="text-[0.6rem] uppercase tracking-[0.32em] text-white/50 mb-3"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              SECTIONS
+            </div>
+            <nav className="flex flex-col gap-1.5 text-white/80 text-sm" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+              <Link to="/story" className="hover:text-white">Stories</Link>
+              <Link to="/style" className="hover:text-white">Style</Link>
+              <Link to="/space" className="hover:text-white">Space</Link>
+              <Link to="/travel" className="hover:text-white">Travel</Link>
+              <Link to="/music" className="hover:text-white">Music</Link>
+            </nav>
+          </div>
+          <div>
+            <div
+              className="text-[0.6rem] uppercase tracking-[0.32em] text-white/50 mb-3"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              CONTACT
+            </div>
+            <p className="text-white/80 text-sm" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+              @saintremy.kr<br />
+              hello@saintremy.kr
+            </p>
+          </div>
+        </div>
+        <div
+          className="flex flex-wrap justify-between gap-4 pt-8 border-t border-white/10 text-[0.6rem] uppercase tracking-[0.32em] text-white/40"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          <span>© {new Date().getFullYear()} LLSV</span>
+          <span>SAINT-RÉMY · SPORTS CULTURE MAGAZINE</span>
+        </div>
+      </footer>
+    </div>
+  )
 }
