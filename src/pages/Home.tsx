@@ -66,7 +66,7 @@ function StoryCard({ article }: { article: Article }) {
   )
 }
 
-export default function Home() {
+export function Home() {
   const hero = pickFeaturedRitual()
   const all = getAllArticles()
   const latest = all
@@ -75,8 +75,12 @@ export default function Home() {
     .slice(0, 6)
   const popular = getMostReadArticles().slice(0, 3)
 
+  const aboutPhotos = all
+    .filter((a) => a.heroImage && a.slug !== hero?.slug)
+    .slice(0, 2)
+
   return (
-    <div className="bg-white text-ink-900">
+    <div className="bg-[#F4EFE8] text-ink-900">
       <SEO
         title="Saint-Rémy — Sports Culture Magazine"
         description="스포츠·문화·라이프스타일을 깊이 보는 매거진. 한 사람의 하루·동작·식단을 1차 자료로 따라간다."
@@ -138,10 +142,10 @@ export default function Home() {
                   </p>
                 )}
                 <span
-                  className="inline-flex items-center gap-2 rounded-full bg-ink-900 text-white px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] group-hover:bg-ink-700 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-ink-900 bg-transparent text-ink-900 px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] group-hover:bg-ink-900 group-hover:text-white transition-colors"
                   style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
                 >
-                  → READ STORY
+                  READ STORY →
                 </span>
               </Link>
               <div
@@ -241,24 +245,30 @@ export default function Home() {
             </p>
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-ink-900 text-white px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] hover:bg-ink-700 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-ink-900 bg-transparent text-ink-900 px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] hover:bg-ink-900 hover:text-white transition-colors"
               style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
             >
-              → READ MORE
+              READ MORE →
             </Link>
           </div>
-          <div className="md:col-span-6">
-            {hero?.heroImage && (
-              <div className="aspect-square rounded-2xl overflow-hidden bg-ink-900/[0.04]">
-                <img
-                  src={hero.heroImage}
-                  alt={hero.title}
-                  className="w-full h-full object-cover"
-                  style={{ filter: 'grayscale(100%) contrast(1.1)' }}
-                  loading="lazy"
-                />
-              </div>
-            )}
+          <div className="md:col-span-6 grid grid-cols-2 gap-4 md:gap-6">
+            {aboutPhotos.map((a) => (
+              <Link
+                key={a.slug}
+                to={`/a/${a.slug}`}
+                className="aspect-square rounded-2xl overflow-hidden bg-ink-900/[0.04] block group"
+              >
+                {a.heroImage && (
+                  <img
+                    src={a.heroImage}
+                    alt={a.heroImageAlt ?? a.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    style={{ filter: 'grayscale(100%) contrast(1.05)' }}
+                    loading="lazy"
+                  />
+                )}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
