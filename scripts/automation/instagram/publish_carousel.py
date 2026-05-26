@@ -48,7 +48,7 @@ def create_child(token, ig_id, image_url):
             "is_carousel_item": "true",
             "access_token": token,
         },
-        timeout=30,
+        timeout=90,
     )
     r.raise_for_status()
     return r.json()["id"]
@@ -63,7 +63,7 @@ def create_carousel(token, ig_id, children_ids, caption):
             "caption": caption,
             "access_token": token,
         },
-        timeout=30,
+        timeout=90,
     )
     r.raise_for_status()
     return r.json()["id"]
@@ -93,7 +93,7 @@ def publish(token, ig_id, container_id):
     r = requests.post(
         f"{GRAPH}/{ig_id}/media_publish",
         data={"creation_id": container_id, "access_token": token},
-        timeout=30,
+        timeout=90,
     )
     r.raise_for_status()
     return r.json()["id"]
@@ -113,7 +113,10 @@ def main():
     if not card_files:
         print(f"❌ 로컬 디렉토리에 jpg 없음: {LOCAL_BASE / args.slug}", file=sys.stderr)
         sys.exit(3)
-    image_urls = [f"{BASE}/{args.slug}/{f}" for f in card_files]
+    # Cache-bust query — Cloudflare 캐시된 이미지를 IG fetcher 가 거부하는 경우 우회
+    import time as _t
+    cb = int(_t.time())
+    image_urls = [f"{BASE}/{args.slug}/{f}?v={cb}" for f in card_files]
 
     if args.dry_run:
         print("[DRY RUN] 발사 안 함. 사용될 image_url:")
