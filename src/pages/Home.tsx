@@ -31,6 +31,27 @@ function trackFromSlug(slug: string): string {
   return (m ? m[1] : 'STORY').toUpperCase()
 }
 
+type Track = {
+  key: 'move' | 'eat' | 'sleep' | 'mind' | 'track'
+  label: string
+  ko: string
+  intro: string
+}
+
+const TRACKS: Track[] = [
+  { key: 'move',  label: 'MOVE',  ko: '운동', intro: 'Zone 2 · 근력 · VO2max' },
+  { key: 'eat',   label: 'EAT',   ko: '식단', intro: '단백질 · 발효 · 한 끼 30g' },
+  { key: 'sleep', label: 'SLEEP', ko: '수면', intro: '7~8시간 · 카페인 · 깊은 잠' },
+  { key: 'mind',  label: 'MIND',  ko: '정신', intro: '호흡 10분 · 텔로미어' },
+  { key: 'track', label: 'TRACK', ko: '측정', intro: 'HRV · VO2max · 매일 데이터' },
+]
+
+function latestInTrack(all: Article[], key: Track['key']): Article | undefined {
+  return all
+    .filter((a) => a.category === key)
+    .sort((a, b) => (b.published > a.published ? 1 : -1))[0]
+}
+
 function StoryCard({ article }: { article: Article }) {
   return (
     <Link to={`/a/${article.slug}`} className="group block">
@@ -175,6 +196,101 @@ export function Home() {
         )}
       </section>
 
+      {/* ───────────────────── TRACKS — 5변수 그리드 ───────────────────── */}
+      <section className="px-5 md:px-10 py-16 md:py-24 border-t border-ink-900/[0.08]">
+        <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-6">
+          <h2
+            className="text-ink-900 uppercase leading-[0.82]"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 900,
+              fontSize: 'clamp(3rem, 11vw, 8rem)',
+              letterSpacing: '-0.05em',
+            }}
+          >
+            TRACKS
+          </h2>
+          <p
+            className="text-ink-700 max-w-xs leading-[1.5]"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 400,
+              fontSize: 'clamp(0.85rem, 1vw, 0.95rem)',
+            }}
+          >
+            저속노화의 5가지 변수. 한 사람의 마지막 10년을 결정하는 다섯 자리.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+          {TRACKS.map((t) => {
+            const latest = latestInTrack(all, t.key)
+            return (
+              <Link
+                key={t.key}
+                to={`/${t.key}`}
+                className="group block aspect-[3/4] rounded-2xl overflow-hidden relative bg-ink-900"
+              >
+                {latest?.heroImage ? (
+                  <img
+                    src={latest.heroImage}
+                    alt={latest.heroImageAlt ?? latest.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-50 transition-opacity"
+                    style={{ filter: 'contrast(1.03)' }}
+                    loading="lazy"
+                  />
+                ) : null}
+                <div className="absolute inset-0 bg-gradient-to-b from-ink-900/40 via-ink-900/50 to-ink-900/85" />
+                <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-between text-white">
+                  <div>
+                    <div
+                      className="text-[0.55rem] uppercase tracking-[0.32em] opacity-70 mb-2"
+                      style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                    >
+                      {t.intro}
+                    </div>
+                    <div
+                      className="leading-[0.9]"
+                      style={{
+                        fontFamily: 'Pretendard, sans-serif',
+                        fontWeight: 900,
+                        fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
+                        letterSpacing: '-0.04em',
+                      }}
+                    >
+                      {t.label}
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    {latest ? (
+                      <div
+                        className="text-[0.85rem] leading-[1.3] line-clamp-2 group-hover:underline decoration-1 underline-offset-2"
+                        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                      >
+                        {latest.title}
+                      </div>
+                    ) : (
+                      <div
+                        className="text-[0.7rem] uppercase tracking-[0.28em] opacity-70"
+                        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                      >
+                        COMING SOON
+                      </div>
+                    )}
+                    <div
+                      className="text-[0.55rem] uppercase tracking-[0.32em] opacity-60 pt-1"
+                      style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                    >
+                      {t.ko} →
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
       {/* ───────────────────── STORIES GRID ───────────────────── */}
       <section className="px-5 md:px-10 py-16 md:py-24 border-t border-ink-900/[0.08]">
         <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-6">
@@ -231,7 +347,7 @@ export function Home() {
                 fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
               }}
             >
-              <em>Less, but deeper.</em> 적게, 그러나 더 깊이. 한 사람의 하루·동작·식단·믿음을 1차 자료로 길게 따라가는 매거진입니다.
+              <em>저속노화의 매거진.</em> 의학이 합의한 데이터 + 한 사람의 30년 반복. Peter Attia의 정밀도와 Kinfolk의 깊이 사이에서, 운동·식단·수면·정신·측정 다섯 변수로 한 사람의 마지막 10년을 따라갑니다.
             </p>
             <p
               className="text-ink-700 leading-[1.6] mb-8 max-w-lg"
@@ -241,7 +357,7 @@ export function Home() {
                 fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
               }}
             >
-              Kinfolk의 깊이와 032c의 강도 사이. RITUAL · PEOPLE · MIND · GEAR 네 트랙으로 연재합니다.
+              MOVE · EAT · SLEEP · MIND · TRACK — 다섯 트랙. 매주 5편 (평일 09:00). Less, but deeper.
             </p>
             <Link
               to="/about"

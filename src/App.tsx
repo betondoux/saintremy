@@ -6,7 +6,7 @@ import { CookieBanner } from './components/CookieBanner'
 import { Home } from './pages/Home'
 import { CategoryPage } from './pages/CategoryPage'
 import { ArticlePage } from './pages/ArticlePage'
-import { ShopPage } from './pages/ShopPage'
+import { ShopPage, ShopCategoryPage } from './pages/ShopPage'
 import { SearchPage } from './pages/SearchPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
@@ -78,8 +78,9 @@ function App() {
           <Route path="/culture" element={<Navigate to="/stories" replace />} />
           <Route path="/films"   element={<Navigate to="/stories" replace />} />
 
-          {/* Shop */}
+          {/* SHOP — 저속노화 5트랙 상품 큐레이션 */}
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop/:track" element={<ShopCategoryPage />} />
 
           {/* Search (placeholder) */}
           <Route path="/search" element={<SearchPage />} />

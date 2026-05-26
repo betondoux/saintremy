@@ -1,196 +1,278 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+/**
+ * ShopPage — 저속노화 상품 큐레이션 (2026-05-26~).
+ *
+ * 라우트:
+ *   /shop                — 5트랙 hub 진입
+ *   /shop/:track         — 트랙별 큐레이션 (move/eat/sleep/mind/track)
+ *
+ * 톤: 매거진 큐레이션. "별점·TOP 10" 금지. 매 상품 = 한 줄 매거진 카피 + 1차 자료.
+ */
+import { Link, useParams } from 'react-router-dom'
+import { SEO } from '../components/SEO'
 import {
-  getAllProducts,
-  getProductsByCategory,
-  formatPrice,
-  getDiscountPercent,
-  CATEGORY_LABELS_PRODUCT,
-  type Product,
-  type ProductCategory,
-} from '../content/products'
+  PRODUCT_TRACK_META,
+  getProductsByTrack,
+  type LongevityTrack,
+  type LongevityProduct,
+} from '../content/longevity-products'
 
-type FilterOption = 'all' | ProductCategory
+const TRACKS: LongevityTrack[] = ['move', 'eat', 'sleep', 'mind', 'track']
 
-const FILTER_LABELS: Record<FilterOption, string> = {
-  all: 'All (전체)',
-  gift: 'Gift (선물)',
-  deal: 'Deal (할인)',
-  style: 'Style (스타일)',
-  beauty: 'Beauty (뷰티)',
-  space: 'Space (공간)',
-  kitchen: 'Kitchen (주방)',
-  move: 'Move (운동)',
-  travel: 'Travel (여행)',
-  furniture: 'Furniture (가구)',
-  living: 'Living (생활)',
-  books: 'Books (책)',
+function Disclosure() {
+  return (
+    <div
+      className="text-[0.65rem] uppercase tracking-[0.28em] text-ink-500 border-t border-b border-ink-900/10 py-3 my-8"
+      style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+    >
+      AD · DISCLOSURE &nbsp;·&nbsp; Saint-Rémy 는 본 페이지의 일부 링크로 발생하는 구매에 한해 일정 수수료를 받습니다. 추천은 매거진 편집부가 운동·식단·수면·정신·측정 다섯 변수의 의학 데이터를 기준으로 선정합니다.
+    </div>
+  )
+}
+
+function ProductCard({ p }: { p: LongevityProduct }) {
+  return (
+    <article className="border-t border-ink-900/10 py-8 md:py-10 grid md:grid-cols-12 gap-6 md:gap-8">
+      <div className="md:col-span-4 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden flex items-center justify-center">
+        {p.imageUrl ? (
+          <img
+            src={p.imageUrl}
+            alt={p.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <span
+            className="text-ink-900/30 uppercase tracking-[0.32em] text-[0.7rem] text-center px-4"
+            style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+          >
+            {p.brand}
+          </span>
+        )}
+      </div>
+      <div className="md:col-span-8">
+        <div
+          className="text-[0.6rem] uppercase tracking-[0.32em] text-ink-500 mb-3"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          {p.brand} &nbsp;·&nbsp; {p.priceLabel}
+        </div>
+        <h3
+          className="text-ink-900 leading-[1.15] mb-3"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 800,
+            fontSize: 'clamp(1.25rem, 2vw, 1.6rem)',
+            letterSpacing: '-0.015em',
+          }}
+        >
+          {p.name}
+        </h3>
+        <p
+          className="text-ink-900 mb-4 leading-[1.45]"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 600,
+            fontSize: '1.05rem',
+          }}
+        >
+          {p.oneLine}
+        </p>
+        {p.rationale && (
+          <p
+            className="text-ink-700 leading-[1.6] mb-4 max-w-2xl"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 400,
+              fontSize: '0.95rem',
+            }}
+          >
+            {p.rationale}
+          </p>
+        )}
+        <div className="flex items-center gap-4 flex-wrap">
+          {p.source && (
+            <span
+              className="text-[0.65rem] uppercase tracking-[0.28em] text-ink-500"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              → {p.source}
+            </span>
+          )}
+          {p.purchaseUrl && p.purchaseUrl !== '#' ? (
+            <a
+              href={p.purchaseUrl}
+              target="_blank"
+              rel="noopener sponsored nofollow"
+              className="inline-flex items-center gap-2 rounded-full border border-ink-900 bg-transparent text-ink-900 px-5 py-2 text-[0.7rem] uppercase tracking-[0.28em] hover:bg-ink-900 hover:text-white transition-colors"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
+            >
+              구매 →
+            </a>
+          ) : (
+            <span
+              className="text-[0.65rem] uppercase tracking-[0.28em] text-ink-400"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              구매 링크 준비 중
+            </span>
+          )}
+        </div>
+      </div>
+    </article>
+  )
 }
 
 export function ShopPage() {
-  const [filter, setFilter] = useState<FilterOption>('all')
-
-  const allProducts = getAllProducts()
-  const filteredProducts =
-    filter === 'all' ? allProducts : getProductsByCategory(filter)
-
   return (
-    <div className="max-w-6xl mx-auto px-6 py-10">
-      <header className="text-center mb-10">
-        <div className="typewriter-label text-signal mb-3">— SAINT-RÉMY SHOP</div>
-        <h1 className="masthead text-6xl md:text-7xl text-ink-900 leading-none">
-          Shop
+    <div className="bg-white text-ink-900">
+      <SEO
+        title="SHOP — Saint-Rémy"
+        description="저속노화 매거진이 큐레이션한 5트랙 상품 — 운동·식단·수면·정신·측정. 의학 데이터를 기준으로 매주 갱신."
+        path="/shop"
+      />
+      <section className="px-5 md:px-10 pt-12 md:pt-20 pb-10">
+        <div
+          className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-6"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          SAINT-RÉMY · SHOP
+        </div>
+        <h1
+          className="text-ink-900 leading-[0.85] uppercase mb-8"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4rem, 18vw, 14rem)',
+            letterSpacing: '-0.055em',
+          }}
+        >
+          SHOP
         </h1>
-        <p className="body-text text-ink-500 max-w-xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-          Saint-Rémy가 직접 써보고, 읽어보고, 뛰어본 것들.
-          <br />
-          모든 링크는 투명하게 공개합니다.
+        <p
+          className="text-ink-700 leading-[1.6] max-w-2xl"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1.05rem, 1.4vw, 1.25rem)',
+          }}
+        >
+          저속노화의 5가지 변수 — 운동·식단·수면·정신·측정. 매거진 편집부가 의학 데이터(JAMA·Lancet·Sleep·NEJM)와 1차 자료로 골라 둡니다. <em>Less, but deeper.</em>
         </p>
-      </header>
+      </section>
 
-      {/* Filter bar */}
-      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 pb-6 border-b-2 border-ink-900">
-        {(Object.keys(FILTER_LABELS) as FilterOption[]).map((key) => (
-          <button
-            key={key}
-            onClick={() => setFilter(key)}
-            className={`px-4 py-2 typewriter-label border transition ${
-              filter === key
-                ? 'bg-ink-900 text-cream-100 border-ink-900'
-                : 'text-ink-900 border-ink-900/30 hover:border-ink-900'
-            }`}
-          >
-            {FILTER_LABELS[key]}
-          </button>
-        ))}
-      </div>
-
-      {/* Product grid */}
-      {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      ) : (
-        <div className="py-16 text-center">
-          <div className="typewriter-label text-ink-500 mb-2">
-            — COMING SOON
-          </div>
-          <div className="body-text text-ink-500">
-            이 카테고리의 추천 상품이 곧 올라옵니다.
-          </div>
-        </div>
-      )}
-
-      {/* Disclosure */}
-      <section className="mt-20 border-t border-dashed border-ink-900/30 pt-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="typewriter-label text-ink-900 mb-4">
-            — TRANSPARENCY
-          </div>
-          <h2 className="headline-ko text-2xl md:text-3xl text-ink-900 mb-4">
-            수익 구조를 공개합니다
-          </h2>
-          <div className="body-text text-ink-500 space-y-3 text-sm md:text-base text-left">
-            <p>
-              Saint-Rémy는 쿠팡 파트너스, 오늘의집 큐레이터, 올리브영 쇼핑
-              큐레이터 등 어필리에이트 프로그램을 통해 수익을 얻습니다.
-              독자가 Saint-Rémy에서 제품 링크를
-              클릭하여 구매하면, 판매 금액의 일부를 수수료로 받습니다.
-            </p>
-            <p>
-              <strong className="text-ink-900">단, 이것이 제품 추천에 영향을 미치지 않습니다.</strong>{' '}
-              Saint-Rémy는 수수료율이 높은 제품이 아니라, 실제로 좋은 제품만
-              추천합니다. 모든 링크는 독자가 직접 클릭 여부를 선택할 수
-              있도록 투명하게 표시됩니다.
-            </p>
-            <p>
-              수익은 Saint-Rémy의 콘텐츠 제작, 서버 유지, 새로운 연구 구독 등에
-              재투자됩니다. 신뢰가 전부입니다.
-            </p>
-          </div>
-
-          <Link
-            to="/"
-            className="inline-block mt-8 typewriter-label text-signal hover:underline"
-          >
-            ← 홈으로 돌아가기
-          </Link>
+      <section className="px-5 md:px-10 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {TRACKS.map((t) => {
+            const meta = PRODUCT_TRACK_META[t]
+            const count = getProductsByTrack(t).length
+            return (
+              <Link
+                key={t}
+                to={`/shop/${t}`}
+                className="group block p-6 md:p-8 rounded-2xl border border-ink-900/15 hover:border-ink-900 hover:bg-ink-900 hover:text-white transition-colors"
+              >
+                <div
+                  className="text-[0.6rem] uppercase tracking-[0.32em] opacity-60 mb-3"
+                  style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                >
+                  {count}개의 상품
+                </div>
+                <div
+                  className="leading-[0.95] mb-3"
+                  style={{
+                    fontFamily: 'Pretendard, sans-serif',
+                    fontWeight: 900,
+                    fontSize: 'clamp(2.25rem, 5vw, 3.25rem)',
+                    letterSpacing: '-0.04em',
+                  }}
+                >
+                  {meta.title}
+                </div>
+                <p
+                  className="text-[0.95rem] leading-[1.55] opacity-80"
+                  style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 400 }}
+                >
+                  {meta.subtitle}
+                </p>
+              </Link>
+            )
+          })}
         </div>
       </section>
     </div>
   )
 }
 
-function ProductCard({ product }: { product: Product }) {
-  const discount = getDiscountPercent(product)
+export function ShopCategoryPage() {
+  const { track } = useParams<{ track?: string }>()
+  const t = track as LongevityTrack | undefined
+
+  if (!t || !TRACKS.includes(t)) {
+    return (
+      <div className="max-w-3xl mx-auto px-6 py-20 text-center">
+        <div className="text-[0.7rem] uppercase tracking-[0.32em] text-ink-500 mb-4">
+          — 404
+        </div>
+        <div className="text-3xl text-ink-900">상품 카테고리를 찾을 수 없습니다.</div>
+        <Link to="/shop" className="inline-block mt-6 text-ink-500 underline">
+          ← SHOP 로 돌아가기
+        </Link>
+      </div>
+    )
+  }
+
+  const meta = PRODUCT_TRACK_META[t]
+  const products = getProductsByTrack(t)
+
   return (
-    <a
-      href={product.affiliateURL}
-      target="_blank"
-      rel="noopener sponsored"
-      className="block group lift"
-      aria-label={`${product.name} - ${product.vendor}에서 보기`}
-    >
-      <div
-        className="aspect-square rounded-full overflow-hidden mb-4 relative flex items-center justify-center"
-        style={{ backgroundColor: product.thumbnailColor ?? '#E0D6C2' }}
-      >
-        {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500"
-          />
-        ) : (
-          <div className="headline-italic text-cream-100/30 text-3xl">
-            {product.brand}
-          </div>
-        )}
-        {discount > 0 && (
-          <div className="absolute top-3 right-3 bg-signal text-cream-100 px-2 py-1 typewriter-label text-xs">
-            {discount}% OFF
-          </div>
-        )}
-      </div>
+    <div className="bg-white text-ink-900">
+      <SEO
+        title={`SHOP · ${meta.title} — Saint-Rémy`}
+        description={meta.intro}
+        path={`/shop/${t}`}
+      />
+      <section className="px-5 md:px-10 pt-12 md:pt-20 pb-10">
+        <div
+          className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-6 flex items-center gap-3 flex-wrap"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          <Link to="/shop" className="hover:text-ink-900">SHOP</Link>
+          <span>·</span>
+          <span>{meta.title}</span>
+        </div>
+        <h1
+          className="text-ink-900 leading-[0.85] uppercase mb-8"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(3.5rem, 14vw, 11rem)',
+            letterSpacing: '-0.055em',
+          }}
+        >
+          {meta.title.split(' · ')[0]}
+        </h1>
+        <p
+          className="text-ink-700 leading-[1.6] max-w-2xl"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1.05rem, 1.4vw, 1.2rem)',
+          }}
+        >
+          {meta.intro}
+        </p>
+      </section>
 
-      <div className="typewriter-label text-ink-500 text-xs mb-1 text-center">
-        {CATEGORY_LABELS_PRODUCT[product.category]} · {product.brand}
-      </div>
-
-      <h3 className="headline text-base md:text-lg text-ink-900 group-hover:text-signal transition leading-tight text-center px-2">
-        {product.name}
-      </h3>
-
-      <p className="body-text text-ink-500 text-xs md:text-sm text-center mt-2 px-2 leading-snug">
-        {product.dek.length > 80
-          ? product.dek.slice(0, 80) + '…'
-          : product.dek}
-      </p>
-
-      <div className="text-center mt-3">
-        {product.originalPrice ? (
-          <div className="typewriter text-sm">
-            <span className="line-through text-ink-400 mr-1">
-              {formatPrice(product.originalPrice)}
-            </span>
-            <span className="text-signal font-bold">
-              NOW {formatPrice(product.price)}
-            </span>
+      <section className="px-5 md:px-10 pb-20 max-w-5xl mx-auto">
+        <Disclosure />
+        {products.length === 0 ? (
+          <div className="py-16 text-center text-ink-500">
+            첫 큐레이션이 곧 올라옵니다.
           </div>
         ) : (
-          <div className="typewriter text-ink-900 text-sm font-medium">
-            {formatPrice(product.price)}
-          </div>
+          products.map((p) => <ProductCard key={p.id} p={p} />)
         )}
-      </div>
-
-      <div className="mt-4 text-center">
-        <span className="inline-block border border-ink-900 px-4 py-2 typewriter-label text-ink-900 group-hover:bg-ink-900 group-hover:text-cream-100 transition">
-          BUY AT {product.vendor}
-        </span>
-      </div>
-    </a>
+      </section>
+    </div>
   )
 }

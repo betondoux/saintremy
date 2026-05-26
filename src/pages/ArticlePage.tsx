@@ -19,6 +19,10 @@ import RelatedArticles from '../components/sidebar/RelatedArticles'
 import Gist from '../components/article/Gist'
 import RankBadge from '../components/article/RankBadge'
 import MagazineHero from '../components/article/MagazineHero'
+import {
+  getProductsByTrack,
+  type LongevityTrack,
+} from '../content/longevity-products'
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -216,6 +220,90 @@ export function ArticlePage() {
 
       {/* AD SLOT */}
       <AdSlot slot="article-body-end" format="horizontal" minHeight="100px" />
+
+      {/* RECOMMENDED — 글 트랙에 1개 매거진 톤 상품 (저속노화 5트랙 글에만) */}
+      {(['move', 'eat', 'sleep', 'mind', 'track'] as const).includes(
+        article.category as LongevityTrack,
+      ) && (() => {
+        const products = getProductsByTrack(article.category as LongevityTrack)
+        if (products.length === 0) return null
+        const p = products[0]
+        return (
+          <aside
+            className="mt-14 pt-8 border-t border-ink-900/20"
+            aria-label="Recommended"
+          >
+            <div
+              className="text-[0.6rem] uppercase tracking-[0.32em] text-ink-500 mb-4"
+              style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+            >
+              RECOMMENDED · {article.category.toUpperCase()}
+            </div>
+            <div className="grid md:grid-cols-12 gap-6 items-start">
+              <div className="md:col-span-3 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden flex items-center justify-center">
+                {p.imageUrl ? (
+                  <img
+                    src={p.imageUrl}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span
+                    className="text-ink-900/30 uppercase tracking-[0.32em] text-[0.65rem] text-center px-3"
+                    style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                  >
+                    {p.brand}
+                  </span>
+                )}
+              </div>
+              <div className="md:col-span-9">
+                <div
+                  className="text-[0.6rem] uppercase tracking-[0.32em] text-ink-500 mb-2"
+                  style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                >
+                  {p.brand} · {p.priceLabel}
+                </div>
+                <h3
+                  className="text-ink-900 leading-[1.2] mb-2"
+                  style={{
+                    fontFamily: 'Pretendard, sans-serif',
+                    fontWeight: 800,
+                    fontSize: 'clamp(1.1rem, 1.6vw, 1.35rem)',
+                  }}
+                >
+                  {p.name}
+                </h3>
+                <p
+                  className="text-ink-700 leading-[1.55] mb-3"
+                  style={{
+                    fontFamily: 'Pretendard, sans-serif',
+                    fontWeight: 400,
+                    fontSize: '0.95rem',
+                  }}
+                >
+                  {p.oneLine}
+                </p>
+                <div className="flex items-center gap-4 flex-wrap">
+                  <Link
+                    to={`/shop/${article.category}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-ink-900 bg-transparent text-ink-900 px-5 py-2 text-[0.65rem] uppercase tracking-[0.28em] hover:bg-ink-900 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
+                  >
+                    SHOP {article.category.toUpperCase()} →
+                  </Link>
+                  <span
+                    className="text-[0.6rem] uppercase tracking-[0.28em] text-ink-400"
+                    style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                  >
+                    AD · DISCLOSURE
+                  </span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        )
+      })()}
 
       {/* Sources */}
       {article.sources && article.sources.length > 0 && (
