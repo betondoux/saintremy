@@ -21,6 +21,7 @@ import RankBadge from '../components/article/RankBadge'
 import MagazineHero from '../components/article/MagazineHero'
 import {
   getProductsByTrack,
+  getProductById,
   type LongevityTrack,
 } from '../content/longevity-products'
 
@@ -1210,6 +1211,106 @@ function RenderBody({
                 </figcaption>
               )}
             </figure>
+          )
+        }
+
+        // 인라인 PRODUCT 박스 — [PRODUCT product-id]
+        // 본문 섹션 사이에 상품 1개를 매거진 톤 카드로 박는다.
+        if (trimmed.startsWith('[PRODUCT ') && trimmed.endsWith(']')) {
+          const pid = trimmed.slice(9, -1).trim()
+          const p = getProductById(pid)
+          if (!p) return null
+          return (
+            <aside
+              key={i}
+              className="my-10 p-5 md:p-6 border border-ink-900/15 rounded-2xl bg-ink-900/[0.02]"
+            >
+              <div
+                className="text-[0.6rem] uppercase tracking-[0.32em] text-ink-500 mb-4"
+                style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+              >
+                RECOMMENDED · 매거진 큐레이션
+              </div>
+              <div className="grid md:grid-cols-12 gap-5 items-start">
+                <div className="md:col-span-3 aspect-square bg-ink-900/[0.04] rounded-xl overflow-hidden">
+                  <img
+                    src={p.imageUrl ?? `/images/shop/${p.id}.jpg`}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'contrast(1.03)' }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="md:col-span-9">
+                  <div
+                    className="text-[0.6rem] uppercase tracking-[0.32em] text-ink-500 mb-2"
+                    style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                  >
+                    {p.brand} · {p.priceLabel}
+                  </div>
+                  <h3
+                    className="text-ink-900 leading-[1.2] mb-2"
+                    style={{
+                      fontFamily: 'Pretendard, sans-serif',
+                      fontWeight: 800,
+                      fontSize: '1.2rem',
+                    }}
+                  >
+                    {p.name}
+                  </h3>
+                  <p
+                    className="text-ink-900 leading-[1.5] mb-2"
+                    style={{
+                      fontFamily: 'Pretendard, sans-serif',
+                      fontWeight: 600,
+                      fontSize: '0.98rem',
+                    }}
+                  >
+                    {p.oneLine}
+                  </p>
+                  {p.rationale && (
+                    <p
+                      className="text-ink-700 leading-[1.6] mb-3 max-w-2xl"
+                      style={{
+                        fontFamily: 'Pretendard, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '0.9rem',
+                      }}
+                    >
+                      {p.rationale}
+                    </p>
+                  )}
+                  <div className="flex items-center gap-3 flex-wrap">
+                    {p.source && (
+                      <span
+                        className="text-[0.6rem] uppercase tracking-[0.28em] text-ink-500"
+                        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                      >
+                        → {p.source}
+                      </span>
+                    )}
+                    {p.purchaseUrl && p.purchaseUrl !== '#' ? (
+                      <a
+                        href={p.purchaseUrl}
+                        target="_blank"
+                        rel="noopener sponsored nofollow"
+                        className="inline-flex items-center gap-2 rounded-full border border-ink-900 bg-transparent text-ink-900 px-4 py-1.5 text-[0.65rem] uppercase tracking-[0.28em] hover:bg-ink-900 hover:text-white transition-colors"
+                        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}
+                      >
+                        구매 →
+                      </a>
+                    ) : (
+                      <span
+                        className="text-[0.6rem] uppercase tracking-[0.28em] text-ink-400"
+                        style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+                      >
+                        구매 링크 준비 중 · AD · DISCLOSURE
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </aside>
           )
         }
 

@@ -2,7 +2,7 @@
 // 매거진 톤 — "별점·TOP 10" 금지. 각 상품 = 한 사람의 longevity 변수에 직결되는 도구.
 // 어필리에이트 링크는 사용자가 직접 채워넣는 placeholder. 초기엔 무링크 표시만.
 
-export type LongevityTrack = 'move' | 'eat' | 'sleep' | 'mind' | 'track'
+export type LongevityTrack = 'move' | 'eat' | 'sleep' | 'mind' | 'track' | 'skin'
 
 export interface LongevityProduct {
   id: string
@@ -262,6 +262,47 @@ export const LONGEVITY_PRODUCTS: LongevityProduct[] = [
     oneLine: '50세 이후 1순위 단일 측정 — 5분짜리 생명 데이터.',
     rationale: '고혈압 환자의 50%가 자기 혈압을 모른다 (KDCA 2022). 매주 한 번 아침에 측정 → 평균값을 의사에게.',
   },
+  // ─────────────── SKIN — 피부 노화 (AGAINST N°001) ───────────────
+  {
+    id: 'tinted-sunscreen-iron-oxide',
+    track: 'skin',
+    name: 'Heliocare 360 Color Gel Oil-Free',
+    brand: 'Heliocare (스페인) · 또는 EltaMD UV Daily Tinted',
+    priceLabel: '₩45,000~58,000',
+    oneLine: '블루라이트(HEV)까지 가리는 색조 자외선 차단제 — 일반 SPF가 못 막는 자리.',
+    rationale: 'iron oxide 함유 — 자외선 + 가시광선(블루라이트)을 둘 다 차단. 모니터 9시간 시대의 새 표준. 22명 in vivo 실험에서 HEV가 UVA1과 동등한 피부 손상을 일으킨다는 사실(J Invest Dermatol 2010) 이후, 미국·유럽 피부과의 새 권장 제품군.',
+    source: 'Mahmoud · J Invest Dermatol · 2010',
+  },
+  {
+    id: 'silk-pillowcase-mommesilk',
+    track: 'skin',
+    name: '실크 베갯잇 22-momme',
+    brand: 'Mommesilk · 또는 한국 실크 브랜드',
+    priceLabel: '₩35,000~80,000',
+    oneLine: '면 베갯잇의 마찰을 30% 줄여 수면 주름의 깊이를 막는 단일 도구.',
+    rationale: '4,510명 분석 — 옆자세로 자는 사람의 한쪽 얼굴 주름이 반대편보다 28% 깊다(Aesthetic Surg J 2016). 등을 대고 자는 게 정답이지만 어려운 자리. 실크 베갯잇이 마찰을 30% 감소시켜 차선책이 된다(J Cosmet Dermatol 2019). 22-momme(중량) 이상이 의학적 권장.',
+    source: 'Anson · Aesthetic Surg J · 2016',
+  },
+  {
+    id: 'probiotics-lacto-bifido',
+    track: 'skin',
+    name: '프로바이오틱스 락토 + 비피도 (10조 CFU+)',
+    brand: '락토핏 · 종근당 락토엔자임 · 바이오마',
+    priceLabel: '₩30,000~60,000 / 1개월',
+    oneLine: '8주 RCT — 피부 hydration 17%·탄력 13% 상승의 단일 변수.',
+    rationale: '장-피부 축(Gut-Skin Axis) — 장내 다양성이 피부 염증·여드름·홍반·노화를 직접 결정한다(Salem · Front Microbiol 2018). 락토바실러스 + 비피도박테리움 다균주 + 일일 10조 CFU 이상이 권장. 8주 RCT에서 피부 수분·탄력·TEWL 모두 유의미한 개선(Negari · Biomed Pharmacother 2021).',
+    source: 'Salem · Front Microbiol · 2018',
+  },
+  {
+    id: 'humidifier-balmuda',
+    track: 'skin',
+    name: 'Rain 가습기 / 또는 샤오미 Mi Humidifier',
+    brand: 'BALMUDA · Xiaomi',
+    priceLabel: '₩50,000~600,000',
+    oneLine: '겨울 사무실 습도 25% → 45%로 올리는 단일 도구.',
+    rationale: '한국 겨울 사무실 평균 습도 22~28%(산업안전보건연구원 2022) — 의학적 임계선(30%) 아래. 습도 30% 미만이면 경피수분손실(TEWL)이 25% 증가하고 피부 장벽이 약화된다(JEADV 2016). 가습기 한 대로 침실·사무실 한 곳을 30~50% 사이에 유지.',
+    source: 'Engebretsen · JEADV · 2016',
+  },
   {
     id: 'freestyle-libre-3',
     track: 'track',
@@ -279,6 +320,11 @@ export const PRODUCT_TRACK_META: Record<
   LongevityTrack,
   { title: string; subtitle: string; intro: string }
 > = {
+  skin: {
+    title: 'SKIN · 피부 노화',
+    subtitle: '블루라이트·수면·습도·장-피부·ALDH2',
+    intro: '피부 노화의 80%는 환경이 결정한다. 진료실의 첫 줄(자외선·금연·잠·수분·미세먼지) 너머에 박혀 있는 다섯 변수 — 그것을 매일 통제하는 도구들.',
+  },
   move: {
     title: 'MOVE · 운동',
     subtitle: 'Zone 2 · 근력 · VO2max',

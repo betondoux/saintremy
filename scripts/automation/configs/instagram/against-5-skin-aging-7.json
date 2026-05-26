@@ -1,0 +1,85 @@
+{
+  "slug": "against-5-skin-aging-7",
+  "category": "AGAINST · N°001",
+  "series": "SAINT-RÉMY · AGAINST N°001",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "AGAINST N°001",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/00.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "피부과 의사가 알려주지 않는",
+        "피부 노화 5가지."
+      ],
+      "sub": "자외선·금연·잠·수분·미세먼지 너머의 자리"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 블루라이트",
+      "title": "매일 모니터 9시간이 햇빛 45분과 같다.",
+      "lead": "근데 자외선 차단제로는 못 막습니다.",
+      "body": "이유는 단순합니다. SPF 자외선 차단제는 'UV'를 막는 도구입니다. 모니터·핸드폰에서 나오는 블루라이트는 그 옆 파장 — UV가 아닌 가시광선 영역입니다. 같은 자외선 차단제로는 못 가립니다.\n\n그런데 효과는 똑같습니다. 22명을 직접 빛에 노출시킨 실험 — 블루라이트가 자외선과 동등한 색소 침착과 홍반을 일으켰습니다 (J Invest Dermatol 2010). 한국 직장인 평균 화면 시간 9.3시간/일 (NIA 2023). 매일 누적되는 자리.\n\n그래서 일반 SPF 위에 한 단계가 더 필요합니다. 색조(Tinted) 자외선 차단제 또는 iron oxide 함유 제품 — 이 두 가지가 블루라이트도 가립니다.\n\n→ 오늘: 평소 자외선 차단제 옆에 Tinted 또는 iron oxide 제품 한 가지 추가.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/01-uv.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 수면 주름",
+      "title": "옆으로 자면 한쪽 얼굴이 30년 뒤 다릅니다.",
+      "lead": "주름의 일부는 표정이 아니라 베개가 만듭니다.",
+      "body": "7~8시간 자면 충분하다고 합니다. 그런데 '어떻게 자느냐'는 다른 문제입니다.\n\n옆으로 30년 자면 — 한쪽 얼굴이 매일 베개에 압박됩니다. 그 압박이 콜라겐 섬유의 방향을 바꿉니다. 30년 같은 자리·같은 강도면 — 영구 주름으로 박힙니다.\n\n4,510명을 분석한 결과 — 옆자세 쪽 얼굴의 주름 깊이가 반대편보다 28% 더 깊었습니다 (Aesthetic Surg J 2016). 같은 사람의 같은 얼굴 두 쪽이 다르게 늙는 자리.\n\n등을 대고 자는 게 정답이지만 어렵습니다. 차선이 있습니다 — 실크 또는 새틴 베갯잇. 면 베갯잇의 마찰을 30% 줄입니다 (J Cosmet Dermatol 2019).\n\n→ 오늘: 면 베갯잇을 실크/새틴으로. 아침에 한쪽 얼굴 주름 자국이 30분 넘게 남으면 — 이미 시작된 신호.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/02-smoke.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 사무실 습도",
+      "title": "겨울 사무실 25% 습도가 매일 피부를 깎습니다.",
+      "lead": "에어컨·난방이 미세먼지보다 조용히 늙힙니다.",
+      "body": "피부의 가장 바깥은 머리카락 1/4 두께의 얇은 층 — '각질층'입니다. 그게 물이 새 나가는 걸 막는 장벽 역할을 합니다.\n\n그 장벽은 주변 공기 건조함에 직접 반응합니다. 습도가 30% 미만이면 — 피부에서 물이 새 나가는 양이 25% 증가합니다. 장벽 기능 저하 (메타분석, JEADV 2016).\n\n한국 겨울 사무실 평균 — 22~28% (산업안전보건연구원 2022). 의학적 임계선 아래입니다. 비행기 내부 평균 10~15% — 장거리 비행 한 번이 1주일 분량의 피부 손상 (Acta Otolaryngol 2002).\n\n자외선·미세먼지를 다 차단해도 — 매일 8시간 앉아 있는 사무실 공기가 피부 장벽을 조용히 깎습니다.\n\n→ 오늘: 사무실·침실에 습도계 한 개. 30~50% 사이 유지. 미만이면 가습기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/03-sleep.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 장-피부 축",
+      "title": "배 안의 균이 얼굴의 염증을 결정합니다.",
+      "lead": "여드름·홍반·주름의 출발점이 사실은 장입니다.",
+      "body": "최근 10년 안에 합의된 새 분야입니다 — 'Gut-Skin Axis' (장-피부 축).\n\n메커니즘은 단순합니다. 장 안의 나쁜 균이 늘면 — 내독소(LPS)가 혈관으로 새어 들어갑니다(leaky gut). 그 독소가 전신 만성 염증을 일으키고, 그 염증이 피부에 도달합니다. 여드름·아토피·홍반·주름의 공통 출발점.\n\n증명도 있습니다. 60명에게 8주 프로바이오틱스를 준 RCT — 피부 hydration 17% 상승, 탄력 13% 상승, 수분 손실 감소 (Biomed Pharmacother 2021). 장이 좋아지면 얼굴이 좋아진다는 의학의 8주 실험.\n\n다양성을 높이는 방법은 단순합니다. 발효식품과 식이섬유. 한국 식단의 김치·된장·청국장과 통곡물·콩. 4주 안에 회복됩니다.\n\n→ 오늘: 한 끼에 발효식품 한 가지 (김치 한 줌 또는 그릭요거트). 일주일에 통곡물+콩 5회 이상.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/04-sugar.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / ALDH2 변이",
+      "title": "한국인 절반이 술 한 잔에 피부가 늙는 유전자.",
+      "lead": "얼굴이 빨개지는 사람은 — 같은 술이 더 위험합니다.",
+      "body": "알코올은 몸 안에서 두 단계로 분해됩니다. 알코올 → '아세트알데히드' → 아세트산. 두 번째 단계의 효소 이름이 ALDH2입니다.\n\nALDH2가 약하면 — 중간 분자인 아세트알데히드가 몸에 쌓입니다. 이 분자가 WHO IARC가 정한 Group 1 발암물질 — 담배·석면과 같은 등급입니다.\n\n동아시아인의 약 50%가 ALDH2 변이를 가지고 있습니다. 한·일·중·대만에서만 나타나는 유전자 변이. 시각적 신호 — 술 한 잔에 얼굴이 빨개진다.\n\n4,000명 한국·일본 코호트 — ALDH2 변이자의 피부 텔로미어(세포 노화 시계)가 비변이자보다 9% 짧았습니다 (Sci Rep 2020). 같은 술이 다른 사람보다 피부를 더 빠르게 늙힙니다.\n\n→ 오늘: 술 한 잔에 얼굴이 빨개진다면 — 주당 0~2잔 이하. 자기 3시간 전 무조건 0잔.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/against-5-skin-aging/05-dust.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "SAINT-RÉMY · AGAINST N°001",
+      "quote": "진료실의 첫 줄 (자외선·금연·잠·수분·미세먼지) 은 이미 옳습니다. 그 다섯 가지를 다 통제해도 피부가 늙는다면 — 오늘 본 다섯 가지가 그 자리에 있습니다.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "AGAINST N°001 · 풀 본문 + 1차 자료 13건",
+      "sources": [
+        {"title": "Blue light & skin (UVA1 동등 효과)", "source": "Mahmoud · J Invest Dermatol · 2010"},
+        {"title": "Sleep Wrinkles — 4,510명", "source": "Anson · Aesthetic Surg J · 2016"},
+        {"title": "Humidity & skin barrier 메타", "source": "Engebretsen · JEADV · 2016"},
+        {"title": "Gut-Skin Axis 종설", "source": "Salem · Front Microbiol · 2018"},
+        {"title": "Probiotics & skin RCT", "source": "Negari · Biomed Pharmacother · 2021"},
+        {"title": "ALDH2 변이 & 발암", "source": "Brooks · PLOS Medicine · 2009"}
+      ]
+    }
+  ]
+}
