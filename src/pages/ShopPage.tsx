@@ -30,24 +30,17 @@ function Disclosure() {
 }
 
 function ProductCard({ p }: { p: LongevityProduct }) {
+  const imgSrc = p.imageUrl ?? `/images/shop/${p.id}.jpg`
   return (
     <article className="border-t border-ink-900/10 py-8 md:py-10 grid md:grid-cols-12 gap-6 md:gap-8">
-      <div className="md:col-span-4 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden flex items-center justify-center">
-        {p.imageUrl ? (
-          <img
-            src={p.imageUrl}
-            alt={p.name}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <span
-            className="text-ink-900/30 uppercase tracking-[0.32em] text-[0.7rem] text-center px-4"
-            style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
-          >
-            {p.brand}
-          </span>
-        )}
+      <div className="md:col-span-4 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden">
+        <img
+          src={imgSrc}
+          alt={p.name}
+          className="w-full h-full object-cover"
+          style={{ filter: 'contrast(1.03)' }}
+          loading="lazy"
+        />
       </div>
       <div className="md:col-span-8">
         <div

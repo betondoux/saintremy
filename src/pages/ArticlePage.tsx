@@ -240,22 +240,14 @@ export function ArticlePage() {
               RECOMMENDED · {article.category.toUpperCase()}
             </div>
             <div className="grid md:grid-cols-12 gap-6 items-start">
-              <div className="md:col-span-3 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden flex items-center justify-center">
-                {p.imageUrl ? (
-                  <img
-                    src={p.imageUrl}
-                    alt={p.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span
-                    className="text-ink-900/30 uppercase tracking-[0.32em] text-[0.65rem] text-center px-3"
-                    style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
-                  >
-                    {p.brand}
-                  </span>
-                )}
+              <div className="md:col-span-3 aspect-square bg-ink-900/[0.04] rounded-2xl overflow-hidden">
+                <img
+                  src={p.imageUrl ?? `/images/shop/${p.id}.jpg`}
+                  alt={p.name}
+                  className="w-full h-full object-cover"
+                  style={{ filter: 'contrast(1.03)' }}
+                  loading="lazy"
+                />
               </div>
               <div className="md:col-span-9">
                 <div
