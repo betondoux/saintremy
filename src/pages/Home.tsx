@@ -340,11 +340,12 @@ export function Home() {
               SECTIONS
             </div>
             <nav className="flex flex-col gap-1.5 text-white/80 text-sm" style={{ fontFamily: 'Pretendard, sans-serif' }}>
-              <Link to="/story" className="hover:text-white">Stories</Link>
-              <Link to="/style" className="hover:text-white">Style</Link>
-              <Link to="/space" className="hover:text-white">Space</Link>
-              <Link to="/travel" className="hover:text-white">Travel</Link>
-              <Link to="/music" className="hover:text-white">Music</Link>
+              <Link to="/move"    className="hover:text-white">Move · 운동</Link>
+              <Link to="/eat"     className="hover:text-white">Eat · 식단</Link>
+              <Link to="/sleep"   className="hover:text-white">Sleep · 수면</Link>
+              <Link to="/mind"    className="hover:text-white">Mind · 정신</Link>
+              <Link to="/track"   className="hover:text-white">Track · 측정</Link>
+              <Link to="/stories" className="hover:text-white">Stories · 인물</Link>
             </nav>
           </div>
           <div>

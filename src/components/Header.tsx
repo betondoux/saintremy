@@ -7,12 +7,13 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const NAV_ITEMS = [
-  { to: '/story', label: 'STORIES' },
-  { to: '/style', label: 'STYLE' },
-  { to: '/space', label: 'SPACE' },
-  { to: '/travel', label: 'TRAVEL' },
-  { to: '/music', label: 'MUSIC' },
-  { to: '/about', label: 'ABOUT' },
+  { to: '/move',    label: 'MOVE' },
+  { to: '/eat',     label: 'EAT' },
+  { to: '/sleep',   label: 'SLEEP' },
+  { to: '/mind',    label: 'MIND' },
+  { to: '/track',   label: 'TRACK' },
+  { to: '/stories', label: 'STORIES' },
+  { to: '/about',   label: 'ABOUT' },
 ]
 
 export function Header() {

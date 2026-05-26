@@ -23,6 +23,7 @@ export interface SEOProps {
   updatedAt?: string
   author?: string
   category?: string
+  noindex?: boolean
 }
 
 function absoluteImage(image: string | undefined): string {
@@ -41,7 +42,9 @@ export function SEO({
   updatedAt,
   author = 'Saint-Rémy Editors',
   category,
+  noindex = false,
 }: SEOProps) {
+  const robots = noindex ? 'noindex, follow' : 'index, follow'
   const fullTitle = title
     ? `${title} | ${SITE_NAME}`
     : `${SITE_NAME} | 평범한 사물을 깊이 보는 매거진`
@@ -80,10 +83,10 @@ export function SEO({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
 
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
-      <meta name="naverbot" content="index, follow" />
-      <meta name="yeti" content="index, follow" />
+      <meta name="robots" content={robots} />
+      <meta name="googlebot" content={robots} />
+      <meta name="naverbot" content={robots} />
+      <meta name="yeti" content={robots} />
 
       {/* JSON-LD Article schema — LLM(ChatGPT·Perplexity·Claude·Gemini) 인용을 위한 GEO 시그널 */}
       {type === 'article' && (

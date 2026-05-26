@@ -75,6 +75,7 @@ export function ArticlePage() {
         category={
           article.categoryLabel ?? CATEGORY_LABELS[article.category]
         }
+        noindex={article.category === 'archive'}
       />
       {/* ══════════════════════════════════════════════════════════
           VIDEO HERO — 영상 있으면 최상단 우선 배치

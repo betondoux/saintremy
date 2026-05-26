@@ -12,17 +12,15 @@ const ROOT = process.cwd()
 const ARTICLES_JSON = join(ROOT, 'src/generated/articles.json')
 const OUTPUT = join(ROOT, 'public/sitemap.xml')
 
-// 실제 App.tsx 에 살아있는 카테고리 slug (2026-05-26 기준 매거진 톤 피벗 후).
-// 옛 11개 중 redirect-only (gift/deal/beauty/kitchen/move/furniture/living) 는 제거 —
-// sitemap 에 박혀 있으면 Google이 색인 실패 페이지로 분류 (Search Console: "리디렉션이 포함된 페이지").
+// 저속노화 매거진 5트랙 + STORIES (2026-05-26 피벗 후).
+// archive 는 sitemap 에서 제외 — 매거진 본 흐름 아님, GSC 색인 우선순위에서 빠짐.
 const CATEGORIES = [
-  'story',
-  'style',
-  'home',
-  'deals',
-  'space',
-  'travel',
-  'music',
+  'move',
+  'eat',
+  'sleep',
+  'mind',
+  'track',
+  'stories',
 ] as const
 
 type ChangeFreq =
@@ -87,12 +85,15 @@ function buildUrls(articles: ArticleRow[]): SitemapUrl[] {
     priority: '0.8',
   }))
 
-  const articleUrls: SitemapUrl[] = articles.map((a) => ({
-    loc: `${BASE_URL}/a/${a.slug}/`,
-    lastmod: a.updated ?? a.published ?? now,
-    changefreq: 'monthly',
-    priority: '0.7',
-  }))
+  // archive 글은 sitemap 에서 제외 — Google 색인 우선순위에서 빠짐 (페이지 자체는 접근 가능)
+  const articleUrls: SitemapUrl[] = articles
+    .filter((a) => a.category !== 'archive')
+    .map((a) => ({
+      loc: `${BASE_URL}/a/${a.slug}/`,
+      lastmod: a.updated ?? a.published ?? now,
+      changefreq: 'monthly',
+      priority: '0.7',
+    }))
 
   return [...staticUrls, ...categoryUrls, ...articleUrls]
 }

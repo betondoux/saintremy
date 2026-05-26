@@ -6,32 +6,47 @@
 
 import articlesData from '../generated/articles.json'
 
-// 11개 카테고리 (URL slug 기준 영문)
+// 7개 카테고리 — 저속노화 매거진 (2026-05-26 피벗 후)
+// 5트랙 (MOVE/EAT/SLEEP/MIND/TRACK) + STORIES (인물·문화 매거진 글) + ARCHIVE (옛 어필리에이트, noindex)
 export type Category =
+  | 'move'
+  | 'eat'
+  | 'sleep'
+  | 'mind'
+  | 'track'
+  | 'stories'
+  | 'archive'
 
-  | 'style'
-  | 'home'
-  | 'space'
-  | 'deals'
-  | 'travel'
-  | 'music'
-  | 'story'// 기존 6개 스포츠 카테고리 타입 (Notion 데이터 호환용)
-type LegacySportCategory =
-  | 'lift'
-  | 'combat'
-  | 'football'
-  | 'run'
-  | 'flow'
-  | 'court'
+// 옛 카테고리 (style/home/space/deals/travel/music/story) + 스포츠(lift/combat/etc) → 새 카테고리로 매핑
+type LegacyCategory =
+  | 'style' | 'home' | 'space' | 'deals' | 'travel' | 'music' | 'story'
+  | 'lift' | 'combat' | 'football' | 'run' | 'flow' | 'court'
+  | 'beauty' | 'kitchen' | 'furniture' | 'living' | 'gift' | 'deal' | 'move-old'
 
-// 기존 6개 → 'move'로 매핑 (레거시 호환)
-const LEGACY_TO_MOVE: Record<LegacySportCategory, Category> = {
-  lift: 'space',
-  combat: 'space',
-  football: 'space',
-  run: 'space',
-  flow: 'space',
-  court: 'space',
+const LEGACY_TO_NEW: Record<LegacyCategory, Category> = {
+  // 매거진 톤 카테고리 → stories (인물·문화 매거진 글)
+  story:     'stories',
+  music:     'stories',
+  // 어필리에이트 잔존 → archive (옛 글)
+  style:     'archive',
+  home:      'archive',
+  deals:     'archive',
+  travel:    'archive',
+  space:     'archive',
+  beauty:    'archive',
+  kitchen:   'archive',
+  furniture: 'archive',
+  living:    'archive',
+  gift:      'archive',
+  deal:      'archive',
+  // 옛 스포츠 카테고리 → move (운동)
+  lift:      'move',
+  combat:    'move',
+  football:  'move',
+  run:       'move',
+  flow:      'move',
+  court:     'move',
+  'move-old': 'move',
 }
 
 export interface Source {
@@ -234,52 +249,84 @@ export interface Article {
 // Bilingual 카테고리 라벨 — 모바일 네비/카드/뱃지/필터 공용
 // 형식: "English (한글)" — UI가 너무 한글 일색이지 않도록.
 export const CATEGORY_LABELS: Record<Category, string> = {
-  style: 'Style (스타일)',
-  home: 'Home (살림)',
-  space: 'Space (공간)',
-  deals: 'Deals (딜)',
-  travel: 'Travel (여행)',
-  music: 'Music (음악)',
-  story: 'Story (인물)',
+  move:    'Move (운동)',
+  eat:     'Eat (식단)',
+  sleep:   'Sleep (수면)',
+  mind:    'Mind (정신)',
+  track:   'Track (측정)',
+  stories: 'Stories (인물·문화)',
+  archive: 'Archive (이전 글)',
 }
 
 // 데스크탑 네비 전용 — 공간이 좁아 영문 단축 표기.
 export const CATEGORY_SHORT_LABELS: Record<Category, string> = {
-  style: 'Style',
-  home: 'Home',
-  space: 'Space',
-  deals: 'Deals',
-  travel: 'Travel',
-  music: 'Music',
-  story: 'Story',
+  move:    'Move',
+  eat:     'Eat',
+  sleep:   'Sleep',
+  mind:    'Mind',
+  track:   'Track',
+  stories: 'Stories',
+  archive: 'Archive',
 }
 
-// 카테고리 메타 정보 (서브타이틀, 아이콘)
+// 카테고리 메타 정보 (제목·서브타이틀·매거진 인트로 카피)
 export const CATEGORY_META: Record<
   Category,
-  { title: string; subtitle: string; icon: string }
+  { title: string; subtitle: string; icon: string; intro?: string }
 > = {
-  style: { title: 'Style', subtitle: '취향과 일상의 도구', icon: '✦' },
-  home: { title: 'Home', subtitle: '살림과 살림살이', icon: '❦' },
-  space: { title: 'Space', subtitle: '머무는 공간의 결', icon: '❧' },
-  deals: { title: 'Deals', subtitle: '이번 주 검증된 가격', icon: '✦' },
-  travel: { title: 'Travel', subtitle: '여행과 도시의 기록', icon: '❦' },
-  music: { title: 'Music', subtitle: '듣는 시간의 깊이', icon: '❧' },
-  story: { title: 'Story', subtitle: '한 사람을 깊이 보는 매거진', icon: '✦' },
+  move: {
+    title: 'MOVE',
+    subtitle: '운동 — Zone 2, 근력, 그리고 매일의 45분',
+    icon: '✦',
+    intro: '심폐 체력은 사망률 1순위 예측 변수다. 옆 사람과 대화는 되지만 노래는 안 되는 강도로 매일 걷는 것 — 그 단순한 행위가 한 사람의 생물학적 나이를 좌우한다.',
+  },
+  eat: {
+    title: 'EAT',
+    subtitle: '식단 — 단백질, 발효, 그리고 한 끼의 무게',
+    icon: '❦',
+    intro: '저속노화 식단의 첫 줄은 칼로리 제한이 아니라 단백질 충분량이다. 한 끼 30g, 하루 90g — 한국인 평균의 1.5배. 그리고 초가공식품 한 가지를 식단에서 빼는 일.',
+  },
+  sleep: {
+    title: 'SLEEP',
+    subtitle: '수면 — 7~8시간이라는 단단한 자리',
+    icon: '❧',
+    intro: '잠과 사망률의 관계는 U자형이다. 6시간 미만은 12%, 9시간 초과는 30% 상승. 그 사이 7~8시간 — 마지막 카페인은 잠 8시간 전, 마지막 술은 잠 3시간 전.',
+  },
+  mind: {
+    title: 'MIND',
+    subtitle: '정신 — 스트레스, 호흡, 그리고 세포의 시계',
+    icon: '✦',
+    intro: '세포 끝에 작은 보호 캡이 있다. 만성 스트레스가 그것을 가장 빠르게 깎는다. 다시 늘리는 변수는 하나 — 매일 10분의 호흡.',
+  },
+  track: {
+    title: 'TRACK',
+    subtitle: '측정 — Whoop, Oura, 그리고 매일의 데이터',
+    icon: '❦',
+    intro: '저속노화는 측정하지 않으면 늦춰지지 않는다. 심박·수면·HRV·VO2max. Bryan Johnson은 매일 75개의 변수를 측정한다. 한 사람의 신체를 데이터로 본다는 것은 무엇인가.',
+  },
+  stories: {
+    title: 'STORIES',
+    subtitle: '한 사람의 30년을 길게 본다',
+    icon: '❧',
+    intro: '한 사람의 일생을 길게 보면, 매일의 반복이 그 사람을 만든다. RITUAL · PROTOCOL · PEOPLE — 인물과 데이터, 두 축으로 따라간다.',
+  },
+  archive: {
+    title: 'Archive',
+    subtitle: '이전 글 모음',
+    icon: '·',
+    intro: '저속노화 매거진으로 피벗하기 전(2026-05-26 이전)에 발행된 글들. 매거진 본 흐름에서는 빠져 있으나 자료 가치 보존을 위해 유지한다.',
+  },
 }
 
-// 모든 유효한 카테고리 (타입 가드용)
-// 햄버거 메뉴 노출 순서: 콘텐츠 있는 카테고리(Deal/Gift/Beauty/Music/Style/
-// Furniture/Kitchen) 앞쪽 → Coming soon (Space/Move/Travel/Living) 뒤쪽.
-// 2026-04-26: desk 카테고리 폐지 — 책상 관련 콘텐츠는 furniture로 통합.
+// 모든 유효한 카테고리 (타입 가드용) — Nav 노출 순서
 export const ALL_CATEGORIES: Category[] = [
-  'story',
-  'style',
-  'home',
-  'space',
-  'deals',
-  'travel',
-  'music',
+  'move',
+  'eat',
+  'sleep',
+  'mind',
+  'track',
+  'stories',
+  'archive',
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -298,14 +345,14 @@ const neutralize = (text: string | undefined): string =>
 
 // 레거시 카테고리를 현재 카테고리로 변환
 const normalizeCategory = (cat: string): Category => {
-  if (cat in LEGACY_TO_MOVE) {
-    return LEGACY_TO_MOVE[cat as LegacySportCategory]
+  if (cat in LEGACY_TO_NEW) {
+    return LEGACY_TO_NEW[cat as LegacyCategory]
   }
   if (ALL_CATEGORIES.includes(cat as Category)) {
     return cat as Category
   }
-  // 미지의 카테고리는 일단 'living'으로 fallback (안전)
-  return 'home'
+  // 미지의 카테고리는 archive로 fallback (안전)
+  return 'archive'
 }
 
 type RawArticle = Omit<Article, 'category'> & { category: string }

@@ -47,16 +47,37 @@ export function CategoryPage() {
     <div className="max-w-4xl mx-auto px-6 py-10">
       <SEO
         title={`${meta.title} — Saint-Rémy`}
-        description={`${meta.subtitle} Saint-Rémy의 ${meta.title} 카테고리 큐레이션.`}
+        description={meta.intro ?? `${meta.subtitle} Saint-Rémy의 ${meta.title} 카테고리 큐레이션.`}
         path={`/${categoryCandidate}`}
+        noindex={categoryCandidate === 'archive'}
       />
-      <header className="text-center mb-10 pb-8 border-b-2 border-ink-900">
-        <div className="text-5xl mb-3">{meta.icon}</div>
-        <h1 className="headline-ko text-5xl md:text-6xl text-ink-900 leading-none">
+      <header className="mb-12 md:mb-16 pb-10 border-b border-ink-900/20">
+        <div
+          className="text-[0.65rem] uppercase tracking-[0.32em] text-ink-500 mb-6"
+          style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}
+        >
+          SAINT-RÉMY · {meta.title}
+        </div>
+        <h1
+          className="text-ink-900 leading-[0.85] uppercase select-none mb-8"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4rem, 18vw, 14rem)',
+            letterSpacing: '-0.055em',
+          }}
+        >
           {meta.title}
         </h1>
-        <p className="body-text text-ink-500 max-w-xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-          {meta.subtitle}
+        <p
+          className="text-ink-700 leading-[1.6] max-w-2xl"
+          style={{
+            fontFamily: 'Pretendard, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1.05rem, 1.4vw, 1.25rem)',
+          }}
+        >
+          {meta.intro ?? meta.subtitle}
         </p>
       </header>
 
