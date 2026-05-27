@@ -302,6 +302,18 @@ export const LONGEVITY_PRODUCTS: LongevityProduct[] = [
     imageUrl: "/images/shop/probiotics-lacto-bifido.jpg",
   },
   {
+    id: 'massage-gun-theragun',
+    track: 'skin',
+    name: '보미디 진동 마사지건 MG6 (듀얼 헤드)',
+    brand: '보미디 (쿠팡)',
+    priceLabel: '₩52,900',
+    oneLine: 'NormaTec·Theragun의 한국 대중판 — 르브론 회복의 단순화된 입구.',
+    rationale: 'Cheatham et al., *Int J Sports Phys Ther* 2016 — 마사지건이 운동 후 지연성 근육통(DOMS)을 50% 감소시킨다는 메타분석. 르브론·NBA 선수의 1.5M 달러 회복 시스템 중 일반인이 가장 쉽게 따라할 수 있는 단일 도구.',
+    source: 'Cheatham · Int J Sports Phys Ther · 2016',
+    imageUrl: '/images/shop/massage-gun-theragun.jpg',
+    purchaseUrl: 'https://link.coupang.com/re/AFFSDP?lptag=AF7233291&pageKey=9513904904&itemId=28353563013&vendorItemId=95366679616&traceid=V0-153-0f3024f36d869226&clickBeacon=44602480-5960-11f1-80c1-2e0593fc6ce7%7E3&requestid=20260527090902336293887071&token=31850C%7CMIXED',
+  },
+  {
     id: 'humidifier-balmuda',
     track: 'skin',
     name: "돌아라 4L 대용량 가습기 USB 듀얼분무 무드등",

@@ -1,0 +1,85 @@
+{
+  "slug": "ritual-lebron-7",
+  "category": "RITUAL · SPORTS",
+  "series": "SAINT-RÉMY · RITUAL N°004",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "RITUAL N°004",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/00.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "84년생이 22시즌째",
+        "NBA를 뛰는 비결."
+      ],
+      "sub": "LEBRON JAMES · RITUAL N°004"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 잠 8~10시간",
+      "title": "그가 매일 가장 신경 쓰는 단 하나.",
+      "lead": "20년 같은 트레이너 마이크 만시아스의 한 줄 — '잠이 가장 강력한 회복 도구.'",
+      "body": "NBA 일정은 하루 두 도시 이동 + 자정 가까운 종료. 그 안에서 매일 8~10시간 자는 건 의도 없이는 불가능합니다.\n\n르브론의 잠 환경은 정밀합니다.\n\n침실 온도 18~21°C (호텔 방에서도 같은 설정).\n잠 30~45분 전 화면 끄기.\n입면 보조로 Calm 명상 앱.\n\n늦은 경기 다음날엔 낮잠 추가. 만시아스가 매일 르브론에게 '어젯밤 몇 시간 잤어?' 직접 확인 전화.\n\n20억 원짜리 회복 시스템에서 가장 효과가 큰 변수가 — 무료입니다.\n\n→ 오늘: 침실 18~21°C 맞추고 잠 30분 전 화면 끄기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/01-sleep.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 반염증 식단",
+      "title": "풀타임 셰프가 짜는 한 끼. 설탕 0.",
+      "lead": "가공 안 한 자연 식품 + 항염증. 그게 르브론 식단의 두 단어입니다.",
+      "body": "안 먹는 것 — 설탕, 튀김, 가공식품. 본인 어휘로 '설탕은 회복을 늦춥니다.'\n\n먹는 것 — 살코기 단백질, 복합 탄수화물, 좋은 지방, 항염증 채소. 식탁 단골이 연어·아보카도·퀴노아·시금치·블루베리.\n\n특이한 점 하나. 다른 longevity 식단은 탄수화물을 줄이지만 르브론은 충분히 먹습니다. 농구가 고강도 폭발 운동이라 근육 안의 글리코겐이 결정적이기 때문입니다.\n\n세 끼 모두 단백질 — 체중 1kg당 1.6~2.0g. 르브론이 113kg이니 하루 180~225g. 일반인 권장량의 3배.\n\n→ 오늘: 한 끼에 단백질 30g. 계란 2개 + 닭가슴살 한 줌 + 두부 반 모.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/02-eat.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 회복 도구",
+      "title": "20억 원의 절반은 회복에 들어갑니다.",
+      "lead": "이름이 어려운 다섯 가지 도구. 그러나 집에서 따라할 수 있습니다.",
+      "body": "르브론의 회복 도구 다섯 가지.\n\n영하 156°C 전신 냉기 챔버 (cryotherapy).\n고압산소실 (hyperbaric).\n공기압 다리 부츠 (NormaTec).\n얼음물 풀 (cold plunge).\n적색광 치료 (red light).\n\n다섯 가지 모두 — 집에서 작게 따라할 수 있습니다. 얼음물 풀은 욕조로, NormaTec은 공기압 마사지기로, red light는 적색광 패널로.\n\n가장 단순한 입구가 마사지건입니다. 매일 2~3분 사용 시 운동 후 근육통을 50% 감소 (Int J Sports Phys Ther 2016).\n\n20억 원의 비밀 — 회복은 비싸지만 단순합니다. 마사지건 + 좋은 잠 + 깨끗한 식단 = 르브론 회복의 90%.\n\n→ 오늘: 운동 후 또는 잠 전 마사지건 2~3분.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/03-recovery.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 트레이닝",
+      "title": "매일 똑같이 훈련하지 않습니다.",
+      "lead": "트레이너의 어휘 — '균형·장수·파워를 위해 훈련한다. 처벌이 아니다.'",
+      "body": "NBA의 일반 시스템은 시즌 전 강도 높은 훈련 + 시즌 중 유지. 르브론은 반대입니다. 그날 컨디션에 따라 강도·종류·시간이 매일 다릅니다.\n\n그래도 기본 변수는 같습니다.\n\n근력 — 주 3~4회, 60% 강도 고반복.\n유연성과 모빌리티 — 매일 30~45분.\n코어 — 매일 15분.\n균형 운동 — 외다리, 균형 보드.\n\n이 기본을 매일 컨디션에 맞춰 조합합니다.\n\n일반인이 따라할 수 있는 가장 단순한 시작 — 케틀벨 한 개. Farmer's Walk·Goblet Squat·Swing 세 가지 운동이 케틀벨 하나로 다 됩니다. Peter Attia도 본인 책 Outlive에서 1순위로 추천하는 도구.\n\n→ 오늘: 케틀벨 16kg 한 개. 주 3회, 세 운동 각 10분.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/04-training.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 시간",
+      "title": "그가 사는 건 도구가 아닙니다. 시간입니다.",
+      "lead": "20억 원은 회복 기계가 아니라 사람 7명을 사는 데 들어갑니다.",
+      "body": "전담 팀 7명.\n\n20년 같은 트레이너.\n영양사.\n개인 셰프.\n마사지사.\n침술사.\n요가 강사.\n운동 데이터 분석가.\n\n이 7명이 르브론의 하루를 짭니다. 운동·식단·회복·잠을 자기들이 다 최적화. 르브론 본인은 훈련하고 자고 먹고 경기만 합니다.\n\n본인이 한 줄로 말한 적이 있습니다.\n\n'내가 사는 것은 회복 도구가 아니라 시간이다.'\n\n40대에 신체 정점을 유지하려면 시간이 필요합니다. 보통 사람의 하루엔 그 시간이 안 들어갑니다. 출퇴근·집안일·잡일이 다 차지하니까요.\n\n일반인이 시작할 곳은 한 곳, 측정입니다. 르브론 팀이 매일 하는 일이 측정과 조정. 손목 시계 하나로 시작됩니다.\n\n→ 오늘: 잠·심박·HRV 측정 wearable 한 가지.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/ritual-lebron/05-team.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "closing",
+      "kicker": "SAINT-RÉMY · RITUAL N°004",
+      "quote": "longevity는 결심이 아니라 시스템입니다. 한 사람이 22년 같은 강도로 반복한 다섯 가지가 — 그를 40대에도 NBA 코트에 박습니다.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "RITUAL N°004 · 풀 본문 + 1차 자료 10건",
+      "sources": [
+        {"title": "LeBron James $1.5M biohacking", "source": "Fortune Well · 2024"},
+        {"title": "Mike Mancias 20년 트레이너", "source": "CNBC · 2018 · Olympics.com · 2024"},
+        {"title": "Starting 5 다큐", "source": "Netflix · 2024"},
+        {"title": "마사지건과 DOMS 감소", "source": "Cheatham · Int J Sports Phys Ther · 2016"},
+        {"title": "Outlive — 케틀벨 1순위", "source": "Peter Attia · Crown · 2023"},
+        {"title": "NBA 통산 득점 1위", "source": "ESPN · 38,388점"}
+      ]
+    }
+  ]
+}
