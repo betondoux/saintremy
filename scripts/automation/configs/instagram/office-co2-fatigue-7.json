@@ -1,0 +1,82 @@
+{
+  "slug": "office-co2-fatigue-7",
+  "category": "AGAINST",
+  "series": "SAINT-RÉMY · AGAINST N°002",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "AGAINST N°002",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/00-hook-bg.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4,
+      "title_lines": [
+        "회의실에서 졸린 건",
+        "지루해서가 아닙니다."
+      ],
+      "sub": "그 방의 공기가 당신의 뇌를 끄고 있습니다"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 숫자",
+      "title": "한 시간이면 다섯 배가 됩니다.",
+      "lead": "맑은 바깥 공기는 이산화탄소 400ppm. 닫힌 회의실은 한 시간이면 2,500ppm.",
+      "body": "우리가 숨을 내쉴 때마다 이산화탄소가 나옵니다. 문을 닫고 여럿이 앉아 있으면 그게 갈 곳이 없습니다.\n\nppm은 농도를 재는 단위. 사람이 들어찬 방은 금세 1,000ppm을 넘기고, 환기가 나쁘면 바깥의 여섯 배까지 오릅니다.\n\n문제는 우리 몸이 이걸 '답답함'으로만 느낄 뿐 '위험'으로는 못 느낀다는 점입니다.\n\n→ 오늘: 회의실에 들어가면 창문·환기구부터 확인.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/01-room.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 증거 1",
+      "title": "1,000ppm에서 판단력이 무너집니다.",
+      "lead": "농도가 다른 방에서 의사결정 9가지를 측정한 결과 (Satish 2012).",
+      "body": "1,000ppm — 흔한 사무실 수준 — 에서 이미 9개 중 6개 항목이 눈에 띄게 떨어졌습니다.\n\n2,500ppm에서는 7개가 거의 제 기능을 못 했습니다. 특히 무너진 건 위기 대응, 전략 짜기, 정보를 모아 판단하는 능력.\n\n중요한 결정을 내리려 모인 회의실에서 — 정작 결정에 필요한 머리가 가장 먼저 꺼지고 있던 겁니다.\n\n→ 오늘: 중요한 결정이 걸린 회의는 환기되는 방, 또는 짧게.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/02-decision.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 증거 2",
+      "title": "환기만 바꿔도 인지력이 올라갔습니다.",
+      "lead": "하버드가 사무직 24명을 엿새간 측정 — 환기 좋은 날 점수가 가장 높았다 (Allen 2016).",
+      "body": "환기를 늘려 이산화탄소를 낮춘 환경에서 인지 점수가 일반 사무실보다 크게 높았습니다.\n\n이 연구가 똑똑한 건 다른 조건은 그대로 두고 이산화탄소만 따로 조절했다는 점. '공기 탓'이 우연이 아니라는 걸 보여 줬습니다.\n\n비싼 건강식품보다, 창문 한 번 여는 게 그날 오후의 머리를 살립니다.\n\n→ 오늘: 오후 집중 전, 2분 환기부터.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/03-fresh.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 침실",
+      "title": "자도 안 개운한 이유도 같습니다.",
+      "lead": "침실 환기만 바꿔도 — 더 깊이 자고 다음 날 더 잘했다 (Strøm-Tejsen 2016).",
+      "body": "회의실만의 이야기가 아닙니다. 밤새 문 닫고 자는 침실도 똑같습니다.\n\n자는 동안에도 우리는 계속 숨을 내쉽니다. 좁고 닫힌 침실은 아침이면 이산화탄소가 꽤 올라가 있습니다.\n\n여덟 시간을 자도 개운하지 않았다면, 잠의 길이가 아니라 그 방의 공기를 의심해 볼 수 있습니다.\n\n→ 오늘: 잘 때 창문을 손가락 한 마디만큼 열어 둔다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/04-bedroom.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 오늘",
+      "title": "공기는 가장 싸고 빠른 처방입니다.",
+      "lead": "졸음의 상당 부분이 매일 들이마시는 실내 공기에서 옵니다.",
+      "body": "돈도, 시간도 거의 안 드는 변수입니다.\n\n회의는 가능하면 짧게, 길면 중간에 한 번 문을 연다.\n일하는 자리는 하루 몇 번 환기한다.\n잘 때 침실 문이나 창을 살짝 열어 둔다.\n측정기가 있으면 1,000ppm을 넘기지 않게 본다.\n\n졸음이 오면 커피를 내리기 전에 — 창문을 먼저 열어 보세요.\n\n→ 오늘: 졸리면 커피 대신 창문. 딱 한 번만 바꿔 비교한다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/office-co2-fatigue/05-window.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "",
+      "quote": "졸음은 의지의 문제가 아닙니다. 오후에 머리가 멈추면, 커피보다 먼저 창문을 여세요. 가장 싸고 빠른 처방입니다.",
+      "attribution": "Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "AGAINST N°002 · 풀 본문 + 1차 자료 3건",
+      "sources": [
+        {"title": "1,000ppm에서 의사결정 9개 중 6개 저하", "source": "Satish · Environmental Health Perspectives · 2012"},
+        {"title": "환기 개선 → 인지 점수 크게 상승", "source": "Allen · EHP · 2016 · 하버드 COGfx 24명"},
+        {"title": "침실 환기 개선 → 더 깊은 잠 + 다음 날 수행 향상", "source": "Strøm-Tejsen · Indoor Air · 2016"}
+      ]
+    }
+  ]
+}
