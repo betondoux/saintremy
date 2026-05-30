@@ -1,0 +1,81 @@
+{
+  "slug": "phone-distance-focus-7",
+  "category": "STUDY",
+  "series": "SAINT-RÉMY · STUDY N°001",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STUDY N°001",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/00-hook-bg.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4,
+      "title_lines": [
+        "연구에서 밝혀낸",
+        "집중력 올리는 진짜 방법."
+      ],
+      "sub": "비결은 의지가 아니었습니다"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 실험",
+      "title": "800명, 바뀐 건 폰의 위치 하나.",
+      "lead": "텍사스대가 약 800명에게 머리 쓰는 시험을 보게 했습니다 (Ward 2017).",
+      "body": "조건은 딱 하나만 바꿨습니다. 휴대폰을 어디에 두는가.\n\n한 그룹은 책상 위에. 한 그룹은 주머니·가방 안에. 한 그룹은 아예 다른 방에.\n\n모두 폰은 무음으로 엎어 뒀습니다. 시험 내용도, 시간도 똑같았습니다.\n\n오직 폰까지의 거리만 달랐습니다.\n\n→ 오늘: 일 시작 전, 폰 둘 자리를 먼저 정한다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/01-test.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 결과",
+      "title": "멀수록 머리가 더 잘 돌았습니다.",
+      "lead": "다른 방 그룹이 최고, 주머니가 그다음, 책상 위가 최악.",
+      "body": "거리가 멀어질수록 점수가 또박또박 올라갔습니다.\n\n집중력을 올리는 가장 단순한 방법이 여기 있었습니다.\n\n새 앱도, 더 센 의지도 아니고 — 폰을 몸에서 멀리 두는 것.\n\n→ 오늘: 집중할 한 시간 동안, 폰을 손 닿지 않는 자리로.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/02-distance.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.45
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 반전",
+      "title": "폰을 꺼도 결과는 같았습니다.",
+      "lead": "\"알림이 와서 그렇겠지\" — 아닙니다.",
+      "body": "이 실험에서 폰은 전부 무음이었고, 화면도 엎어져 있었습니다. 그런데도 책상 그룹의 점수는 떨어졌습니다.\n\n울리지도, 빛나지도 않는 폰이 그저 곁에 있다는 사실만으로 — 머리의 일부가 거기에 묶였습니다.\n\n폰을 안 보려고 참는 데에도 뇌의 힘이 듭니다. 그 새어 나간 만큼 집중력이 줄어듭니다.\n\n→ 오늘: 엎어 두는 대신, 아예 시야 밖으로.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/03-presence.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.45
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 반전",
+      "title": "본인은 전혀 못 느꼈습니다.",
+      "lead": "\"폰이 집중에 영향 줬나요?\" 대부분 \"아니요\"라고 답했습니다.",
+      "body": "하지만 점수는 이미 떨어져 있었습니다.\n\n우리는 폰에 집중력을 뺏기면서도, 뺏기고 있다는 걸 못 느낍니다.\n\n그리고 폰에 더 의존하는 사람일수록 — 그 손실은 더 컸습니다.\n\n→ 오늘: \"나는 괜찮다\"는 느낌을 믿지 말고, 거리부터 만든다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/04-tempt.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 진짜 방법",
+      "title": "의지가 아니라 거리입니다.",
+      "lead": "주머니에 넣는 것으로는 부족합니다.",
+      "body": "연구에서 주머니 그룹도 책상보다 나았을 뿐, 다른 방 그룹에는 못 미쳤습니다.\n\n집중이 필요한 시간엔 폰을 다른 방에 두거나, 가방 깊숙이 넣어 시야에서 완전히 치우세요.\n\n오늘 한 시간만, 폰을 손이 안 닿는 곳에 두고 일해 보세요. 머리가 돌아오는 속도가 다릅니다.\n\n→ 오늘: 집중 한 시간 = 폰은 다른 방. 한 번 해 보고 비교한다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/phone-distance-focus/05-away.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "",
+      "quote": "집중력을 올리는 가장 확실한 방법은 더 센 의지가 아니라 — 폰과의 거리였습니다. 오늘 한 시간만, 폰을 다른 방에.",
+      "attribution": "Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "STUDY N°001 · 풀 본문 + 1차 자료 2건",
+      "sources": [
+        {"title": "폰이 멀수록 작업기억·판단력 점수 상승 (단순 존재 효과)", "source": "Ward · Journal of the Association for Consumer Research · 2017 · 약 800명"},
+        {"title": "폰이 놓여 있기만 해도 주의력 과제 점수 저하", "source": "Thornton · Social Psychology · 2014"}
+      ]
+    }
+  ]
+}
