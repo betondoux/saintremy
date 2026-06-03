@@ -1,0 +1,81 @@
+{
+  "slug": "fasting-vs-calories-7",
+  "category": "AGAINST",
+  "series": "SAINT-RÉMY · AGAINST N°003",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "AGAINST N°003",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/00-hook-bg.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4,
+      "title_lines": [
+        "간헐적 단식,",
+        "다들 잘못 알고 있습니다."
+      ],
+      "sub": "8시간 공식의 진실 — 1년 RCT가 밝힌 진짜 변수"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 통념",
+      "title": "8시간 안에만 먹으면 빠진다?",
+      "lead": "칼로리도 안 세고, 음식도 안 가린다 — 시계만 지키면 된다는 약속.",
+      "body": "간헐적 단식은 한 줄이라 매력적입니다. '하루 8시간 안에만 먹어라. 나머지는 물만.'\n\n그래서 많은 사람이 아침을 거르고 점심부터 먹기 시작했습니다. 16:8이라는 이름으로요.\n\n그런데 한 가지 질문이 빠져 있습니다. 정말 빠지는 게 '굶은 시간' 덕분일까요, 아니면 그냥 '덜 먹어서'일까요?\n\n→ 오늘: 16:8 하는 날, 실제로 평소보다 적게 먹는지 떠올려 본다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/01-clock.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 실험",
+      "title": "1년을 두고 두 그룹을 비교했습니다.",
+      "lead": "비만 성인 139명, 하루 총 열량은 똑같이 — 다른 건 '언제 먹느냐'뿐 (Liu, NEJM 2022).",
+      "body": "추측 대신 실험이 답합니다. NEJM은 의학에서 가장 검증이 까다로운 학술지 중 하나입니다.\n\n한 그룹은 오전 8시~오후 4시에만 먹었습니다. 다른 그룹은 시간 제한 없이 칼로리만 줄였습니다.\n\n두 그룹의 하루 총 열량은 같게 맞췄습니다. 단기 유행이 아니라, 시간창에 정말 마법이 있는지 1년을 지켜봤습니다.\n\n→ 오늘: 다이어트는 '몇 주' 말고 '몇 달·몇 년' 결과를 본다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/02-meal.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 반전",
+      "title": "차이는 1.8kg, 통계로는 0이었습니다.",
+      "lead": "시간제한 −8.0kg, 칼로리만 줄인 쪽 −6.3kg. 의미 있는 차이가 아니었다.",
+      "body": "결과는 시계의 편이 아니었습니다. 1.8kg 차이는 '우연으로도 나올 수 있는 폭'이었습니다.\n\n허리둘레, 체지방, 내장지방, 혈압, 혈당, 콜레스테롤 — 어느 것도 두 그룹 사이에 차이가 없었습니다.\n\n'몇 시에 먹느냐'는, 1년의 결과를 거의 바꾸지 못했습니다.\n\n→ 오늘: 시간창 지키는 스트레스가 크다면, 그 노력을 양 조절로 옮긴다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/03-scale.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 확인",
+      "title": "짧은 실험도 같은 답을 냈습니다.",
+      "lead": "과체중 116명, 12주 16:8 vs 세 끼 — −1.17% vs −0.75% (Lowe, JAMA Int Med 2020).",
+      "body": "한 번이면 우연일 수 있습니다. 그래서 다른 실험도 봅니다.\n\n12주 뒤, 16:8 그룹과 세 끼 그룹의 차이는 역시 의미 없었습니다. 기간이 길든 짧든 결론은 같은 방향입니다.\n\n그럼 그동안 16:8로 빠진 사람들은? 먹는 창이 좁아지니 야식이나 한 끼가 사라지면서 — 결국 총량이 줄었던 겁니다.\n\n→ 오늘: 8시간 안에 폭식하면 16:8도 의미 없다는 걸 기억한다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/04-plate.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 본질",
+      "title": "시간창은 마법이 아니라 도구입니다.",
+      "lead": "간헐적 단식은 '총량을 줄이는 여러 방법 중 하나'이지, 비밀 열쇠가 아니다.",
+      "body": "쓸모없다는 말은 아닙니다. 먹는 시간을 정해 두면 양을 안 세도 자연히 적게 먹는 사람이 있습니다. 야식이 문제였던 사람에겐 특히요.\n\n칼로리 계산이 안 맞으면 시간창을 써도 됩니다. 시간창이 스트레스면 양을 조절해도 됩니다. 목적지는 같습니다.\n\n몇 시에 먹느냐보다, 얼마나 오래 지킬 수 있느냐.\n\n→ 오늘: 시계든 양이든, '1년 뒤에도 하고 있을 방법'을 하나만 고른다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/fasting-vs-calories/05-balance.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "",
+      "quote": "몇 시에 먹느냐보다, 얼마나 오래 지킬 수 있느냐. 시간창은 마법이 아니라, 총량을 줄이는 여러 도구 중 하나입니다.",
+      "attribution": "Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "AGAINST N°003 · 풀 본문 + 1차 자료 2건",
+      "sources": [
+        {"title": "12개월 RCT — 시간제한 식사 vs 칼로리 제한, 체중 차이 1.8kg(통계적 무의미)", "source": "Liu · New England Journal of Medicine · 2022 · n=139"},
+        {"title": "12주 RCT — 16:8 vs 세 끼, 체중 감소 차이 유의하지 않음", "source": "Lowe · JAMA Internal Medicine · 2020 · n=116 (TREAT)"}
+      ]
+    }
+  ]
+}
