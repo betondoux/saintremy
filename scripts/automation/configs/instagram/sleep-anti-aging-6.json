@@ -1,0 +1,95 @@
+{
+  "slug": "sleep-anti-aging-6",
+  "category": "PROTOCOL",
+  "series": "SAINT-RÉMY · 저속노화",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "저속노화 · 수면",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.42,
+      "title_lines": [
+        "저속노화를 위한",
+        "수면 꿀팁 6가지"
+      ],
+      "sub": "오늘 밤부터 바꿀 수 있는, 연구로 증명된 여섯 가지"
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 7시간",
+      "title": "7시간을 사수하세요.",
+      "lead": "6시간 이하로 자던 중년은 치매 위험이 30% 높았습니다 (Whitehall II · 25년 추적).",
+      "body": "영국 공무원 7,959명을 25년간 따라간 연구의 결론입니다.\n\n50·60대에 잠이 6시간 이하인 사람은, 7시간 잔 사람보다 치매에 걸릴 위험이 뚜렷하게 높았습니다.\n\n추적 기간에 521명이 실제로 치매 진단을 받았습니다.\n\n잠은 줄여서 아끼는 시간이 아니라, 뇌가 늙는 속도를 정하는 시간입니다.\n\n→ 오늘: 기상 시각에서 7시간을 빼서, 그 시각에 취침 알람을 맞추세요.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/01-seven.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 청소",
+      "title": "자정을 넘기지 마세요.",
+      "lead": "깊이 잠들면 뇌세포 사이 공간이 60% 넓어집니다 (로체스터대 · Science).",
+      "body": "그 틈으로 맑은 물이 흘러들어, 낮 동안 쌓인 노폐물을 씻어냅니다.\n\n이때 함께 빠져나가는 게 아밀로이드-베타 — 알츠하이머의 원료가 되는 찌꺼기입니다.\n\n깨어 있으면 이 청소는 거의 멈춥니다.\n\n늦게 자면, 뇌의 하수도 청소를 통째로 건너뛰는 셈입니다.\n\n→ 오늘: 잠들기 1시간 전엔 휴대폰을 끄고 청소 시간을 비워두세요.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/02-clean.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 깊이",
+      "title": "잠의 깊이를 지키세요.",
+      "lead": "나이가 들면, 가장 먼저 사라지는 게 깊은 잠입니다 (Walker · Nature Neuroscience).",
+      "body": "뇌 앞쪽이 나이로 얇아지면, 깊은 잠 단계가 무너지고 그날의 기억이 저장되지 못합니다.\n\n이 깊은 잠 안에서 성장호르몬이 나오고, 뇌 청소가 집중됩니다.\n\n깊은 잠 스위치는 — 체온이 떨어질 때 켜집니다.\n\n그래서 몇 시간 잤나만큼, 얼마나 깊게 잤나가 중요합니다.\n\n→ 오늘: 자기 1~2시간 전 미지근하게 씻고, 침실은 살짝 서늘하게.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/03-deep.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.38
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 회복",
+      "title": "야근한 날일수록 다음 잠.",
+      "lead": "딱 일주일 적게 잤더니, 청년 몸이 당뇨 전단계 수준이 됐습니다 (Van Cauter · Lancet).",
+      "body": "건강한 청년 11명을 6일간 하루 4시간씩만 재운 실험입니다.\n\n혈당을 처리하는 능력이 뚝 떨어졌고, 연구진은 이 변화를 '노화나 초기 당뇨를 닮았다'고 표현했습니다.\n\n수면 빚은 쌓이고, 염증으로 돌아옵니다.\n\n다행히, 다음 잠으로 바로 갚을 수 있습니다.\n\n→ 오늘: 잠을 깎은 날은, 다음 밤 30분 일찍 누우세요.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/04-debt.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.35
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 최적",
+      "title": "많이 잔다고 좋은 건 아닙니다.",
+      "lead": "적게 자도, 너무 많이 자도 사망 위험이 오릅니다 (Cappuccio · 130만 명).",
+      "body": "여러 대규모 연구를 묶은 분석의 일관된 결과입니다.\n\n위험이 가장 낮은 지점은 하루 7시간 부근.\n\n7시간보다 적으면 위험이 약 14% 오르고, 9시간을 넘기면 오히려 더 오릅니다.\n\n9시간 넘게 자도 계속 졸리다면, 푹 잔 게 아니라 숨은 문제의 신호일 수 있습니다.\n\n→ 오늘: 주말 몰아 자기보다, 평일과 비슷한 7시간을 목표로.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/05-optimal.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.38
+    },
+    {
+      "type": "essay",
+      "kicker": "06 / 리듬",
+      "title": "매일 같은 시간에 일어나세요.",
+      "lead": "잔 시간보다 '규칙적인가'가 수명을 더 정확히 예측했습니다 (UK Biobank · 6만 명).",
+      "body": "손목 기기로 6만여 명의 잠을 측정한 2024년 연구의 발견입니다.\n\n매일 비슷한 시각에 자고 일어난 사람은, 그렇지 않은 사람보다 사망 위험이 최대 48% 낮았습니다.\n\n이 효과는 '몇 시간 잤나'보다 더 강력했습니다.\n\n불규칙한 잠은, 몸에 매일 작은 시차를 만드는 것과 같습니다.\n\n→ 오늘: 주말에도 기상 시각은 평일과 1시간 이상 차이 나지 않게.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/sleep-anti-aging-6/06-rhythm.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4
+    },
+    {
+      "type": "closing",
+      "kicker": "",
+      "quote": "저속노화는 거창하지 않습니다. 오늘 밤 일곱 시간, 거기서 시작합니다.",
+      "attribution": "Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "SAINT-RÉMY · 저속노화 프로토콜",
+      "sources": [
+        {"title": "중년 6시간 이하 수면 → 치매 위험 30% 증가", "source": "Sabia 외 · Nature Communications · 2021 · 7,959명 25년 추적"},
+        {"title": "잠들면 뇌 사이 공간 60% 확장, 노폐물 청소", "source": "Xie 외 · Science · 2013 · 로체스터대"},
+        {"title": "노화로 깊은 잠 붕괴 → 기억 저장 손상", "source": "Mander·Walker 외 · Nature Neuroscience · 2013"},
+        {"title": "6일간 4시간 수면 → 포도당 처리 능력 저하", "source": "Spiegel·Van Cauter · The Lancet · 1999"},
+        {"title": "수면시간과 사망률 U자형, 7시간 최적", "source": "Cappuccio 외 · Sleep · 2010 · 130만 명"},
+        {"title": "수면 규칙성이 시간보다 사망률 더 예측", "source": "Windred 외 · SLEEP · 2024 · UK Biobank 6만 명"}
+      ]
+    }
+  ]
+}
