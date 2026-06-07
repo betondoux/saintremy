@@ -1,0 +1,57 @@
+{
+  "series": "SAINT-RÉMY · STYLE FILE",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STYLE FILE N°001",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/tools/instagram/kendall-style-2026-5/src/cover-white-skirt.jpg",
+      "photo_anchor_x": 0.55,
+      "title_lines": ["수십억대 모델인데", "늘 같은 옷처럼", "보이는 이유."],
+      "sub": "켄달 제너가 2026년 반복한 미니멀 공식 3 — KENDALL JENNER"
+    },
+    {
+      "type": "essay",
+      "kicker": "LOOK 01",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/tools/instagram/kendall-style-2026-5/src/look-white-jeans.jpg",
+      "photo_anchor_x": 0.25,
+      "title": "올블랙에 버건디 한 방",
+      "lead": "색은 딱 하나만 더한다.",
+      "body": "검정 티셔츠에 릴렉스드 화이트 진.\n여기까지는 누구나 합니다.\n\n켄달은 가방과 플랫을\n전부 버건디로 맞췄습니다.\n포인트 색은 하나, 위아래로 반복.\n\n→ 따라 입기: 무채색 옷에 포인트 색은 한 가지로.",
+      "credit": "Photo · Who What Wear / GC Images"
+    },
+    {
+      "type": "essay",
+      "kicker": "LOOK 02",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/tools/instagram/kendall-style-2026-5/src/look-dinner.jpg",
+      "photo_anchor_x": 0.62,
+      "title": "니트에 반다나 한 장",
+      "lead": "90년대가 다시 왔다.",
+      "body": "오트밀색 카디건에 다크 데님,\n그리고 The Row 플랫.\n\n머리엔 반다나 한 장.\n작은 소품 하나가\n평범한 저녁 룩을 바꿉니다.\n\n→ 따라 입기: 뉴트럴 니트 + 스카프 한 장.",
+      "credit": "Photo · Who What Wear / GC Images"
+    },
+    {
+      "type": "essay",
+      "kicker": "LOOK 03",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/tools/instagram/kendall-style-2026-5/src/look-darkwash.jpg",
+      "photo_anchor_x": 0.36,
+      "title": "프린트는 아우터에서만",
+      "lead": "튀는 건 겉옷 하나로 끝낸다.",
+      "body": "안에 입은 옷은 늘 무채색.\n대신 플로럴 퍼 코트 한 벌로\n전체 룩을 끌고 갑니다.\n\n패턴을 한 곳에만 두면\n과하지 않고 비싸 보입니다.\n\n→ 따라 입기: 프린트는 아우터 한 벌에만.",
+      "credit": "Photo · Who What Wear / Backgrid"
+    },
+    {
+      "type": "closing",
+      "kicker": "CLOSING",
+      "quote": "비싸 보이는 건 옷이 아니라 절제다.",
+      "attribution": "SAINT-RÉMY · STYLE FILE",
+      "url": "saintremy.kr",
+      "subline": "프로필 링크 · 풀 스타일 가이드",
+      "sources": [
+        {"title": "#1 Denim Trend of Summer 2026 — Relaxed White Jeans", "source": "Who What Wear · 2026"},
+        {"title": "Kendall's 2026 Denim Trend and Color With Flats", "source": "Who What Wear · 2026"},
+        {"title": "The Jean Outfit L.A. Girls Love for Nights Out", "source": "Who What Wear · 2026"},
+        {"title": "7 Kendall Jenner-Approved Trends You'll See in 2026", "source": "Who What Wear · 2026"}
+      ]
+    }
+  ]
+}
