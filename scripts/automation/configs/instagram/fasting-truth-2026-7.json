@@ -1,0 +1,86 @@
+{
+  "slug": "fasting-truth-2026-7",
+  "category": "PROTOCOL · FASTING",
+  "series": "SAINT-RÉMY · PROTOCOL N°006",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "PROTOCOL N°006",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "단식 정말 몸에 좋을까?",
+        "논문 99개가 답했다."
+      ],
+      "sub": "빠지긴 한다. 그런데 위험도 있다."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 체중",
+      "title": "빠진다. 그러나 일반 다이어트보다 낫진 않다.",
+      "lead": "6개월 3.6kg 감량 — 같은 칼로리 매일 제한과 차이 없음.",
+      "body": "Cochrane 2026이 22개 무작위대조시험 (총 1,995명)을 종합했다.\n\n결론: *간헐적 단식과 일반 칼로리 제한, 감량 결과는 사실상 같다.*\n\nBMJ 2025 네트워크 메타분석 99개 RCT에서 *일반 칼로리 제한을 초과한 프로토콜은 격일 단식(ADF) 하나뿐.* 16:8·5:2는 차이 없었다.\n\n→ 오늘: 지속 가능한 방식 하나만 붙잡기.",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/01-weight.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 시간",
+      "title": "저녁 3시 전 마치면, 5주 만에 혈압이 11mmHg 내려간다.",
+      "lead": "체중 변화 없이 얻은 혈압 하락. 아침형 식사창의 힘.",
+      "body": "Sutton 2018 (Cell Metabolism, 당뇨 전단계 남성 8명, 5주 크로스오버):\n\n식사창을 *오전 8시 ~ 오후 3시* 로 앞당겼더니 — 수축기혈압 −11 mmHg, 인슐린 감수성 개선.\n\n포인트: 몇 시간 굶느냐가 아니라 *언제 먹느냐* 가 대사를 흔들었다. 야간형 TRE는 아침형만큼 효과가 나오지 않았다.\n\n→ 오늘: 저녁을 30분 앞당기기.",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/02-time.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 근육",
+      "title": "운동 없이 16시간 단식만 하면 — 팔다리 근육이 빠진다.",
+      "lead": "12주 후 사지 제지방 유의 감소. 체중은 줄었지만 구성이 나빴다.",
+      "body": "Science Translational Medicine RCT (n=116, 12주):\n\n*운동 없이 16:8만 한 그룹 — 사지 근육 유의 감소.*\n\n반대 데이터도 있다. 5:2 단식 + 저항운동 + 단백질 1.4g/kg 병행 12주 → *근육 오히려 +3.7% 증가* (Journal of Translational Medicine, n=34).\n\n즉 단식만 하면 체지방과 근육이 같이 빠진다.\n\n→ 오늘: 저항운동 계획 없이는 시작 미루기.",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/03-muscle.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 오토파지",
+      "title": "\"오토파지가 켜진다\" — 인간에서 아직 확립되지 않았다.",
+      "lead": "지금까지 인간 연구는 n=50 이하 소규모, 대부분 간접 지표.",
+      "body": "오토파지 = 세포가 손상된 단백질을 재활용하는 시스템 (2016 노벨 생리의학상, 오스미 요시노리).\n\n동물·세포에서는 확립됐다. 그러나 *인간에서는 아직 소규모 유전자 발현 연구* 가 대부분이다.\n\n18시간 단식 → 혈액 LC3A mRNA 22% 증가 (Sutton 2019, n=11). 이것이 실제 세포 오토파지와 얼마나 일치하는지는 미확정.\n\n→ 오늘: \"노화 역전\" 마케팅 걸러내기.",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/04-autophagy.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 금기",
+      "title": "이 다섯은 하지 마세요.",
+      "lead": "위험이 이익보다 큰 그룹.",
+      "body": "1. *혈당강하제·인슐린 사용 당뇨 환자* — 저혈당 위험. 반드시 의사와 약 조정 먼저.\n\n2. *임신·수유 중 여성* — 태아 발달·모유 생산 방해 우려.\n\n3. *섭식장애 이력자* — 단식-폭식 사이클 악화 트리거.\n\n4. *BMI 18.5 미만 저체중* — 한국 20대 여성 15.1%가 여기 해당.\n\n5. *운동·단백질 계획 없이 16:8만 하려는 사람* — 근손실 위험.\n\n→ 오늘: 내가 이 다섯에 드는지 먼저 확인.",
+      "photo": "/Users/kimsucheol/Desktop/GAME/saintremy/public/images/articles/fasting-truth-2026-7/05-caution.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "closing",
+      "kicker": "근거 있는 시작 3단계",
+      "quote": "단식은 마법이 아닙니다. 12시간 → 아침형 14/10 + 단백질 1.4g/kg → 저항운동 주 2~3회. 이 순서로 12주.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "PROTOCOL N°006 · 풀 본문 + 1차 자료 15건",
+      "sources": [
+        {"title": "Intermittent fasting for adults with overweight or obesity", "source": "Cochrane · 2026 · 22 RCT (n=1,995)"},
+        {"title": "Diet strategies for cardiometabolic health", "source": "BMJ · 2025 · Network Meta · 99 RCT"},
+        {"title": "Early Time-Restricted Feeding (eTRF)", "source": "Cell Metabolism · Sutton 2018 · n=8"},
+        {"title": "TRE + Resistance Training", "source": "J Transl Med · 12주 RCT · n=34"},
+        {"title": "TRE without exercise & muscle loss", "source": "Sci Transl Med RCT · n=116"},
+        {"title": "Fasting-Mimicking Diet & biological age", "source": "Nature Communications · 2024"},
+        {"title": "IF adverse events meta-analysis", "source": "Nutrition Journal · 2024"}
+      ]
+    }
+  ]
+}
