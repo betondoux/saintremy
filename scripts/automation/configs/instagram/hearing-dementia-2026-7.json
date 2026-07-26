@@ -1,0 +1,86 @@
+{
+  "slug": "hearing-dementia-2026-7",
+  "category": "PROTOCOL · HEARING",
+  "series": "SAINT-RÉMY · PROTOCOL N°007",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "PROTOCOL N°007",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4,
+      "title_lines": [
+        "치매 위험 1위,",
+        "뇌가 아니라 귀입니다."
+      ],
+      "sub": "Lancet 2024 위원회 — 조절 가능한 14개 인자 중 청력 손실이 기여도 7%로 최상위."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 통념",
+      "title": "치매 = 뇌의 문제. 그런데 시작은 다른 곳입니다.",
+      "lead": "Lancet 2024가 청력을 조절 가능 위험 인자 1위로 격상.",
+      "body": "Livingston et al. 「Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission」 (Lancet 2024;404:572-628).\n\n조절 가능한 14개 인자를 종합한 결과 — *청력 손실 기여분 7%*, LDL 콜레스테롤 7%. 담배(2%)·비만(1%)·음주(1%)보다 압도적으로 크다.\n\n총 45% 예방 가능성 중 상당 부분이 이 두 인자에서 나온다.\n\n→ 오늘: 지난 10년 내 청력이 어떻게 변했는지 돌아보기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/01-mechanism.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 메커니즘",
+      "title": "귀가 뇌를 깎는 세 가지 경로.",
+      "lead": "청력 저하 → 뇌 위축 · 인지 부하 · 사회 고립.",
+      "body": "*경로 1 — 뇌 위축.* 청각 자극이 줄면 청각 피질과 인접 해마가 사용되지 않아 위축된다 (Lin et al., JAMA Neurology 2014, n=126).\n\n*경로 2 — 인지 부하.* 흐릿한 소리를 해석하려 뇌 자원이 청각 처리에 몰리며 기억·판단에 쓸 자원이 빠진다.\n\n*경로 3 — 사회 고립.* 대화가 어려워지면 만남을 피하게 되고, 인지 자극이 감소한다.\n\n→ 오늘: '뭐라고요?'가 잦아졌다면 진단 예약.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/02-cognitive-load.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 데이터",
+      "title": "보청기 낀 사람은 3년 인지가 덜 늙었습니다.",
+      "lead": "ACHIEVE 무작위대조시험 — 위험군에서 인지 저하 48% 감소.",
+      "body": "Lin et al. 「Hearing intervention versus health education control to reduce cognitive decline in older adults with hearing loss in the USA (ACHIEVE)」 (Lancet 2023;402:786-97).\n\n70~84세 977명 · 3년 추적. 인지 위험군 하위 그룹에서 *보청기 착용 = 인지 저하 48%↓.*\n\n관찰 연구(2020 Lancet Commission): 중년 청력 개선 시 세계 치매 최대 8% 예방 가능.\n\n→ 오늘: 40대 이후 청력 검사를 연 1회 캘린더에 추가.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/03-data.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 한국",
+      "title": "한국은 특히 위험합니다.",
+      "lead": "이어폰 사용률·소음 노출 세계 상위, 보청기 착용률 OECD 최하위권.",
+      "body": "국민건강영양조사(KNHANES 2019~2021) — 65세 이상 난청 유병률 *37.8%.* 그러나 보청기 착용률은 *12.6%*.\n\nWHO 안전 음량 기준 = 85dB 이하. 서울 지하철 승강장 평균 *88~92dB* (서울교통공사 자체 측정 2023).\n\n한국인 남성 소음성 난청 유병률 여성 대비 *2.1배* — 산업 소음·군 복무 노출 (직업환경의학회지 2022).\n\n→ 오늘: 이어폰 볼륨 확인. 60% 이상이면 조정.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/04-korea.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 3가지",
+      "title": "오늘부터 할 수 있는 3가지.",
+      "lead": "예방은 40대부터. 60대에 시작하면 늦습니다.",
+      "body": "1. *60/60 룰.* 이어폰 볼륨 60% 이하, 하루 60분 이하. WHO 안전 청취 권고.\n\n2. *조용함 30분.* 하루 30분 무음 시간 확보. 청각 피로 회복 + 실제 대화 자극.\n\n3. *조기 진단.* 40대 이후 청력 검사 연 1회. 저하 감지되면 *즉시* 보청기. 기다리지 마세요 — ACHIEVE는 조기 개입일수록 효과가 큰 것을 보여줬습니다.\n\n→ 오늘: 스마트폰 청력 검사 앱(Mimi·hearWHO) 5분 테스트.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/05-action.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "closing",
+      "kicker": "근거 있는 시작 3단계",
+      "quote": "청력은 나이 들면 잃는 게 아니다. 지키는 것이다. 오늘 이어폰 볼륨 낮추기 → 40대부터 연 1회 검사 → 저하 감지 시 즉시 보청기. 이 순서로 10년.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "PROTOCOL N°007 · 풀 본문 + 1차 자료 6건",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/hearing-dementia-2026-7/06-close.jpg",
+      "sources": [
+        {"title": "Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission", "source": "Lancet · 2024 · Livingston et al. · 14 risk factors"},
+        {"title": "Hearing intervention versus health education control (ACHIEVE)", "source": "Lancet · 2023 · Lin et al. · RCT n=977 · 3-year"},
+        {"title": "Hearing Loss and Incident Dementia", "source": "JAMA Neurology · 2014 · Lin et al. · n=126"},
+        {"title": "Dementia prevention, intervention, and care: 2020 report", "source": "Lancet · 2020 · Livingston et al."},
+        {"title": "Hearing Loss and Cognitive Decline in Older Adults", "source": "KNHANES · 2019–2021 · 한국"},
+        {"title": "WHO Safe Listening Standard for Personal Audio Systems", "source": "World Health Organization · 2022"}
+      ]
+    }
+  ]
+}
