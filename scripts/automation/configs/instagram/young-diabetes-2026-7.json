@@ -1,0 +1,86 @@
+{
+  "slug": "young-diabetes-2026-7",
+  "category": "PROTOCOL · METABOLIC",
+  "series": "SAINT-RÉMY · PROTOCOL N°008",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "PROTOCOL N°008",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.4,
+      "title_lines": [
+        "20-30대 당뇨 10년 새 2배,",
+        "그런데 절반이 모른다."
+      ],
+      "sub": "대한당뇨병학회 팩트시트 2024 — 청년 유병률 1.02% → 2.02%, 인지율 43.3%."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 규모",
+      "title": "37만 명 · 인지율 43%.",
+      "lead": "청년 당뇨는 이미 진행 중이다. 대부분 본인이 모른다.",
+      "body": "대한당뇨병학회 「Diabetes Fact Sheet 2024」 (Diabetes Metab J 2025;49:24-33).\n\n*19~39세 당뇨 유병률 2.2%*, 환자 수 약 *37만 명*. 2010년 1.02% → 2020년 2.02%로 *10년 새 2배*.\n\n*인지율 43.3%* · 치료율 34.6% · HbA1c<6.5% 조절률 *29.6%*.\n\n*30대 남성 전당뇨 유병률 37%*. 청년 4명 중 1명이 대기실에 있다.\n\n→ 오늘: 마지막 공복혈당·HbA1c 검사 언제였는지 확인.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/01-scale.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 몸",
+      "title": "정상 체중도 안심할 수 없다.",
+      "lead": "아시아인은 BMI 23부터 당뇨 리스크. 마른비만은 세계 1위.",
+      "body": "WHO·ADA 아시아인 기준: *BMI ≥23이면 당뇨 선별검사 권고* (서구 25와 다름). 낮은 BMI에서도 내장지방·인슐린저항성이 올라온다.\n\n한국 20대 여성 *마른비만(정상 BMI + 인슐린저항성) 15.8%*, InBody 글로벌 리포트(2018-22) 세계 1위.\n\nKNHANES 2023: 20대 남성 비만율 *43.9%*, 20대 여성 22.1%(전년 18.2%→급증). *복부비만은 10년 새 1.6~1.7배 증가.*\n\n→ 오늘: 허리둘레 재기 (남 90cm · 여 85cm 이상 = 복부비만).",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/02-body.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 습관",
+      "title": "배달 · 수면부족 · 스트레스 삼각지대.",
+      "lead": "20-30대 인슐린저항성을 만드는 세 가지 현대 생활.",
+      "body": "*배달·초가공.* 「Ultra-Processed Food and T2DM」 dose-response meta (Diabetes Metab J 2025) — 최고 vs 최저 섭취 *위험비 1.48배*. 한국 20-30대 배달 비중 *2016년 24% → 2023년 32%*(KNHANES).\n\n*수면.* Reutrakul & Van Cauter (Metabolism 2018) — *하루 6시간 미만 = 당뇨 상대위험 1.28배.* 한국 성인 평균 6.4h.\n\n*스트레스.* KoGES 코호트 (Epidemiol Health 2025) — 만성 정신사회적 스트레스 → 코티솔 → 내장지방 → 인슐린저항성 악화 확인.\n\n→ 오늘: 배달 앱 삭제 · 자정 전 취침 · 하루 10분 무자극 시간.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/03-lifestyle.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 위험",
+      "title": "젊게 걸리면 더 무섭습니다.",
+      "lead": "일찍 진단될수록 합병증까지의 시간이 짧다.",
+      "body": "Lin B et al. 「Younger-onset vs later-onset T2D — UKPDS 92」 (Lancet Diabetes Endocrinol 2024;n=4,550, 30년 추적).\n\n*40세 이전 진단 = 일반 인구 대비 사망위험 4배.* 심혈관·신장·망막·신경 합병증이 노년 진단보다 훨씬 빨리 온다.\n\n미국 데이터 기준 — *30세 진단 시 50세에 이미 14년 손실* (Lancet 2025 리뷰). 한국 직접 수치는 아직 부족하지만 방향은 동일.\n\n한국 청년 조절률 *29.6%로 노년층과 비슷*. 진단만 늦는 게 아니라 관리도 뒤처진다.\n\n→ 오늘: 진단받았다면 3개월마다 HbA1c 확인.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/04-danger.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 3가지",
+      "title": "오늘부터 할 수 있는 3가지.",
+      "lead": "검진 앞당기기 · 근력 · 초가공 컷.",
+      "body": "1. *35세부터 매년 공복혈당 + HbA1c.* 가족력·비만·PCOS·임신성 당뇨 있으면 *20대부터*. ADA 2024 기준 45세 → 35세로 하향.\n\n2. *주 2~3회 저항운동.* 저항운동 T2DM 예방 메타(Front Endocrinol 2023) — HbA1c·HOMA-IR 유의미 개선. 유산소만으로는 부족. 스쿼트·데드리프트·풀업 3~4종.\n\n3. *초가공 컷.* 배달·인스턴트·과자·탄산 → 자연식·단백질 우선. UPF 1.48배 리스크를 매일의 선택으로 깎는다.\n\n→ 오늘: 병원 예약(내분비내과 or 가정의학과) · 헬스장 등록 · 냉장고 재정비.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/05-action.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "closing",
+      "kicker": "근거 있는 시작",
+      "quote": "당뇨는 나이 들어서 걸리는 병이 아니다. 지금의 배달·야근·설탕이 40대의 심장·신장·눈에 청구서를 보낸다. 오늘 검진 예약 → 이번 주 근력운동 → 이번 달 냉장고 재정비. 이 순서로 10년.",
+      "attribution": "— Saint-Rémy Editors",
+      "url": "saintremy.kr",
+      "subline": "PROTOCOL N°008 · 풀 본문 + 1차 자료 6건",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/young-diabetes-2026-7/06-close.jpg",
+      "sources": [
+        {"title": "Diabetes Fact Sheet 2024 (KDA)", "source": "Diabetes Metab J · 2025;49:24-33 · KNHANES 2019-22"},
+        {"title": "Younger-onset vs later-onset T2D — UKPDS 92", "source": "Lancet Diabetes Endocrinol · 2024 · Lin B et al. · n=4,550 · 30-year"},
+        {"title": "Ultra-Processed Food Intake and Risk of T2DM meta", "source": "Diabetes Metab J · 2025 · RR 1.48"},
+        {"title": "Sleep influences on obesity, insulin resistance, T2D", "source": "Metabolism · 2018 · Reutrakul & Van Cauter"},
+        {"title": "KoGES psychosocial stress and T2D risk", "source": "Epidemiol Health · 2025 · KoGES_CAVAS"},
+        {"title": "Resistance training in T2D prevention meta", "source": "Front Endocrinol · 2023"}
+      ]
+    }
+  ]
+}
