@@ -40,18 +40,26 @@ def discover_cards(slug: str):
     return sorted([f.name for f in local_dir.glob("*.jpg")])
 
 
-def create_child(token, ig_id, image_url):
-    r = requests.post(
-        f"{GRAPH}/{ig_id}/media",
-        data={
-            "image_url": image_url,
-            "is_carousel_item": "true",
-            "access_token": token,
-        },
-        timeout=90,
-    )
-    r.raise_for_status()
-    return r.json()["id"]
+def create_child(token, ig_id, image_url, tries=4):
+    # 연속 호출하면 Graph가 400을 던진다 (간격을 두면 매번 성공 — 2026-07-30 확인).
+    last = None
+    for attempt in range(1, tries + 1):
+        r = requests.post(
+            f"{GRAPH}/{ig_id}/media",
+            data={
+                "image_url": image_url,
+                "is_carousel_item": "true",
+                "access_token": token,
+            },
+            timeout=90,
+        )
+        if r.ok:
+            return r.json()["id"]
+        last = r
+        if attempt < tries:
+            time.sleep(5 * attempt)
+    print(f"  ! {image_url}\n    {last.status_code} {last.text[:300]}", file=sys.stderr)
+    last.raise_for_status()
 
 
 def create_carousel(token, ig_id, children_ids, caption):
@@ -113,10 +121,9 @@ def main():
     if not card_files:
         print(f"❌ 로컬 디렉토리에 jpg 없음: {LOCAL_BASE / args.slug}", file=sys.stderr)
         sys.exit(3)
-    # Cache-bust query — Cloudflare 캐시된 이미지를 IG fetcher 가 거부하는 경우 우회
-    import time as _t
-    cb = int(_t.time())
-    image_urls = [f"{BASE}/{args.slug}/{f}?v={cb}" for f in card_files]
+    # 쿼리스트링(?v=) 없는 깨끗한 URL — IG fetcher가 ?v= 붙은 URL을
+    # "이미지 형식 인식 불가"로 거부함 (2026-06-05 확인). 새 배포는 캐시 MISS라 우회 불필요.
+    image_urls = [f"{BASE}/{args.slug}/{f}" for f in card_files]
 
     if args.dry_run:
         print("[DRY RUN] 발사 안 함. 사용될 image_url:")
@@ -130,11 +137,14 @@ def main():
         sys.exit(1)
 
     print(f"📸 슬러그: {args.slug}")
-    print("📤 9장 미디어 컨테이너 생성 중...")
+    total = len(image_urls)
+    print(f"📤 {total}장 미디어 컨테이너 생성 중...")
     children = []
     for i, url in enumerate(image_urls, 1):
+        if i > 1:
+            time.sleep(3)
         cid = create_child(token, ig_id, url)
-        print(f"  {i:02d}/09  {cid}")
+        print(f"  {i:02d}/{total:02d}  {cid}")
         children.append(cid)
 
     print("🧵 캐러셀 컨테이너 생성 중...")
