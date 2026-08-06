@@ -1,0 +1,124 @@
+{
+  "slug": "aircon-bill-2026-8",
+  "category": "PROTOCOL · LIVING",
+  "series": "SAINT-RÉMY · PROTOCOL N°017",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "PROTOCOL · LIVING",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "여름철 에어컨 사용 방법",
+        "전기세 줄이는 전략"
+      ],
+      "sub": "한전 요금표와 삼성·LG 공식 자료로 따져봤습니다. 같은 1시간을 틀어도 집집마다 값이 다릅니다."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 절벽",
+      "title": "한 시간이 6,830원",
+      "lead": "계단 하나를 넘는 순간입니다.",
+      "body": "전기요금은 계단처럼 매겨집니다.\n\n많이 쓸수록 윗계단으로 올라갑니다.\n\n에어컨을 한 시간 트는 양이 대략 *1kWh*입니다.\n\n한 달에 쓴 양이 *450*을 넘으면 계단이 바뀝니다.\n\n그 계단을 넘는 한 시간 값이 6,830원입니다.\n\n바로 아래 계단에서는 244원이었습니다.\n\n→ 오늘: 450이라는 숫자 외워두기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/01-cliff.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 확인",
+      "title": "내 계단부터 본다",
+      "lead": "아끼는 값이 집마다 다릅니다.",
+      "body": "한 달 300kWh까지가 1계단입니다.\n\n450kWh까지가 2계단, 그 위가 3계단입니다.\n\n1계단은 에어컨 한 시간에 *137원*입니다.\n\n2계단은 244원, 3계단은 *349원*입니다.\n\n같은 에어컨을 같은 시간 틀어도 그렇습니다.\n\n한전ON 앱에 이번 달 사용량이 나옵니다.\n\n→ 오늘: 이번 달 사용량 확인하기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/02-check.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 온도",
+      "title": "1도의 값은 7%",
+      "lead": "온도를 내릴수록 급해집니다.",
+      "body": "한국에너지공단이 내놓은 수치가 있습니다.\n\n실내온도를 1도 더 내리려면 전력을 *7%* 더 씁니다.\n\n26도와 25도 사이에 그 7%가 있습니다.\n\n춥게 틀어놓고 이불을 덮으면 그만큼 더 냅니다.\n\n설정온도는 한 번 올려두면 계속 아낍니다.\n\n공단이 권하는 여름 냉방온도는 *26도 이상*입니다.\n\n→ 오늘: 희망온도 26도로 올리기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/03-temp.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 외출",
+      "title": "90분이 기준선이다",
+      "lead": "인버터 에어컨 이야기입니다.",
+      "body": "삼성전자가 학회에 낸 실험 결과가 있습니다.\n\n30분 나갔다 다시 켜면 전력이 *5%* 늘었습니다.\n\n60분 외출이어도 2% 더 썼습니다.\n\n*90분*을 넘겨야 끄는 쪽이 유리해졌습니다.\n\n인버터는 멈추지 않고 회전수만 줄입니다.\n\n2022년 이후 생산분은 모두 인버터입니다.\n\n→ 오늘: 90분 미만 외출은 켜두기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/04-away.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 필터",
+      "title": "필터가 3~5%다",
+      "lead": "안 씻으면 그만큼 더 씁니다.",
+      "body": "필터를 청소하지 않으면 소비전력이 늘어납니다.\n\n한국에너지공단이 밝힌 폭은 *3~5%*입니다.\n\n한 달로 치면 *10.7kWh* 차이가 납니다.\n\n3계단에 있는 집이라면 3천 원이 넘습니다.\n\n물로 씻어 그늘에 말리면 끝나는 일입니다.\n\n한 달에 한두 번이면 충분합니다.\n\n→ 오늘: 필터 꺼내서 씻기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/05-filter.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "06 / 착각",
+      "title": "절약이 아닌 두 가지",
+      "lead": "제습모드와 선풍기 병행입니다.",
+      "body": "한국소비자원이 열여덟 평형 다섯 대를 시험했습니다.\n\n24도로 다섯 시간 돌린 결과입니다.\n\n냉방은 평균 *22.9도*, 제습은 23.1도였습니다.\n\n소비전력은 의미 있는 차이가 없었습니다.\n\n서큘레이터를 같이 트니 26초 빨라졌습니다.\n\n전력은 0.238에서 *0.235kWh*로 줄었습니다.\n\n→ 오늘: 제습 대신 온도 올리기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/06-myth.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "07 / 순서",
+      "title": "순서가 정해져 있다",
+      "lead": "효과가 큰 것부터 합니다.",
+      "body": "첫째, 이번 달 사용량이 몇 계단인지 봅니다.\n\n둘째, 희망온도를 *26도*로 올립니다.\n\n셋째, 90분 미만 외출에는 끄지 않습니다.\n\n넷째, 필터를 씻습니다.\n\n제습모드와 선풍기 병행은 목록에 없습니다.\n\n실측에서 차이가 나오지 않았기 때문입니다.\n\n→ 오늘: 첫째부터 하기.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/07-order.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "closing",
+      "kicker": "제조사가 밝힌 기준",
+      "quote": "4개월 동안 941시간 운전을 기준으로 소비 전력량을 산출합니다.",
+      "attribution": "LG전자 고객지원 · 월간소비전력량 산출 기준 · 냉방 기간 6~9월",
+      "url": "saintremy.kr",
+      "subline": "확인된 자료 6건 · 공식 문서 직접 확인",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/aircon-bill-2026-8/08-close.jpg",
+      "sources": [
+        {
+          "title": "주택용 저압 요금표",
+          "source": "한국전력 · 7~8월 300kWh 이하 120.0원 · 450kWh 초과 307.3원"
+        },
+        {
+          "title": "451번째 1kWh 계산",
+          "source": "기본요금 5,700원 상승분 포함 · 부가세 10%와 전력기반기금 3.7% 반영"
+        },
+        {
+          "title": "냉방온도와 필터",
+          "source": "한국에너지공단 · 1도당 전력 7% · 필터 3~5% · 월 10.7kWh"
+        },
+        {
+          "title": "외출 90분 기준",
+          "source": "삼성전자 · 대한설비공학회 발표 · 30분 5% · 60분 2%"
+        },
+        {
+          "title": "인버터 작동 방식",
+          "source": "LG전자 고객지원 · 희망온도 도달 뒤 회전수만 감소"
+        },
+        {
+          "title": "제습모드와 서큘레이터",
+          "source": "한국소비자원 2024년 6월 · 18평형 5개 모델 · 5시간 시험"
+        }
+      ]
+    }
+  ]
+}
