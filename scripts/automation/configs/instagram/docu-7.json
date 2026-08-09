@@ -1,0 +1,127 @@
+{
+  "slug": "docu-7",
+  "category": "STORY · WATCHLIST",
+  "series": "SAINT-RÉMY · WATCHLIST N°001",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "STORY · WATCHLIST",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/00-hook.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5,
+      "title_lines": [
+        "촬영팀은 알면서 찍었다",
+        "그가 죽을 수도 있다는 걸"
+      ],
+      "sub": "사람의 이면이 보이는 다큐멘터리 일곱 편을 골랐습니다. 넷은 오스카를 받았고, 하나는 한국 다큐 역대 1위입니다."
+    },
+    {
+      "type": "essay",
+      "kicker": "01 / 프리 솔로",
+      "title": "그는 밧줄 없이 올랐다",
+      "lead": "2017년 6월 요세미티에서 있었던 일입니다",
+      "body": "900미터 암벽을 맨몸으로 올랐습니다.\n\n촬영팀은 죽음의 가능성을 알고 찍었습니다.\n\n그의 뇌에서는 *편도체*가 거의 반응하지 않았습니다.\n\n공포를 맡는 부위가 조용한 사람이었습니다.\n\n집에서는 사랑이라는 말을 쓰지 않았다고 합니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/01-freesolo.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "02 / 세쌍둥이의 재회",
+      "title": "세 번의 우연은 설계였다",
+      "lead": "세 사람의 재회 뒤에는 실험이 있었습니다",
+      "body": "1980년 뉴욕, 신입생이 남의 이름으로 불렸습니다.\n\n그렇게 만난 형제가 둘, 모두 일란성이었습니다.\n\n셋은 서로 다른 가정에 입양돼 있었습니다.\n\n노동자·중산층·부유층으로 *일부러* 나뉜 연구였습니다.\n\n부모들은 진짜 목적을 듣지 못했습니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/02-triplets.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "03 / 서칭 포 슈가맨",
+      "title": "죽은 줄 알았던 가수였다",
+      "lead": "미국이 버린 가수가 남아공의 전설이 됐습니다",
+      "body": "남아공에는 그가 죽었다는 소문만 남아 있었습니다.\n\n팬 두 명이 그 소문을 확인하러 나섰습니다.\n\n감독은 돈이 떨어져 휴대폰으로 찍기도 했습니다.\n\n편집에만 *3년*이 걸린 영화였습니다.\n\n다만 그가 호주에서 성공한 사실은 넣지 않았습니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/03-sugarman.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "04 / 에이미",
+      "title": "해설 없이 본인이 말한다",
+      "lead": "스물일곱에 세상을 떠난 가수의 기록입니다",
+      "body": "영화는 열네 살 생일파티 홈비디오로 시작합니다.\n\n해설자는 없고, 본인 목소리와 기록만 흐릅니다.\n\n감독은 친구와 가족 *100명* 넘게 만났습니다.\n\n열여섯에 부른 미공개 녹음도 들어 있습니다.\n\n남긴 정규 앨범은 두 장뿐이었습니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/04-amy.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "05 / 나의 문어 선생님",
+      "title": "문어는 다리를 다시 길렀다",
+      "lead": "문어 한 마리를 1년 가까이 따라간 기록입니다",
+      "body": "2018년, 한 남자가 남아공 바다 숲에 들어갔습니다.\n\n문어는 상어에게 다리 하나를 잃었습니다.\n\n그리고 *3개월*에 걸쳐 다시 길러 냈습니다.\n\n다음 공격에는 상어 등에 붙어 버텼습니다.\n\n그 곁에서 그는 아들과 다시 가까워졌습니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/05-octopus.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "06 / 화산만큼 사랑해",
+      "title": "그들은 화산 옆에서 살았다",
+      "lead": "20년 동안 화산을 쫓아다닌 부부입니다",
+      "body": "프랑스 화산학자 부부, 카티아와 모리스입니다.\n\n두 사람은 *20년*을 분화구 옆에서 찍었습니다.\n\n1991년 일본 운젠산에서 두 사람 다 떠났습니다.\n\n영화는 부부가 남긴 필름으로만 만들었습니다.\n\n이제 그 필름이 두 사람 대신 말합니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/06-fireoflove.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "essay",
+      "kicker": "07 / 님아, 그 강을 건너지 마오",
+      "title": "부부는 76년을 함께 살았다",
+      "lead": "강원도 횡성의 노부부를 15개월 따라갔습니다",
+      "body": "할아버지 98세, 할머니 89세였습니다.\n\n감독은 허락을 받고 15개월을 따라다녔습니다.\n\n제작비는 *1억 2천만 원*이었습니다.\n\n개봉 첫 주, 「인터스텔라」를 누르고 1위였습니다.\n\n373만 명이 이 부부를 보러 왔습니다.",
+      "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/docu-7/07-nima.jpg",
+      "photo_anchor_x": 0.5,
+      "photo_anchor_y": 0.5
+    },
+    {
+      "type": "closing",
+      "kicker": "「서칭 포 슈가맨」을 두고 한 말",
+      "quote": "이 영화는 우리에게 필요했기 때문에 존재합니다.",
+      "attribution": "로저 이버트 · 영화평론가",
+      "url": "saintremy.kr",
+      "subline": "일곱 편 · 감독과 수상 기록 확인",
+      "sources": [
+        {
+          "title": "프리 솔로 (2018)",
+          "source": "엘리자베스 차이 바사헬리·지미 친 · 오스카 장편다큐상"
+        },
+        {
+          "title": "어느 일란성 세쌍둥이의 재회 (2018)",
+          "source": "팀 워들 연출 · 선댄스 스토리텔링 특별심사위원상"
+        },
+        {
+          "title": "서칭 포 슈가맨 (2012)",
+          "source": "말릭 벤젤룰 연출 · 오스카·영국 아카데미 다큐멘터리상"
+        },
+        {
+          "title": "에이미 (2015)",
+          "source": "아시프 카파디아 연출 · 오스카·그래미 뮤직 필름 수상"
+        },
+        {
+          "title": "나의 문어 선생님 (2020)",
+          "source": "피파 얼릭·제임스 리드 연출 · 오스카 장편다큐상"
+        },
+        {
+          "title": "화산만큼 사랑해 (2022)",
+          "source": "사라 도사 연출 · 선댄스 편집상 · 오스카 후보"
+        },
+        {
+          "title": "님아, 그 강을 건너지 마오 (2014)",
+          "source": "진모영 연출 · 관객 373만 명 · 한국 다큐 역대 1위"
+        }
+      ]
+    }
+  ]
+}
