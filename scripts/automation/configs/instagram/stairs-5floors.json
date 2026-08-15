@@ -1,0 +1,103 @@
+{
+ "slug": "stairs-5floors",
+ "category": "PROTOCOL · 저속노화",
+ "series": "SAINT-RÉMY · PROTOCOL N°018",
+ "slides": [
+  {
+   "type": "hook",
+   "kicker": "PROTOCOL · 저속노화",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/00-hook.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.45,
+   "title_lines": [
+    "계단 5층만 올라도",
+    "몸에서 생기는 변화"
+   ],
+   "sub": "영국 성인 45만 명을 12년 넘게 따라갔습니다. 갈리는 지점은 하루 50계단이었습니다."
+  },
+  {
+   "type": "essay",
+   "kicker": "01 / 기준",
+   "title": "하루 5층이 경계선이었다",
+   "lead": "영국 성인 45만 명을 12년 추적했습니다",
+   "body": "12년 반 사이 심혈관 질환 *3만 9천 건*입니다.\n\n하루 1~5층 오른 사람은 차이가 없었습니다.\n\n6층부터 위험이 꺾였습니다.\n\n안 오른 사람보다 *16%* 낮았습니다.\n\n5층은 계단 50개쯤입니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/01-concrete.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.55
+  },
+  {
+   "type": "essay",
+   "kicker": "02 / 90초",
+   "title": "90초가 40분을 이겼다",
+   "lead": "42명을 6주 동안 나눠서 시켰습니다",
+   "body": "한쪽은 계단을 *30초* 전력으로 올랐습니다.\n\n하루 세 번, 주 3회. 합쳐 90초입니다.\n\n다른 쪽은 자전거를 40분 탔습니다.\n\n6주 뒤 계단 쪽만 심폐 능력이 *7%* 올랐습니다.\n\n자전거 쪽은 뚜렷한 변화가 없었습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/02-leveld1.jpg",
+   "photo_anchor_x": 0.55,
+   "photo_anchor_y": 0.5
+  },
+  {
+   "type": "essay",
+   "kicker": "03 / 혈당",
+   "title": "당뇨에도 같은 구간이 있었다",
+   "lead": "45만 명에게서 당뇨 1만 5천 건입니다",
+   "body": "12년 동안 당뇨가 생기는지 봤습니다.\n\n하루 *110~150계단*에서 가장 낮았습니다.\n\n안 오른 사람보다 *14%* 낮았습니다.\n\n더 많이 올라도 그보다 낮아지진 않았습니다.\n\n계단을 늘리는 것이 답은 아니었습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/03-portland.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.45
+  },
+  {
+   "type": "essay",
+   "kicker": "04 / 중단",
+   "title": "그만둔 쪽이 가장 나빴다",
+   "lead": "5년 뒤 같은 사람들에게 다시 물었습니다",
+   "body": "처음엔 올랐고 5년 뒤엔 안 올랐습니다.\n\n이 사람들의 위험이 가장 높았습니다.\n\n두 번 다 안 오른 사람보다 *32%* 높았습니다.\n\n오른 적 없는 쪽보다 나빴다는 뜻입니다.\n\n연구진은 이 대목을 결론에 따로 적었습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/04-flat.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.45
+  },
+  {
+   "type": "essay",
+   "kicker": "05 / 경계",
+   "title": "인과는 아직 아니다",
+   "lead": "앞의 세 연구는 관찰 연구입니다",
+   "body": "계단이 원인이라는 증명은 아닙니다.\n\n몸이 나빠져 계단을 끊었을 수도 있습니다.\n\n오래 사는지를 본 *28만 명* 연구는 약했습니다.\n\n저자들은 집 계단만으론 부족하다고 썼습니다.\n\n실험으로 확인된 건 앞의 *90초*입니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/stairs-5floors/05-lookup.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.5
+  },
+  {
+   "type": "closing",
+   "kicker": "이 연구들이 남긴 것",
+   "quote": "하루 5층이 경계선이었습니다. 다만 실험으로 확인된 것은 빠르게 오른 90초였습니다.",
+   "attribution": "SAINT-RÉMY · PROTOCOL N°018",
+   "url": "saintremy.kr",
+   "subline": "확인된 자료 6건 · 원문 직접 확인",
+   "sources": [
+    {
+     "title": "심혈관",
+     "source": "영국 458,860명 · 12.5년 · 사건 39,043건"
+    },
+    {
+     "title": "기준",
+     "source": "하루 6~10층 오른 군 위험 0.84배"
+    },
+    {
+     "title": "중단",
+     "source": "5년 뒤 그만둔 군 위험 1.32배"
+    },
+    {
+     "title": "당뇨",
+     "source": "451,699명 · 110~150계단 0.86배"
+    },
+    {
+     "title": "실험",
+     "source": "42명 6주 · 30초 3회로 최대산소섭취량 7% 증가"
+    },
+    {
+     "title": "한계",
+     "source": "사망률 본 280,423명 연구는 연관 작음"
+    }
+   ]
+  }
+ ]
+}
