@@ -1,0 +1,103 @@
+{
+ "slug": "dopamine-sites",
+ "category": "WATCHLIST · 소비",
+ "series": "SAINT-RÉMY · WATCHLIST N°002",
+ "slides": [
+  {
+   "type": "hook",
+   "kicker": "WATCHLIST · 소비",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/00-hook.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4,
+   "title_lines": [
+    "먹고 싶은 거 다 시켰다",
+    "결제는 0원이었다"
+   ],
+   "sub": "한국에서 시작된 도파민 사이트입니다. 넉 달 만에 CNN이 받아 적었습니다."
+  },
+  {
+   "type": "essay",
+   "kicker": "01 / 정체",
+   "title": "주문까지 하고 끝난다",
+   "lead": "검색하고 비교하고 장바구니에 담습니다",
+   "body": "배송지를 넣고 주문을 누릅니다.\n\n배송 조회까지 됩니다.\n\n그리고 아무 일도 일어나지 않습니다.\n\n국내에서는 *가짜 배민*이라 불렀습니다.\n\n국내 보도는 *4월*부터 나왔습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/01-aloft.jpg",
+   "photo_anchor_x": 0.45,
+   "photo_anchor_y": 0.42
+  },
+  {
+   "type": "essay",
+   "kicker": "02 / 기전",
+   "title": "소비만 빠져 있다",
+   "lead": "퀸즐랜드공대 모티머 교수의 정리입니다",
+   "body": "도파민이란 하고 싶다를 만드는 뇌 물질.\n\n쾌감이 나오는 자리는 *3*단계였습니다.\n\n기대, 그리고 고르는 데서 오는 통제감.\n\n마지막이 주문 확인입니다.\n\n3단계가 다 있는데 소비만 없습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/02-yeoksam.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.22
+  },
+  {
+   "type": "essay",
+   "kicker": "03 / 근거",
+   "title": "기다림 자체가 즐겁다",
+   "lead": "2014년 심리학 학술지에 실린 실험입니다",
+   "body": "물건을 기다릴 때와 경험을 기다릴 때.\n\n연구진은 이 둘을 비교했습니다.\n\n경험을 기다리는 쪽이 더 즐거웠습니다.\n\n연구 *4건*에서 같은 결과가 나왔습니다.\n\n기대 자체에 값이 있다는 뜻입니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/03-hongdae.jpg",
+   "photo_anchor_x": 0.45,
+   "photo_anchor_y": 0.2
+  },
+  {
+   "type": "essay",
+   "kicker": "04 / 수출",
+   "title": "한국이 만들고 세계가 가져갔다",
+   "lead": "해외 매체 아홉 곳이 넉 달 사이 다뤘습니다",
+   "body": "국내가 *4월*, CNN이 6월, FT가 7월입니다.\n\nCNN은 가짜 담배까지 소개했습니다.\n\n가장 많이 인용된 사이트가 *둘* 있습니다.\n\n그런데 둘 다 영어로만 돼 있습니다.\n\n행동은 한국이 만들고 서비스는 복제됐습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/04-streets.jpg",
+   "photo_anchor_x": 0.78,
+   "photo_anchor_y": 0.26
+  },
+  {
+   "type": "essay",
+   "kicker": "05 / 경계",
+   "title": "이걸 본 연구는 아직 없다",
+   "lead": "모티머 교수가 직접 단서를 달았습니다",
+   "body": "비슷한 걸 본 연구는 도박 쪽에 있습니다.\n\n모의 도박 이용자 *409명*을 추적했습니다.\n\n그중 *26%*가 실제 도박으로 갔습니다.\n\n다만 이런 사이트를 본 연구는 아닙니다.\n\n쿠키로 취향이 수집되는 건 사실입니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/dopamine-sites/05-euljiro.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.34
+  },
+  {
+   "type": "closing",
+   "kicker": "이 유행이 남긴 것",
+   "quote": "특별히 한국적인 것은 행동이 아니라, 그 행동이 서비스로 공식화된 방식이었습니다.",
+   "attribution": "SAINT-RÉMY · WATCHLIST N°002",
+   "url": "saintremy.kr",
+   "subline": "국내외 보도 6건 · 논문 1건 · 원문 직접 확인",
+   "sources": [
+    {
+     "title": "국내",
+     "source": "소비자평가 4월 · 한국일보 5월 · 연합뉴스 6월"
+    },
+    {
+     "title": "해외",
+     "source": "CNN 6월 · Financial Times 7월 · Rest of World 8월"
+    },
+    {
+     "title": "기전",
+     "source": "퀸즐랜드공대 게리 모티머 · The Conversation"
+    },
+    {
+     "title": "실험",
+     "source": "Psychological Science 2014 · 연구 4건"
+    },
+    {
+     "title": "도박",
+     "source": "모의 도박 409명 중 26%가 6개월 내 전환"
+    },
+    {
+     "title": "한계",
+     "source": "도파민 사이트 자체를 본 연구는 아직 없음"
+    }
+   ]
+  }
+ ]
+}
