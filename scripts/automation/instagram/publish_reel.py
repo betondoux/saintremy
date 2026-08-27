@@ -1,11 +1,25 @@
 """Saint-Rémy 인스타 릴스 발사기.
 
-캐러셀(publish_carousel.py)과 달리 영상은 공개 URL이 필요 없다.
-Graph API의 resumable upload를 쓰면 파일 바이트를 직접 올린다 —
-Cloudflare Pages는 파일당 25MiB 제한이라 100MB짜리 릴스를 호스팅할 수 없기 때문에
-이 방식이 유일한 길이다.
+★영상은 공개 URL(video_url)로 넘긴다.
 
-커버 이미지만 공개 URL이 필요하다(수백 KB라 Pages에 올라간다).
+  resumable upload(rupload.facebook.com)는 2026-08-27에 시도했다가 전부 실패했다.
+  컨테이너는 만들어지는데 rupload가 "Request processing failed"만 뱉고, 컨테이너는
+  IN_PROGRESS로 10분 넘게 멈춘다. requests·curl 둘 다 같은 결과.
+  원인 = 우리 토큰이 PAGE 타입(Facebook 페이지 경유 Instagram Graph API)이라
+  resumable 경로를 못 쓴다. 그건 Instagram Login 계열 토큰 전용이다.
+
+  그래서 영상을 saintremy.kr에 올려서 URL로 넘긴다.
+  ★Cloudflare Pages는 파일당 25MiB 제한 — 반드시 그 아래로 인코딩해야 한다.
+    2분짜리 9:16이면 720×1280 · 2-pass 1500k + 오디오 96k = 약 22.5MiB.
+
+★발행이 끝나면 public/videos/<slug>.mp4 를 지운다.
+
+  인스타가 트랜스코딩하면서 자기 서버로 복사해 가므로 원본 URL은 더 필요 없다.
+  안 지우면 릴스를 올릴 때마다 저장소가 20MB씩 무거워진다.
+
+    git rm -f public/videos/<slug>.mp4 && git commit && git push
+
+  커버 이미지(public/images/instagram/<slug>/cover.jpg)는 몇백 KB라 남겨둔다.
 
 환경변수:
   META_ACCESS_TOKEN        Meta 장기 액세스 토큰
@@ -19,7 +33,6 @@ Cloudflare Pages는 파일당 25MiB 제한이라 100MB짜리 릴스를 호스팅
 """
 import argparse
 import os
-import pathlib
 import sys
 import time
 
@@ -30,10 +43,10 @@ GRAPH = f"https://graph.facebook.com/{VER}"
 RUPLOAD = f"https://rupload.facebook.com/ig-api-upload/{VER}"
 
 
-def create_container(token, ig_id, caption, cover_url, share_to_feed):
+def create_container(token, ig_id, video_url, caption, cover_url, share_to_feed):
     data = {
         "media_type": "REELS",
-        "upload_type": "resumable",
+        "video_url": video_url,
         "caption": caption,
         "share_to_feed": "true" if share_to_feed else "false",
         "access_token": token,
@@ -45,36 +58,6 @@ def create_container(token, ig_id, caption, cover_url, share_to_feed):
         print(f"❌ 컨테이너 생성 실패: {r.status_code} {r.text[:400]}", file=sys.stderr)
         r.raise_for_status()
     return r.json()["id"]
-
-
-def upload_bytes(token, container_id, path: pathlib.Path, tries=1):
-    """rupload 엔드포인트에 파일을 통째로 올린다. offset=0부터 한 번에.
-
-    ★재시도 금지 — 같은 컨테이너에 두 번 올리면 "Request processing failed"가 뜨고
-    진짜 원인(트랜스코딩 에러)이 가려진다. 실패하면 컨테이너를 새로 만들어야 한다.
-    """
-    size = path.stat().st_size
-    # ★바이트를 통째로 읽어서 넘긴다. 파일 객체를 주면 requests가 chunked 전송을 쓰고
-    #   Content-Length 가 빠져서 rupload 가 "Request processing failed" 로 거절한다.
-    blob = path.read_bytes()
-    headers = {
-        "Authorization": f"OAuth {token}",
-        "offset": "0",
-        "file_size": str(size),
-        "Content-Type": "application/octet-stream",
-        "Content-Length": str(size),
-    }
-    last = None
-    for attempt in range(1, tries + 1):
-        r = requests.post(f"{RUPLOAD}/{container_id}", headers=headers,
-                          data=blob, timeout=900)
-        if r.ok and r.json().get("success"):
-            return True
-        last = r
-        print(f"  ! 업로드 시도 {attempt}: {r.status_code}\n{r.text[:2000]}", file=sys.stderr)
-        time.sleep(6 * attempt)
-    last.raise_for_status()
-    return False
 
 
 def wait_for_status(token, container_id, timeout_s=900):
@@ -112,21 +95,15 @@ def publish(token, ig_id, container_id):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("video", help="릴스 mp4 경로")
+    p.add_argument("video_url", help="공개 영상 URL (saintremy.kr/videos/...)")
     p.add_argument("--caption", required=True)
     p.add_argument("--cover-url", default="", help="공개 커버 이미지 URL (9:16 권장)")
     p.add_argument("--no-feed", action="store_true", help="피드에 안 걸고 릴스 탭에만")
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args()
 
-    path = pathlib.Path(args.video)
-    if not path.exists():
-        print(f"❌ 영상 없음: {path}", file=sys.stderr)
-        sys.exit(3)
-    size_mb = path.stat().st_size / 1024 / 1024
-
     if args.dry_run:
-        print(f"[DRY RUN] {path.name} · {size_mb:.1f}MB")
+        print(f"[DRY RUN] video_url: {args.video_url}")
         print(f"cover_url: {args.cover_url or '(없음 — IG가 첫 프레임을 씀)'}")
         print(f"\nCAPTION:\n{args.caption}")
         return
@@ -137,14 +114,11 @@ def main():
         print("❌ META_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID 비어 있음", file=sys.stderr)
         sys.exit(1)
 
-    print(f"🎬 {path.name} · {size_mb:.1f}MB")
+    print(f"🎬 {args.video_url}")
     print("📦 릴스 컨테이너 생성 중...")
-    cid = create_container(token, ig_id, args.caption, args.cover_url, not args.no_feed)
+    cid = create_container(token, ig_id, args.video_url, args.caption,
+                           args.cover_url, not args.no_feed)
     print(f"  → {cid}")
-
-    print("📤 영상 업로드 중... (100MB면 몇 분 걸린다)")
-    upload_bytes(token, cid, path)
-    print("  ✓ 업로드 완료")
 
     print("⏳ 트랜스코딩 대기...")
     if not wait_for_status(token, cid):
