@@ -1,0 +1,103 @@
+{
+ "slug": "anti-inflammatory-foods",
+ "category": "PROTOCOL · 염증",
+ "series": "SAINT-RÉMY · PROTOCOL N°010",
+ "slides": [
+  {
+   "type": "hook",
+   "kicker": "PROTOCOL · 염증",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/00-hook.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.45,
+   "title_lines": [
+    "염증 수치를 낮춘 식재료",
+    "한국인은 이미 먹고 있다"
+   ],
+   "sub": "스탠퍼드 17주 무작위 실험과 국민건강영양조사 5년치를 봤습니다."
+  },
+  {
+   "type": "essay",
+   "kicker": "01 / 발효식품",
+   "title": "발효식품만 염증이 내려갔다",
+   "lead": "스탠퍼드대가 건강한 성인에게 시켰습니다",
+   "body": "한쪽은 발효식품, 한쪽은 고섬유질.\n\n한 조에 *18명*씩 나눴습니다.\n\n17주 뒤 발효식품 쪽만 달랐습니다.\n\n염증 물질이 내려가고 장내 세균은 늘었습니다.\n\n고섬유질 쪽은 염증이 그대로였습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/01-ferment.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "02 / 김치",
+   "title": "한국인은 이미 먹고 있었다",
+   "lead": "국민건강영양조사 5년치를 봤습니다",
+   "body": "한국인은 하루 평균 김치 *102g*을 먹습니다.\n\n살아 있는 균이 든 음식을 다 세었습니다.\n\n전체로는 염증과 상관이 없었습니다.\n\n김치만 많이 먹을수록 CRP가 낮았습니다.\n\nCRP란 염증이 있으면 오르는 피 속 수치.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/02-kimchi.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "03 / 마늘",
+   "title": "마늘은 셋 다 내려갔다",
+   "lead": "성인 대상 무작위 시험 16건입니다",
+   "body": "염증 지표 세 가지를 함께 봤습니다.\n\n*셋 다* 뚜렷하게 내려갔습니다.\n\n대표 지표인 CRP는 *0.61* 낮아졌습니다.\n\n하루 12mg에서 3,600mg까지 썼습니다.\n\n기간은 2주에서 52주였습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/03-garlic.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "04 / 생강",
+   "title": "생강도 숫자로 확인됐다",
+   "lead": "사람 시험 9건을 모아 다시 계산했습니다",
+   "body": "생강을 먹은 쪽과 안 먹은 쪽을 비교했습니다.\n\n염증 수치가 *0.84* 내려갔습니다.\n\n혈당과 피 속 지방도 같이 내려갔습니다.\n\n다만 참가자는 대부분 환자였습니다.\n\n건강한 사람 자료는 아직 적습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/04-ginger.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "05 / 경계",
+   "title": "안 내려간 것도 많다",
+   "lead": "잘 알려진 셋은 결과가 없었습니다",
+   "body": "녹차 카테킨 시험 *11건*을 모았습니다.\n\n염증 수치는 움직이지 않았습니다.\n\n견과류도 시험 20건에서 같았습니다.\n\n베리류 색소도 변화가 없었습니다.\n\n좋다고 다 내려가는 건 아닙니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/anti-inflammatory-foods/05-tealeaf.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "closing",
+   "kicker": "정리",
+   "quote": "염증을 없애는 음식은 없습니다. 수치를 조금 낮추는 음식이 몇 개 있을 뿐입니다.",
+   "attribution": "SAINT-RÉMY · PROTOCOL N°010",
+   "url": "saintremy.kr",
+   "subline": "논문 6건 · 원문 직접 확인",
+   "sources": [
+    {
+     "title": "발효식품",
+     "source": "Cell 2021 · 17주 무작위 · 한 조 18명"
+    },
+    {
+     "title": "김치",
+     "source": "J Nutr 2026 · 국민건강영양조사 2016~2020"
+    },
+    {
+     "title": "마늘",
+     "source": "J Nutr 2019 · 무작위 시험 16건"
+    },
+    {
+     "title": "생강",
+     "source": "Food Nutr Res 2016 · 시험 9건"
+    },
+    {
+     "title": "녹차",
+     "source": "Nutrition 2015 · 시험 11건 · 변화 없음"
+    },
+    {
+     "title": "견과·베리",
+     "source": "Medicine 2016 · Br J Nutr 2018 · 변화 없음"
+    }
+   ]
+  }
+ ]
+}
