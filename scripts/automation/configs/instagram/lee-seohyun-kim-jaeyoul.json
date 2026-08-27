@@ -1,0 +1,103 @@
+{
+ "slug": "lee-seohyun-kim-jaeyoul",
+ "category": "STORY · 재계",
+ "series": "SAINT-RÉMY · STORY N°001",
+ "slides": [
+  {
+   "type": "hook",
+   "kicker": "STORY · 재계",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/00-hook.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.45,
+   "title_lines": [
+    "오빠가 소개한 중학교 동창",
+    "그가 본 자리는 병실이었다"
+   ],
+   "sub": "삼성 이서현과 김재열입니다. 2000년에 결혼해 올해로 26년, 아이가 넷입니다."
+  },
+  {
+   "type": "essay",
+   "kicker": "01 / 시작",
+   "title": "오빠가 데려온 사람이었다",
+   "lead": "이재용 회장의 중학교 동창입니다",
+   "body": "김재열은 *1968년*생입니다.\n\n동아일보를 만든 김성수의 증손자입니다.\n\n1981년 청운중학교에 들어갑니다.\n\n같은 학년에 이재용이 있었습니다.\n\n정용진도 같은 학년이었습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/01-jongno.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "02 / 병실",
+   "title": "처음 본 자리가 병실이었다",
+   "lead": "1999년 겨울, 미국 텍사스입니다",
+   "body": "이건희 회장이 암 치료를 받던 때입니다.\n\n휴스턴의 암 병원이었습니다.\n\n그 자리를 지킨 사람이 둘째 딸이었습니다.\n\n김재열이 이서현을 본 게 그때입니다.\n\n두 사람은 *2000년*에 결혼합니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/02-houston.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.35
+  },
+  {
+   "type": "essay",
+   "kicker": "03 / 나란히",
+   "title": "같은 해에 같은 회사로 갔다",
+   "lead": "2002년, 둘 다 삼성에 들어갑니다",
+   "body": "이서현은 제일모직 패션연구소 부장.\n\n김재열은 제일기획 상무보였습니다.\n\n*2010년 3월* 둘은 나란히 부사장이 됩니다.\n\n2014년에는 같은 회사 사장이 됩니다.\n\n재계에서 흔한 그림은 아닙니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/03-office.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "04 / 갈래",
+   "title": "가는 길은 겹치지 않았다",
+   "lead": "한 사람은 옷, 한 사람은 빙상입니다",
+   "body": "이서현은 파슨스에서 패션을 공부했습니다.\n\n*2015년* 삼성물산 패션부문장이 됩니다.\n\n김재열의 아버지는 아들을 정치로 밀었습니다.\n\n그는 스포츠 외교로 방향을 틀었습니다.\n\n2011년부터 빙상연맹 회장을 맡습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/04-fabric.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.4
+  },
+  {
+   "type": "essay",
+   "kicker": "05 / 지금",
+   "title": "링크에 나란히 앉아 있었다",
+   "lead": "2026년 2월 6일, 밀라노입니다",
+   "body": "김재열은 2022년 국제빙상연맹 회장이 됐습니다.\n\n창설 *130년* 만의 첫 비유럽인이었습니다.\n\n올해 6월 연임해 *2030년*까지 갑니다.\n\n이서현은 2024년 삼성물산으로 돌아왔습니다.\n\n피겨 단체전을 부부가 나란히 봤습니다.",
+   "photo": "/Users/kimsucheol/Desktop/saintremy/public/images/articles/lee-seohyun-kim-jaeyoul/05-milano.jpg",
+   "photo_anchor_x": 0.5,
+   "photo_anchor_y": 0.35
+  },
+  {
+   "type": "closing",
+   "kicker": "26년",
+   "quote": "같은 회사를 오래 다녔지만, 같은 자리를 두고 겨룬 적은 없었습니다.",
+   "attribution": "SAINT-RÉMY · STORY N°001",
+   "url": "saintremy.kr",
+   "subline": "언론 보도 6건 · 원문 직접 확인",
+   "sources": [
+    {
+     "title": "만남",
+     "source": "우먼센스 2024년 3월 · 이재용 회장이 소개"
+    },
+    {
+     "title": "부부 사장",
+     "source": "헤럴드경제 2014년 12월 · 제일기획"
+    },
+    {
+     "title": "이서현",
+     "source": "삼성물산 전략기획담당 사장 · 2024년 복귀"
+    },
+    {
+     "title": "김재열",
+     "source": "국제빙상연맹 회장 2022년 · 2026년 연임"
+    },
+    {
+     "title": "올림픽",
+     "source": "IOC 위원 2023년 · 한국인 12번째"
+    },
+    {
+     "title": "밀라노",
+     "source": "뉴시스 2026년 2월 6일 · 피겨 단체전"
+    }
+   ]
+  }
+ ]
+}
