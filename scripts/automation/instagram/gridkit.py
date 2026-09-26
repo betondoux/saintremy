@@ -49,6 +49,9 @@ SPEC = {
 }
 
 
+HEAD_SCALE = 1.0   # --head-scale (0926 UB: 조금 크게 = 1.2)
+
+
 def metrics(kind):
     """포맷별 실제 픽셀값. 카드와 릴스의 숫자가 다른 게 정상이다."""
     _, _, ox, oy, tw, th = WIN[kind]
@@ -57,9 +60,9 @@ def metrics(kind):
         "margin_x": round(ox + s["MARGIN_X"] * tw),
         "kicker_size": round(s["KICKER_SIZE"] * tw),
         "kicker_y": round(oy + s["KICKER_TOP"] * th),
-        "head_size": round(s["HEAD_SIZE"] * tw),
+        "head_size": round(s["HEAD_SIZE"] * tw * HEAD_SCALE),
         "head_y": round(oy + s["HEAD_TOP"] * th),
-        "line_gap": round(s["LINE_GAP"] * th),
+        "line_gap": round(s["LINE_GAP"] * th * HEAD_SCALE),
     }
 
 
@@ -109,7 +112,10 @@ def main():
     p.add_argument("--l1", required=True, help="헤드라인 1줄")
     p.add_argument("--l2", default="", help="헤드라인 2줄")
     p.add_argument("--out-dir", required=True)
+    p.add_argument("--head-scale", type=float, default=1.0, help="헤드라인 크기 배율(UB 1.2)")
     a = p.parse_args()
+    global HEAD_SCALE
+    HEAD_SCALE = a.head_scale
 
     pc = a.photo_card or a.photo
     pr = a.photo_reel or a.photo
