@@ -24,6 +24,9 @@
 환경변수:
   META_ACCESS_TOKEN        Meta 장기 액세스 토큰
   IG_BUSINESS_ACCOUNT_ID   Instagram 비즈니스 계정 ID (17841...)
+  UB_IG_ACCESS_TOKEN       --account ub (Undefined Behavior) — Instagram Login 토큰(IGAA…, 60일)
+  UB_IG_USER_ID            --account ub 계정 ID. 호스트는 graph.instagram.com
+                           토큰 갱신 = ig_token_refresh.py (launchd 주 1회)
 
 사용:
   set -a && source .env && set +a
@@ -41,6 +44,13 @@ import requests
 VER = "v22.0"
 GRAPH = f"https://graph.facebook.com/{VER}"
 RUPLOAD = f"https://rupload.facebook.com/ig-api-upload/{VER}"
+
+
+ACCOUNTS = {
+    # 이름: (토큰 env, 계정 ID env, Graph 호스트)
+    "minor": ("META_ACCESS_TOKEN", "IG_BUSINESS_ACCOUNT_ID", f"https://graph.facebook.com/{VER}"),
+    "ub": ("UB_IG_ACCESS_TOKEN", "UB_IG_USER_ID", f"https://graph.instagram.com/{VER}"),
+}
 
 
 def create_container(token, ig_id, video_url, caption, cover_url, share_to_feed):
@@ -100,18 +110,24 @@ def main():
     p.add_argument("--cover-url", default="", help="공개 커버 이미지 URL (9:16 권장)")
     p.add_argument("--no-feed", action="store_true", help="피드에 안 걸고 릴스 탭에만")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--account", choices=sorted(ACCOUNTS), default="minor",
+                   help="minor = minor paradise(기본) · ub = Undefined Behavior")
     args = p.parse_args()
 
+    global GRAPH
+    token_env, id_env, GRAPH = ACCOUNTS[args.account]
+
     if args.dry_run:
-        print(f"[DRY RUN] video_url: {args.video_url}")
+        print(f"[DRY RUN] account: {args.account} ({GRAPH})")
+        print(f"video_url: {args.video_url}")
         print(f"cover_url: {args.cover_url or '(없음 — IG가 첫 프레임을 씀)'}")
         print(f"\nCAPTION:\n{args.caption}")
         return
 
-    token = os.environ.get("META_ACCESS_TOKEN", "")
-    ig_id = os.environ.get("IG_BUSINESS_ACCOUNT_ID", "")
+    token = os.environ.get(token_env, "")
+    ig_id = os.environ.get(id_env, "")
     if not token or not ig_id:
-        print("❌ META_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID 비어 있음", file=sys.stderr)
+        print(f"❌ {token_env} / {id_env} 비어 있음", file=sys.stderr)
         sys.exit(1)
 
     print(f"🎬 {args.video_url}")
