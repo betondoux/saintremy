@@ -26,6 +26,8 @@
   IG_BUSINESS_ACCOUNT_ID   Instagram 비즈니스 계정 ID (17841...)
   UB_IG_ACCESS_TOKEN       --account ub (Undefined Behavior) — Instagram Login 토큰(IGAA…, 60일)
   UB_IG_USER_ID            --account ub 계정 ID. 호스트는 graph.instagram.com
+  ARENA_IG_ACCESS_TOKEN    --account arena (@orumak.mag 스포츠 릴스) — Instagram Login 토큰
+  ARENA_IG_USER_ID         --account arena 계정 ID (17841477115994537)
                            토큰 갱신 = ig_token_refresh.py (launchd 주 1회)
 
 사용:
@@ -50,6 +52,7 @@ ACCOUNTS = {
     # 이름: (토큰 env, 계정 ID env, Graph 호스트)
     "minor": ("META_ACCESS_TOKEN", "IG_BUSINESS_ACCOUNT_ID", f"https://graph.facebook.com/{VER}"),
     "ub": ("UB_IG_ACCESS_TOKEN", "UB_IG_USER_ID", f"https://graph.instagram.com/{VER}"),
+    "arena": ("ARENA_IG_ACCESS_TOKEN", "ARENA_IG_USER_ID", f"https://graph.instagram.com/{VER}"),
 }
 
 

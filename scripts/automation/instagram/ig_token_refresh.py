@@ -10,7 +10,7 @@ import sys
 import requests
 
 ENV = os.path.expanduser("~/Desktop/saintremy/.env")
-KEYS = ["UB_IG_ACCESS_TOKEN"]
+KEYS = ["UB_IG_ACCESS_TOKEN", "ARENA_IG_ACCESS_TOKEN"]
 
 
 def main():
