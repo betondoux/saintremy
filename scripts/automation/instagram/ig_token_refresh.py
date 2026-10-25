@@ -13,8 +13,14 @@ ENV = os.path.expanduser("~/Desktop/saintremy/.env")
 KEYS = ["UB_IG_ACCESS_TOKEN", "ARENA_IG_ACCESS_TOKEN"]
 
 
+ENV2 = os.path.expanduser("~/.config/orumak/ig.env")  # launchd 는 ~/Desktop(iCloud) 못 읽음 → 사본도 같이 갱신(1026)
+
+
 def main():
-    s = open(ENV).read()
+    try:
+        s = open(ENV).read()
+    except OSError:
+        s = open(ENV2).read()
     for key in KEYS:
         m = re.search(rf"^{key}=(.+)$", s, re.M)
         if not m:
@@ -28,7 +34,15 @@ def main():
             continue
         s = s.replace(m.group(0), f"{key}={j['access_token']}")
         print(f"✅ {key} 갱신 · 남은 {j.get('expires_in', 0) // 86400}일")
-    open(ENV, "w").write(s)
+    for p in (ENV, ENV2):
+        try:
+            if p == ENV2:
+                keep = [l for l in s.splitlines() if l.split("=", 1)[0] in KEYS + ["ARENA_IG_USER_ID", "UB_IG_USER_ID"]]
+                open(p, "w").write("\n".join(keep) + "\n"); os.chmod(p, 0o600)
+            else:
+                open(p, "w").write(s)
+        except OSError as e:
+            print(f"⚠️ {p} 쓰기 실패: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":
